@@ -283,3 +283,35 @@ None new.
 - agents/handoffs/templates/RV-template.md
 - agents/handoffs/templates/CAMPAIGN-template.md
 - agents/handoffs/templates/SEALED-predictions-template.md
+
+## [J-orchestrator-0007] 2026-08-03T18:50:00Z | task:none | C7 - gates, sponsor guide, spec template, audit lane
+
+### Trigger
+Seeding continues per the approved plan; this layer authored by the distillation round and reviewed by the committing session.
+
+### Inputs
+The authoring return, my spot-review, and the source pin 1799e10a37f19059ac3337982af4b6d035e14d0c for all cited provenance (ADR-0017 cited at its landing commit acc81458, past the pin, where noted).
+
+### Reasoning
+The live G0 checklist (seed-satisfied rows carrying J-orchestrator-0001/0002 with verify commands; open rows for sponsor critique, branch protection, the seed-range retro-audit, and the intake questionnaire), the three per-phase gate templates with the countersignature and carry-forward devices, the sponsor guide, the 13-section spec template with its toolchain slot, and the audit lane conventions.
+
+### Actions
+Reviewed; staged exactly the set below; committed via scripts/agent_commit.sh.
+
+### Evidence
+Author verification (permalink existence checks, banned-term sweeps, link checks) plus the committing session's spot-reads, recorded in the seeding session; final whole-tree verification lands with the handoff commit.
+
+### Outcome
+Layer landed.
+
+### Open-questions
+None new.
+
+### Files-in-this-commit
+- docs/gates/G0-checklist.md
+- docs/gates/templates/spec-freeze-checklist.md
+- docs/gates/templates/module-ready-checklist.md
+- docs/gates/templates/phase-accept-checklist.md
+- docs/SPONSOR.md
+- docs/specs/SPEC-TEMPLATE.md
+- docs/reports/audit/README.md
