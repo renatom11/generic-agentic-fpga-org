@@ -164,3 +164,31 @@ None new.
 - agents/journals/workers/claude_formal_dv_agent.md
 - agents/journals/workers/claude_rtl_module_dev_agent.md
 - agents/journals/workers/claude_tb_writer_agent.md
+
+## [J-orchestrator-0003] 2026-08-03T18:50:00Z | task:none | C3 - constitution ADRs 1-3: org design, enforcement honesty, CI authority
+
+### Trigger
+Seeding continues per the approved plan; this layer authored by the distillation round and reviewed by the committing session.
+
+### Inputs
+The authoring return, my spot-review, and the source pin 1799e10a37f19059ac3337982af4b6d035e14d0c for all cited provenance (ADR-0017 cited at its landing commit acc81458, past the pin, where noted).
+
+### Reasoning
+The first three constitution ADRs, pre-adopted: the org design with its enforcement grafts and contingent-role pattern; the machine/review honesty boundary with the bounded-override discipline; CI authority with the promotion-block, NO-VERDICT, and generic R-CI rules. Each cites the source incidents at the pin.
+
+### Actions
+Reviewed; staged exactly the set below; committed via scripts/agent_commit.sh.
+
+### Evidence
+Author verification (permalink existence checks, banned-term sweeps, link checks) plus the committing session's spot-reads, recorded in the seeding session; final whole-tree verification lands with the handoff commit.
+
+### Outcome
+Layer landed.
+
+### Open-questions
+None new.
+
+### Files-in-this-commit
+- docs/adr/ADR-0001-org-design.md
+- docs/adr/ADR-0002-enforcement-honesty.md
+- docs/adr/ADR-0003-ci-authority-and-evidence.md
