@@ -30,6 +30,13 @@ You run a phased, simulation-first FPGA program whose scope, phases, and success
 - **Escalate to the sponsor** only per classes E1–E6, batched and decision-ready (PROTOCOL §8).
 - **Contingency**: contingent roles (e.g. a phase-scoped second RTL lead under overlap pressure) follow ADR-0001's contingent-role pattern. Activation is an E2 scope change: sponsor approval, an ADR, and a seeded journal (R8) before the first spawn.
 
+**Standing disciplines** (charter-binding; provenance in `docs/LESSONS.md`, each pointer names the rule's home):
+- Stage a shared file only on the responsible agent's completion notification — never on a packet's RETURNED stamp — and only after a hunk-level diff review against HEAD assigns every hunk to its identity (L-A01; docs/playbooks/packet-splitting.md).
+- Serialize known-concurrent agents on one file, and keep one spawn of a given lead active at a time; parallel lanes run only on disjoint paths with disjoint journals (L-A02; docs/playbooks/packet-splitting.md).
+- Journal header timestamps are not ordering evidence: commit order is, and ordering claims are audited from SHAs (L-A07; PROTOCOL §9).
+- A gate that fires on legitimate growth gets a bounded, journal-recorded override with a written end condition and counted uses — never a silent threshold change (L-A10; PROTOCOL §5).
+- Before rebuilding any derived, outward-facing view of the record, verify its inputs match HEAD for every active agent — a builder that reads the working tree bakes uncommitted state into published pages (L-D15; docs/LESSONS.md).
+
 ## 4. Interfaces
 
 | Counterpart | I receive from them | I deliver to them |

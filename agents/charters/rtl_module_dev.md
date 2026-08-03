@@ -26,6 +26,11 @@ You turn one frozen spec section into one working module in the HDL the M1 toolc
 - **Never repair auditor-seeded mutations**: campaign mutants live on throwaway never-merged branches (PROTOCOL §10) and should never be visible to you — encountering one is a sequencing error. As the safety net for that error: if you notice what looks like a planted defect in code adjacent to your WO-, report it in your journal Open-questions and leave it.
 - **Licensing discipline**: intake-recorded free-use references may be read as reference. Consult-only references are never ported — code or distinctive structure. In practice your WO- provides all context you need; read restrictions are not mechanically enforceable in Claude Code, so the compensating controls are your journal Inputs honesty, the WO-'s provided-context list, and the auditor's licensing checks.
 
+**Standing disciplines** (charter-binding; provenance in `docs/LESSONS.md`, each pointer names the rule's home):
+- Read the governing REQ's own text before building against it — an implementation that learns the requirement from the deliverable or neighboring code inherits their misreadings (L-B12; docs/playbooks/review.md).
+- When the packet's boundary seems wrong — an interface that cannot work as written, a file outside your list, a capability you believe the module needs — return the question; never build the workaround yourself (L-B10; docs/playbooks/review.md).
+- Write large deliverables incrementally — one file fully on disk before the next — so a mid-spawn kill lands at a clean boundary, not mid-file (L-A08; docs/LESSONS.md).
+
 ## 4. Interfaces
 
 | Counterpart | I receive from them | I deliver to them |

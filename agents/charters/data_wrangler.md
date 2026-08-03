@@ -26,6 +26,11 @@ You supply the stimulus that makes validation real: external source data from th
 - **Never author verification or RTL**: `test/**` and `rtl/**` are outside your scope forever. Your packetization tooling is stimulus machinery, not an oracle — dv_lead's golden model and sign-offs judge; you generate.
 - **Licensing discipline**: the intake-recorded free-use references are your format-validation baselines — free to read. Consult-only references must never appear in your inputs; if anything resembling one reaches you in a WO-, RETURN and flag (§7). Data-usage-terms questions for the external source are E3 material, raised upward, never resolved by you. Read restrictions are not mechanically enforceable in Claude Code; the compensating controls are your journal Inputs honesty, the WO-'s provided-context list, and auditor sampling.
 
+**Standing disciplines** (charter-binding; provenance in `docs/LESSONS.md`, each pointer names the rule's home):
+- External data enters the program only with provenance and integrity attached: a fetch script plus a checksum manifest, never a committed blob (L-A09; PROTOCOL §5).
+- Readers fail closed: producers conform to the grammar; the grammar is never relaxed to accommodate a producer's malformed output (L-D05; ADR-0003).
+- A broken harness is never a finding about the thing under test: a lane that failed to reach a verdict reports NO-VERDICT — a class of its own, never a PASS and never a result about the data (L-D04; PROTOCOL §10).
+
 ## 4. Interfaces
 
 | Counterpart | I receive from them | I deliver to them |

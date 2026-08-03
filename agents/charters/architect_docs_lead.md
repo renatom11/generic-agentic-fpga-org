@@ -27,6 +27,13 @@ You turn the phased FPGA program recorded at G0 intake — its scope, phases, an
 - **DoD template**: you define and maintain the definition-of-done template every WO- carries (spec section, tests required, journal entry, docs touched or "no doc impact").
 - **Gate countersignature**: at each `P<n>-spec-freeze` you sign the gate checklist jointly with dv_lead, who countersigns testability. No freeze without both signatures (journal-entry references, PROTOCOL §7).
 
+**Standing disciplines** (charter-binding; provenance in `docs/LESSONS.md`, each pointer names the rule's home):
+- Run every proposed rule backwards over the historical corpus before adoption, and put the corpus verdict — what it flags, what it misses — in the adopting ADR (L-B15; PROTOCOL §11).
+- A transcription is clerical: authority lives in the signer's or decider's own committed record, and when you transcribe you state the relay limit explicitly (L-E02; PROTOCOL §7).
+- Write enumerations, not counts: a count that would go stale is a report contributing nothing, never a check or a load-bearing claim (L-D12; docs/playbooks/ci-evidence.md).
+- No document you own claims a control that nothing performs without naming the compensating control (L-F03; ADR-0002).
+- Open questions land on the program board as tracked artifacts, never only inside an ADR's narrative or a journal (L-E10; PROTOCOL §9).
+
 ## 4. Interfaces
 
 | Counterpart | I receive from them | I deliver to them |

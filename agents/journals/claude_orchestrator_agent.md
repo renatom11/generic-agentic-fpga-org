@@ -509,3 +509,69 @@ None.
 
 ### Files-in-this-commit
 - CLAUDE.md
+
+## [J-orchestrator-0013] 2026-08-03T21:45:00Z | task:none | C13 - role disciplines woven into the charters, under the sponsor's generality guard
+
+### Trigger
+Sponsor approved the charter-weave refinement, with an explicit
+caution: the source program is one specific application; the
+disciplines must be stated so the agents stay robust for any
+FPGA task.
+
+### Inputs
+docs/LESSONS.md (the 77 entries with per-role attribution); the
+sponsor's four-part generality guard (universal-binding test;
+domain-noun and verification-style-assumption ban in rule
+statements; conditional framing for machinery-born rules;
+generalize-don't-drop).
+
+### Reasoning
+- The structural gap this closes: launchers guarantee only the
+  charter and PROTOCOL §2-6 (+§10 for DV workers) as a spawn's
+  first read — workers may never see the playbooks or LESSONS,
+  so the charter is the one guaranteed-read surface for role
+  conduct.
+- One 'Standing disciplines' block at the end of each charter's
+  §3: three to six one-sentence obligations with pointers to
+  each rule's normative home. Growth +5 to +8 lines per charter
+  against a ~20-line cap; skeletons intact; 33 distinct LESSONS
+  references all resolve; banned-term sweep zero.
+- The guard held under review: the borderline restatements lift
+  machinery vocabulary to the universal invariant (e.g. 'what
+  the check asserts' for 'what the row asserts'; the qualification
+  denominator defined by appositive rather than jargon; the
+  hand-authored-results-as-tool-output invariant lifted from its
+  toolchain-specific incident). No discipline was dropped as
+  ungeneralizable.
+- One mapping refinement accepted from the round: an architect
+  discipline suggestion with no owning LESSONS entry was
+  replaced by two architect-attributed rules rather than
+  inventing provenance.
+
+### Actions
+Reviewed the diff and the three borderline sentences; this
+commit; push; CI verify.
+
+### Evidence
+git diff --stat: 9 files, +58 lines, 0 deletions; my spot-read
+of the dv_lead block confirms voice and caps.
+
+### Outcome
+A fresh spawn of any role now meets its hard-won disciplines in
+its first read, stated at the level where they bind any FPGA
+project. The shell returns to untouched.
+
+### Open-questions
+- The second-harvest round at source-program completion revises
+  these blocks with the full program's evidence.
+
+### Files-in-this-commit
+- agents/charters/architect_docs_lead.md
+- agents/charters/auditor.md
+- agents/charters/data_wrangler.md
+- agents/charters/dv_lead.md
+- agents/charters/formal_dv.md
+- agents/charters/orchestrator.md
+- agents/charters/rtl_lead.md
+- agents/charters/rtl_module_dev.md
+- agents/charters/tb_writer.md

@@ -26,6 +26,12 @@ You turn one module's frozen spec excerpt and attack-plan rows into failing-when
 - **Fix bounced work**: a BOUNCE RV- respawns you with numbered defects; address every one and journal why the first attempt had it.
 - **Never claim sign-off**: acceptance is dv_lead's RV-; module sign-off is dv_lead's SO-. You assert only that named tests exist, run, and trace to spec.
 
+**Standing disciplines** (charter-binding; provenance in `docs/LESSONS.md`, each pointer names the rule's home):
+- When the bench seems to need something the packet does not grant — a wider exported surface, extra context, a mechanism decision — return the question; never invent the mechanism yourself (L-B10; docs/playbooks/review.md).
+- Derive every expected value from the spec's own formulas and clauses, never from a helper's convenience or a comment's claim — a code comment is a relay, not a derivation (L-B01; PROTOCOL §10).
+- State plainly what could not be verified in your environment rather than claiming a run: an expected result you authored by hand and present as a tool's output is fabricated evidence (L-D01; docs/playbooks/ci-evidence.md).
+- Order assertions deliberately — structural first, specific after — and announce any reorder prominently: where checks fail fast, only the first failing case speaks (L-C09; docs/playbooks/mutation-campaign.md).
+
 ## 4. Interfaces
 
 | Counterpart | I receive from them | I deliver to them |

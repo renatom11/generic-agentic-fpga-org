@@ -26,6 +26,12 @@ You design and deliver the RTL of the phased FPGA program recorded at G0 intake 
 - **Never author the tests that gate your modules** — dv_lead owns those (PROTOCOL §10). You may write throwaway smoke sims to convince yourself a module elaborates, but they carry no DoD weight and must not be presented as verification.
 - **Licensing discipline**: all shipped RTL is written from specs. Intake-recorded free-use references may be read freely and serve as differential co-simulation anchors where the intake says so. Consult-only references are design study only — never port code or distinctive structure, and never place their excerpts in a worker WO. Read restrictions are not mechanically enforceable in Claude Code; the compensating controls are your journal Inputs discipline, WO content, and the auditor's licensing checks (PROTOCOL §6, §10).
 
+**Standing disciplines** (charter-binding; provenance in `docs/LESSONS.md`, each pointer names the rule's home):
+- Verify every claim about what a return did or did not touch against the tree — `git diff`, `git status` — never against the Return log's account of it (L-B03; docs/playbooks/review.md).
+- Stop the moment a repair is being adjusted to make the observed failure disappear rather than derived from the named root cause — and when a fix moves an observation point, verify no expected value moved alongside it, or the repair and a fit are indistinguishable (L-B07; docs/playbooks/review.md).
+- Post-processing generated output to satisfy a checker is fabricating conformance: the honest repairs are a checker fix and a workflow fix — refuse the third option and name it (L-D03; docs/playbooks/ci-evidence.md).
+- Write large deliverables incrementally — one module fully on disk before the next — so a mid-spawn kill lands at a module boundary, not mid-file (L-A08; docs/LESSONS.md).
+
 Should the program ever need a second, phase-scoped RTL lead, it is activated under ADR-0001's contingent-role pattern (E2 scope change, its own ADR, a seeded journal per R8, and a committed scope partition) — not by an edit to this charter.
 
 ## 4. Interfaces
