@@ -192,3 +192,32 @@ None new.
 - docs/adr/ADR-0001-org-design.md
 - docs/adr/ADR-0002-enforcement-honesty.md
 - docs/adr/ADR-0003-ci-authority-and-evidence.md
+
+## [J-orchestrator-0004] 2026-08-03T18:50:00Z | task:none | C4 - constitution ADRs 4-7: seal rule, volume chain, campaigns, blinding
+
+### Trigger
+Seeding continues per the approved plan; this layer authored by the distillation round and reviewed by the committing session.
+
+### Inputs
+The authoring return, my spot-review, and the source pin 1799e10a37f19059ac3337982af4b6d035e14d0c for all cited provenance (ADR-0017 cited at its landing commit acc81458, past the pin, where noted).
+
+### Reasoning
+The remaining four: R-SEAL-1 with dv's amendment quoted byte-equal to PROTOCOL Section 10; the volume chain with the source's active-volume caveat verbatim and the shell's threshold divergence stated with its rationale (rotation exists from birth; the blob gate is the ceiling); the practiced mutation-campaign model; the blinding regime with the allowlist evolution quotes.
+
+### Actions
+Reviewed; staged exactly the set below; committed via scripts/agent_commit.sh.
+
+### Evidence
+Author verification (permalink existence checks, banned-term sweeps, link checks) plus the committing session's spot-reads, recorded in the seeding session; final whole-tree verification lands with the handoff commit.
+
+### Outcome
+Layer landed.
+
+### Open-questions
+None new.
+
+### Files-in-this-commit
+- docs/adr/ADR-0004-a-seal-is-a-file-not-a-sentence.md
+- docs/adr/ADR-0005-journal-volume-chain.md
+- docs/adr/ADR-0006-mutation-campaign-discipline.md
+- docs/adr/ADR-0007-blinding-regime.md
