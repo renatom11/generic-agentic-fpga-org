@@ -392,3 +392,44 @@ is the shell's first demonstration of its own protocol.
 ### Files-in-this-commit
 - agents/journals/INDEX.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0010] 2026-08-03T20:10:00Z | task:none | C10 - intake by brain dump: the sponsor's stated usage model, shipped
+
+### Trigger
+Sponsor (of the seeding program), verbatim intent: pull the shell
+down, "brain dump a bunch of resources and context about a FPGA
+project, and it goes and sorts everything out."
+
+### Inputs
+BOOTSTRAP.md Section B (previously questionnaire-only), CLAUDE.md
+first-session pointer, the G0 checklist's B rows.
+
+### Reasoning
+The questionnaire assumed the sponsor does the sorting; the
+stated usage model inverts it. Path B added as the EXPECTED
+path: the sponsor dumps raw resources; the orchestrator digests
+them into one proposed intake (draft phase table, toolchain
+candidates, license classes, boundaries, success criteria) and
+returns for a single sign-off round, asking only what the dump
+underdetermines. The questionnaire remains as Path A and as the
+record's shape either way — the recorded outcome is identical,
+so no gate row, charter, or protocol text changes.
+
+### Actions
+Three files amended; this commit; push; CI verify.
+
+### Evidence
+The B rows' record columns are unchanged; grep confirms the
+banned-term sweep still passes on the edited files.
+
+### Outcome
+The shipped shell matches its sponsor's usage model: clone, dump,
+sign one proposal, and the org runs.
+
+### Open-questions
+None.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- docs/gates/G0-checklist.md

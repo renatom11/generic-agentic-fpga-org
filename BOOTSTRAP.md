@@ -43,9 +43,26 @@ J-orchestrator-0001/0002; you are re-verifying, not re-doing.
 
 ### Section B — project intake
 
-The sponsor answers the five questionnaire rows (G0 items B1–B5); the
-orchestrator records every answer into README's phase table and onto the
-BOARD in the same commit, then transcribes signatures:
+Two ways to fill it — the recorded outcome is identical:
+
+**Path A — questionnaire.** The sponsor answers the five rows (G0 items
+B1–B5) directly, interview-style.
+
+**Path B — brain dump (the expected path).** The sponsor dumps whatever
+exists — notes, links, datasheets, reference designs, half-formed ideas —
+into the session (or into an `intake/` directory, which may be deleted
+after digestion or kept as a record; sponsor's call). The orchestrator
+digests the dump into PROPOSED answers for all five rows — a draft phase
+table, candidate toolchains with trade-offs, proposed reference license
+classes, a proposed simulation boundary and per-phase success criteria —
+and presents the whole proposal for sponsor sign-off in one round,
+asking questions only where the dump genuinely underdetermines an
+answer. The sponsor edits and signs; nothing in the proposal is binding
+until signed. Sorting the dump is the org's work, not the sponsor's.
+
+Either way, the orchestrator records every signed answer into README's
+phase table and onto the BOARD in the same commit, then transcribes
+signatures:
 
 1. **B1** — the project, decomposed into phases.
 2. **B2** — scope parameters and performance criteria, as numbers.

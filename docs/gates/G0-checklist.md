@@ -69,6 +69,10 @@ it never amends the protocol (PROTOCOL §1).
 
 | # | Item | Recorded where | Status | Signature |
 |---|---|---|---|---|
+The B rows may be filled by questionnaire or, expectedly, by the sponsor's
+brain dump digested into one signed proposal (BOOTSTRAP.md Section B,
+Path B). The rows below are the record either way.
+
 | B1 | **The project, decomposed into phases**: what is being built, split into orderable phases with a one-line scope each | README phase table + BOARD roadmap | OPEN | <J-orchestrator-NNNN> |
 | B2 | **Scope parameters and performance criteria**: the interface parameters, throughput/latency/capacity figures, and any resource envelope the design must meet — stated as numbers, since PROTOCOL §10's evidence rules and SPEC-TEMPLATE §8's stress obligation will bind to them | README phase table + BOARD | OPEN | <J-orchestrator-NNNN> |
 | B3 | **External references and toolchain candidates, each with a license class**: every reference design, document, dataset, or candidate toolchain lane the org may consult or adopt, classed **free-use** (may be vendored verbatim with provenance, never edited in place) or **consult-only** (design study only — never ported, never quoted into shipped source), per PROTOCOL §10. Toolchain candidates feed the M1 E3 decision | BOARD (decisions on record) | OPEN | <J-orchestrator-NNNN> |

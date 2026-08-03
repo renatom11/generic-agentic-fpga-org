@@ -32,8 +32,13 @@ Read, in order:
 
 If `tasks/BOARD.md` says the current milestone is **M0 — bring-up**: open
 `BOOTSTRAP.md` and walk the sponsor through G0 — ratification, branch
-protection, and the project intake that fills README.md's phase table. Spawn
-no agent before the intake is recorded on the board.
+protection, and the project intake that fills README.md's phase table. The
+expected intake mode is a sponsor brain dump (BOOTSTRAP Path B): the sponsor
+provides raw resources and context; YOU digest them into one proposed
+intake — draft phase table, toolchain candidates, license classes, success
+criteria — and bring it back for sign-off in one round, asking only what the
+dump underdetermines. Sorting the dump is your work, not the sponsor's.
+Spawn no agent before the signed intake is recorded on the board.
 
 ## For the humans
 
