@@ -221,3 +221,29 @@ None new.
 - docs/adr/ADR-0005-journal-volume-chain.md
 - docs/adr/ADR-0006-mutation-campaign-discipline.md
 - docs/adr/ADR-0007-blinding-regime.md
+
+## [J-orchestrator-0005] 2026-08-03T18:50:00Z | task:none | C5 - the lessons record: 77 entries, provenance-verified
+
+### Trigger
+Seeding continues per the approved plan; this layer authored by the distillation round and reviewed by the committing session.
+
+### Inputs
+The authoring return, my spot-review, and the source pin 1799e10a37f19059ac3337982af4b6d035e14d0c for all cited provenance (ADR-0017 cited at its landing commit acc81458, past the pin, where noted).
+
+### Reasoning
+docs/LESSONS.md: 77 entries across the six themes, each with rule, incident, normative home, and permalinks pinned at the source SHA - 35 distinct cited paths all verified to exist (cat-file -e). Nothing in it is normative; F1 and F8 carry how-this-shell-fixes-it paragraphs. Three entries homed as narrative-only, named in the file.
+
+### Actions
+Reviewed; staged exactly the set below; committed via scripts/agent_commit.sh.
+
+### Evidence
+Author verification (permalink existence checks, banned-term sweeps, link checks) plus the committing session's spot-reads, recorded in the seeding session; final whole-tree verification lands with the handoff commit.
+
+### Outcome
+Layer landed.
+
+### Open-questions
+None new.
+
+### Files-in-this-commit
+- docs/LESSONS.md
