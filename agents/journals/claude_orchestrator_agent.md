@@ -342,3 +342,53 @@ None new.
 ### Files-in-this-commit
 - BOOTSTRAP.md
 - .github/workflows/build.yml.template
+
+## [J-orchestrator-0009] 2026-08-03T19:05:00Z | task:none | C9 - seeding complete: the handoff record
+
+### Trigger
+C1-C8 landed and green; the verification battery run in full.
+
+### Inputs
+Source: https://github.com/renatom11/agentic-fpga at pin
+1799e10a37f19059ac3337982af4b6d035e14d0c (ADR-0017 cited at its
+landing commit acc81458, past the pin, where noted). Seeded by
+the source program's orchestrator session, sponsor-directed.
+
+### Reasoning
+This is the handoff commit: the board records seeding COMPLETE
+with the verification tallies and the operating session's ordered
+to-do; the index reflects this journal's true tail. Everything a
+fresh orchestrator needs is in the tree per PROTOCOL §9 — no
+dependency on access to the source program remains.
+
+### Actions
+Board and index updated; this commit; push; CI verify.
+
+### Evidence
+- test_protocol.sh in a fresh clone: 38 passed, 0 failed.
+- check_journals.sh --all: 8 commits green, R10 chain verified at
+  range head.
+- journal-check CI: success on every seed push (latest e91f76c).
+- Sweeps: toolchain terms absent outside quoted provenance and
+  the single reference URL; the only SEALED-named file is the
+  mechanics template; 0 broken relative links; 35/35 provenance
+  permalinks return HTTP 200.
+- Bootstrap dry-run (toy project through Stage 1+2 by the
+  authoring round): PASS, two gaps found and fixed pre-delivery.
+
+### Outcome
+The shell is complete and self-sufficient. The operating
+orchestrator session boots from CLAUDE.md, reads this board, and
+opens BOOTSTRAP.md with the sponsor. The history from C1 to here
+is the shell's first demonstration of its own protocol.
+
+### Open-questions
+- The five G0 open rows (A6-A9, B1-B5) — the operating session's
+  first work, with the sponsor.
+- Whether this shell tightens its journal soft threshold to the
+  source's post-incident pair — a decision recorded as open in
+  ADR-0005.
+
+### Files-in-this-commit
+- agents/journals/INDEX.md
+- tasks/BOARD.md

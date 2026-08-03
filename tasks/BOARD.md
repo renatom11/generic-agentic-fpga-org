@@ -8,8 +8,24 @@ agents with open work.
 ## Current milestone
 
 **M0 — bring-up.** This shell was seeded from the agentic-fpga program
-(reference: https://github.com/renatom11/agentic-fpga); the operating
-orchestrator session takes over here. Working branch: `main`.
+(reference: https://github.com/renatom11/agentic-fpga, source pin
+1799e10a37f19059ac3337982af4b6d035e14d0c) by that program's orchestrator
+session; **seeding is COMPLETE at C9** and the operating orchestrator session
+takes over here. Working branch: `main`.
+
+Seeding verification, recorded at C9: enforcement self-test 38/38 in a fresh
+clone; `check_journals.sh --all` green over the full seed history (R10 chain
+verified); journal-check CI green on every push; toolchain-term sweep clean;
+the only SEALED-named file is the mechanics template; zero broken relative
+links; all 35 provenance permalinks into the source program return HTTP 200;
+the bootstrap dry-run (a toy project walked through Stage 1+2) passed.
+
+**Open for the operating orchestrator, in order** (details:
+`docs/gates/G0-checklist.md`): sponsor charter critique (A6); sponsor branch
+protection + branch-flow decision (A7/A8); project intake questionnaire (B1-B5
+→ README phase table + this board); the auditor retro-audit of the seed commit
+range as the org's first spawn (A9); then Stage 2 (toolchain ADR via E3,
+build-CI template activation).
 
 ## Milestone roadmap
 
