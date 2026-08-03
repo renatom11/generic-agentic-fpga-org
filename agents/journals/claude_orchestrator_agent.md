@@ -475,3 +475,37 @@ None.
 ### Files-in-this-commit
 - BOOTSTRAP.md
 - README.md
+
+## [J-orchestrator-0012] 2026-08-03T21:05:00Z | task:none | C12 - the unprompted first-boot sequence
+
+### Trigger
+Sponsor requirement: pull the repo down, attach a session, and it
+knows what to do with no prompt at all.
+
+### Inputs
+CLAUDE.md's First-session block (C10's text).
+
+### Reasoning
+Two gaps stood between the existing boot file and a zero-context
+attach: no instruction to re-verify the seeded state before
+trusting it (the G0 rows say it, but the session reads CLAUDE.md
+first), and no defined opening move when the sponsor attaches
+silently. The block now sequences both: verify (stop-and-report
+if red), then greet with state + the two asks. Everything else
+was already in place — Claude Code auto-loads this file.
+
+### Actions
+One file amended; this commit; push; CI verify.
+
+### Evidence
+The block reads as a complete unprompted sequence; sweep
+unaffected.
+
+### Outcome
+Attach-and-it-knows is true with no kickoff prompt needed.
+
+### Open-questions
+None.
+
+### Files-in-this-commit
+- CLAUDE.md

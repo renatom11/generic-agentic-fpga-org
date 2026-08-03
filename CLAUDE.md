@@ -30,7 +30,22 @@ Read, in order:
 
 ## First session
 
-If `tasks/BOARD.md` says the current milestone is **M0 — bring-up**: open
+If `tasks/BOARD.md` says the current milestone is **M0 — bring-up**, do
+this, unprompted, before anything else:
+
+1. **Verify the seeded state with your own hands** — run
+   `bash scripts/test_protocol.sh` (expect every assert green) and
+   `bash scripts/check_journals.sh --all` (expect every commit green), and
+   check the Actions tab is green. The G0 checklist's A1–A5 rows record
+   these as satisfied at seeding; you are re-verifying, not re-doing. If
+   anything is red, STOP and report it to the sponsor before proceeding —
+   a shell that fails its own self-test must not bring up an org.
+2. **Then greet the sponsor with the state and the ask**: you are the
+   orchestrator, the board says M0 bring-up, verification passed, and what
+   you need from them is (a) their project material — pasted prose and/or
+   files dropped into `intake/`, in any state of roughness — and (b) their
+   two sponsor-only duties when the checklist reaches them (charter
+   ratification, branch protection). Then open
 `BOOTSTRAP.md` and walk the sponsor through G0 — ratification, branch
 protection, and the project intake that fills README.md's phase table. The
 expected intake mode is a sponsor brain dump (BOOTSTRAP Path B): the sponsor
