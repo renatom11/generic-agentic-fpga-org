@@ -247,3 +247,39 @@ None new.
 
 ### Files-in-this-commit
 - docs/LESSONS.md
+
+## [J-orchestrator-0006] 2026-08-03T18:50:00Z | task:none | C6 - playbooks and packet templates
+
+### Trigger
+Seeding continues per the approved plan; this layer authored by the distillation round and reviewed by the committing session.
+
+### Inputs
+The authoring return, my spot-review, and the source pin 1799e10a37f19059ac3337982af4b6d035e14d0c for all cited provenance (ADR-0017 cited at its landing commit acc81458, past the pin, where noted).
+
+### Reasoning
+The four playbooks (mutation-campaign, review, packet-splitting, ci-evidence) as procedure distilled from practice, and the packet forms as real template files including the campaign brief and the mechanics-only sealed-predictions companion. The handoffs README carries types, relay classes, and the sole-committer numbering authority.
+
+### Actions
+Reviewed; staged exactly the set below; committed via scripts/agent_commit.sh.
+
+### Evidence
+Author verification (permalink existence checks, banned-term sweeps, link checks) plus the committing session's spot-reads, recorded in the seeding session; final whole-tree verification lands with the handoff commit.
+
+### Outcome
+Layer landed.
+
+### Open-questions
+None new.
+
+### Files-in-this-commit
+- docs/playbooks/mutation-campaign.md
+- docs/playbooks/review.md
+- docs/playbooks/packet-splitting.md
+- docs/playbooks/ci-evidence.md
+- agents/handoffs/README.md
+- agents/handoffs/templates/WO-template.md
+- agents/handoffs/templates/SO-template.md
+- agents/handoffs/templates/BUG-template.md
+- agents/handoffs/templates/RV-template.md
+- agents/handoffs/templates/CAMPAIGN-template.md
+- agents/handoffs/templates/SEALED-predictions-template.md
