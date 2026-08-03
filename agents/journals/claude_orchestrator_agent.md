@@ -87,3 +87,80 @@ operating orchestrator session.
 - scripts/policy.sh
 - scripts/test_protocol.sh
 - tasks/BOARD.md
+
+## [J-orchestrator-0002] 2026-08-03T18:20:00Z | task:none | C2 - the org surface: nine charters, eight launchers, the chart, the index
+
+### Trigger
+C1 green in CI (journal-check run 1, conclusion success); the org
+surface authored and reviewed.
+
+### Inputs
+The source program's nine charters, eight launchers, ORG_CHART
+and README at the pin, genericized against this repo's PROTOCOL
+v2 (its §10 practiced mutation model, R1-R10, generic lanes,
+volume-chain journals).
+
+### Reasoning
+- The 9-section charter skeleton and every generic evaluation
+  criterion ported verbatim; project facts became either generic
+  FPGA-engineering language or explicit intake/toolchain-ADR
+  slots. Mutation text in every charter follows this repo's §10
+  (freeze-first sealed campaigns), not the source v1 wording.
+- rtl_lead_md's contingent-role subsection became a pointer to
+  ADR-0001's contingent-role pattern; data_wrangler and formal_dv
+  are DORMANT worker templates activated by dv_lead work orders.
+- INDEX.md ships with a regeneration recipe in its own header so
+  the drift the source recorded cannot go unrepaired; the
+  orchestrator row updated to this journal's actual state before
+  commit (the authoring agent worked concurrently with C1 and
+  left the row as instructed; the fix is this session's).
+- Known dangling link, deliberate: BOOTSTRAP.md is referenced by
+  README/CLAUDE/BOARD and lands with the later bootstrap commit.
+
+### Actions
+Reviewed spot-samples and re-ran the banned-term sweep myself
+(only hits: this journal's own quoted sweep command); this
+commit; push; CI verify follows.
+
+### Evidence
+- Sweep over the tree excluding .git: no project-term hits
+  outside quotation. Launcher frontmatter name==filename for all
+  eight. Mermaid brackets balanced per the author's check.
+
+### Outcome
+The org is describable and spawnable: charters, launchers, chart,
+index, and eight seeded journals. Next: the constitution ADRs and
+the lessons record.
+
+### Open-questions
+None new.
+
+### Files-in-this-commit
+- .claude/agents/architect_docs_lead.md
+- .claude/agents/auditor.md
+- .claude/agents/data_wrangler.md
+- .claude/agents/dv_lead.md
+- .claude/agents/formal_dv.md
+- .claude/agents/rtl_lead.md
+- .claude/agents/rtl_module_dev.md
+- .claude/agents/tb_writer.md
+- ORG_CHART.md
+- README.md
+- agents/charters/architect_docs_lead.md
+- agents/charters/auditor.md
+- agents/charters/data_wrangler.md
+- agents/charters/dv_lead.md
+- agents/charters/formal_dv.md
+- agents/charters/orchestrator.md
+- agents/charters/rtl_lead.md
+- agents/charters/rtl_module_dev.md
+- agents/charters/tb_writer.md
+- agents/journals/INDEX.md
+- agents/journals/claude_architect_docs_lead_agent.md
+- agents/journals/claude_auditor_agent.md
+- agents/journals/claude_dv_lead_agent.md
+- agents/journals/claude_rtl_lead_agent.md
+- agents/journals/workers/claude_data_wrangler_agent.md
+- agents/journals/workers/claude_formal_dv_agent.md
+- agents/journals/workers/claude_rtl_module_dev_agent.md
+- agents/journals/workers/claude_tb_writer_agent.md
