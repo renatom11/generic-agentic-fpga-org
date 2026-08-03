@@ -315,3 +315,30 @@ None new.
 - docs/SPONSOR.md
 - docs/specs/SPEC-TEMPLATE.md
 - docs/reports/audit/README.md
+
+## [J-orchestrator-0008] 2026-08-03T18:50:00Z | task:none | C8 - the bootstrap walkthrough and the inert build-CI template
+
+### Trigger
+Seeding continues per the approved plan; this layer authored by the distillation round and reviewed by the committing session.
+
+### Inputs
+The authoring return, my spot-review, and the source pin 1799e10a37f19059ac3337982af4b6d035e14d0c for all cited provenance (ADR-0017 cited at its landing commit acc81458, past the pin, where noted).
+
+### Reasoning
+BOOTSTRAP.md walks sponsor and orchestrator from cloned shell to running program (G0 section A then B then the retro-audit; M1 toolchain ADR and template activation by git mv). The build workflow ships inert with slots plus the ready-made promotion-block and determinism blocks. The author dry-ran a toy intake end-to-end and fixed the two gaps it found before delivery.
+
+### Actions
+Reviewed; staged exactly the set below; committed via scripts/agent_commit.sh.
+
+### Evidence
+Author verification (permalink existence checks, banned-term sweeps, link checks) plus the committing session's spot-reads, recorded in the seeding session; final whole-tree verification lands with the handoff commit.
+
+### Outcome
+Layer landed.
+
+### Open-questions
+None new.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- .github/workflows/build.yml.template
