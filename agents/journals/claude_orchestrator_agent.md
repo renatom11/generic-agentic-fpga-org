@@ -433,3 +433,45 @@ None.
 - BOOTSTRAP.md
 - CLAUDE.md
 - docs/gates/G0-checklist.md
+
+## [J-orchestrator-0011] 2026-08-03T20:40:00Z | task:none | C11 - intake resources are first-class and outlive the intake; getting-started mechanics
+
+### Trigger
+Sponsor refinement of the usage model: not only a prose brain
+dump — file resources too (documentation of what is being built,
+rough requirement drafts); and the practical question of what to
+do after downloading.
+
+### Inputs
+BOOTSTRAP Path B (C10's text), README's Getting started section.
+
+### Reasoning
+- Path B now names two freely-mixed input forms (pasted prose;
+  files in intake/) and states that intake resources OUTLIVE the
+  intake: recorded with license classes, they remain the org's
+  reference material — requirement drafts feed the architect's
+  REQ-### work, reference designs feed the DV lead's anchor
+  planning, each under its license class.
+- README's Getting started now carries the concrete steps, led by
+  the one warning that prevents a broken start: fork or
+  clone-and-push, never GitHub's template button — a squashed
+  history fails the journal-check CI by design, because the
+  history is load-bearing.
+
+### Actions
+Two files amended; this commit; push; CI verify.
+
+### Evidence
+Edits verified by grep; the B rows' record shape unchanged.
+
+### Outcome
+Clone → dump prose + drop files → sign one proposal → org runs;
+and the path from GitHub to a working fork is stated where a new
+user will look first.
+
+### Open-questions
+None.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- README.md

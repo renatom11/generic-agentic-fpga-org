@@ -56,7 +56,27 @@ Run the enforcement self-test: `bash scripts/test_protocol.sh`.
 
 ## Getting started
 
-The sponsor and a fresh orchestrator session walk G0 together;
+**To start a project with this shell:**
+
+1. **Fork this repository** (or clone it and push to a new empty repo of
+   your own) — one fork per project. Do **not** use GitHub's "Use this
+   template" button: it squashes history into a single commit, and this
+   repository's commit history is load-bearing — the journal-check CI
+   verifies the whole chain, and a squashed history fails it by design.
+2. Open a Claude Code session on your fork, on any machine, and say:
+   *"Read CLAUDE.md — you are this repository's orchestrator. Walk me
+   through G0."*
+3. Give it your material: paste prose, and/or drop files — docs about
+   what you're building, rough requirement drafts, reference specs,
+   datasheets — into an `intake/` directory. The org digests everything
+   into one proposal for your signature ([BOOTSTRAP.md](BOOTSTRAP.md)
+   Section B, Path B); your resources then remain its project reference
+   material.
+4. Do the two sponsor-only duties when the checklist reaches them:
+   ratify the charters and set branch protection (a GitHub settings
+   action).
+
+The sponsor and the fresh orchestrator session walk G0 together;
 [BOOTSTRAP.md](BOOTSTRAP.md) is the script. G0 covers: org ratification (or
 amendment before ratification), branch protection on `main` and the working
 branch, a green enforcement self-test, and the project intake that fills the

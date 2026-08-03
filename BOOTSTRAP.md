@@ -48,17 +48,32 @@ Two ways to fill it — the recorded outcome is identical:
 **Path A — questionnaire.** The sponsor answers the five rows (G0 items
 B1–B5) directly, interview-style.
 
-**Path B — brain dump (the expected path).** The sponsor dumps whatever
-exists — notes, links, datasheets, reference designs, half-formed ideas —
-into the session (or into an `intake/` directory, which may be deleted
-after digestion or kept as a record; sponsor's call). The orchestrator
-digests the dump into PROPOSED answers for all five rows — a draft phase
-table, candidate toolchains with trade-offs, proposed reference license
-classes, a proposed simulation boundary and per-phase success criteria —
-and presents the whole proposal for sponsor sign-off in one round,
-asking questions only where the dump genuinely underdetermines an
-answer. The sponsor edits and signs; nothing in the proposal is binding
-until signed. Sorting the dump is the org's work, not the sponsor's.
+**Path B — brain dump plus resources (the expected path).** The sponsor
+provides whatever exists, in two forms, freely mixed:
+
+- **Prose**, pasted into the session — ideas, constraints, goals,
+  half-formed thoughts.
+- **Files**, dropped into an `intake/` directory — documentation about
+  what is being built, rough requirement drafts, reference specs,
+  datasheets, links files, prior-art notes. Anything goes; sorting it is
+  the org's work, not the sponsor's.
+
+The orchestrator digests all of it into PROPOSED answers for the five
+rows — a draft phase table, candidate toolchains with trade-offs,
+proposed license classes for every reference found in the material, a
+proposed simulation boundary and per-phase success criteria — and
+presents the whole proposal for sponsor sign-off in one round, asking
+questions only where the material genuinely underdetermines an answer.
+The sponsor edits and signs; nothing is binding until signed.
+
+**Intake resources outlive the intake.** Files in `intake/` are not
+consumed and discarded: they are recorded on the BOARD with their
+license class and remain the org's project reference material — rough
+requirement drafts feed the architect's real REQ-### requirements work
+in the first spec milestone; reference designs feed the DV lead's
+external-anchor planning (free-use) or design study (consult-only). The
+sponsor may prune `intake/` at any time; what the org relies on gets
+cited into specs and ADRs by then, under each file's license class.
 
 Either way, the orchestrator records every signed answer into README's
 phase table and onto the BOARD in the same commit, then transcribes
