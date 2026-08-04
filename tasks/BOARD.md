@@ -22,8 +22,9 @@ the bootstrap dry-run (a toy project walked through Stage 1+2) passed.
 
 **Open for the operating orchestrator, in order** (details:
 `docs/gates/G0-checklist.md`): sponsor charter critique (A6); sponsor branch
-protection + branch-flow decision (A7/A8); project intake questionnaire (B1-B5
-→ README phase table + this board); the auditor retro-audit of the seed commit
+protection + branch-flow decision (A7/A8); project intake (B1-B6
+→ README phase table + this board); the G0 Section C lessons-harvest
+block; the auditor retro-audit of the seed commit
 range as the org's first spawn (A9); then Stage 2 (toolchain ADR via E3,
 build-CI template activation).
 
@@ -74,6 +75,15 @@ _None._
   canonical shell; a **project** re-records it at G0 — checklist row
   B6 — to point at its own org generic. Set at founding, while the
   relationship is still known.
+- **Project slug**: _set at G0 B6_ — lowercase-hyphenated, unique within
+  the org; keys every federation landing (`docs/FEDERATION.md` §5.1).
+- **Fork-point harvest baseline**: _set at G0 B6_ (ADR-0010) — last
+  inherited entry id per journal chain; the first harvest tiles from
+  baseline + 1.
+- **Federation sent-ledger** (append-only; one line per landing:
+  `<parent-record-id>` · landing SHA(s) · outer-hop PR URL or `—`):
+  _none yet_. A landing's ledger line is written in the same commit as
+  its transcription (`docs/FEDERATION.md` §5.1 step 5).
 - **Amendment obligations** (open promotion obligations — the recurrence
   threshold, ADR-0010 / `docs/FEDERATION.md` §8; the read-path promotion
   channel rides the same ledger): _none open_. One line per obligation:

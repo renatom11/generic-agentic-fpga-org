@@ -1120,3 +1120,81 @@ closed. Round continues at C21.
 - docs/GUIDE.md
 - docs/adr/ADR-0011-repo-role-discriminator.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0021] 2026-08-04T20:50:00Z | task:none | C21 - founding surfaces aligned: B6, board conventions, PENDING cells, the inbox perimeter
+
+### Trigger
+The round continues: C18-C20 defined conventions (landing key,
+sent-ledger, fork-point baseline, repo role, staging namespace)
+that the founding surfaces - G0 checklist, BOOTSTRAP Section B,
+the board, the harvest block, the playbook - still referenced in
+their old forms or not at all.
+
+### Inputs
+docs/gates/G0-checklist.md (B6, Section C comment, A7 click-path);
+BOOTSTRAP.md Section B item 6; tasks/BOARD.md (Decisions on
+record, the operating to-do list); docs/gates/templates/
+lessons-harvest-block.md (span comment, export cell, transmission
+bullets, preconditions); docs/playbooks/lessons-harvest.md (1,
+5-7, Hygiene); FEDERATION 5.1/5.2/7 as landed at C18-C20; the
+concurrency report's F11-F13 and F19 (the nonexistent ledger, the
+undefined paths, the G0-era contention window).
+
+### Reasoning
+- B6 grows from an upstream-line row into the federation founding
+  record because every landing-key ingredient (slug, baseline,
+  role, read-only-verified access) is settled at the same moment
+  under the same intake signature - one row, one signature, four
+  facts that every later landing depends on.
+- Push verification is read-only by law now: a probe commit
+  outside agent_commit.sh would land trailer-less on the org
+  generic's main and permanently red its CI (F19.1) - the exact
+  catastrophe the round exists to prevent, triggered by a
+  verification step.
+- The sent-ledger, slug, and baseline bullets are seeded on the
+  board with placeholder values so a fork's G0 fills cells that
+  exist rather than inventing structures (F19.2: the maximal
+  contention window is founding, the least-defended moment).
+- PENDING (attempt n) cells keep the gate honest during 5.2
+  retries: the alternative - a gate that closes on an unrecorded
+  landing - would trade the race for a silent-loss window.
+- The inbox README makes the perimeter self-documenting at the
+  place a first-time contributor actually arrives.
+
+### Actions
+Rewrote G0 B6 and the Section C tiling comment; added the
+solo-collapsed fed/** note to the A7 click-path; matched BOOTSTRAP
+B6; seeded slug/baseline/sent-ledger bullets and fixed the
+operating to-do list on the board; updated the harvest block's
+span comment, outbox path, PENDING cells, and preconditions;
+rewrote the playbook's tiling, packet-path, landing, transmission,
+and day-zero passages; created docs/federation/inbox/README.md;
+this commit.
+
+### Evidence
+Convention consistency is grep-checkable at this tree: the outbox
+path docs/federation/outbox/ appears in FEDERATION 6, the harvest
+block, and the playbook with identical spelling; the inbox
+filename grammar source-org-project-slug-parent-record-id appears
+identically in FEDERATION 7, the playbook 7, and the inbox README;
+"fork-point baseline" appears in G0 B6, the board, the block, and
+the playbook. bash scripts/test_protocol.sh unchanged at "40
+passed, 0 failed".
+
+### Outcome
+Every convention C18-C20 legislated now exists at the surfaces
+where founding actually happens; a fork's G0 fills seeded cells
+instead of inventing structure during the highest-contention
+window. Blocking findings 4.3/5.1 (sent-ledger) and F13 (paths),
+majors F11/F19, 2.2/2.3/3.1 closed. Round continues at C22.
+
+### Open-questions
+- None.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- docs/federation/inbox/README.md
+- docs/gates/G0-checklist.md
+- docs/gates/templates/lessons-harvest-block.md
+- docs/playbooks/lessons-harvest.md
+- tasks/BOARD.md

@@ -41,6 +41,13 @@ have run at least once before GitHub will list it in the picker.
 5. *Rules*: check **Restrict deletions** and **Block force pushes**.
 6. **Create**.
 
+In a **solo-collapsed** copy (ADR-0011), add `fed/**` to Ruleset 1's
+target patterns as well — the project repo is then itself the landing
+fence and carries the federation staging namespace
+([`docs/FEDERATION.md`](../FEDERATION.md) §5.2 clause 10). In the normal
+topology that namespace lives in the org generic and is protected at its
+founding ([`BOOTSTRAP.md`](../../BOOTSTRAP.md) Stage 0).
+
 **Ruleset 2 — "main-requires-ci"** (PR-flow mode only):
 
 1. New branch ruleset, name `main-requires-ci`, Active, empty bypass list.
@@ -78,14 +85,15 @@ Path B). The rows below are the record either way.
 | B3 | **External references and toolchain candidates, each with a license class**: every reference design, document, dataset, or candidate toolchain lane the org may consult or adopt, classed **free-use** (may be vendored verbatim with provenance, never edited in place) or **consult-only** (design study only — never ported, never quoted into shipped source), per PROTOCOL §10. Toolchain candidates feed the M1 E3 decision | BOARD (decisions on record) | OPEN | <J-orchestrator-NNNN> |
 | B4 | **The simulation-first boundary**: what this program validates in simulation, and where (if anywhere) hardware bring-up sits — phases and success criteria must not silently assume lab equipment nobody has | README phase table + BOARD | OPEN | <J-orchestrator-NNNN> |
 | B5 | **Success criteria per phase**: for each phase, the evidence that closes its `P<n>-phase-accept` gate — replay/validation runs, performance figures, audit state. These become the gate checklists' acceptance rows (see [`templates/`](templates/)) | README phase table + BOARD | OPEN | <J-orchestrator-NNNN> |
-| B6 | **Federation upstream re-recorded**: this project's org generic = `<URL>`, proposed by the orchestrator from the fork relationship (clone case: one line in the same signed proposal — the intake signature covers it), and push access to it verified. An org generic itself keeps the canonical shell on this line; a solo-collapsed copy does too ([`docs/FEDERATION.md`](../FEDERATION.md) §0, §5.1) | BOARD (decisions on record) | OPEN | <J-orchestrator-NNNN> |
+| B6 | **Federation founding record**: this project's org generic = `<URL>`, proposed by the orchestrator from the fork relationship (clone case: one line in the same signed proposal — the intake signature covers it); push access verified **read-only** (`git ls-remote` + `git push --dry-run` — never a probe push or probe commit); the **project slug** recorded on the BOARD (lowercase-hyphenated, unique in the org — it keys every landing, [`docs/FEDERATION.md`](../FEDERATION.md) §5.1); the **fork-point harvest baseline** recorded on the BOARD (last inherited entry id per journal chain — the first harvest tiles from baseline + 1, ADR-0010); and the board's **Repo role** line completed to `project` (or `solo-collapsed`), ADR-0011. An org generic itself keeps the canonical shell on this line; a solo-collapsed copy does too ([`docs/FEDERATION.md`](../FEDERATION.md) §0, §5.1) | BOARD (decisions on record) | OPEN | <J-orchestrator-NNNN> |
 
 ## Section C — Lessons harvest
 
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
      Section B closes (PROTOCOL §7.1) — the program's FIRST harvest,
-     mining the bring-up spans from each active chain's entry 0001
-     ("first harvest" tiling). G0 is sponsor-signed, so the block runs
+     mining the bring-up spans from the fork-point baseline recorded at
+     B6, + 1 ("first harvest" tiling; entry 0001 only in a repo with no
+     inherited history — ADR-0010). G0 is sponsor-signed, so the block runs
      the automatic org-generic landing and records the sponsor's one
      outer-hop yes/no beside the ratification (docs/FEDERATION.md §0).
      A nil yield at G0 is normal and declared — there is

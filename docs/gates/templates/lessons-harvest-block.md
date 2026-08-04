@@ -70,8 +70,10 @@ canonical shell at its merge. A candidate never self-assigns its final id.
      the shared worker journals, with the lead as miner. Spans are
      entry-id intervals and must TILE: this row's `from` = the same
      chain's previous harvest `to` + 1; a chain's first-ever harvest
-     starts at its entry 0001 and its "Tiles with" cell says "first
-     harvest". A gap or overlap is a visible arithmetic error and blocks
+     starts at the fork-point baseline recorded at G0 B6, + 1 (entry 0001
+     only in a repo with no inherited history — ADR-0010) and its "Tiles
+     with" cell says "first harvest (baseline NNNN)". A gap or overlap is
+     a visible arithmetic error and blocks
      this block. Yield lists the candidate ids minted (war stories
      included) or the word NIL — a nil yield is declared, never omitted;
      nil is legitimate and cheap, and there is no pressure to mint. Never
@@ -111,7 +113,8 @@ canonical shell at its merge. A candidate never self-assigns its final id.
 
 #### Export packet and transmission
 
-- Export packet: `<committed path>` at `<sha>` — carries every tier-1/2
+- Export packet: `docs/federation/outbox/<parent-record-id>.md` at
+  `<sha>` — carries every tier-1/2
   row above, each with a **self-contained incident description**
   (judgeable without visiting this repository, because foreign repos may
   be private; permalinks only where the source is public). **NONE** —
@@ -129,7 +132,10 @@ canonical shell at its merge. A candidate never self-assigns its final id.
     every packet DEFERRED to it land in the org generic under that
     signature's authority (docs/FEDERATION.md §5.1 — after the
     signature, never before; a bounced gate lands nothing); the landing
-    commit(s) are recorded here as this block's final cells, then the
+    commit(s) are recorded here as this block's final cells — while
+    §5.2 retries run, these cells read `PENDING (attempt n)` and the
+    gate stays open (bounded retries; exhaustion escalates,
+    docs/FEDERATION.md §5.2 clause 8) — then the
     gate is declared passed. On a yes the newly-landed packets go onward
     to the canonical shell (docs/FEDERATION.md §7); NO is the stated
     exception path for organizations that cannot share — the packets
@@ -153,7 +159,7 @@ canonical shell at its merge. A candidate never self-assigns its final id.
       commissioned worker span has a lead-mined row.
 - [ ] Spans tile: each `from` = the same chain's previous harvest
       `to` + 1, checked by arithmetic against the previous gate's block
-      (or "first harvest" from entry 0001).
+      (or "first harvest" from the B6 fork-point baseline + 1).
 - [ ] Every yield cell carries candidate ids or a declared NIL — no blank
       cells, no counts.
 - [ ] Every candidate is dispositioned exactly once (yield table or war

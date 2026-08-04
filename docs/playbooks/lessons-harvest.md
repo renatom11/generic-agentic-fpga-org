@@ -29,7 +29,9 @@ block into it and fill the span skeleton **before dispatching anything**:
 - one row per worker span commissioned in the window, miner = the
   commissioning lead;
 - each row's `from` computed by arithmetic from the previous gate's block:
-  previous `to` + 1 (a chain's first-ever harvest starts at entry 0001).
+  previous `to` + 1 (a chain's first-ever harvest starts at the
+  fork-point baseline recorded at G0 B6, + 1 — entry 0001 only in a repo
+  with no inherited history, ADR-0010).
 
 Filling the spans first is what makes a skipped harvest a visible
 arithmetic gap rather than a silent one — the hole exists on paper before
@@ -105,8 +107,9 @@ repository, because the reviewer upstream cannot assume it is reachable;
 permalinks only where the source is public, and only as a supplement.
 Never pre-allocate final `L-` or pack-local ids — the landing fence does
 that (the org generic at the inner hop, the canonical shell at its
-merge). Commit the packet as part of the gate record and cite its path in
-the block. If every row is tier-3, war story, or nil, declare **NONE** in
+merge). Commit the packet at
+`docs/federation/outbox/<parent-record-id>.md` as part of the gate record
+and cite that path in the block. If every row is tier-3, war story, or nil, declare **NONE** in
 the block; a nil-export gate is a normal gate.
 
 ### 6. The sponsor's one question
@@ -119,9 +122,13 @@ gate will land. Record the answer in the block and in the orchestrator's
 journal. Then, **once the signature is journaled — never before**, the
 **inner hop runs automatically**: this gate's export packet and every
 packet DEFERRED to it are landed in the org generic through the
-org-fence procedure ([`FEDERATION.md`](../FEDERATION.md) §5.1 — clone,
-stage, screen, transcribe, merge under the signature's authority), the
-landing commits are recorded in the block as its final cells, and on a
+org-fence procedure ([`FEDERATION.md`](../FEDERATION.md) §5.1 — ledger
+check, fresh clone, attempt-numbered staging branch, the four screens,
+transcription, fast-forward-only integration with the ledger line in the
+same commit, all under the signature's authority; a rejected push is the
+§5.2 race signal — discard the clone and redo, never merge). The landing
+commits are recorded in the block as its final cells — `PENDING
+(attempt n)` while §5.2 retries run — and on a
 yes the packets go onward (§7). A bounced gate lands nothing. At a parent the sponsor does **not**
 sign — an `SO-` packet or `P<n>-module-ready` — there is no signature to
 ride: commit the export packet locally, record **DEFERRED to the next
@@ -135,13 +142,14 @@ everything above ran without them.
 ### 7. Transmit
 
 On yes, open **one pull request per unsent export packet** against the
-**canonical shell** — the org generic's board records what has been
-sent — each PR adding exactly one file under
-`docs/federation/inbox/<source-org>-<parent-record-id>.md`
+**canonical shell** — the org generic's board sent-ledger records what
+has been sent — each PR adding exactly one file under
+`docs/federation/inbox/<source-org>-<project-slug>-<parent-record-id>.md`
 ([`FEDERATION.md`](../FEDERATION.md) §7). The PR is a delivery vehicle,
 never merged as-is: at the canonical fence (§8.1), the maintainer stages
 the packet as the shell's own protocol commits, screens it with a
-reviewer agent (the LH bars, teach-don't-instruct, leak screening),
+reviewer agent (the four screens of §8: the LH bars,
+teach-don't-instruct, leak, redundancy),
 transcribes accepted candidates, and a **human maintainer merges the
 staging branch — never automated**: `docs/LESSONS.md` and the domain
 packs are constitution-adjacent text future agents read and obey at boot,
@@ -155,10 +163,12 @@ duty ends at the PR; final id allocation happens at merge.
   in gate summaries. A count cannot tell a harvest from a shrug; the
   auditor's sampling of span tiling and bar honesty is the enforcement,
   and a padded yield is a finding where a declared nil is not.
-- **Day-zero, per-gate.** The first harvest of a program tiles from entry
-  0001 — there is no warm-up gate exempt from the precondition. G0's own
-  checklist carries the program's first block, mining the bring-up spans;
-  a nil yield there is normal and declared.
+- **Day-zero, per-gate.** The first harvest of a program tiles from the
+  fork-point baseline + 1 (entry 0001 only in a repo with no inherited
+  history — ADR-0010): a project mines its own history, never its
+  template's. There is no warm-up gate exempt from the precondition —
+  G0's own checklist carries the program's first block, mining the
+  bring-up spans; a nil yield there is normal and declared.
 - **War stories are corpus, not waste.** A later harvest re-reads them
   when the missing provenance or generality arrives; discarding one
   discards the half-paid lesson.

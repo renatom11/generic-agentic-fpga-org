@@ -111,11 +111,15 @@ signatures:
 5. **B5** — success criteria per phase (these become the
    `P<n>-phase-accept` acceptance rows later, via
    [`docs/gates/templates/`](docs/gates/templates/)).
-6. **B6** — the federation upstream: the orchestrator proposes this
-   project's org generic URL from the fork relationship (for a clone, one
-   line in the same proposal) and re-records the BOARD's upstream line —
-   your intake signature covers it, nothing to configure
-   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §0).
+6. **B6** — the federation founding record: the orchestrator proposes
+   this project's org generic URL from the fork relationship (for a
+   clone, one line in the same proposal), verifies push access
+   **read-only** (`git ls-remote` + `git push --dry-run` — never a probe
+   push), and records on the BOARD the upstream line, the **project
+   slug**, the **fork-point harvest baseline**, and the completed **Repo
+   role** line — your intake signature covers all of it, nothing to
+   configure ([`docs/FEDERATION.md`](docs/FEDERATION.md) §0, §5.1;
+   ADR-0010/0011).
 
 **Domain packs ride the same signature.** From the intake material the
 orchestrator also declares which [`docs/domains/`](docs/domains/) lesson
