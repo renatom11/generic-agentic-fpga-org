@@ -68,6 +68,11 @@ _None._
   canonical shell; a **project** re-records it at G0 — checklist row
   B6 — to point at its own org generic. Set at founding, while the
   relationship is still known.
+- **Amendment obligations** (open promotion obligations — the recurrence
+  threshold, ADR-0010 / `docs/FEDERATION.md` §8; the read-path promotion
+  channel rides the same ledger): _none open_. One line per obligation:
+  entry id · opened by (landing / recurrence) · discharged by ADR-NNNN or
+  re-marked narrative-only.
 - **Feature freeze (J-orchestrator-0016) and its override**: the shell was
   declared feature-frozen at C16 — no new law until the first harvest
   transits. The sponsor directed the federation-hardening round

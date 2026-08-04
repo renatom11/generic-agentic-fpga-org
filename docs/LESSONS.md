@@ -35,6 +35,22 @@ Playbook references point at the operating playbooks in
 `lessons-harvest.md`. (Per-entry "(planned)" markers inside Now-lives-in
 lines are part of the merged seeding record and stand as written.)
 
+**Optional entry fields** (ADR-0010): `**Supersedes.**` on an entry that
+resolves a contradiction, naming the id it replaces, and
+`**Superseded-by.**` on the losing entry — which is never deleted;
+`**Recurrence.**` — appended by the landing fence when the redundancy
+screen drops an independently re-derived duplicate (count plus citing
+packet ids; at the third independent arrival the entry opens a promotion
+obligation on the board — [`docs/FEDERATION.md`](FEDERATION.md) §8).
+
+**Growth law** (ADR-0010, documented convention): this file and the packs
+accrete without bound by design, and roll over like journals when they
+approach the blob gate — a volume chain (`LESSONS.v2.md`, with a back-link
+in the new volume's header) is the remedy, adopted as convention with an
+advisory threshold at 800000 bytes; the commit script's blob gate is the
+hard ceiling. Machine enforcement of the chain (an R10 analogue) is
+deliberately deferred until growth makes it worth a script change.
+
 Sections: **A** commit & journal discipline · **B** review discipline ·
 **C** campaign & blinding discipline · **D** CI & evidence discipline ·
 **E** communication & relay discipline · **F** org-topology lessons.

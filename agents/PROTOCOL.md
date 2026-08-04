@@ -397,6 +397,24 @@ candidate never self-assigns its final id.
 the criterion it failed named — failed candidates are the corpus a later
 harvest re-reads when the missing provenance or generality arrives.
 
+**The second altitude — the phase retrospective (ADR-0010).** Span tiling
+mines each journal entry exactly once, at one altitude, so recurrence
+across spans, agents, and projects is invisible to every individual miner —
+and recurrence is where meta-lessons live (one bounce is a war story; the
+third bounce of the same class is a tier-1 rule). At each
+`P<n>-phase-accept`, the **auditor** therefore runs one retrospective
+harvest over the phase's accumulated **harvest record** — its war stories,
+nil declarations, tier-3 landings, and bounce/`BUG-` packets — never over
+raw journal spans, which stay tiled and mined once. Its candidates enter
+the normal pipeline (classifier, bars, export packet) attributed to the
+auditor; its report lives in `docs/reports/audit/**` per §6, and the
+orchestrator transcribes its candidates into the gate's harvest block like
+any auditor verdict. The cross-project counterpart is the redundancy
+screen's **recurrence note** (`docs/FEDERATION.md` §8): independent
+re-derivation of an already-landed lesson is recorded as recurrence
+evidence, and at the third independent arrival the entry opens a promotion
+obligation — the collision machinery doubles as the meta-lesson detector.
+
 **Collation and export.** The orchestrator collates the round's harvest
 notes into the gate record and produces the **export packet** — the
 tier-classified candidates, each with a self-contained incident description

@@ -958,3 +958,83 @@ law references are seeded at C21. Round continues at C19.
 - agents/PROTOCOL.md
 - scripts/check_journals.sh
 - scripts/test_protocol.sh
+
+## [J-orchestrator-0019] 2026-08-04T20:22:00Z | task:none | C19 - ADR-0010: dedup, precedence, the growth law, and the meta-lesson mechanisms
+
+### Trigger
+The round continues: the loop-quality lens found no dedup or
+growth law at either fence, and the sponsor asked the cadence
+question directly - too-frequent harvesting misses big meta
+lessons, too-sparse misses small ones - then approved both
+mechanisms this commit lands.
+
+### Inputs
+agents/PROTOCOL.md 7.1 (war-stories paragraph, the insertion
+point); docs/FEDERATION.md 5 (harvest-law bullets) and 8 (the
+fourth screen landed at C18); docs/LESSONS.md header;
+docs/domains/README.md entry-format section; tasks/BOARD.md
+Decisions on record; the loop-quality report's dedup analysis
+(ten forks re-mine an identical inherited prefix) and its
+growth-law comparison against the journals' volume chains.
+
+### Reasoning
+- The dedup law rides the redundancy screen rather than adding a
+  fifth: the screen already reads the head per attempt, which is
+  the one place duplicates are visible; a similarity metric was
+  rejected as a counting metric in disguise.
+- Recurrence tracking converts collision waste into signal: a
+  dropped duplicate is independent re-derivation, the strongest
+  load-bearing evidence a lesson can have, so the third arrival
+  auto-opens a promotion obligation. The ledger is seeded on the
+  board now; the promotion channel's discharge law is the
+  read-path ADR later in this round.
+- The retrospective answers the sponsor's dilemma structurally:
+  span tiling mines each entry once at one altitude, so recurrence
+  across spans/agents/projects is invisible to every individual
+  miner. Two altitudes, two materials: per-gate mining stays on
+  raw spans; the auditor's phase retrospective mines the harvest
+  record itself. Auditor-owned because the orchestrator would
+  otherwise grade its own collation.
+- Growth law as documented convention, not machine enforcement:
+  55 KB against a 1 MB ceiling, a script-heavy round already, and
+  a one-line upgrade path later - the tradeoff is stated in the
+  ADR so convention is never mistaken for a check.
+- Fork-point baseline at B6 kills the duplicate factory at its
+  source instead of asking recurrence tracking to suppress it.
+
+### Actions
+Added the second-altitude clause and recurrence note to PROTOCOL
+7.1; the recurrence/supersede mechanics to FEDERATION 8 and the
+retrospective bullet to FEDERATION 5; optional fields and growth
+law to the LESSONS header and the pack skeleton; the
+amendment-obligations ledger to the board; authored ADR-0010;
+this commit.
+
+### Evidence
+No enforcement-semantics change (corpus verdict in ADR-0010):
+bash scripts/test_protocol.sh unchanged at "40 passed, 0 failed"
+at this tree. The seeding corpus holds 77 distinct entries with
+no duplicate pair to adjudicate - reproducible by reading
+docs/LESSONS.md section indices at this SHA.
+
+### Outcome
+The loop now has a dedup law, a contradiction adjudicator, a
+growth remedy, and both meta-lesson passes - the fine-grained
+per-gate harvest and the coarse-grained retrospective - plus the
+cross-project recurrence detector. Blocking finding 2 (dedup) and
+the sponsor's cadence question closed; findings on growth and
+first-harvest tiling closed. Round continues at C20.
+
+### Open-questions
+- The promotion obligation's discharge law (amendment ADR or
+  re-mark narrative-only) lands with the read-path ADR at C22;
+  until then the ledger exists with its discharge column defined
+  but no discharge yet possible.
+
+### Files-in-this-commit
+- agents/PROTOCOL.md
+- docs/FEDERATION.md
+- docs/LESSONS.md
+- docs/adr/ADR-0010-dedup-precedence-and-growth-law.md
+- docs/domains/README.md
+- tasks/BOARD.md

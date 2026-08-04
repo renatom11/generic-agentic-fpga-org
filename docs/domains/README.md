@@ -55,8 +55,9 @@ An empty pack is legitimate: it states its domain and waits.
 
 Each pack declares an **id prefix** in its header (e.g. `EN` for
 `ethernet-networking`); entries carry ids `<PREFIX>-nn`, numbered in file
-order, allocated at merge (FEDERATION §8.1 — a candidate never
-self-assigns). An entry uses the same skeleton as the core:
+order, allocated at the landing fence (FEDERATION §5.1 step 4 / §8.1
+step 4 — a candidate never self-assigns). An entry uses the same skeleton
+as the core:
 
 ```markdown
 ### <PREFIX>-nn — <short title>
@@ -64,7 +65,15 @@ self-assigns). An entry uses the same skeleton as the core:
 **Incident.** <self-contained description sufficient to judge LH2/LH3>
 **Now lives in.** <normative home, or "narrative only">
 **Provenance.** <source org · parent record id · packet path or permalink>
+**Supersedes.** <id this entry replaces — optional; the replaced entry
+gains **Superseded-by.** and is never deleted (ADR-0010)>
+**Recurrence.** <appended at the landing fence when a duplicate is
+dropped: count · citing packet ids — optional (ADR-0010)>
 ```
+
+Packs follow the same **growth law** as the core (ADR-0010, documented
+convention): volume-chain rollover as they approach the blob gate,
+advisory at 800000 bytes.
 
 ## Packs
 

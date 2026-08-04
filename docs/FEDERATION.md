@@ -116,6 +116,10 @@ Mechanics:
   there is no pressure to mint.
 - **No counting metric, ever.** A count cannot tell a harvest from a
   shrug; harvest quality is review-enforced, not tallied.
+- **The phase retrospective is part of the harvest.** At
+  `P<n>-phase-accept` the auditor's second-altitude harvest (PROTOCOL
+  §7.1) contributes its candidates to the same round: same classifier,
+  same bars, same export packet — landed like any others.
 
 The orchestrator collates the harvest notes into the gate record — the
 harvest block instantiates into the gate checklist automatically from
@@ -349,6 +353,19 @@ fence:
      land / merge-by-citation into the existing entry / drop as
      already-landed / escalate the contradiction (§5.1 step 3 records
      the disposition either way).
+
+   **Recurrence (ADR-0010).** A drop-as-already-landed is not discarded
+   evidence: the landing appends a `**Recurrence.**` note to the existing
+   entry (count plus the citing project/packet ids — an EOF append, like
+   everything else here). Independent re-derivation is the strongest
+   evidence a lesson is load-bearing; at the **third independent
+   arrival** the entry opens a promotion obligation on the landing
+   repo's board (the amendment-obligations ledger). A **contradiction**
+   is escalated to the fence's authority — the org's sponsor at the org
+   fence, the maintainer at the canonical fence — and resolved by a
+   `**Supersedes.**` field on the winning entry and a `**Superseded-by.**`
+   field on the losing one; the loser is never deleted (corrections
+   append; they never rewrite).
 3. **Merge authority — the one clause that differs per fence.** At the
    **canonical fence**, a human maintainer merges and **the merge is
    never automated**: LESSONS and the domain packs are
