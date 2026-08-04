@@ -240,11 +240,12 @@ Every module sign-off and every gate in that loop also carries a **lessons
 harvest** as a precondition: agents mine their own journals, the
 orchestrator collates the yield into the gate record, produces an export
 packet, and lands it in your organization's own generic — all automatic,
-instantiated by the orchestrator from
+instantiated by the orchestrator into every gate checklist — and by
+dv_lead into its own `SO-` packets (ADR-0013) — from
 [`docs/gates/templates/lessons-harvest-block.md`](docs/gates/templates/lessons-harvest-block.md)
-into every gate checklist and `SO-` packet
 ([`docs/FEDERATION.md`](docs/FEDERATION.md) §0, §5). You operate none of
-it. Your touchpoints are the gate signature you were already giving, and
+it. Your per-gate touchpoints are the gate signature you were already
+giving, and
 one yes/no on sending the newly-landed lessons onward to the canonical
 shell (default yes) — asked only at gates you sign; other records defer
 to the next one.

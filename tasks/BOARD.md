@@ -47,6 +47,10 @@ _None._
 
 ## Pending escalations to sponsor
 
+All three are class **E0 — founding** (PROTOCOL §8, ADR-0013): they exist
+only at G0, and under `Repo role: canonical-shell` they are shipped
+template state (ADR-0011).
+
 - **G0 ratification** — the sponsor ratifies the org: this protocol, the
   roster, the charters (or amends them before ratifying).
 - **Branch protection** — the sponsor configures branch protection on `main`

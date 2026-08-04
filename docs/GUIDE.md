@@ -49,13 +49,14 @@ The design goal, stated by the person this shell was built for (the
 
 Your entire job:
 
-- **Once, at setup**: ratify the org (read the charters, or just approve
-  them), set branch protection on GitHub (a five-minute settings task
-  with an exact click-path provided), and sign the project intake.
+- **Once, at setup** (class E0 — four items): ratify the org (read the
+  charters, or just approve them), set branch protection on GitHub (a
+  five-minute settings task with an exact click-path provided) with its
+  branch-flow decision, and sign the project intake.
 - **At gates**: read a decision-ready evidence bundle and sign — or ask
   questions until you can.
-- **When escalated to**: decide. Only six kinds of question may ever
-  reach you (scope changes, toolchain/licensing calls, critical audit
+- **When escalated to**: decide. After setup, only six kinds of question
+  may ever reach you (scope changes, toolchain/licensing calls, critical audit
   findings, deadlocks, schedule blowouts, gate approvals). Everything
   arrives batched, with options, a recommendation, and a cost.
 - **One recurring yes/no**: whether to share your organization's
@@ -125,9 +126,11 @@ section describes the graduation path.
    (§7), and the bookkeeping (all recorded so a future session can pick
    up where this one left off). You read it, correct it if needed, sign
    once.
-4. You do your two one-time duties when the checklist reaches them:
-   ratify the charters, and set branch protection (exact click-path in
-   [`docs/gates/G0-checklist.md`](gates/G0-checklist.md)).
+4. You complete the one-time setup when the checklist reaches it:
+   ratify the charters, and set branch protection with its branch-flow
+   decision (exact click-path in
+   [`docs/gates/G0-checklist.md`](gates/G0-checklist.md)) — with your
+   intake signature from step 3, the four-item E0 setup.
 5. Work begins. From here your involvement is §2's short list.
 
 This walkthrough is scripted in [`BOOTSTRAP.md`](../BOOTSTRAP.md) —

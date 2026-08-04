@@ -86,6 +86,12 @@ flowchart TD
 | `data_wrangler` | sonnet | dv_lead (logical) | [charter](agents/charters/data_wrangler.md) | [journal](agents/journals/workers/claude_data_wrangler_agent.md) | DORMANT — activated by a dv_lead work order when the project needs external stimulus data |
 | `formal_dv` | sonnet | dv_lead (logical) | [charter](agents/charters/formal_dv.md) | [journal](agents/journals/workers/claude_formal_dv_agent.md) | DORMANT — activated by a dv_lead work order when the project needs formal checks |
 
+**Federation duty (ADR-0009..0012)**: the orchestrator role is
+per-repository — at the org fence a session acts as the org generic's own
+orchestrator (FEDERATION §5.1), an identity that is single-holder-at-a-time
+(§5.2); gate harvests, export packets, and landings are orchestrator work
+at every level, and the auditor owns the phase retrospective (§7.1).
+
 Milestones: M0 bring-up (G0 intake, ratification, enforcement self-test) ·
 M1 toolchain ADR + specs · M2+ set at G0 intake — roadmap in
 [`tasks/BOARD.md`](tasks/BOARD.md). Contingent roles (e.g. a phase-scoped

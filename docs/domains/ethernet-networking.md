@@ -8,19 +8,23 @@ domain nouns admissible, project nouns barred ([`README.md`](README.md);
 PROTOCOL §7.1).
 
 **Id prefix.** `EN` — entries are `EN-nn`, numbered in file order,
-allocated at merge (README, "Pack entry format").
+allocated at the landing fence (FEDERATION §5.1 step 4 / §8.1 step 4;
+README, "Pack entry format").
 
-**Nothing here is normative.** Each entry names its normative home
+**Nothing here is directly normative** (entries reach work through the
+read path — ADR-0012). Each entry names its normative home
 (PROTOCOL §, ADR-000N of this shell, or a playbook) or says "narrative
 only" — the same rule as the core [`docs/LESSONS.md`](../LESSONS.md).
 
 ## Entries
 
 None yet. This pack is seeded empty: it declares its domain so intake can
-load it, and it expects its first entries from the origin program's first
-module sign-off harvest — the
+load it, and it expects its first entries from the first sponsor-signed gate that
+discharges the origin program's first module sign-off (`SO-` records
+defer — FEDERATION §7) — the
 [agentic-fpga program](https://github.com/renatom11/agentic-fpga), whose
 contributions arrive through the same pipeline as any other
 organization's ([`docs/FEDERATION.md`](../FEDERATION.md) §10): export
 packet, staged branch, reviewer-agent screening, human-maintainer merge.
-Pack-local entry ids are allocated at merge.
+Pack-local entry ids are allocated at the landing fence (FEDERATION
+§5.1 step 4 / §8.1 step 4).

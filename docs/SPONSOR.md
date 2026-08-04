@@ -10,13 +10,14 @@ Open [`tasks/BOARD.md`](../tasks/BOARD.md) → **"Pending escalations to
 sponsor"**. If that section is empty, nothing needs you. The orchestrator
 batches; it does not dribble.
 
-## The six things that can reach you
+## The things that can reach you
 
 Every contact from the orchestrator belongs to exactly one class
 (anything else is a process violation worth calling out):
 
 | Class | In plain language | Your move |
 |---|---|---|
+| **E0** | Founding only: "ratify the charters", "set branch protection + branch flow", "sign the intake" — the one-time setup below | Do them once; after G0, only E1–E6 exist |
 | **E1** | "A phase gate is ready — approve it?" | Read the evidence bundle, approve or ask |
 | **E2** | "Scope change proposed" (add/drop a requirement, phase, or role) | Decide |
 | **E3** | "Toolchain or licensing decision needed" | Decide |
@@ -38,14 +39,16 @@ packets to the next gate you do, so this question only ever rides a
 signature you were already giving. Nothing else about the lessons machinery
 ever reaches you.
 
-## Your one-time setup duty
+## Your one-time setup (class E0 — four items)
 
-**Branch protection** — G0 Section A, item A7 (exact click-path in
-[`docs/gates/G0-checklist.md`](gates/G0-checklist.md)). Until you do this,
-the append-only journal guarantee is enforced only by convention: an admin
-force-push could rewrite history. Five minutes, once. Item A8 (same
-checklist) is the one accompanying decision: whether the org works on `main`
-directly or through a working branch with milestone PRs.
+**Charter ratification** (A6), **branch protection** (A7 — exact
+click-path in [`docs/gates/G0-checklist.md`](gates/G0-checklist.md);
+until you do this, the append-only journal guarantee is enforced only by
+convention: an admin force-push could rewrite history — five minutes,
+once), the accompanying **branch-flow decision** (A8: whether the org
+works on `main` directly or through a working branch with milestone
+PRs), and the **intake signature** (Section B). All four exist only at
+G0; afterwards only E1–E6 reach you.
 
 ## Your standing (optional) power: canaries
 

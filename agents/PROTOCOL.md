@@ -391,7 +391,7 @@ Otherwise Tier 3, or a war story.
 
 - **LH1 — provenance-pinned**: cites the incident commit(s) and the
   adjudicating journal entry or packet.
-- **LH2 — vocabulary per grade**: LH2-g or LH2-d above, applied with the
+- **LH2 — generality at grade**: LH2-g or LH2-d above, applied with the
   provenance hidden.
 - **LH3 — stated failure**: says what breaks without the rule, in a form
   recognisable in someone else's repo.

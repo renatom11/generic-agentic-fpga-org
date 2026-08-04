@@ -10,9 +10,9 @@ None of it is sponsor-operated. The sponsor's requirement, in his words:
 of this infrastructure... it does the lesson stuff automatically, like most
 other things." The org declares and loads domain packs at intake, runs the
 harvest at every gate, and produces the export packet without being asked.
-The sponsor's touchpoints are exactly two: the gate signature they were
-already giving, and one yes/no on sending the upstream contribution
-(default yes).
+After the one-time E0 founding setup, the sponsor's per-gate touchpoints
+are exactly two: the gate signature they were already giving, and one
+yes/no on sending the upstream contribution (default yes).
 
 ## 0. The three levels
 
@@ -68,7 +68,8 @@ Three tiers, numbered by descending generality — the sponsor's words:
   admissible (protocol names, interface standards, algorithm families —
   Ethernet, CRC, lane encoding), project nouns still barred (module ids,
   requirement ids, signal names, repo file paths). Destination: a pack in
-  [`docs/domains/`](domains/), loaded by a project only when relevant —
+  [`docs/domains/`](domains/) — the org generic's at the inner hop (§5),
+  the canonical shell's on the outer (§7) — loaded by a project only when relevant —
   packs are declared automatically at intake, in the day-one proposal the
   org already produces.
 - **Tier 3 — project.** Needs project vocabulary; improves the running
@@ -81,7 +82,7 @@ A candidate at any tier clears all three:
 
 - **LH1 — provenance-pinned.** Cites the incident commit(s) and the
   adjudicating journal entry or packet.
-- **LH2 — generality, at grade.** LH2-g or LH2-d above, tested with the
+- **LH2 — generality at grade.** LH2-g or LH2-d above, tested with the
   provenance hidden (§3).
 - **LH3 — stated failure.** Says what breaks without the rule, in a form
   recognisable in someone else's repo.
@@ -108,7 +109,7 @@ numbering can never collide.
 ## 5. The harvest law
 
 Day-zero and per-gate: **every module sign-off and every phase gate carries
-a lessons harvest as a precondition** (the gates law, PROTOCOL §7).
+a lessons harvest as a precondition** (the gates law, PROTOCOL §7.1).
 Mechanics:
 
 - Each agent holding a persistent journal chain mines **its own journal**
@@ -436,7 +437,7 @@ stays green over the full history.
    sequence with a new section); a pack entry takes the pack's declared
    prefix and the next number in file order (each pack states its prefix
    in its header — see `docs/domains/README.md`, "Pack entry format").
-   This is where §4's "the shell allocates" happens; pack creation for a
+   This is §4's landing-fence allocation, at the canonical fence; pack creation for a
    candidate arguing a new pack is decided here too. Step **4b** applies
    at this fence exactly as at the org fence (§5.1): an accepted entry
    naming a normative home opens an amendment obligation on this repo's

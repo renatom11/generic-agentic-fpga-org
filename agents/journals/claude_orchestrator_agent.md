@@ -1441,3 +1441,80 @@ continues at C25.
 - docs/gates/templates/module-ready-checklist.md
 - docs/gates/templates/phase-accept-checklist.md
 - docs/playbooks/lessons-harvest.md
+
+## [J-orchestrator-0025] 2026-08-04T21:45:00Z | task:none | C25 - reader surfaces: the E0 setup formula, and the dangling-reference sweep
+
+### Trigger
+The round continues into its editorial tail: the five reader
+surfaces still carried five mutually inconsistent sponsor-effort
+counts, and the consistency lens's dangling references - a quote
+of deleted text, stale section cites, unfenced destination cells,
+three naming variants of one bar - were still live.
+
+### Inputs
+README.md 83/128; docs/GUIDE.md 52/57/128; docs/SPONSOR.md
+contact table and setup section; BOOTSTRAP.md 243/247;
+docs/FEDERATION.md 13/84/111/tier-2 bullet/439;
+agents/PROTOCOL.md 7.1 bar list; docs/domains/
+ethernet-networking.md 11/13/21/26; tasks/BOARD.md pending
+escalations; ORG_CHART.md roster tail; consistency findings 6, 7
+(closed at C20), 11, 18-21, 23.
+
+### Reasoning
+- One formula everywhere: a one-time four-item E0 setup (A6, A7,
+  A8, the intake signature), then two touchpoints per gate. The
+  five old counts each dropped a different item; under ADR-0002 an
+  overclaim about sponsor effort is a defect like any other
+  overclaim, and GUIDE contradicting itself 65 lines apart was the
+  worst instance.
+- The board's three seeded escalations get their E0 label plus the
+  ADR-0011 note that under canonical-shell they are template
+  state - a rehydrating maintainer session should not read them as
+  its own to-do list.
+- BOOTSTRAP's SO-instantiation sentence contradicted C24's
+  ownership split - a site the pass reports missed, found while
+  editing the adjacent line; fixed in the same sweep.
+- LH2 is one bar with one name now (generality at grade) in
+  FEDERATION and PROTOCOL; the block's per-grade row labels stay,
+  since they name the grades, not the bar.
+- The ethernet pack aligns with the round: landing-fence
+  allocation, deferred-sign-off arrival, and the two-channel
+  normativity statement - the pack is the first thing a foreign
+  contributor reads, so it must not teach the old law.
+
+### Actions
+Applied the setup formula to README, GUIDE, SPONSOR, BOOTSTRAP,
+and FEDERATION; added E0 to SPONSOR's contact table; labeled the
+board's escalations; fixed FEDERATION's stale 7-cite, deleted-text
+quote, and tier-2 destination cell; unified LH2 naming in
+FEDERATION and PROTOCOL; swept the ethernet pack; added
+ORG_CHART's federation-duty note; fixed BOOTSTRAP's
+SO-instantiation sentence; this commit.
+
+### Evidence
+grep sweeps at this tree: "exactly two" survives only inside the
+rescoped per-gate sentences; "the shell allocates" appears nowhere
+outside frozen journal history; "allocated at merge" gone from
+live docs; "(the gates law, PROTOCOL §7)" gone. bash
+scripts/test_protocol.sh unchanged at "43 passed, 0 failed".
+
+### Outcome
+Every reader surface now states the same sponsor contract, every
+cross-reference resolves to text that exists, and the first
+documents a stranger or contributor reads teach the round's law
+rather than its predecessors. Consistency findings 6, 11, 18-21,
+23 closed. The round closes at C26.
+
+### Open-questions
+- None.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- ORG_CHART.md
+- README.md
+- agents/PROTOCOL.md
+- docs/FEDERATION.md
+- docs/GUIDE.md
+- docs/SPONSOR.md
+- docs/domains/ethernet-networking.md
+- tasks/BOARD.md

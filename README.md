@@ -80,8 +80,9 @@ Run the enforcement self-test: `bash scripts/test_protocol.sh`.
 
 ## Getting started
 
-Three levels, two moves of yours
-([docs/FEDERATION.md](docs/FEDERATION.md) §0):
+Three levels; your part is a one-time four-item setup, then two
+touchpoints per gate ([docs/FEDERATION.md](docs/FEDERATION.md) §0;
+PROTOCOL §8 class E0):
 
 **Found your organization — once.** Fork this repository — the upstream
 original, called the **canonical shell** in these docs — or clone it and
@@ -125,9 +126,10 @@ project 2 forks.)
    into one proposal for your signature ([BOOTSTRAP.md](BOOTSTRAP.md)
    Section B, Path B); your resources then remain its project reference
    material.
-4. Do the two sponsor-only duties when the checklist reaches them:
-   ratify the charters and set branch protection (a GitHub settings
-   action).
+4. Do the sponsor-only setup when the checklist reaches it: ratify the
+   charters (A6) and set branch protection with its branch-flow decision
+   (A7/A8, a GitHub settings action) — with the intake signature from
+   step 3, that completes the one-time four-item E0 setup.
 
 The sponsor and the fresh orchestrator session walk G0 together;
 [BOOTSTRAP.md](BOOTSTRAP.md) is the script. G0 covers: org ratification (or
