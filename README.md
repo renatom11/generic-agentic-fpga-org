@@ -1,15 +1,25 @@
 # A reusable AI-agent organization for FPGA programs
 
-This repository is a cloned shell, not a finished project. It contains a
-complete agent organization for running an FPGA program — charters, an
-operating protocol, commit-enforcement machinery, spawn launchers, and seeded
-journals — with the project itself left as an explicit slot. A human sponsor
-and an orchestrator session fill that slot at the G0 intake, and the org then
-designs, verifies, validates, documents, and audits the program around it.
-It also harvests lessons at every gate: they land in your organization's
-own copy of this shell automatically, and are offered onward to the
-canonical shell with one yes/no from you, default yes
-([docs/FEDERATION.md](docs/FEDERATION.md)).
+Fork this repository and you get a **complete engineering organization,
+staffed by AI agents, with one empty slot: your project**. You describe
+what you want built; nine agents — an orchestrator, an architect, design
+and verification leads, workers, and an independent auditor — design it,
+verify it, document it, and audit themselves, bringing you only
+decisions. Every change ships with the reasoning that produced it, in an
+append-only record that CI re-verifies on every push; designs are signed
+off only after planted-defect campaigns prove the tests can catch real
+bugs; and your organization gets smarter with every project, because
+lessons are harvested at every gate and land in your own copy
+automatically — with one yes/no from you (default yes) on sharing them
+onward to the community ([docs/FEDERATION.md](docs/FEDERATION.md)).
+
+**New here? Read [the User Guide](docs/GUIDE.md)** — everything
+explained for a first-time reader, no FPGA (field-programmable gate
+array — a chip whose hardware you define with code) or AI expertise
+assumed. If
+you'll be the human in charge, your one-page job description is
+[docs/SPONSOR.md](docs/SPONSOR.md).
+
 The org design and its enforcement machinery were distilled from the
 [agentic-fpga program](https://github.com/renatom11/agentic-fpga), where they
 were proven in operation.
@@ -18,7 +28,8 @@ were proven in operation.
 
 Filled at G0 intake — see [BOOTSTRAP.md](BOOTSTRAP.md). The table below is the
 canonical statement of scope, phases, and success criteria (PROTOCOL §1);
-it changes only by sponsor decision (E2).
+it changes only by sponsor decision (escalation class E2 — a scope
+change).
 
 | Phase | Scope | Success criteria |
 |---|---|---|
@@ -36,7 +47,8 @@ escalation rules. Shared rules live in
 ## The journaling guarantee
 
 Every agent keeps an **append-only journal**
-(`agents/journals/claude_<name>_agent.md`, a volume chain per PROTOCOL §4.3)
+(`agents/journals/claude_<name>_agent.md` — workers under
+`agents/journals/workers/` — a volume chain per PROTOCOL §4.3)
 and every commit couples one agent's work with that agent's journal entry
 explaining it — mechanically enforced by
 [`scripts/agent_commit.sh`](scripts/agent_commit.sh) and re-verified over
@@ -63,19 +75,22 @@ Run the enforcement self-test: `bash scripts/test_protocol.sh`.
 Three levels, two moves of yours
 ([docs/FEDERATION.md](docs/FEDERATION.md) §0):
 
-**Found your organization — once.** Fork this repository (or clone it and
-push to a new repo of your own). That copy is your **org generic**: your
+**Found your organization — once.** Fork this repository — the upstream
+original, called the **canonical shell** in these docs — or clone it and
+push to a new repo of your own. That copy is your **org generic**: your
 team's own ecosystem, where lessons from all your projects accumulate. It
 runs no project itself. Do **not** use GitHub's "Use this template"
 button: it squashes history into a single commit, and this repository's
 commit history is load-bearing — the journal-check CI verifies the whole
-chain, and a squashed history fails it by design. (A solo run of a single
-project may treat the project copy below as both levels: it then holds
+chain, and a squashed history fails it by design. (Working alone on a
+single project? Your one project fork may play both roles: it then holds
 the org-generic role for federation — its upstream line stays the
 canonical shell, its lessons land in itself. If a second project ever
-becomes likely, found the real org generic first: graduation later means
-forking this shell fresh and landing the solo copy's accumulated lessons
-into it through the org-fence pipeline before project 2 forks.)
+becomes likely, found the real org generic first: graduating later means
+forking this shell fresh and landing your solo copy's accumulated
+lessons into it — via the same screened-landing procedure lessons
+normally use ([docs/FEDERATION.md](docs/FEDERATION.md) §5.1) — before
+project 2 forks.)
 
 **To start each project:**
 
@@ -83,8 +98,9 @@ into it through the org-fence pipeline before project 2 forks.)
    per project. It boots with everything your organization has learned:
    the accumulated core lessons and the domain packs your intake
    declares. Inheritance is fixed at the fork point — a running project
-   does not refresh from the org generic mid-flight; lessons landed by
-   sibling projects reach it only through its own next fork, by design.
+   does not refresh from the org generic mid-flight; sibling projects'
+   lessons reach your work only when you next fork the org generic, by
+   design.
 2. Open a Claude Code session on your fork, on any machine, and say:
    *"Read CLAUDE.md — you are this repository's orchestrator. Walk me
    through G0."*
@@ -111,6 +127,8 @@ and their license classes. Until the intake is recorded on
 ```
 BOOTSTRAP.md          the G0 walk-through: sponsor + orchestrator fill the project slot
 CLAUDE.md             orchestrator session bootstrap (rehydration order, iron rules)
+docs/GUIDE.md         the user guide — start here if any of this is new to you
+docs/SPONSOR.md       the sponsor's one-page job description
 ORG_CHART.md          the org: chart, roster, execution model
 agents/
   PROTOCOL.md         shared operating constitution (journals, commits, gates)
@@ -121,10 +139,10 @@ docs/
   adr/                architecture decision records (constitution ADRs seeded)
   gates/              committed gate checklists (signatures = journal refs)
   specs/              module specs and REQ-### requirements (fills after intake)
-  reports/audit/      auditor findings, DV-escape ledger
-  reports/dv/         DV validation and performance reports
+  reports/audit/      auditor findings + the ledger of bugs that escaped verification
+  reports/dv/         verification and performance reports (DV = design verification; fills at the first report)
 scripts/              protocol enforcement + self-test
 tasks/BOARD.md        live program state
 .claude/agents/       thin spawn launchers (charters remain the truth)
-rtl/ test/ tools/     created as the program builds (M1+)
+rtl/ test/ tools/     created as the program builds, from the first work phase on (RTL = the hardware design source code)
 ```

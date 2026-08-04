@@ -750,3 +750,56 @@ two-touchpoint bar holds at every level.
 - docs/gates/templates/spec-freeze-checklist.md
 - docs/playbooks/lessons-harvest.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0016] 2026-08-08T14:40Z
+
+### Context
+The sponsor: "I think a comprehensive user guide would be super good to
+have. This should be baked into the instructions shipped with the
+product, maybe the readme... make the readme understandable for a wide
+audience."
+
+### Actions
+- docs/GUIDE.md (new): the user guide for a first-time reader with no
+  FPGA or AI background — what this is (the nine-agent roster in plain
+  one-liners), the sponsor's deliberately tiny job, the three levels,
+  the first session step by step, phases and gates, the four trust
+  mechanisms stated at their honest strength, the lessons system, a
+  common-situations section, and a map naming which document governs
+  what ("this guide explains; the protocol governs").
+- README.md: intro rewritten as the wide-audience front door (what you
+  get, in plain terms, with the guide and SPONSOR.md linked before
+  anything else); acronyms expanded at first use; the solo-run
+  parenthetical de-jargoned; the worker-journal path corrected; the
+  reports/dv and rtl/test/tools map lines annotated honestly.
+- Verified by a two-lens round (a cold reader role-playing a non-hardware
+  PM + an accuracy checker against the tree): 3 blocking + 14 minor, all
+  applied. The blocking three were mine to own: the roster table said
+  the auditor "plants nothing" while §6 said it plants defects (now: it
+  fixes nothing — the true invariant); and §6 claimed all four trust
+  mechanisms are mechanical when the read-side separation is
+  audit-enforced and the history guarantee is conditional on the
+  sponsor's branch-protection duty — both now stated at the strength
+  the repository actually enforces.
+
+### Evidence
+protocol self-test 38/38; zero broken relative links in both files
+(scripted sweep); the verification findings enumerated in the workflow
+result, each fix re-read in place.
+
+### Outcome
+The shipped product now explains itself to a stranger at every depth:
+README (what and why, one screen) → GUIDE (how, for anyone) → SPONSOR
+(your one page) → the governing documents. Per the sponsor's
+convolution concern, the shell is feature-frozen after this commit:
+no new law until the first harvest transits at the origin program's
+first module sign-off; a deletion-only simplification pass follows that
+transit.
+
+### Open-questions
+- The deletion-only pass (rules merged, echoes collapsed to citations)
+  is queued behind the first harvest transit, deliberately.
+
+### Files-in-this-commit
+- README.md
+- docs/GUIDE.md
