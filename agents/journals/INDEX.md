@@ -11,7 +11,7 @@ state, and each journal's tail is its own source of truth.
 
 | Agent | Journal | Last entry | State |
 |---|---|---|---|
-| orchestrator | [claude_orchestrator_agent.md](claude_orchestrator_agent.md) | J-orchestrator-0009 | Seeding complete; awaiting the operating session — M0 bring-up |
+| orchestrator | [claude_orchestrator_agent.md](claude_orchestrator_agent.md) | J-orchestrator-0026 | Canonical shell, maintainer mode (ADR-0011); federation-hardening round ADR-0008..0013 complete; feature freeze re-engaged pending the first harvest transit |
 | architect_docs_lead | [claude_architect_docs_lead_agent.md](claude_architect_docs_lead_agent.md) | — | Seed only; first spawn after G0 intake |
 | rtl_lead | [claude_rtl_lead_agent.md](claude_rtl_lead_agent.md) | — | Seed only; first spawn after G0 intake |
 | dv_lead | [claude_dv_lead_agent.md](claude_dv_lead_agent.md) | — | Seed only; first spawn after G0 intake |

@@ -17,7 +17,8 @@ Entries arrive here through the per-gate lessons harvest (PROTOCOL §7.1)
 and through reviewed contributions from other organizations
 ([`docs/FEDERATION.md`](FEDERATION.md)): staged on a branch, screened by
 the reviewer agent, merged by a human maintainer — never automatically —
-with core `L-` ids allocated at merge.
+with core `L-` ids allocated at the landing fence
+([FEDERATION](FEDERATION.md) §4).
 
 **Nothing here is directly normative — entries reach work through two
 channels** (ADR-0012). Routine: a work order's **Standing lessons in

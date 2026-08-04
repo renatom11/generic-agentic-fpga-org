@@ -93,9 +93,9 @@ template state (ADR-0011).
   channel rides the same ledger): _none open_. One line per obligation:
   entry id · opened by (landing / recurrence) · discharged by ADR-NNNN or
   re-marked narrative-only.
-- **Feature freeze (J-orchestrator-0016) and its override**: the shell was
-  declared feature-frozen at C16 — no new law until the first harvest
-  transits. The sponsor directed the federation-hardening round
-  (ADR-0008..0013, 2026-08-04), overriding the freeze for that round only;
-  the override's end condition is the round's closing commit, which
-  re-engages the freeze in the same commit (ADR-0008).
+- **Feature freeze (J-orchestrator-0016): RE-ENGAGED.** The
+  sponsor-directed federation-hardening round (ADR-0008..0013,
+  2026-08-04) ran under a scoped override and closed at C26 — its end
+  condition (ADR-0008). No new law lands until the first harvest
+  transits; the deletion-only simplification pass stays queued behind
+  that transit.

@@ -1518,3 +1518,69 @@ rather than its predecessors. Consistency findings 6, 11, 18-21,
 - docs/SPONSOR.md
 - docs/domains/ethernet-networking.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0026] 2026-08-04T21:55:00Z | task:none | C26 - round closed: verification record, index refresh, freeze re-engaged
+
+### Trigger
+The federation-hardening round's closing commit: every planned
+commit C17-C25 has landed, and ADR-0008's override end condition
+- the freeze re-engaging in the round's final commit - comes due
+here.
+
+### Inputs
+agents/journals/INDEX.md (stale at 0009, its own regeneration
+recipe); tasks/BOARD.md freeze bullet; docs/LESSONS.md line 20
+(the one sweep straggler the closing verification caught);
+the full verification run recorded under Evidence.
+
+### Reasoning
+- INDEX refreshes at a boundary as its header prescribes, and the
+  boundary is this round's close; its orchestrator row now states
+  the repo's operating truth (canonical shell, maintainer mode)
+  so a rehydrating session's best-effort aid agrees with the role
+  line it will read first.
+- The freeze re-engages exactly as ADR-0008 promised - in the
+  round's closing commit - so the override was scoped in fact,
+  not only in text. The deletion-only pass C16 queued stays
+  queued behind the first harvest transit.
+- The LESSONS header straggler is fixed in this commit rather
+  than left for a follow-up: the closing verification exists to
+  catch exactly this, and a round that ships its own sweep
+  failure would be the pattern the round was called to end.
+
+### Actions
+Refreshed INDEX's orchestrator row; re-engaged the freeze on the
+board; fixed the LESSONS landing-fence phrase; this commit; push
+and CI verification follow immediately.
+
+### Evidence
+Closing verification at C25's tree (re-runnable at this SHA minus
+this commit's three files): bash scripts/test_protocol.sh -
+"protocol self-test: 43 passed, 0 failed"; bash
+scripts/check_journals.sh --all - "OK: 25 commit(s) satisfy the
+journal/commit protocol" with exactly 6 WARN-GRAMMAR advisory
+lines (two each on C14-C16, per ADR-0013's corpus prediction);
+relative-link sweep over every .md in the tree - 0 broken;
+grep sweeps - "allocated at merge" and "obey at boot" survive
+only as the LESSONS straggler fixed here and ADR-0012's
+quotation of the removed claims; charter harvest-cites to bare
+"§7": none. Post-commit, the same suite re-runs in CI on the
+push.
+
+### Outcome
+The round is closed: ADR-0008..0013 adopted, six loop-breaking
+defects fixed, the serialize-by-redo law enforced and proven, the
+installer identity mechanical, the read path real, both
+meta-lesson passes law, 43 self-test asserts green, and the
+freeze back in force. The shell returns to waiting - for a fork's
+G0, a foreign inbox PR, or the origin program's first harvest
+transit.
+
+### Open-questions
+- The deletion-only simplification pass remains queued behind the
+  first harvest transit (C16's plan, unchanged).
+
+### Files-in-this-commit
+- agents/journals/INDEX.md
+- docs/LESSONS.md
+- tasks/BOARD.md
