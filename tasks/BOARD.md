@@ -98,4 +98,12 @@ template state (ADR-0011).
   2026-08-04) ran under a scoped override and closed at C26 — its end
   condition (ADR-0008). No new law lands until the first harvest
   transits; the deletion-only simplification pass stays queued behind
-  that transit.
+  that transit. **In a fork this line is re-scoped at founding**
+  (BOOTSTRAP Stage 0 step 5, or B6 for a solo-collapsed copy) to: *no
+  new law until this repository's first lessons landing completes* — the
+  shell-history wording above never binds a fork as written.
+- **Upstream defect channel**: shell defects — wrong claims, broken
+  steps, gaps found while operating this copy — file as **GitHub issues
+  on the federation upstream** (line above); they never travel through
+  the lessons pipeline. Local defect log (one line per defect: date ·
+  one-line summary · upstream issue URL): _none yet_.

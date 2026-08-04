@@ -248,6 +248,16 @@ the next one. It boots with everything the last project taught your
 organization. (A project's knowledge is fixed when it's forked —
 running projects don't absorb siblings' lessons mid-flight, by design.)
 
+**"Something in the shell itself seems wrong or broken."** File it as a
+GitHub issue on the canonical shell (the upstream your board names).
+Defects travel as issues; lessons travel through the pipeline — your
+orchestrator knows the difference and keeps a local defect log.
+
+**"The orchestrator asked me a process question."** It shouldn't have —
+the boot path is fully determined, and the only things it may ask you
+for are your project material and the one-time founding actions. A
+process question *is* a shell defect: file it.
+
 **"What does this cost me to ignore?"** The machinery runs whether or
 not you watch it. The only things that stall without you are the things
 that *should*: gate signatures and the six escalation classes.

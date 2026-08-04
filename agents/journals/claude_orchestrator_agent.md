@@ -1584,3 +1584,86 @@ transit.
 - agents/journals/INDEX.md
 - docs/LESSONS.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0027] 2026-08-04T22:40:00Z | task:none | C27 - zero-question founding: the boot path answers its own questions
+
+### Trigger
+Sponsor directive after the first live fork: the founding session
+in their org generic came back with two process questions - how
+defect feedback reaches the shell, and what to do with the
+inherited freeze whose end condition a fork cannot observe. The
+sponsor's requirement: a fork given any vague prompt knows exactly
+what to do; process questions at boot are themselves defects.
+
+### Inputs
+The fork session's two questions verbatim (relayed by the
+sponsor); CLAUDE.md iron rules; BOOTSTRAP Stage 0; tasks/BOARD.md
+freeze bullet; docs/gates/G0-checklist.md rows A8 and B6;
+README.md Getting started; docs/GUIDE.md 8; PROTOCOL 11's law
+list (for the freeze-legality analysis below).
+
+### Reasoning
+- Both questions existed because the tree left decisions
+  unanswered; the fix answers them in the tree rather than
+  training sponsors to answer them per fork. Defects: GitHub
+  issues on the federation upstream, outside the pipeline -
+  LH2's vocabulary bars are load-bearing for lessons and exactly
+  wrong for defect reports, so the channels must never mix.
+  Freeze: re-scoped at founding to the role-independent observable
+  form (no new law until this repository's first lessons landing
+  completes) - which preserves the freeze's intent for the fork's
+  own highest-risk window instead of discarding it as n/a, and
+  prevents local law patches diverging a fork from the shell
+  mid-trial.
+- The no-process-questions rule is stated as an iron rule with a
+  self-referential enforcement: needing to ask is itself a shell
+  defect to file. The two legitimate asks (intake material, E0
+  actions) are enumerated so the rule is checkable.
+- A8 gains a default (single-branch) because an open-ended
+  either/or at founding was the last optional decision on the
+  boot path; the sponsor's signature still covers it, so
+  authority is unchanged - only the question is gone.
+- Freeze legality: all six touched files sit outside 11's law
+  list (protocol, charters, scripts, FEDERATION.md,
+  docs/gates/templates, playbooks, domains law) - this is
+  maintainer documentation-and-state work under the sponsor's
+  direction, not new law. Promoting the defect channel into
+  FEDERATION proper is queued behind the freeze lift.
+
+### Actions
+Added the boot-determinism and defect-channel iron rules to
+CLAUDE.md; inserted Stage 0 steps 5-6 (freeze re-scope, defect
+channel) and the solo B6 routing; added the fork clause to the
+board's freeze bullet and the upstream-defect-channel bullet;
+defaulted A8 and extended B6 in the G0 checklist; added the
+channel one-liner to README and two common-situations entries to
+GUIDE 8; this commit.
+
+### Evidence
+bash scripts/test_protocol.sh at this tree: "protocol self-test:
+43 passed, 0 failed" (no script changes). Boot walk at this tree:
+for each role line value, CLAUDE.md's branch names one
+deterministic sequence, Stage 0 and B6 leave no unanswered
+decision, and the two asks the rule permits are the only asks any
+document makes of the sponsor. Link targets in all six files
+resolve.
+
+### Outcome
+A fork's first session now finds every process answer in the
+tree: defects have a channel, the inherited freeze re-scopes
+itself at founding, A8 has a default, and asking a process
+question is itself classified as a defect to file. The sponsor's
+zero-question requirement is recorded law-adjacent doctrine ready
+to promote into FEDERATION when the freeze lifts.
+
+### Open-questions
+- Promotion of the defect-channel doctrine into FEDERATION proper
+  is queued behind the freeze lift (first landing transit).
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- README.md
+- docs/GUIDE.md
+- docs/gates/G0-checklist.md
+- tasks/BOARD.md

@@ -34,6 +34,22 @@ Read, in order:
   the org generic automatically at sponsor-signed gates
   (`docs/FEDERATION.md` §0, §5) — the sponsor's only part is one yes/no
   on sending it onward to the canonical shell.
+- **The boot path is fully determined.** The role line decides what
+  happens, and the human's phrasing never overrides it — "investigate
+  the project", "get started", or silence all resolve to the same
+  role-determined sequence below. You never ask the sponsor a process
+  question; the tree answers them all. The only things you may ask for:
+  intake material (project role, at G0) and the E0 founding actions. If
+  you find yourself needing to ask anything else, that is a shell
+  defect — file it (next bullet) and take the tree's most conservative
+  reading.
+- **Shell defects are issues, not lessons.** A wrong claim, broken step,
+  or gap in the shell found while operating any copy is filed as a
+  GitHub issue on the **federation upstream** named on the BOARD, and
+  appended to the BOARD's defect-log line. Never route a defect through
+  the lessons pipeline (it is not a lesson — LH2 bars the specificity a
+  defect report needs), and never patch law locally while the freeze
+  holds.
 
 ## First session — which repository am I in?
 

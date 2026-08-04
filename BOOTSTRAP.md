@@ -34,13 +34,24 @@ checklist, run by the founding session before anything forks from it:
    `bash scripts/check_journals.sh --all` green.
 4. **Record the role**: set the board's **Repo role** line to
    `org-generic`; the federation-upstream line stays the canonical shell.
-5. **Stop.** An org generic runs no project and answers no intake — it
+5. **Re-scope the freeze**: rewrite the board's feature-freeze bullet to
+   this repository's own observable end condition — *"No new law in this
+   repository until its first lessons landing completes
+   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.1)"*. The inherited
+   shell-history wording references events this fork cannot observe and
+   never binds it as written.
+6. **Seed the defect channel**: confirm the board's upstream-defect
+   bullet points at the federation upstream's issue tracker; the local
+   defect log starts empty. Shell defects travel as issues; lessons
+   travel through the pipeline — never mix the channels.
+7. **Stop.** An org generic runs no project and answers no intake — it
    waits to be forked from, and receives its projects' landings
    ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.1).
 
 A solo-collapsed copy (README's Getting Started) skips Stage 0: its one
 repo is founded as a project below, with the role line `solo-collapsed`
-and the `fed/**` ruleset noted at the A7 click-path.
+and the `fed/**` ruleset noted at the A7 click-path — and steps 5–6 (the
+freeze re-scope and defect channel) run at B6 instead.
 
 ## Stage 1 — G0: ratify the org, fill the project slot
 

@@ -131,6 +131,10 @@ project 2 forks.)
    (A7/A8, a GitHub settings action) — with the intake signature from
    step 3, that completes the one-time four-item E0 setup.
 
+Found a problem with the shell itself while running your copy? **File an
+issue on the canonical shell** — defects travel as GitHub issues, lessons
+travel through the federation pipeline; the two channels never mix.
+
 The sponsor and the fresh orchestrator session walk G0 together;
 [BOOTSTRAP.md](BOOTSTRAP.md) is the script. G0 covers: org ratification (or
 amendment before ratification), branch protection on `main` and the working
