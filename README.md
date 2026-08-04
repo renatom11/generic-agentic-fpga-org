@@ -21,6 +21,8 @@ community's shared lessons ([docs/FEDERATION.md](docs/FEDERATION.md) §0;
 ADR-0011). Which kind of copy a session is in is written on its board —
 the **Repo role** line — and the orchestrator reads it before acting.
 
+**Why this exists — the full story: [the Manifest](docs/MANIFEST.md).**
+
 **New here? Read [the User Guide](docs/GUIDE.md)** — everything
 explained for a first-time reader, no FPGA (field-programmable gate
 array — a chip whose hardware you define with code) or AI expertise

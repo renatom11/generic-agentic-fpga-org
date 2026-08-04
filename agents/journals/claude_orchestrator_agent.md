@@ -1667,3 +1667,52 @@ to promote into FEDERATION when the freeze lifts.
 - docs/GUIDE.md
 - docs/gates/G0-checklist.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0028] 2026-08-04T23:05:00Z | task:none | C28 - the Manifest: why this exists, shipped and linked
+
+### Trigger
+Sponsor request: a full manifest of the project's purpose - why it
+exists and what it does - committed as docs/MANIFEST.md and linked
+from the README.
+
+### Inputs
+The manifest text drafted with the sponsor in-session; README.md
+intro (link placement); the documents the manifest cites
+(GUIDE, SPONSOR, FEDERATION, LESSONS, PROTOCOL, ORG_CHART,
+CLAUDE.md, adr/, domains/) - each verified present.
+
+### Reasoning
+- The manifest answers the question the README's one-screen intro
+  cannot afford to: why the design is shaped this way - trust as
+  the hard problem, organization over prompting, compounding as
+  the experiment. It explains; GUIDE instructs; PROTOCOL governs -
+  the map of documents keeps one clear division of labor.
+- Written evergreen: it states the shell's own audited-and-frozen
+  state and the defects-are-issues channel, but carries no
+  session-specific or dated claims that would rot.
+- Freeze legality: a new docs/ file plus a README link line -
+  neither in S11's law list; maintainer documentation work under
+  sponsor direction.
+
+### Actions
+Authored docs/MANIFEST.md; added the README link line above the
+User Guide pointer; verified every relative link resolves; this
+commit; push.
+
+### Evidence
+Link check at this tree: every relative target in MANIFEST.md and
+README.md exists (script in the round's verification style,
+output all OK). bash scripts/test_protocol.sh unchanged at "43
+passed, 0 failed".
+
+### Outcome
+The product now explains its purpose at full depth one link from
+the front door: README (what, one screen) -> MANIFEST (why) ->
+GUIDE (how) -> SPONSOR (your job) -> the governing documents.
+
+### Open-questions
+- None.
+
+### Files-in-this-commit
+- README.md
+- docs/MANIFEST.md
