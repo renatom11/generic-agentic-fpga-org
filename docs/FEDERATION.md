@@ -184,6 +184,14 @@ gate id, or the `SO-` id of a deferred packet).
 4. **Transcribe** accepted candidates into the org generic's
    `docs/LESSONS.md` / pack entry formats, allocating final ids at this
    fence (§4) **against this attempt's head**.
+   - **4b — the promotion obligation (ADR-0012).** A transcribed entry
+     whose `Now lives in` names a protocol section, charter, playbook, or
+     packet template opens a recorded **amendment obligation** on the
+     landing repo's board (the amendment-obligations ledger), in the same
+     commit as the transcription. The entry is not fully landed until the
+     amendment ADR lands or the entry is re-marked "narrative only" — the
+     read path's structural channel, and the discharge route for
+     recurrence-opened obligations (§8, ADR-0010).
 5. **Integrate fast-forward-only**: update the org generic's working
    branch to the staging tip with a fast-forward push
    (`git push origin <staging-tip>:<working-branch>` or
@@ -429,7 +437,11 @@ stays green over the full history.
    prefix and the next number in file order (each pack states its prefix
    in its header — see `docs/domains/README.md`, "Pack entry format").
    This is where §4's "the shell allocates" happens; pack creation for a
-   candidate arguing a new pack is decided here too.
+   candidate arguing a new pack is decided here too. Step **4b** applies
+   at this fence exactly as at the org fence (§5.1): an accepted entry
+   naming a normative home opens an amendment obligation on this repo's
+   board in the same commit, and is not fully landed until the amendment
+   ADR lands or the entry is re-marked "narrative only" (ADR-0012).
 5. **Merge, by hand — then close the PR.** The human maintainer reads the
    staging branch's full diff — packet, screening report, transcriptions —
    and merges **the staging branch** — fast-forward or a merge commit

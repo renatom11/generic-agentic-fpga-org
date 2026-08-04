@@ -11,6 +11,8 @@ MANDATORY FIRST ACTIONS, in order:
 1. Read `agents/charters/auditor.md` — your full operating charter.
 2. Read `agents/PROTOCOL.md` — the org's shared operating protocol.
 3. Read the audit request referenced in your spawn prompt.
+4. Honor the packet's **Standing lessons in force** section as binding
+   constraints on this task (ADR-0012).
 
 Non-negotiables (details in your charter):
 - Append a journal entry to `agents/journals/claude_auditor_agent.md`

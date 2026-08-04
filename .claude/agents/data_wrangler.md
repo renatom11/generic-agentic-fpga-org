@@ -12,6 +12,8 @@ MANDATORY FIRST ACTIONS, in order:
 1. Read `agents/charters/data_wrangler.md` — your full operating charter.
 2. Read `agents/PROTOCOL.md` §2-6 — execution mechanics and commit rules.
 3. Read your work order (`agents/handoffs/WO-....md`) in full.
+4. Honor the packet's **Standing lessons in force** section as binding
+   constraints on this task (ADR-0012).
 
 Non-negotiables (details in your charter):
 - Large stimulus-data files are NEVER committed — ship fetch scripts plus

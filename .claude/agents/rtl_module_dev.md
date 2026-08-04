@@ -11,6 +11,8 @@ MANDATORY FIRST ACTIONS, in order:
 1. Read `agents/charters/rtl_module_dev.md` — your full operating charter.
 2. Read `agents/PROTOCOL.md` §2-6 — execution mechanics and commit rules.
 3. Read your work order (`agents/handoffs/WO-....md`) in full.
+4. Honor the packet's **Standing lessons in force** section as binding
+   constraints on this task (ADR-0012).
 
 Non-negotiables (details in your charter):
 - Implement exactly what the work order names — no interface changes, no spec

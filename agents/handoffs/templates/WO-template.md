@@ -15,6 +15,10 @@
 - **Context provided**: <the exact files/excerpts handed to the assignee —
   a tb_writer WO deliberately omits RTL source (PROTOCOL §10); state what was
   deliberately withheld, not only what was given>
+- **Standing lessons in force**: <entry ids from the `docs/LESSONS.md` core
+  and the BOARD-declared packs that bind this task, each with a one-line
+  statement of what it requires here — filled by the issuing lead
+  (ADR-0012); "none apply" is declared, never omitted>
 - **Out of scope**: <explicit exclusions — what a reasonable assignee might
   do and must not>
 

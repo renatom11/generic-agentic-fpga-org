@@ -19,9 +19,16 @@ and through reviewed contributions from other organizations
 the reviewer agent, merged by a human maintainer — never automatically —
 with core `L-` ids allocated at merge.
 
-**Nothing here is normative.** Each entry names its normative home
-(PROTOCOL §, ADR-000N of this shell, or a playbook) or says "narrative
-only". The entries below are the seeding harvest — the operating record
+**Nothing here is directly normative — entries reach work through two
+channels** (ADR-0012). Routine: a work order's **Standing lessons in
+force** section, filled by the issuing lead from this core and the
+BOARD-declared packs, binds the entries it cites for that task.
+Structural: an entry whose normative home names a protocol section,
+charter, playbook, or template carries an **amendment obligation**
+(FEDERATION §5.1/§8.1 step 4b) — it graduates into the documents agents
+already must read, or is re-marked "narrative only". Each entry names its
+normative home (PROTOCOL §, ADR-000N of this shell, or a playbook) or
+says "narrative only". The entries below are the seeding harvest — the operating record
 this shell was distilled from. Citations are permalinks into the public
 [agentic-fpga program](https://github.com/renatom11/agentic-fpga), pinned at
 commit `1799e10a37f19059ac3337982af4b6d035e14d0c` (the seeding pin; one

@@ -38,7 +38,9 @@ gate signature (§5); in the **canonical shell**, they arrive from
 organizations' outer-hop PRs — staged, screened by the reviewer agent
 (the LH bars, teach-don't-instruct, leak screening), and merged by a
 human maintainer, **never automated**, because packs, like the core, are
-constitution-adjacent text that future agents read and obey at boot.
+constitution-adjacent text that reaches future agents' work through the
+read path — work-order standing-lessons sections and promoted amendments
+(ADR-0012).
 Pack-local entry ids are allocated at the landing fence; nobody edits a
 pack directly. This shell's own origin program contributes through the
 same pipeline as any other organization (FEDERATION §10).

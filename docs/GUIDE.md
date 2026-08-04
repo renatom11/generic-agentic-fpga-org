@@ -219,7 +219,9 @@ stays home and nothing else changes. Sharing opens a pull request; a
 human maintainer screens it and re-lands accepted lessons **by hand,
 always**, through the shell's own commits — the PR itself is never
 merged, and no machine ever lands a contributed lesson unreviewed,
-because contributed lessons become instructions future agents obey.
+because contributed lessons reach future agents' working instructions —
+through the work orders that cite them and the amendments that promote
+them (ADR-0012) — so a poisoned lesson would eventually reach real work.
 
 ## 8. Common situations
 

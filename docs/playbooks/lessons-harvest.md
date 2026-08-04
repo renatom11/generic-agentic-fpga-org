@@ -152,10 +152,13 @@ reviewer agent (the four screens of §8: the LH bars,
 teach-don't-instruct, leak, redundancy),
 transcribes accepted candidates, and a **human maintainer merges the
 staging branch — never automated**: `docs/LESSONS.md` and the domain
-packs are constitution-adjacent text future agents read and obey at boot,
-so a foreign contribution is a prompt-injection surface, and the human at
-the merge is a permanent property of the pipeline. The orchestrator's
-duty ends at the PR; final id allocation happens at merge.
+packs are constitution-adjacent text that reaches future agents' work
+through the read path (work-order standing-lessons sections and promoted
+amendments, ADR-0012), so a foreign contribution is a prompt-injection
+surface, and the human at the merge is a permanent property of the
+canonical fence. The orchestrator's duty ends at the PR; final id
+allocation happens at merge, and an accepted entry naming a normative
+home opens the §8.1 step-4b amendment obligation there.
 
 ## Hygiene
 

@@ -1198,3 +1198,86 @@ majors F11/F19, 2.2/2.3/3.1 closed. Round continues at C22.
 - docs/gates/templates/lessons-harvest-block.md
 - docs/playbooks/lessons-harvest.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0022] 2026-08-04T21:00:00Z | task:none | C22 - ADR-0012: the read path - standing lessons in force, and the promotion obligation
+
+### Trigger
+The round continues at the pass's most important finding: the
+self-improvement loop had no output - nothing read what the
+harvest landed. The sponsor chose the channel design: work orders
+plus promotion.
+
+### Inputs
+agents/handoffs/templates/WO-template.md (Context-provided bullet,
+the insertion point); all eight .claude/agents/*.md launchers
+(mandatory-first-actions blocks); docs/FEDERATION.md 5.1 step 4
+and 8.1 step 4; docs/LESSONS.md header; docs/GUIDE.md 7;
+docs/domains/README.md; docs/playbooks/lessons-harvest.md 7; the
+loop-quality report's C section, and the corpus's own L-F01/L-F02
+(which predicted this failure and shaped the fix).
+
+### Reasoning
+- The routine channel implements L-F02 literally: a worker reads
+  its work order, so the work order is where lessons bind. The
+  issuing lead selects which entries bear on the task - bounded
+  context per spawn, and selection by the role that knows the
+  work, versus the rejected read-at-boot channel whose cost grows
+  with the corpus forever.
+- The structural channel closes L-F01: an entry naming a normative
+  home is a claim that some document should change; the promotion
+  obligation converts that claim into recorded board state that
+  either discharges through an S11 amendment or is honestly
+  re-marked narrative-only. Auto-editing charters at landing was
+  rejected as ungoverned law - the ADR-0008 defect class.
+- The obligation writes in the same commit as the transcription
+  for the same reason the sent-ledger does (C18): "landed" and
+  "recorded" must be atomic under the serialization law.
+- The three obey-at-boot claims are corrected, not deleted: the
+  prompt-injection rationale for the human fence gets stronger
+  once the read path is real, and saying the true mechanism keeps
+  ADR-0002's honesty discipline.
+
+### Actions
+Added the Standing-lessons section to the WO template; step 4 to
+all eight launchers and the WO-drafting duty to the three lead
+launchers; step 4b to FEDERATION 5.1 and 8.1; rewrote the LESSONS
+non-normativity paragraph as the two-channel statement; corrected
+GUIDE 7, domains README, and the playbook; authored ADR-0012;
+this commit.
+
+### Evidence
+grep -l "Standing lessons in force" over .claude/agents/ returns
+all eight launchers at this tree; the same phrase appears in the
+WO template and ADR-0012. grep "obey at boot" over docs/ returns
+only ADR-0008's unrelated phrase "agents obey it as law" and
+historical journal text - the three claim sites are corrected.
+bash scripts/test_protocol.sh unchanged at "40 passed, 0 failed".
+
+### Outcome
+The loop has an output: routine lessons reach workers in the
+packet that binds them, structural lessons graduate into the
+documents agents already must read, and recurrence evidence
+drives promotion through the same ledger. Blocking finding 1
+(loop-quality) closed. Round continues at C23.
+
+### Open-questions
+- The first real WO- issued by a fork will be the first live test
+  of the standing-lessons section; the pilot expectation is
+  recorded in the pass reports rather than here.
+
+### Files-in-this-commit
+- .claude/agents/architect_docs_lead.md
+- .claude/agents/auditor.md
+- .claude/agents/data_wrangler.md
+- .claude/agents/dv_lead.md
+- .claude/agents/formal_dv.md
+- .claude/agents/rtl_lead.md
+- .claude/agents/rtl_module_dev.md
+- .claude/agents/tb_writer.md
+- agents/handoffs/templates/WO-template.md
+- docs/FEDERATION.md
+- docs/GUIDE.md
+- docs/LESSONS.md
+- docs/adr/ADR-0012-the-read-path.md
+- docs/domains/README.md
+- docs/playbooks/lessons-harvest.md
