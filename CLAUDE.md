@@ -53,11 +53,23 @@ Read, in order:
 
 ## First session — which repository am I in?
 
-Before anything else, read the **Repo role** line on `tasks/BOARD.md`
-(Decisions on record) and check it against `git remote get-url origin`:
-the canonical shell's federation-upstream line names itself, so a copy
-whose origin differs from what its role line claims is a **fresh fork
-whose first act is a commit updating that line** (ADR-0011). Then branch
+Before anything else, read the **This repository** and **Repo role**
+lines on `tasks/BOARD.md` (Decisions on record) and check the first
+against `git remote get-url origin` (compare by owner/repo tail — https,
+ssh, and proxy remotes of one repo all match). **If they disagree, you
+are in a fresh, unfounded copy**, and what you found it as follows from
+what the role line claims the *parent* was (ADR-0011):
+
+- copy of a `canonical-shell` → found an **org generic** (Stage 0) — or
+  `solo-collapsed`, only if the sponsor supplies project material at
+  founding;
+- copy of an `org-generic` → you are a **new project**: take the
+  project M0 path below, and complete the role/self-URL/upstream
+  re-record at G0 row B6;
+- copy of a `project` → not a sanctioned operation: report it to the
+  sponsor and stop.
+
+If the lines agree, the copy is founded. Then branch
 on the role — the role line is primary; the milestone is secondary:
 
 - **canonical-shell** — you are the installer's maintainer orchestrator.

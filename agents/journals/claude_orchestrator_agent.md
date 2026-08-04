@@ -1907,3 +1907,78 @@ shell that contains all of it.
 - README.md
 - docs/GUIDE.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0032] 2026-08-05T01:00:00Z | task:none | C32 - the This-repository line: fresh-copy detection at every level
+
+### Trigger
+Walking the sponsor's two-clone founding sequence against the
+boot logic, command by command, exposed a second-level wedge: a
+fresh clone of an org generic inherits Repo role: org-generic,
+and no board line records the org generic's own URL - so a
+session in the fresh project copy would read org-generic and
+"wait to be forked from," doing nothing. SD-0001's wedge, one
+level down; R-ROLE-1 covers only the canonical-shell claim.
+
+### Inputs
+tasks/BOARD.md Decisions on record (the identity lines);
+CLAUDE.md First-session mismatch paragraph (C20/C27 text);
+BOOTSTRAP.md Stage 0 step 4; docs/gates/G0-checklist.md B6;
+ADR-0011 (the discriminator this completes); ADR-0015 and
+SD-0001 (the wedge class); PROTOCOL 11's law list (freeze
+legality of the four touched files).
+
+### Reasoning
+- The root cause is that the board recorded the parent's URL
+  (federation upstream) but never the copy's own, so
+  fresh-copy detection only worked at the one level where parent
+  and self coincide - the canonical shell. A This-repository
+  line, re-recorded at every founding, makes origin-vs-board
+  mismatch detectable at every level with one comparison.
+- The founding path on mismatch follows from what the role line
+  claims the PARENT was: copy of a canonical-shell founds an org
+  generic (solo-collapsed only by explicit sponsor material);
+  copy of an org-generic is a new project and runs G0; copy of a
+  project is unsanctioned and stops. This keeps the
+  zero-question rule intact - the tree still answers everything,
+  now including "which founding am I?".
+- Freeze legality: CLAUDE.md, BOOTSTRAP, the board, and the G0
+  checklist are all outside 11's law list. The matching CI
+  generalization of R-ROLE-1 IS law and is recorded on the board
+  as queued debt behind the freeze rather than smuggled in - the
+  boot logic carries the rule; only the machine backstop waits.
+
+### Actions
+Added the This-repository bullet and the law-debt bullet to the
+board; generalized CLAUDE.md's mismatch rule with the three
+founding mappings; extended Stage 0 step 4 to record identity
+(role + self-URL); extended B6 to re-record the self-URL; this
+commit; push; CI verify.
+
+### Evidence
+bash scripts/test_protocol.sh: "protocol self-test: 45 passed, 0
+failed" (no script change). Boot walk over the sponsor's five
+states at this tree: shell (lines agree, canonical-shell ->
+maintainer mode); fresh my-fpga-org (mismatch, parent
+canonical-shell -> Stage 0); founded my-fpga-org (agree,
+org-generic -> wait); fresh my-project (mismatch, parent
+org-generic -> project M0 + B6); founded my-project (agree,
+project -> M0/rehydrate). Every state resolves to exactly one
+action; none waits wrongly.
+
+### Outcome
+The linkage question is answered in the tree at every level:
+each copy carries its own URL, its role, and its parent, and a
+fresh copy of anything knows what founding it owes. The sponsor
+can run the two-part clone sequence with deterministic boots at
+both hops.
+
+### Open-questions
+- The R-ROLE-1 generalization (all roles, keyed on the
+  This-repository line) is queued law-debt behind the freeze,
+  recorded on the board.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- docs/gates/G0-checklist.md
+- tasks/BOARD.md

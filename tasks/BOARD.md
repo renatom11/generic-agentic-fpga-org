@@ -62,6 +62,12 @@ template state (ADR-0011).
 
 ## Decisions on record
 
+- **This repository**:
+  https://github.com/renatom11/generic-agentic-fpga-org — the copy's own
+  URL, re-recorded at every founding (BOOTSTRAP Stage 0 step 4 / G0 row
+  B6). A session whose `git remote get-url origin` disagrees with this
+  line is in a **fresh, unfounded copy** of whatever the role line below
+  claims (`CLAUDE.md`, First session).
 - **Repo role**: `canonical-shell` (values: canonical-shell / org-generic /
   project / solo-collapsed — ADR-0011). Set at founding; **a fork's first
   act is updating this line**. The canonical shell runs no program: the
@@ -117,6 +123,10 @@ template state (ADR-0011).
   founding commit; SD-0004 (fork-button impossibility) → clone-and-push
   now leads the founding docs; its ADR-0014 (obligation discharge)
   adopted as this shell's ADR-0014.
+- **Queued law-debt (behind the freeze)**: generalize the R-ROLE-1 CI
+  check from the canonical-shell claim to every role, keyed on the
+  This-repository line (script change + scenario, §11) — the boot logic
+  already applies the generalized rule; only the machine backstop waits.
 - **Upstream defect channel**: shell defects — wrong claims, broken
   steps, gaps found while operating this copy — file as **GitHub issues
   on the federation upstream** (line above); they never travel through

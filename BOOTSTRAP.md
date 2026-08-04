@@ -32,8 +32,10 @@ checklist, run by the founding session before anything forks from it:
 3. **Verify the enforcement with your own hands**:
    `bash scripts/test_protocol.sh` green,
    `bash scripts/check_journals.sh --all` green.
-4. **Record the role**: set the board's **Repo role** line to
-   `org-generic`; the federation-upstream line stays the canonical shell.
+4. **Record the identity**: set the board's **Repo role** line to
+   `org-generic` and re-record the **This repository** line to this
+   copy's own URL; the federation-upstream line stays the canonical
+   shell.
 5. **Re-scope the freeze**: rewrite the board's feature-freeze bullet to
    this repository's own observable end condition — *"No new law in this
    repository until its first lessons landing completes
