@@ -193,13 +193,33 @@ gate id, or the `SO-` id of a deferred packet).
      amendment ADR lands or the entry is re-marked "narrative only" — the
      read path's structural channel, and the discharge route for
      recurrence-opened obligations (§8, ADR-0010).
+   - **4c — disposition before the ledger line (ADR-0014).** A landing
+     never ends with an obligation in no state. Every obligation this
+     landing opened is put in exactly one of three: **DISCHARGED** (the
+     amendment ADR lands and the named charter, protocol section,
+     playbook, or template is edited, in this landing's own commit
+     sequence); **NARRATIVE-ONLY** (the entry is re-marked, its
+     `Now lives in` cleared, the reason recorded); or **DEFERRED**
+     (carried on the board's amendment-obligations ledger with a named
+     reason **and** a named discharging event). The session then sweeps
+     every other `DEFERRED` obligation on the board — not only its own —
+     re-stating each reason and discharging any whose reason no longer
+     holds. Landings are the only moment an org generic's orchestrator
+     is awake, so they are the only place this sweep can live; there is
+     no phase-gate cadence at this fence. Discharge is an ADR under §11
+     and not an escalation class: the landing session writes it under
+     its own authority, citing the project gate id it lands for.
 5. **Integrate fast-forward-only**: update the org generic's working
    branch to the staging tip with a fast-forward push
    (`git push origin <staging-tip>:<working-branch>` or
    `git merge --ff-only`) — no merge commit is ever created at this
    fence. The same commit that carries the transcription carries the
    board's sent-ledger line for this landing key, so "landed" and
-   "recorded" are atomic. The authority cited is the project gate id and
+   "recorded" are atomic — true rather than aspirational because step 4c
+   has already dispositioned every obligation this landing opened; the
+   ledger line's final field carries those obligation ids and their
+   states, or `—` when the landing opened none (ADR-0014). The authority
+   cited is the project gate id and
    its sponsor signature. **A rejected (non-fast-forward) push is the
    race signal, not an error** — go to §5.2.
 6. **Record** the resulting org-generic SHAs back in the project's
@@ -442,7 +462,11 @@ stays green over the full history.
    at this fence exactly as at the org fence (§5.1): an accepted entry
    naming a normative home opens an amendment obligation on this repo's
    board in the same commit, and is not fully landed until the amendment
-   ADR lands or the entry is re-marked "narrative only" (ADR-0012).
+   ADR lands or the entry is re-marked "narrative only" (ADR-0012). Step
+   **4c** applies here identically (ADR-0014): before the merge, every
+   obligation this landing opened is dispositioned — DISCHARGED,
+   NARRATIVE-ONLY, or DEFERRED with a named reason and discharging
+   event — and the open backlog is swept and re-stated.
 5. **Merge, by hand — then close the PR.** The human maintainer reads the
    staging branch's full diff — packet, screening report, transcriptions —
    and merges **the staging branch** — fast-forward or a merge commit

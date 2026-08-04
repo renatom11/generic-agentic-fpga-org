@@ -85,20 +85,28 @@ template state (ADR-0011).
   inherited entry id per journal chain; the first harvest tiles from
   baseline + 1.
 - **Federation sent-ledger** (append-only; one line per landing:
-  `<parent-record-id>` · landing SHA(s) · outer-hop PR URL or `—`):
+  `<parent-record-id>` · landing SHA(s) · outer-hop PR URL or `—` ·
+  obligation ids + states or `—`, ADR-0014):
   _none yet_. A landing's ledger line is written in the same commit as
   its transcription (`docs/FEDERATION.md` §5.1 step 5).
 - **Amendment obligations** (open promotion obligations — the recurrence
   threshold, ADR-0010 / `docs/FEDERATION.md` §8; the read-path promotion
   channel rides the same ledger): _none open_. One line per obligation:
-  entry id · opened by (landing / recurrence) · discharged by ADR-NNNN or
-  re-marked narrative-only.
+  entry id · opened by (landing / recurrence) · **state** — DISCHARGED
+  (ADR-NNNN) / NARRATIVE-ONLY (reason) / DEFERRED (reason · discharging
+  event). Every landing dispositions its own and sweeps the DEFERRED
+  backlog (`docs/FEDERATION.md` §5.1 step 4c, ADR-0014) — landings are
+  this fence's only cadence.
 - **Feature freeze (J-orchestrator-0016): RE-ENGAGED.** The
   sponsor-directed federation-hardening round (ADR-0008..0013,
   2026-08-04) ran under a scoped override and closed at C26 — its end
   condition (ADR-0008). No new law lands until the first harvest
   transits; the deletion-only simplification pass stays queued behind
-  that transit. **In a fork this line is re-scoped at founding**
+  that transit. **Override #2 (sponsor-delegated, 2026-08-04)**: the
+  first-trial absorption round (ADR-0014, ADR-0015, and the SD-0004 doc
+  fix) runs under a scoped override on the ADR-0008 pattern; end
+  condition = the round's closing commit, which re-engages the freeze.
+  **In a fork this line is re-scoped at founding**
   (BOOTSTRAP Stage 0 step 5, or B6 for a solo-collapsed copy) to: *no
   new law until this repository's first lessons landing completes* — the
   shell-history wording above never binds a fork as written.

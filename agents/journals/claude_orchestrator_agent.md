@@ -1716,3 +1716,72 @@ GUIDE (how) -> SPONSOR (your job) -> the governing documents.
 ### Files-in-this-commit
 - README.md
 - docs/MANIFEST.md
+
+## [J-orchestrator-0029] 2026-08-04T23:55:00Z | task:none | C29 - ADR-0014 adopted: obligation discharge at the landing fence
+
+### Trigger
+The first-trial absorption round: the sponsor's first org generic,
+during its founding, found a real seam in ADR-0012's promotion
+mechanism and legislated the fix as its own ADR-0014; the sponsor
+relayed the finding by hand (the defect-relay path working as
+designed), delegated the disposition call verbatim ("you know
+best. make a judgement call"), and the retired copy is about to be
+deleted - its findings land here or nowhere.
+
+### Inputs
+The first org generic's ADR-0014 and its C30 FEDERATION diff
+(read from its history at 86e5d5a before retirement); this
+shell's FEDERATION 5.1 steps 4b/5 and 8.1 step 4;
+tasks/BOARD.md sent-ledger and amendment-obligations bullets;
+ADR-0008 (the scoped-override pattern reused); ADR-0012 (the
+mechanism being extended, not amended).
+
+### Reasoning
+- The seam is real and three-fold: 4b's "not fully landed"
+  contradicted step 5's atomic "landed"; the obligations ledger
+  was written from four places and read from none; and an org
+  generic has no gates, so no cadence ever forces discharge. An
+  obligation could open at every landing forever with no moment
+  at which anyone must act - ADR-0012's own "loop had no output"
+  defect, one level up, invisible until a second project exists.
+- Adopted on the ADR-0008 override pattern because it is law and
+  the freeze holds; the sponsor's delegation is the direction,
+  quoted in the ADR's Status per the sponsor-signature relay
+  rule. End condition: this round's closing commit.
+- Adopted as ADR-0014 here too - same number, same substance as
+  the org generic's own - restated self-contained because the
+  source repo retires; provenance names its commit SHA.
+- Landings as the only clock is the load-bearing insight: a
+  periodic sweep would be a duty assigned to nobody. DEFERRED
+  stays a real state (blocking a sibling project's gate on
+  another repo's constitutional work would fail a landing for
+  reasons its sponsor cannot act on) but must be re-asserted at
+  every landing, never silently inherited.
+
+### Actions
+Authored this shell's ADR-0014; added FEDERATION 5.1 step 4c,
+the step-5 disposition field, and 8.1's parallel clause; extended
+the board's sent-ledger and amendment-obligations formats and
+recorded override #2 on the freeze bullet; this commit.
+
+### Evidence
+The seam's writers-without-readers claim is grep-reproducible at
+the parent tree: "amendment obligation" appears in FEDERATION
+5.1/8/8.1, ADR-0010, ADR-0012, LESSONS.md, and the board - and in
+no gate template. bash scripts/test_protocol.sh unchanged at "43
+passed, 0 failed" (no script change in this commit).
+
+### Outcome
+The read path's structural channel now closes: every landing
+dispositions its obligations before claiming "landed", the board
+tells complete landings from debt-carrying ones in one line, and
+the DEFERRED backlog cannot go stale silently. Round continues
+at C30 (the role-line wedge check).
+
+### Open-questions
+- None.
+
+### Files-in-this-commit
+- docs/FEDERATION.md
+- docs/adr/ADR-0014-obligation-discharge-at-the-landing-fence.md
+- tasks/BOARD.md
