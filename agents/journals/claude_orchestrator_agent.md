@@ -1356,3 +1356,88 @@ classes) and majors 8-11/15/16 closed. Round continues at C24.
 - scripts/check_journals.sh
 - scripts/policy.sh
 - scripts/test_protocol.sh
+
+## [J-orchestrator-0024] 2026-08-04T21:30:00Z | task:none | C24 - charters and packet templates aligned with the round's law
+
+### Trigger
+The round continues: the law landed at C18-C23 (serialization,
+meta-lessons, read path, ownership split, retrospective) still
+needed its restatements in the surfaces agents actually read at
+spawn - charters, packet templates, the harvest block, the
+gate-checklist templates, the playbook.
+
+### Inputs
+agents/charters/{orchestrator,architect_docs_lead,rtl_lead,
+auditor,dv_lead}.md (the two-hops bullet and the five identical
+harvest-discipline bullets); agents/handoffs/templates/
+SO-template.md; docs/gates/templates/{lessons-harvest-block,
+module-ready-checklist,phase-accept-checklist}.md;
+docs/playbooks/lessons-harvest.md 1/4/6; ADR-0010/0012/0013 (the
+law being restated); the consistency report findings 12 and 17
+and the end-to-end report findings 3.2-3.4.
+
+### Reasoning
+- The charter harvest bullet forked by truth: dv_lead keeps "or
+  module sign-off you issue" because it alone issues SO- packets;
+  the other four claimed a duty they could never discharge - the
+  restatement now matches each role's reality, and all five cite
+  7.1 where the law actually lives.
+- The auditor charter gains the retrospective as a standing duty
+  because a duty that exists only in the protocol is exactly the
+  L-F01 pattern this round closes: the charter is the guaranteed
+  first read at spawn.
+- SO- instantiation moves to dv_lead in every surface that said
+  otherwise: the orchestrator editing an in-flight dv packet was
+  both an L-A01 staging hazard and a contradiction of PROTOCOL 3's
+  participants-update-their-own-packets rule.
+- Module-ready S1 becomes a board record with no sponsor contact,
+  and its "unless the phase plan says otherwise" escape hatch is
+  deleted: the harvest block's sponsor-signed enumeration is
+  closed, and an open hatch would let a phase plan silently mint
+  a fourth sponsor-signed gate the federation law never counted.
+- The idle-chain convention lands in the block and the playbook
+  because span tiling must stay pure arithmetic - an idle row that
+  tiles is checkable; an omitted row is a gap someone has to
+  explain.
+
+### Actions
+Rewrote the orchestrator charter's two-hops bullet and harvest
+discipline; fixed the four lead/auditor harvest bullets and added
+the WO-drafting and retrospective duties; moved SO- instantiation
+to dv_lead in its charter, the SO- template, and the block's
+ownership comment; recorded the idle convention in block and
+playbook; rewrote module-ready S1 and its Exit; added the
+retrospective to the phase-accept template and playbook 4b;
+scoped the playbook's touchpoint sentence; this commit.
+
+### Evidence
+grep "PROTOCOL §7)" agents/charters/ returns no harvest-cite hits
+at this tree (all five bullets now cite 7.1); grep -l
+"Standing lessons in force" agents/charters/ returns the four
+WO-drafting charters; grep "phase retrospective" returns the
+auditor charter, the phase-accept template, PROTOCOL 7.1, and the
+playbook. bash scripts/test_protocol.sh unchanged at "43 passed,
+0 failed".
+
+### Outcome
+Every role now meets the round's law in its guaranteed first
+read; the packet templates agree with the charters about who
+instantiates what; the retrospective is a duty, a template row,
+and a procedure rather than only a protocol clause. Findings
+12/17 (consistency) and 3.2-3.4 (end-to-end) closed. Round
+continues at C25.
+
+### Open-questions
+- None.
+
+### Files-in-this-commit
+- agents/charters/architect_docs_lead.md
+- agents/charters/auditor.md
+- agents/charters/dv_lead.md
+- agents/charters/orchestrator.md
+- agents/charters/rtl_lead.md
+- agents/handoffs/templates/SO-template.md
+- docs/gates/templates/lessons-harvest-block.md
+- docs/gates/templates/module-ready-checklist.md
+- docs/gates/templates/phase-accept-checklist.md
+- docs/playbooks/lessons-harvest.md

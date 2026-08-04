@@ -56,7 +56,13 @@ committed with no open CRITICAL findings, and the sponsor approves
      (the inner hop, under this gate's signature) and the sponsor's one
      yes/no on the outer hop (default yes), discharging everything
      DEFERRED from the phase's SO- packets and P<n>-module-ready — one
-     question, beside S1 (docs/FEDERATION.md §0). -->
+     question, beside S1 (docs/FEDERATION.md §0). The block at THIS gate
+     additionally includes the auditor's PHASE RETROSPECTIVE (PROTOCOL
+     §7.1, ADR-0010): one second-altitude row mined by the auditor over
+     the phase's harvest record — war stories, nils, tier-3 landings,
+     bounce packets — never over raw journal spans; its candidates join
+     this gate's yield, its report lands in docs/reports/audit/**, and
+     the Exit below requires it. -->
 
 ## Sponsor items
 
@@ -67,7 +73,7 @@ committed with no open CRITICAL findings, and the sponsor approves
 ## Exit
 
 Acceptance table green, audit release signed, carry-forwards dispositioned,
-harvest block complete, sponsor approved → the orchestrator declares the phase accepted in its
+harvest block complete (including the auditor's phase retrospective), sponsor approved → the orchestrator declares the phase accepted in its
 journal, updates `tasks/BOARD.md`, and (PR-flow mode) merges to `main` at
 this milestone boundary via a trivial PR merge (PROTOCOL §5 R9). The next
 phase's gate ladder instantiates from these templates.

@@ -56,16 +56,16 @@ No `SO-` PASS issues on an unqualified bench.
      landing and their outer-hop decision both discharge beside that
      gate's S1 (docs/FEDERATION.md §0). -->
 
-## Sponsor items
+## Summary record (no sponsor contact)
 
 | # | Item | Status | Signature |
 |---|---|---|---|
-| S1 | Sponsor informed of the module-ready summary (modules, campaign scores, open BUG- packets) — sign-off here is informational unless the phase plan says otherwise; the accepting decision is P<n>-phase-accept's E1 | OPEN | <recorded in J-orchestrator-NNNN> |
+| S1 | Module-ready summary (modules, campaign scores, open BUG- packets) recorded on the BOARD — **no sponsor contact**: this gate is never sponsor-signed for federation purposes (the closed enumeration, lessons-harvest-block; ADR-0013), and the accepting decision is P<n>-phase-accept's E1 | OPEN | <recorded in J-orchestrator-NNNN> |
 
 ## Exit
 
 Every module row PASS with an adjudicated campaign, carry-forwards
-dispositioned, harvest block complete, sponsor row recorded → the orchestrator declares the gate
+dispositioned, harvest block complete, summary row recorded → the orchestrator declares the gate
 passed in its journal and updates `tasks/BOARD.md`. This opens **P<n>
 hardening** — the window between this gate and P<n>-phase-accept, and the
 activation window for `formal_dv` and any contingent roles the org chart

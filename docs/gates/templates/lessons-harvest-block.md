@@ -7,9 +7,11 @@
          the orchestrator stages docs/gates/** (PROTOCOL §6);
        - a module sign-off packet (SO-<module>.md), when the packet opens
          — the completed block is a precondition of the PASS.
-     Instantiation is the orchestrator's job and runs automatically at
-     every gate and sign-off (PROTOCOL §7.1); the sponsor never requests,
-     configures, or operates it. The end-to-end operating procedure is
+     Instantiation ownership (ADR-0013): the orchestrator instantiates
+     into docs/gates/** checklists (§6 — only it may stage them,
+     machine-enforced); dv_lead instantiates into its own SO- packets.
+     Both run automatically at every gate and sign-off (PROTOCOL §7.1);
+     the sponsor never requests, configures, or operates it. The end-to-end operating procedure is
      docs/playbooks/lessons-harvest.md. Delete this comment when
      instantiating; keep the comments inside the block — they are the
      filling instructions. -->
@@ -72,7 +74,10 @@ canonical shell at its merge. A candidate never self-assigns its final id.
      chain's previous harvest `to` + 1; a chain's first-ever harvest
      starts at the fork-point baseline recorded at G0 B6, + 1 (entry 0001
      only in a repo with no inherited history — ADR-0010) and its "Tiles
-     with" cell says "first harvest (baseline NNNN)". A gap or overlap is
+     with" cell says "first harvest (baseline NNNN)". An idle chain (no
+     new entries since its previous harvest) still gets a row: span
+     `(idle)`, yield NIL — it tiles, and its next harvest's `from` is
+     unchanged. A gap or overlap is
      a visible arithmetic error and blocks
      this block. Yield lists the candidate ids minted (war stories
      included) or the word NIL — a nil yield is declared, never omitted;

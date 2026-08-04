@@ -31,7 +31,15 @@ block into it and fill the span skeleton **before dispatching anything**:
 - each row's `from` computed by arithmetic from the previous gate's block:
   previous `to` + 1 (a chain's first-ever harvest starts at the
   fork-point baseline recorded at G0 B6, + 1 — entry 0001 only in a repo
-  with no inherited history, ADR-0010).
+  with no inherited history, ADR-0010);
+- an idle chain (no new entries since its previous harvest) still gets a
+  row — span `(idle)`, yield NIL; it tiles, and its next `from` is
+  unchanged.
+
+Ownership (ADR-0013): the orchestrator instantiates into `docs/gates/**`
+checklists (§6 — only it may stage them); **dv_lead instantiates into its
+own `SO-` packets**, with the orchestrator transcribing only the
+collation cells.
 
 Filling the spans first is what makes a skipped harvest a visible
 arithmetic gap rather than a silent one — the hole exists on paper before
@@ -96,6 +104,17 @@ the orchestrator's reading as input, not as an override — the miner holds
 the incident. Every candidate ends in exactly one row: yield table or war
 story.
 
+### 4b. The phase retrospective (phase-accept only)
+
+At `P<n>-phase-accept`, dispatch one additional mining round to the
+**auditor**: the phase retrospective (PROTOCOL §7.1, ADR-0010). Its span
+is the phase's accumulated **harvest record** — war stories, nil
+declarations, tier-3 landings, bounce/`BUG-` packets — never raw journal
+entries (those stay tiled, mined once), and its question is only *what
+recurs*. Its candidates join this gate's classify/package flow attributed
+to the auditor; its report lands in `docs/reports/audit/**` and is
+transcribed like any auditor verdict.
+
 ### 5. Produce the export packet
 
 From the tier-1/2 rows, produce the export packet
@@ -136,7 +155,8 @@ sponsor-signed gate** in the block, and ask nothing. One yes/no per
 sponsor-signed gate, never per module. **NO** is the exception path for organizations
 that cannot share ([`FEDERATION.md`](../FEDERATION.md) §7): the packet
 stays local as part of the gate record, and nothing else about the harvest
-changes. This and the gate signature are the sponsor's only touchpoints;
+changes. This and the gate signature are the sponsor's only per-gate
+touchpoints (the one-time E0 founding setup aside, PROTOCOL §8);
 everything above ran without them.
 
 ### 7. Transmit

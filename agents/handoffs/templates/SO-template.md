@@ -25,8 +25,10 @@
   distinct class from a negative verdict and never counts as coverage
   (PROTOCOL §10); "none" if everything executed>
 - **Lessons harvest**: <completed harvest block appended below,
-  instantiated by the orchestrator from
-  `docs/gates/templates/lessons-harvest-block.md` when this packet opened —
+  instantiated by **dv_lead** when this packet opened (ADR-0013's
+  ownership split — packet participants update their own packets; the
+  orchestrator transcribes only the collation cells) from
+  `docs/gates/templates/lessons-harvest-block.md` —
   a precondition of this PASS (PROTOCOL §7.1). The sponsor does not sign
   an SO- packet: the block's transmission line records DEFERRED to the
   next sponsor-signed gate>
