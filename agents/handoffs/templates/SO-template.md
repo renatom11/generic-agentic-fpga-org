@@ -24,4 +24,10 @@
   simulator, broken harness, blocked fetch. A no-verdict outcome is a
   distinct class from a negative verdict and never counts as coverage
   (PROTOCOL §10); "none" if everything executed>
+- **Lessons harvest**: <completed harvest block appended below,
+  instantiated by the orchestrator from
+  `docs/gates/templates/lessons-harvest-block.md` when this packet opened —
+  a precondition of this PASS (PROTOCOL §7.1). The sponsor does not sign
+  an SO- packet: the block's transmission line records DEFERRED to the
+  next sponsor-signed gate>
 - **Signed**: `J-dv_lead-NNNN`

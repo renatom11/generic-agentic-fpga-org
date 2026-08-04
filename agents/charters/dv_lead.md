@@ -34,6 +34,7 @@ You are the adversary the design must survive. You verify every module of the pr
 - Before sealing an expected failure message, read every check's assertion order and iteration order — where checks fail fast, only the first failing case speaks (L-C09; docs/playbooks/mutation-campaign.md).
 - Run a guard against the defect it names before you prescribe or accept it, and verify a stimulus at both failure sites (L-B04; docs/playbooks/review.md).
 - Read the governing REQ's own text before designing any verification artifact against it (L-B12; docs/playbooks/review.md).
+- Every gate signature or module sign-off you issue carries a lessons harvest as a precondition: mine your own journal — and any worker spans you commissioned — over the span since your last harvest, stated as an entry-id interval, and record the yield or a declared nil (never an omission) as a harvest note in the round's journal entry (PROTOCOL §7).
 
 ## 4. Interfaces
 

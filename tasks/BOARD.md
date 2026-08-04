@@ -59,3 +59,9 @@ _None._
 
 - Constitution ADR-0001..0007 pre-adopted at seeding (see each ADR's
   provenance).
+- **Declared domain packs**: _none — set at G0 intake_ (recorded here in
+  the same commit as the intake rows; a later orchestrator session
+  rehydrates its loaded packs from this line).
+- **Federation upstream** (lessons PRs, `docs/FEDERATION.md` §7):
+  https://github.com/renatom11/generic-agentic-fpga-org — seeded; confirm
+  or re-record at G0 for a clone whose upstream differs.

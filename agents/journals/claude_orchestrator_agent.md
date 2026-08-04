@@ -575,3 +575,97 @@ project. The shell returns to untouched.
 - agents/charters/rtl_lead.md
 - agents/charters/rtl_module_dev.md
 - agents/charters/tb_writer.md
+
+## [J-orchestrator-0014] 2026-08-08T12:20Z
+
+### Context
+The sponsor's mandate, verbatim: "You have full permission from me to
+build this whole infastrucutre" — the three-tier lessons taxonomy, the
+per-gate harvest, and the federation share-back, built so that "a futurue
+person using the generic doesnt have to worry about knowing most of this
+infrastucture... it does the lesson stuff automatically, like most other
+things." The origin program had already landed the law on its own side
+(its ADR-0018 + Amendment A1); this commit lands the machinery here.
+
+### Actions
+Authored via a 4-writer parallel build, then two adversarial verification
+rounds (3 lenses, then 2 re-verify lenses over the repaired tree), every
+blocking and minor finding applied before this commit. The pieces:
+- PROTOCOL §7.1: the harvest as gate precondition — span tiling,
+  declared nil, three tiers with the sponsor's numbering, the
+  descend-and-stop classifier, LH1/LH2-g/LH2-d/LH3, LC-/LD- local ids,
+  war stories, no counting metric; §7's gate table now names the sponsor
+  signature at spec-freeze (a re-verify catch: the deferral chain
+  depends on it).
+- Five charters: the harvest-note standing duty; orchestrator gains
+  collation/export/pack-loading duties; auditor's gate-audit DoD gains
+  harvest sampling.
+- docs/FEDERATION.md (new): the whole share-back contract — two sponsor
+  touchpoints only; transmission scoped to sponsor-signed gates with
+  DEFERRED carry-forward from SO-/module-ready; one PR per packet into
+  docs/federation/inbox/; the foreign PR as delivery vehicle never
+  merged (re-verify catch: a merged foreign commit would break
+  journal-check over full history — the maintainer re-lands through
+  protocol commits, §8.1); reviewer screening (LH bars,
+  teach-don't-instruct, leak); human-maintainer merge, never automated,
+  prompt-injection reasoning stated; foreign-provenance rule; origin
+  honesty (§10: the origin program predates this shell).
+- docs/gates/templates/lessons-harvest-block.md (new): the instantiable
+  block — span/yield/war-story tables, preconditions, transmission
+  scoping with the NONE-vs-deferred discharge rule.
+- docs/playbooks/lessons-harvest.md (new): the end-to-end procedure,
+  refusable-bar dispatch language included.
+- docs/domains/ (new): pack law, EN prefix + entry skeleton, the
+  ethernet-networking pack seeded honestly empty.
+- Gate templates + SO-template + G0: each physically carries its harvest
+  section (G0 carries the program's first — no warm-up gate exempt);
+  Exits amended.
+- SPONSOR.md: the yes/no rider documented so "anything else is a
+  process violation" stays true. BOOTSTRAP/CLAUDE/README: the automatic
+  path described accurately; BOARD seeds the declared-packs line and
+  the federation-upstream URL (the clone case's rescue).
+- LESSONS.md header: stale "planned playbooks" paragraph corrected.
+
+### Evidence
+protocol self-test 38/38 in this tree; zero broken relative links across
+all 22 changed files (scripted sweep); the two verification rounds'
+findings (5+10, then 2+6) each applied and the fix re-checked by the
+following round or by direct re-read.
+
+### Outcome
+The shell now does the lesson stuff automatically. A future sponsor
+touches exactly two things: gate signatures they were already giving, and
+one default-yes yes/no at sponsor-signed gates. The federation pipeline is
+executable end to end under the shell's own CI, including by a maintainer
+who has never seen this session.
+
+### Open-questions
+- Federation governance before the first outside contributor — parked by
+  the sponsor's decision, recorded origin-side (its ADR-0018 A1.7(4));
+  becomes live when the first foreign inbox PR arrives.
+- The ethernet-networking pack awaits the origin program's first module
+  sign-off harvest.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- README.md
+- agents/PROTOCOL.md
+- agents/charters/architect_docs_lead.md
+- agents/charters/auditor.md
+- agents/charters/dv_lead.md
+- agents/charters/orchestrator.md
+- agents/charters/rtl_lead.md
+- agents/handoffs/templates/SO-template.md
+- docs/FEDERATION.md
+- docs/LESSONS.md
+- docs/SPONSOR.md
+- docs/domains/README.md
+- docs/domains/ethernet-networking.md
+- docs/gates/G0-checklist.md
+- docs/gates/templates/lessons-harvest-block.md
+- docs/gates/templates/module-ready-checklist.md
+- docs/gates/templates/phase-accept-checklist.md
+- docs/gates/templates/spec-freeze-checklist.md
+- docs/playbooks/lessons-harvest.md
+- tasks/BOARD.md

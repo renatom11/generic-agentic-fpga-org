@@ -46,6 +46,15 @@ No `SO-` PASS issues on an unqualified bench.
 |---|---|---|---|
 | C-nn | <inherited or new obligation> | <SO- packet / bench / gate row> | OPEN / CLOSED (WO-NNNN at `<sha>`) |
 
+## Lessons harvest
+
+<!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
+     this checklist opens (PROTOCOL §7.1); the gate is not fully signed
+     until the block's precondition boxes are checked. The sponsor does
+     not sign this gate: the block's transmission line records DEFERRED
+     to P<n>-phase-accept, where the deferred decisions discharge beside
+     that gate's S1. -->
+
 ## Sponsor items
 
 | # | Item | Status | Signature |
@@ -55,7 +64,7 @@ No `SO-` PASS issues on an unqualified bench.
 ## Exit
 
 Every module row PASS with an adjudicated campaign, carry-forwards
-dispositioned, sponsor row recorded → the orchestrator declares the gate
+dispositioned, harvest block complete, sponsor row recorded → the orchestrator declares the gate
 passed in its journal and updates `tasks/BOARD.md`. This opens **P<n>
 hardening** — the window between this gate and P<n>-phase-accept, and the
 activation window for `formal_dv` and any contingent roles the org chart

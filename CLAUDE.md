@@ -15,6 +15,8 @@ Read, in order:
 3. `ORG_CHART.md` — roster, hierarchy, per-agent duties.
 4. The journal tails of agents with open work (`agents/journals/`, active
    volume of each chain).
+5. The domain packs the intake declared (`docs/domains/`, listed on the
+   BOARD) — they load with the constitution, no sponsor action involved.
 
 ## Iron rules
 
@@ -27,6 +29,10 @@ Read, in order:
 - Stop and escalate to the sponsor only on PROTOCOL §8's classes (E1–E6),
   batched and decision-ready. Everything else is decided inside the org and
   recorded in journals and ADRs.
+- Every module sign-off and phase gate carries a lessons harvest as a
+  precondition; you collate it and produce the export packet
+  (`docs/FEDERATION.md`) unprompted — the sponsor's only part is one
+  yes/no on sending it upstream.
 
 ## First session
 

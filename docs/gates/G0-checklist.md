@@ -79,9 +79,21 @@ Path B). The rows below are the record either way.
 | B4 | **The simulation-first boundary**: what this program validates in simulation, and where (if anywhere) hardware bring-up sits — phases and success criteria must not silently assume lab equipment nobody has | README phase table + BOARD | OPEN | <J-orchestrator-NNNN> |
 | B5 | **Success criteria per phase**: for each phase, the evidence that closes its `P<n>-phase-accept` gate — replay/validation runs, performance figures, audit state. These become the gate checklists' acceptance rows (see [`templates/`](templates/)) | README phase table + BOARD | OPEN | <J-orchestrator-NNNN> |
 
+## Section C — Lessons harvest
+
+<!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
+     Section B closes (PROTOCOL §7.1) — the program's FIRST harvest,
+     mining the bring-up spans from each active chain's entry 0001
+     ("first harvest" tiling). G0 is sponsor-signed, so the block's
+     transmission line records the sponsor's one yes/no beside the
+     ratification. A nil yield at G0 is normal and declared — there is
+     no warm-up gate exempt from the precondition, and this section is
+     what makes that sentence true on day zero. -->
+
 ## Exit
 
-All Section A and Section B rows signed → the orchestrator declares G0 passed
+All Section A and Section B rows signed and the Section C harvest block
+complete → the orchestrator declares G0 passed
 in its journal, updates `tasks/BOARD.md` (milestone → M1), and M1 work orders
 may issue.
 

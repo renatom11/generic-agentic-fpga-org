@@ -6,6 +6,9 @@ operating protocol, commit-enforcement machinery, spawn launchers, and seeded
 journals — with the project itself left as an explicit slot. A human sponsor
 and an orchestrator session fill that slot at the G0 intake, and the org then
 designs, verifies, validates, documents, and audits the program around it.
+It also harvests lessons at every gate and offers them upstream to this
+shell automatically — one yes/no from you, default yes
+([docs/FEDERATION.md](docs/FEDERATION.md)).
 The org design and its enforcement machinery were distilled from the
 [agentic-fpga program](https://github.com/renatom11/agentic-fpga), where they
 were proven in operation.

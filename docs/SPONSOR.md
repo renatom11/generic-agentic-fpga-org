@@ -27,6 +27,14 @@ Every contact from the orchestrator belongs to exactly one class
 Every escalation arrives decision-ready: options, a recommendation, and cost.
 If one doesn't, bounce it back.
 
+**One rider, not a seventh class**: attached to a gate approval you may get
+a single yes/no — *send the lessons harvested this gate upstream to the
+shell?* Default yes; answer no if your organization cannot share
+([`docs/FEDERATION.md`](FEDERATION.md) §7). Gates you don't sign defer
+their packets to the next gate you do, so this question only ever rides a
+signature you were already giving. Nothing else about the lessons machinery
+ever reaches you.
+
 ## Your one-time setup duty
 
 **Branch protection** — G0 Section A, item A7 (exact click-path in

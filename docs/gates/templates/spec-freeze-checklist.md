@@ -61,6 +61,15 @@ and (b) a dv_lead testability countersignature for that spec (PROTOCOL §7).
 |---|---|---|---|
 | C-1 | <the defect/obligation, stated so its closure is checkable> | <SPEC-M<nn> / first SO- packet / gate row> | OPEN / CLOSED (WO-NNNN at `<sha>`) / SEALED (decision finalised, WO-NNNN) |
 
+## Lessons harvest
+
+<!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
+     this checklist opens (PROTOCOL §7.1); the gate is not fully signed
+     until the block's precondition boxes are checked. This gate is
+     sponsor-signed (S1): its block records the sponsor's one yes/no
+     (default yes) beside the gate signature, discharging any decisions
+     deferred to it. -->
+
 ## Sponsor items
 
 | # | Item | Status | Signature |
@@ -70,7 +79,7 @@ and (b) a dv_lead testability countersignature for that spec (PROTOCOL §7).
 ## Exit
 
 All batches FROZEN, all countersignatures transcribed, every carry-forward
-row carrying a named landing site, sponsor signed → the orchestrator declares
+row carrying a named landing site, harvest block complete, sponsor signed → the orchestrator declares
 the gate passed in its journal and updates `tasks/BOARD.md`. Post-freeze
 changes to any frozen §4/§6/§7 are a spec diff plus an ADR, recorded in the
 spec's §13 (SPEC-TEMPLATE).

@@ -47,6 +47,15 @@ committed with no open CRITICAL findings, and the sponsor approves
 |---|---|---|---|
 | C-nn | <obligation surviving the phase> | <P<n+1> gate / named packet> | OPEN / CLOSED (WO-NNNN at `<sha>`) |
 
+## Lessons harvest
+
+<!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
+     this checklist opens (PROTOCOL §7.1); the gate is not fully signed
+     until the block's precondition boxes are checked. This gate is
+     sponsor-signed: its block records the sponsor's one yes/no (default
+     yes) and discharges every transmission decision DEFERRED from the
+     phase's SO- packets and P<n>-module-ready — one question, beside S1. -->
+
 ## Sponsor items
 
 | # | Item | Status | Signature |
@@ -56,7 +65,7 @@ committed with no open CRITICAL findings, and the sponsor approves
 ## Exit
 
 Acceptance table green, audit release signed, carry-forwards dispositioned,
-sponsor approved → the orchestrator declares the phase accepted in its
+harvest block complete, sponsor approved → the orchestrator declares the phase accepted in its
 journal, updates `tasks/BOARD.md`, and (PR-flow mode) merges to `main` at
 this milestone boundary via a trivial PR merge (PROTOCOL §5 R9). The next
 phase's gate ladder instantiates from these templates.

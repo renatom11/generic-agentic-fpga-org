@@ -87,6 +87,15 @@ signatures:
    `P<n>-phase-accept` acceptance rows later, via
    [`docs/gates/templates/`](docs/gates/templates/)).
 
+**Domain packs ride the same signature.** From the intake material the
+orchestrator also declares which [`docs/domains/`](docs/domains/) lesson
+packs are relevant to your project and loads them, as part of the proposal
+it already brings you ([`docs/FEDERATION.md`](docs/FEDERATION.md)). You
+never pick or configure a pack; signing the intake covers it. The declared
+packs are recorded on [`tasks/BOARD.md`](tasks/BOARD.md) in the same commit
+as the intake rows — the line a later orchestrator session rehydrates its
+loaded packs from.
+
 Intake fills the project slot; it never amends the protocol (PROTOCOL §1).
 Until intake is on the BOARD, the orchestrator spawns no agent.
 
@@ -190,3 +199,14 @@ From here the loop is the one the source program practiced — five lines:
 5. Gates close by signed checklists instantiated from
    [`docs/gates/templates/`](docs/gates/templates/); the sponsor sees only
    E1–E6, batched and decision-ready, on the BOARD.
+
+Every module sign-off and every gate in that loop also carries a **lessons
+harvest** as a precondition: agents mine their own journals, the
+orchestrator collates the yield into the gate record, and an export packet
+is produced — all automatic, instantiated by the orchestrator from
+[`docs/gates/templates/lessons-harvest-block.md`](docs/gates/templates/lessons-harvest-block.md)
+into every gate checklist and `SO-` packet
+([`docs/FEDERATION.md`](docs/FEDERATION.md)). You operate none of it.
+Your touchpoints are the gate signature you were already giving, and one
+yes/no on sending the packet upstream to the shell (default yes) — asked
+only at gates you sign; other records defer to the next one.

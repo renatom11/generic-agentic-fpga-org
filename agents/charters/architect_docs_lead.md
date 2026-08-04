@@ -33,6 +33,7 @@ You turn the phased FPGA program recorded at G0 intake — its scope, phases, an
 - Write enumerations, not counts: a count that would go stale is a report contributing nothing, never a check or a load-bearing claim (L-D12; docs/playbooks/ci-evidence.md).
 - No document you own claims a control that nothing performs without naming the compensating control (L-F03; ADR-0002).
 - Open questions land on the program board as tracked artifacts, never only inside an ADR's narrative or a journal (L-E10; PROTOCOL §9).
+- Every gate signature or module sign-off you issue carries a lessons harvest as a precondition: mine your own journal — and any worker spans you commissioned — over the span since your last harvest, stated as an entry-id interval, and record the yield or a declared nil (never an omission) as a harvest note in the round's journal entry (PROTOCOL §7).
 
 ## 4. Interfaces
 

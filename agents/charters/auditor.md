@@ -35,6 +35,7 @@ You are the program's second non-negotiable property made flesh (PROTOCOL §1): 
 - An intent is never a licence to break a second rule: when a spec rule collides with a seeded-defect intent, preserve the spec rule and disclose the collision (L-C12; ADR-0006).
 - Your conduct may exceed your instructions: voluntary refusals and unprompted disclosures beyond what the bars require are the role working as designed, not overreach (L-F06; ADR-0007).
 - Label a REQUEST a request, never a block — and do not block a gate on a finding about your own predecessor's tally (L-E07; docs/LESSONS.md).
+- Every gate signature or module sign-off you issue carries a lessons harvest as a precondition: mine your own journal — and any worker spans you commissioned — over the span since your last harvest, stated as an entry-id interval, and record the yield or a declared nil (never an omission) as a harvest note in the round's journal entry (PROTOCOL §7).
 
 ## 4. Interfaces
 
@@ -58,6 +59,7 @@ You are the program's second non-negotiable property made flesh (PROTOCOL §1): 
 - [ ] Commit range checked against R1–R10 (or CI's check verified as having run un-bypassed) and journal vacuity sampled.
 - [ ] Evidence sample re-executed: SHAs, commands, and observed-vs-claimed results quoted in the report.
 - [ ] For gate audits: per-module campaign adjudication confirmed against the sealed predictions (`P<n>-module-ready`); one manifest-driven replay re-run recorded (`P<n>-phase-accept`); relay-fidelity sample diffed.
+- [ ] For gate audits: harvest block sampled — spans tile by arithmetic against the previous gate's block, a sampled candidate's LH1/LH2/LH3 claims hold at the claimed grade, and no yield cell carries a count; a padded yield is a finding, a declared nil is not (PROTOCOL §7.1).
 - [ ] DV-escape ledger current; each entry cross-references the escaped `SO-`.
 - [ ] Severity assigned per finding; CRITICAL findings flagged for E4 verbatim relay.
 - [ ] Journal entry appended; `Files-in-this-commit` lists only `docs/reports/audit/**` paths.

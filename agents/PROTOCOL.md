@@ -323,7 +323,7 @@ journal-entry reference (`J-<agent>-NNNN`), so governance itself is diffable.
 | Gate | Precondition to pass |
 |---|---|
 | `G0` (once) | Org ratified by sponsor; protocol self-test green; CI journal-check green; branch protection configured by sponsor. |
-| `P<n>-spec-freeze` | Architect's specs complete with REQ-### requirements; interface records compile; dv_lead countersigns testability. |
+| `P<n>-spec-freeze` | Architect's specs complete with REQ-### requirements; interface records compile; dv_lead countersigns testability; sponsor signs the freeze (escalation class E1). |
 | `P<n>-module-ready` | Per-module DV sign-off packets (`SO-*.md`) PASS; each PASS carries a completed §10 mutation campaign, its kills adjudicated against the sealed predictions. |
 | `P<n>-phase-accept` | Replay/validation evidence green per the project's intake-defined success criteria; audit report committed with no open CRITICAL findings; sponsor approval (escalation class E1). |
 
@@ -336,6 +336,70 @@ checklist edit is clerical and commits under `Agent: orchestrator`.
 **Phase hardening**: "P\<n\> hardening" means the window between
 `P<n>-module-ready` and `P<n>-phase-accept`. It is the activation window for
 `formal_dv` and for any contingent roles the org chart marks for overlap.
+
+### 7.1 Lessons harvest (gate precondition)
+
+Every module sign-off (`SO-`) and every phase-gate checklist carries a
+lessons harvest as a precondition: the checklist instantiates the harvest
+block from `docs/gates/templates/lessons-harvest-block.md`, and the gate is
+not fully signed until the block is. Like the rest of the gate machinery,
+the harvest runs without sponsor operation — the sponsor's only touchpoints
+are the gate signature they were already giving and one default-yes decision
+on the upstream contribution, asked only at sponsor-signed gates; records
+the sponsor does not sign (`SO-` packets, `P<n>-module-ready`) defer their
+packets' decisions to the next sponsor-signed gate (`docs/FEDERATION.md`).
+
+**Span discipline.** Each agent holding a persistent journal chain mines its
+own journal over the span since its last harvest; a lead also mines the
+worker spans it commissioned. Spans are stated as entry-id intervals
+(`J-<agent>-NNNN..NNNN`) so consecutive harvests tile the journal exactly —
+a skipped harvest is a visible arithmetic gap, not a silent one. The yield
+is recorded as a harvest note in the round's journal entry. **A nil yield is
+declared, never omitted**: nil is legitimate and cheap, and there is no
+pressure to mint.
+
+**Three tiers, numbered by descending generality** (the sponsor's numbering:
+"tier 1 general, tier 2 domain, tier 3 project specific"):
+
+| Tier | Reach | Vocabulary bar (LH2) | Destination |
+|---|---|---|---|
+| 1 — general | Improves the agent doctrines universally | **LH2-g**: the rule statement contains no proper noun of any project or domain — no module ids, requirement ids, signal names, file paths, protocol names, interface standards | This shell's `docs/LESSONS.md` |
+| 2 — domain | Portable across projects sharing a technical domain; unstatable without domain vocabulary | **LH2-d**: domain nouns admissible (protocol names, interface standards, algorithm families); project nouns still barred (module ids, requirement ids, signal names, repo file paths) | `docs/domains/<pack>.md`, loaded by a project only when relevant (declared automatically at intake) |
+| 3 — project | Improves the running project only | Needs project vocabulary | The project's own local accretion (its protocol, charters, plans); never leaves the project |
+
+**The classifier** is a decision procedure, not a judgment call: a candidate
+descends the tiers and stops at the first bar it passes. Read the rule with
+provenance hidden and all project nouns removed — does it still teach?
+Tier 1. Restore only the domain nouns — does it teach a stranger who knows
+the domain but not the project? Tier 2, with the target pack named.
+Otherwise Tier 3, or a war story.
+
+**The full bar, at every tier:**
+
+- **LH1 — provenance-pinned**: cites the incident commit(s) and the
+  adjudicating journal entry or packet.
+- **LH2 — vocabulary per grade**: LH2-g or LH2-d above, applied with the
+  provenance hidden.
+- **LH3 — stated failure**: says what breaks without the rule, in a form
+  recognisable in someone else's repo.
+
+**Candidate ids**: harvest candidates carry `LC-` (general) and `LD-`
+(domain) ids locally; the shell allocates core `L-` ids and pack-local ids
+at merge — a candidate never self-assigns its final id.
+
+**War stories.** A candidate that fails a bar is kept as a war story with
+the criterion it failed named — failed candidates are the corpus a later
+harvest re-reads when the missing provenance or generality arrives.
+
+**Collation and export.** The orchestrator collates the round's harvest
+notes into the gate record and produces the **export packet** — the
+tier-classified candidates, each with a self-contained incident description
+— whose onward path (staging, screening, human-merged upstream
+contribution) is `docs/FEDERATION.md`.
+
+**Enforcement.** Review-enforced, like §10: the auditor samples harvest
+notes for span tiling and bar honesty. No counting metric, ever — a count
+cannot tell a harvest from a shrug.
 
 ## 8. Escalation to the sponsor
 

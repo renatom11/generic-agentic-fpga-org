@@ -1,18 +1,39 @@
-# LESSONS — the operating record this shell was distilled from
+# LESSONS — the tier-1 core
+
+This file is the **tier-1 core** of the three-tier lessons taxonomy
+(PROTOCOL §7.1; the sponsor's numbering runs by descending generality —
+"tier 1 general, tier 2 domain, tier 3 project specific"):
+
+- **Tier 1 — general**, this file: rules that improve the agent doctrines
+  universally. Bar **LH2-g** — the rule statement contains no proper noun
+  of any project or domain.
+- **Tier 2 — domain**: rules portable across projects sharing a technical
+  domain, kept as packs in [`docs/domains/`](domains/) and loaded by a
+  project only when relevant.
+- **Tier 3 — project**: rules needing project vocabulary; they live in the
+  project's own local accretion and never leave it.
+
+Entries arrive here through the per-gate lessons harvest (PROTOCOL §7.1)
+and through reviewed contributions from other organizations
+([`docs/FEDERATION.md`](FEDERATION.md)): staged on a branch, screened by
+the reviewer agent, merged by a human maintainer — never automatically —
+with core `L-` ids allocated at merge.
 
 **Nothing here is normative.** Each entry names its normative home
 (PROTOCOL §, ADR-000N of this shell, or a playbook) or says "narrative
-only". Citations are permalinks into the public
+only". The entries below are the seeding harvest — the operating record
+this shell was distilled from. Citations are permalinks into the public
 [agentic-fpga program](https://github.com/renatom11/agentic-fpga), pinned at
 commit `1799e10a37f19059ac3337982af4b6d035e14d0c` (the seeding pin; one
 source document landed past the pin and is cited at its landing commit,
 noted where it occurs). Journal entry IDs (`J-<agent>-NNNN`) locate entries
 inside the linked journals.
 
-Playbook references point at the four planned playbooks —
-`docs/playbooks/mutation-campaign.md`, `docs/playbooks/review.md`,
-`docs/playbooks/packet-splitting.md`, `docs/playbooks/ci-evidence.md` — not
-yet created; that is expected.
+Playbook references point at the operating playbooks in
+`docs/playbooks/` — `mutation-campaign.md`, `review.md`,
+`packet-splitting.md`, `ci-evidence.md`, and the harvest procedure itself,
+`lessons-harvest.md`. (Per-entry "(planned)" markers inside Now-lives-in
+lines are part of the merged seeding record and stand as written.)
 
 Sections: **A** commit & journal discipline · **B** review discipline ·
 **C** campaign & blinding discipline · **D** CI & evidence discipline ·
