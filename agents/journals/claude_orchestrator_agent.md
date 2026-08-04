@@ -803,3 +803,77 @@ transit.
 ### Files-in-this-commit
 - README.md
 - docs/GUIDE.md
+
+## [J-orchestrator-0017] 2026-08-04T19:55:25Z | task:none | C17 - ADR-0008: the federation era ratified retroactively; the documentary law; the freeze override
+
+### Trigger
+Sponsor directive opening the federation-hardening round: fix the
+concurrent-landing race by serialize-with-redo, fix everything a
+three-lens adversarial pass found, and commit the shell fully to
+its installer identity. This commit lands the round's legal
+foundation; nothing later in the round is lawful before it.
+
+### Inputs
+agents/PROTOCOL.md S11 (the amendment law as written);
+docs/adr/ADR-0001..0007 (house style and numbering);
+agents/journals/claude_orchestrator_agent.md entries 0014-0016
+(the un-ADR'd amendments and the freeze declaration);
+tasks/BOARD.md (Decisions on record); the three pass reports
+(end-to-end/loop-quality, concurrency F1-F20, consistency 23
+findings), whose finding this commit cures: C14/C15 amended the
+protocol and charters with no ADR, docs/FEDERATION.md has no
+amendment vehicle at all, and the C16 freeze exists only in
+journal narrative, invisible to S9 rehydration.
+
+### Reasoning
+- Ratify-retroactively over pretend-it-was-fine or rewrite-history:
+  the gap is recorded as a defect and cured, because an operating
+  constitution that visibly violated its own amendment law teaches
+  every later agent that S11 is advisory; history rewrite is
+  refused by R3/R9 and would be dishonest anyway.
+- S11's scope extension makes FEDERATION.md, the gate templates,
+  the playbooks, and the domains law amendable only by ADR: the
+  pass showed agents execute these documents as law, and ungoverned
+  law is exactly ADR-0002's defect class.
+- The freeze override is scoped and self-terminating: sponsor
+  directed the round; the override ends at the round's closing
+  commit, which re-engages the freeze on the board in the same
+  commit. Freeze and override both live on the BOARD now so the
+  rehydration path meets them at its first read.
+- Grammar drift recorded here per the pass: entries 0014-0016 use
+  bare headers (no task:/title fields) and Context-form bodies
+  (no Inputs, no Reasoning). They are frozen under R3 and stay as
+  they are; the cause was compressed entry-writing in the
+  federation-sprint session; the prospective remedy is the
+  WARN-GRAMMAR advisory queued for this round's consistency
+  commit, which will fire on those three commits forever - the
+  honest alternative to rewriting or exempting them.
+
+### Actions
+Authored ADR-0008; extended PROTOCOL S11's first sentence to the
+documentary law; recorded freeze + override on the BOARD; this
+commit.
+
+### Evidence
+Corpus backtest recorded in ADR-0008: the extended S11 run
+backwards over the 16-commit history flags exactly C14/C15 (cured
+by ratification) and nothing else; C16 touched only README.md and
+docs/GUIDE.md, outside S11 before and after. Reproducible:
+git log --name-only C13..C16 against the extended scope list.
+
+### Outcome
+The round's legal foundation is in place: later commits in this
+round cite ADR-0009..0013 lawfully under the extended S11, and
+the freeze question is answered on the board rather than buried
+in narrative. DoD: this commit's slice of the sponsor directive
+met; the round continues at C18.
+
+### Open-questions
+- The freeze re-engages at the round's closing commit; the
+  deletion-only simplification pass C16 queued remains queued
+  behind the first harvest transit.
+
+### Files-in-this-commit
+- docs/adr/ADR-0008-retroactive-ratification-and-documentary-law.md
+- agents/PROTOCOL.md
+- tasks/BOARD.md

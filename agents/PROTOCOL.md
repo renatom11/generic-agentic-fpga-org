@@ -522,7 +522,10 @@ The org must survive the loss of any session, including the orchestrator's:
 
 ## 11. Amendment procedure
 
-Any change to this protocol, a charter, or the enforcement scripts requires:
+Any change to this protocol, a charter, the enforcement scripts,
+`docs/FEDERATION.md`, the gate templates (`docs/gates/templates/**`), the
+playbooks (`docs/playbooks/**`), or the domains law (`docs/domains/README.md`
+and pack headers) requires:
 (1) a numbered ADR in `docs/adr/` recording alternatives and rationale,
 (2) an orchestrator journal entry, (3) if the change alters enforcement
 semantics, an updated `scripts/test_protocol.sh` case proving the new behavior.

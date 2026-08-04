@@ -68,3 +68,9 @@ _None._
   canonical shell; a **project** re-records it at G0 — checklist row
   B6 — to point at its own org generic. Set at founding, while the
   relationship is still known.
+- **Feature freeze (J-orchestrator-0016) and its override**: the shell was
+  declared feature-frozen at C16 — no new law until the first harvest
+  transits. The sponsor directed the federation-hardening round
+  (ADR-0008..0013, 2026-08-04), overriding the freeze for that round only;
+  the override's end condition is the round's closing commit, which
+  re-engages the freeze in the same commit (ADR-0008).
