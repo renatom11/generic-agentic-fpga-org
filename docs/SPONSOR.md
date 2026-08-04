@@ -28,10 +28,13 @@ Every escalation arrives decision-ready: options, a recommendation, and cost.
 If one doesn't, bounce it back.
 
 **One rider, not a seventh class**: attached to a gate approval you may get
-a single yes/no — *send the lessons harvested this gate upstream to the
-shell?* Default yes; answer no if your organization cannot share
-([`docs/FEDERATION.md`](FEDERATION.md) §7). Gates you don't sign defer
-their packets to the next gate you do, so this question only ever rides a
+a single yes/no — *send the lessons harvested this gate onward to the
+canonical shell?* Default yes; answer no if your organization cannot share
+([`docs/FEDERATION.md`](FEDERATION.md) §7). Your projects' lessons land in
+your organization's own generic automatically — that part is never a
+question, it is all your property ([`docs/FEDERATION.md`](FEDERATION.md)
+§0); only the onward send is asked. Gates you don't sign defer their
+packets to the next gate you do, so this question only ever rides a
 signature you were already giving. Nothing else about the lessons machinery
 ever reaches you.
 

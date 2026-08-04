@@ -52,8 +52,9 @@ No `SO-` PASS issues on an unqualified bench.
      this checklist opens (PROTOCOL §7.1); the gate is not fully signed
      until the block's precondition boxes are checked. The sponsor does
      not sign this gate: the block's transmission line records DEFERRED
-     to P<n>-phase-accept, where the deferred decisions discharge beside
-     that gate's S1. -->
+     to P<n>-phase-accept, where the deferred packets' org-generic
+     landing and their outer-hop decision both discharge beside that
+     gate's S1 (docs/FEDERATION.md §0). -->
 
 ## Sponsor items
 

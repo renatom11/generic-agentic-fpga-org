@@ -52,9 +52,11 @@ committed with no open CRITICAL findings, and the sponsor approves
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
      this checklist opens (PROTOCOL §7.1); the gate is not fully signed
      until the block's precondition boxes are checked. This gate is
-     sponsor-signed: its block records the sponsor's one yes/no (default
-     yes) and discharges every transmission decision DEFERRED from the
-     phase's SO- packets and P<n>-module-ready — one question, beside S1. -->
+     sponsor-signed: its block records the automatic org-generic landing
+     (the inner hop, under this gate's signature) and the sponsor's one
+     yes/no on the outer hop (default yes), discharging everything
+     DEFERRED from the phase's SO- packets and P<n>-module-ready — one
+     question, beside S1 (docs/FEDERATION.md §0). -->
 
 ## Sponsor items
 

@@ -66,9 +66,11 @@ and (b) a dv_lead testability countersignature for that spec (PROTOCOL §7).
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
      this checklist opens (PROTOCOL §7.1); the gate is not fully signed
      until the block's precondition boxes are checked. This gate is
-     sponsor-signed (S1): its block records the sponsor's one yes/no
-     (default yes) beside the gate signature, discharging any decisions
-     deferred to it. -->
+     sponsor-signed (S1): its block records the automatic org-generic
+     landing (the inner hop, under this gate's signature) and the
+     sponsor's one yes/no on the outer hop (default yes) beside the gate
+     signature, discharging any landings and decisions deferred to it
+     (docs/FEDERATION.md §0). -->
 
 ## Sponsor items
 

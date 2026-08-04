@@ -39,8 +39,9 @@ tier claimed.
 **The classifier — descend the tiers, stop at the first bar passed:**
 
 1. Hide the provenance; remove every project noun. Still teaches?
-   **Tier 1** — id `LC-nn`; target: the shell's core `docs/LESSONS.md`,
-   via the export packet.
+   **Tier 1** — id `LC-nn`; target: the core `docs/LESSONS.md` — the org
+   generic's at the inner hop, onward to the canonical shell's on the
+   outer (docs/FEDERATION.md §0) — via the export packet.
 2. Restore only the domain nouns. Teaches a stranger who knows the domain
    but not the project? **Tier 2** — id `LD-nn`; target: the **named**
    domain pack in `docs/domains/`, via the export packet.
@@ -49,8 +50,9 @@ tier claimed.
    Or a **war story**: a candidate that fails a bar is kept with the
    criterion it failed, not discarded.
 
-`LC-`/`LD-` ids are local and provisional; the shell allocates final `L-`
-and pack-local ids at merge. A candidate never self-assigns its final id.
+`LC-`/`LD-` ids are local and provisional; the landing fence allocates
+final `L-` and pack-local ids — the org generic at the inner hop, the
+canonical shell at its merge. A candidate never self-assigns its final id.
 
 ---
 
@@ -92,8 +94,8 @@ and pack-local ids at merge. A candidate never self-assigns its final id.
 
 | Candidate | Tier | Target | Disposition |
 |---|---|---|---|
-| `LC-nn <short title>` | 1 | core `docs/LESSONS.md` (upstream) | in export packet |
-| `LD-nn <short title>` | 2 | domain pack `<pack>` (upstream) | in export packet |
+| `LC-nn <short title>` | 1 | core `docs/LESSONS.md` (org generic, then onward) | in export packet |
+| `LD-nn <short title>` | 2 | domain pack `<pack>` (org generic, then onward) | in export packet |
 | `<short title>` | 3 | local accretion: `<file / section>` | landed at `<sha>` / obligation `C-nn` |
 
 #### War stories
@@ -115,25 +117,35 @@ and pack-local ids at merge. A candidate never self-assigns its final id.
   be private; permalinks only where the source is public). **NONE** —
   every row tier-3, war story, or nil — is itself declared here, never
   left blank.
-- Transmission upstream — scoped to the parent record:
+- Transmission — two hops (docs/FEDERATION.md §0), scoped to the parent
+  record:
   - **At a sponsor-signed parent** (a checklist whose *passage requires*
     the sponsor's own signature — exactly G0, `P<n>-spec-freeze`,
     `P<n>-phase-accept`; `P<n>-module-ready`'s informational sponsor row
-    does not qualify): the sponsor's one yes/no, **default yes** —
-    **YES / NO**, recorded in `J-orchestrator-NNNN`, and it discharges
-    every decision DEFERRED to this gate from intervening records. NO is
-    the stated exception path for organizations that cannot share
-    (docs/FEDERATION.md §7); the packet then stays local as part of this
-    gate record and nothing else about the harvest changes.
+    does not qualify): the sponsor's one yes/no on the **outer hop**
+    rides the gate signature, **default yes** — **YES / NO**, recorded
+    in `J-orchestrator-NNNN`. Once the signature is journaled, the
+    **inner hop runs automatically**: this gate's export packet and
+    every packet DEFERRED to it land in the org generic under that
+    signature's authority (docs/FEDERATION.md §5.1 — after the
+    signature, never before; a bounced gate lands nothing); the landing
+    commit(s) are recorded here as this block's final cells, then the
+    gate is declared passed. On a yes the newly-landed packets go onward
+    to the canonical shell (docs/FEDERATION.md §7); NO is the stated
+    exception path for organizations that cannot share — the packets
+    stay in the org generic, nothing else about the harvest changes, and
+    a later gate's yes may flush the backlog.
   - **At any other parent** (an `SO-` packet or `P<n>-module-ready` —
     records the sponsor does not sign): record **DEFERRED to
-    `<next sponsor-signed gate>`**. The packet is committed locally now
-    and its transmission decision rides that gate's signature — **one
-    yes/no per sponsor-signed gate, never per module**; no sponsor
-    action attaches to a record the sponsor does not sign.
-  - A **NONE** export needs no decision for itself; record **N/A** — but
-    at a sponsor-signed parent with decisions DEFERRED to it, the one
-    yes/no is still asked to discharge the deferred queue, NONE or not.
+    `<next sponsor-signed gate>`**. The packet is committed locally now;
+    its org-generic landing and its outer-hop decision both ride that
+    gate's signature — **one yes/no per sponsor-signed gate, never per
+    module**; no sponsor action attaches to a record the sponsor does
+    not sign.
+  - A **NONE** export needs no landing and no decision for itself; record
+    **N/A** — but at a sponsor-signed parent with anything DEFERRED to
+    it, the landing and the one yes/no still run to discharge the queue,
+    NONE or not.
 
 #### Preconditions (these gate the parent record)
 
@@ -147,13 +159,14 @@ and pack-local ids at merge. A candidate never self-assigns its final id.
 - [ ] Every candidate is dispositioned exactly once (yield table or war
       story), and every war story names its failed criterion.
 - [ ] Export packet produced and cited above, or NONE declared.
-- [ ] Transmission recorded: at a sponsor-signed parent, the sponsor's
-      one yes/no (default yes) — the only sponsor action in this block,
-      riding the gate signature they were already giving; N/A stands in
-      only when this parent's export is NONE *and* nothing is DEFERRED
-      to it. At any other parent, the DEFERRED carry-forward to the next
-      sponsor-signed gate (or N/A for a NONE export). No sponsor action
-      ever attaches to a record the sponsor does not sign.
+- [ ] Transmission recorded: at a sponsor-signed parent, the org-generic
+      landing commit(s) — automatic under the gate signature — plus the
+      sponsor's one yes/no on the outer hop (default yes), the only
+      sponsor action in this block; N/A stands in only when this parent's
+      export is NONE *and* nothing is DEFERRED to it. At any other
+      parent, the DEFERRED carry-forward to the next sponsor-signed gate
+      (or N/A for a NONE export). No sponsor action ever attaches to a
+      record the sponsor does not sign.
 
 The parent gate or sign-off is **not fully signed** until every box above
 is checked (PROTOCOL §7.1).

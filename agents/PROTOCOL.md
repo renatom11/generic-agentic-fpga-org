@@ -344,10 +344,12 @@ lessons harvest as a precondition: the checklist instantiates the harvest
 block from `docs/gates/templates/lessons-harvest-block.md`, and the gate is
 not fully signed until the block is. Like the rest of the gate machinery,
 the harvest runs without sponsor operation — the sponsor's only touchpoints
-are the gate signature they were already giving and one default-yes decision
-on the upstream contribution, asked only at sponsor-signed gates; records
-the sponsor does not sign (`SO-` packets, `P<n>-module-ready`) defer their
-packets' decisions to the next sponsor-signed gate (`docs/FEDERATION.md`).
+are the gate signature they were already giving and one default-yes decision,
+asked only at sponsor-signed gates, on sending lessons onward to the
+canonical shell. The harvest itself lands in the organization's own generic
+automatically at those gates (the inner hop — all one team's property);
+records the sponsor does not sign (`SO-` packets, `P<n>-module-ready`)
+defer to the next sponsor-signed gate (`docs/FEDERATION.md` §0, §5, §7).
 
 **Span discipline.** Each agent holding a persistent journal chain mines its
 own journal over the span since its last harvest; a lead also mines the
@@ -363,7 +365,7 @@ pressure to mint.
 
 | Tier | Reach | Vocabulary bar (LH2) | Destination |
 |---|---|---|---|
-| 1 — general | Improves the agent doctrines universally | **LH2-g**: the rule statement contains no proper noun of any project or domain — no module ids, requirement ids, signal names, file paths, protocol names, interface standards | This shell's `docs/LESSONS.md` |
+| 1 — general | Improves the agent doctrines universally | **LH2-g**: the rule statement contains no proper noun of any project or domain — no module ids, requirement ids, signal names, file paths, protocol names, interface standards | The core `docs/LESSONS.md` — the org generic's at the inner hop, onward to the canonical shell's on the outer (`docs/FEDERATION.md` §0) |
 | 2 — domain | Portable across projects sharing a technical domain; unstatable without domain vocabulary | **LH2-d**: domain nouns admissible (protocol names, interface standards, algorithm families); project nouns still barred (module ids, requirement ids, signal names, repo file paths) | `docs/domains/<pack>.md`, loaded by a project only when relevant (declared automatically at intake) |
 | 3 — project | Improves the running project only | Needs project vocabulary | The project's own local accretion (its protocol, charters, plans); never leaves the project |
 
@@ -384,8 +386,9 @@ Otherwise Tier 3, or a war story.
   recognisable in someone else's repo.
 
 **Candidate ids**: harvest candidates carry `LC-` (general) and `LD-`
-(domain) ids locally; the shell allocates core `L-` ids and pack-local ids
-at merge — a candidate never self-assigns its final id.
+(domain) ids locally; the landing fence allocates final ids — the org
+generic at the inner hop, the canonical shell at its merge — and a
+candidate never self-assigns its final id.
 
 **War stories.** A candidate that fails a bar is kept as a war story with
 the criterion it failed named — failed candidates are the corpus a later

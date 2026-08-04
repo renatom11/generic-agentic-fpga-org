@@ -62,6 +62,9 @@ _None._
 - **Declared domain packs**: _none — set at G0 intake_ (recorded here in
   the same commit as the intake rows; a later orchestrator session
   rehydrates its loaded packs from this line).
-- **Federation upstream** (lessons PRs, `docs/FEDERATION.md` §7):
-  https://github.com/renatom11/generic-agentic-fpga-org — seeded; confirm
-  or re-record at G0 for a clone whose upstream differs.
+- **Federation upstream** (`docs/FEDERATION.md` §0, §7):
+  https://github.com/renatom11/generic-agentic-fpga-org — seeded. An
+  **org generic** (or a solo-collapsed copy) keeps this line as the
+  canonical shell; a **project** re-records it at G0 — checklist row
+  B6 — to point at its own org generic. Set at founding, while the
+  relationship is still known.

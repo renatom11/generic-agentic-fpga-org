@@ -669,3 +669,84 @@ who has never seen this session.
 - docs/gates/templates/spec-freeze-checklist.md
 - docs/playbooks/lessons-harvest.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0015] 2026-08-08T13:50Z
+
+### Context
+The sponsor refined the federation architecture from two levels to
+three, in his words: the generic is "a whole local ecosystem for the
+team that pulls it down"; they "pull down a copy again and start
+working"; the project "automatically update[s] using the tier 1 tier 2
+and tier 3 lesson structure of their own local generic"; and "the own
+local generic will generate an output file, that can be sent to Me
+(Renato), to update my own model, if the local user chooses." He then
+approved my recommendation to keep the one default-yes question at the
+org boundary: "Do what you recommended."
+
+### Actions
+The three-level restructure, verified by a 2-lens adversarial round
+(consistency + three walked user journeys) whose 3 blocking and 12
+minor findings are all applied in this same commit:
+- FEDERATION §0 (the three levels: canonical shell / org generic /
+  project; two fences, two hops), §5 inner hop (mandatory, automatic,
+  runs only after the gate signature is journaled — a bounced gate
+  lands nothing), §5.1 the org-fence procedure (clone, stage, screen,
+  transcribe, merge; the per-repository orchestrator identity rule so
+  cross-repo landings stay protocol-green), §7 the outer hop (one
+  default-yes question riding sponsor-signed gates; backlog flush on a
+  later yes), §8/§10 fence-parameterized.
+- G0 gains row B6 (federation upstream re-recorded and push access
+  verified — proposed by the orchestrator, covered by the intake
+  signature); BOOTSTRAP gains the matching intake step; the board's
+  upstream line points at B6.
+- README splits "found your organization (once)" from "start each
+  project", with the solo-collapse rule stated honestly (the solo copy
+  holds the org-generic role; graduation procedure named; fork-point
+  inheritance declared fixed, mid-flight refresh out of scope by
+  design).
+- Destination and id-allocation cells fence-qualified everywhere the
+  old one-hop wording survived (PROTOCOL §7.1 tier table and id
+  sentence; FEDERATION §1/§4; the harvest block's classifier, id note,
+  yield-table cells, transmission bullet and precondition; the
+  playbook; the three checklist-template comments; the orchestrator
+  charter's export-packet bullet — the round's first blocking find).
+- Ordering circularity resolved: the outer-hop question rides the
+  signature; the landing executes after the signature exists; landing
+  commits are the block's final cells before the gate-passed
+  declaration.
+
+### Evidence
+protocol self-test 38/38; zero broken relative links across the 15
+changed files (scripted sweep); the verification round's findings
+enumerated in the workflow result and each fix re-read in place.
+
+### Outcome
+A stranger can fork the canonical shell into an org generic, fork that
+into projects, and their organization compounds automatically —
+lessons land at home with no consent question, and reach the canonical
+shell only by their sponsor's one default-yes choice. The sponsor's
+two-touchpoint bar holds at every level.
+
+### Open-questions
+- Mid-project refresh from the org generic is declared out of scope; if
+  a real org wants it, that is a future amendment with its own
+  verification round.
+- Federation governance before the first outside contributor — still
+  parked, unchanged.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- README.md
+- agents/PROTOCOL.md
+- agents/charters/orchestrator.md
+- docs/FEDERATION.md
+- docs/SPONSOR.md
+- docs/domains/README.md
+- docs/gates/G0-checklist.md
+- docs/gates/templates/lessons-harvest-block.md
+- docs/gates/templates/module-ready-checklist.md
+- docs/gates/templates/phase-accept-checklist.md
+- docs/gates/templates/spec-freeze-checklist.md
+- docs/playbooks/lessons-harvest.md
+- tasks/BOARD.md

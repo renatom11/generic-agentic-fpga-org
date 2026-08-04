@@ -86,11 +86,18 @@ signatures:
 5. **B5** — success criteria per phase (these become the
    `P<n>-phase-accept` acceptance rows later, via
    [`docs/gates/templates/`](docs/gates/templates/)).
+6. **B6** — the federation upstream: the orchestrator proposes this
+   project's org generic URL from the fork relationship (for a clone, one
+   line in the same proposal) and re-records the BOARD's upstream line —
+   your intake signature covers it, nothing to configure
+   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §0).
 
 **Domain packs ride the same signature.** From the intake material the
 orchestrator also declares which [`docs/domains/`](docs/domains/) lesson
-packs are relevant to your project and loads them, as part of the proposal
-it already brings you ([`docs/FEDERATION.md`](docs/FEDERATION.md)). You
+packs are relevant to your project and loads them — these are your org
+generic's packs, inherited when this project was forked from it
+([`docs/FEDERATION.md`](docs/FEDERATION.md) §0) — as part of the proposal
+it already brings you. You
 never pick or configure a pack; signing the intake covers it. The declared
 packs are recorded on [`tasks/BOARD.md`](tasks/BOARD.md) in the same commit
 as the intake rows — the line a later orchestrator session rehydrates its
@@ -202,11 +209,13 @@ From here the loop is the one the source program practiced — five lines:
 
 Every module sign-off and every gate in that loop also carries a **lessons
 harvest** as a precondition: agents mine their own journals, the
-orchestrator collates the yield into the gate record, and an export packet
-is produced — all automatic, instantiated by the orchestrator from
+orchestrator collates the yield into the gate record, produces an export
+packet, and lands it in your organization's own generic — all automatic,
+instantiated by the orchestrator from
 [`docs/gates/templates/lessons-harvest-block.md`](docs/gates/templates/lessons-harvest-block.md)
 into every gate checklist and `SO-` packet
-([`docs/FEDERATION.md`](docs/FEDERATION.md)). You operate none of it.
-Your touchpoints are the gate signature you were already giving, and one
-yes/no on sending the packet upstream to the shell (default yes) — asked
-only at gates you sign; other records defer to the next one.
+([`docs/FEDERATION.md`](docs/FEDERATION.md) §0, §5). You operate none of
+it. Your touchpoints are the gate signature you were already giving, and
+one yes/no on sending the newly-landed lessons onward to the canonical
+shell (default yes) — asked only at gates you sign; other records defer
+to the next one.

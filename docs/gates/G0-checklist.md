@@ -78,15 +78,17 @@ Path B). The rows below are the record either way.
 | B3 | **External references and toolchain candidates, each with a license class**: every reference design, document, dataset, or candidate toolchain lane the org may consult or adopt, classed **free-use** (may be vendored verbatim with provenance, never edited in place) or **consult-only** (design study only — never ported, never quoted into shipped source), per PROTOCOL §10. Toolchain candidates feed the M1 E3 decision | BOARD (decisions on record) | OPEN | <J-orchestrator-NNNN> |
 | B4 | **The simulation-first boundary**: what this program validates in simulation, and where (if anywhere) hardware bring-up sits — phases and success criteria must not silently assume lab equipment nobody has | README phase table + BOARD | OPEN | <J-orchestrator-NNNN> |
 | B5 | **Success criteria per phase**: for each phase, the evidence that closes its `P<n>-phase-accept` gate — replay/validation runs, performance figures, audit state. These become the gate checklists' acceptance rows (see [`templates/`](templates/)) | README phase table + BOARD | OPEN | <J-orchestrator-NNNN> |
+| B6 | **Federation upstream re-recorded**: this project's org generic = `<URL>`, proposed by the orchestrator from the fork relationship (clone case: one line in the same signed proposal — the intake signature covers it), and push access to it verified. An org generic itself keeps the canonical shell on this line; a solo-collapsed copy does too ([`docs/FEDERATION.md`](../FEDERATION.md) §0, §5.1) | BOARD (decisions on record) | OPEN | <J-orchestrator-NNNN> |
 
 ## Section C — Lessons harvest
 
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
      Section B closes (PROTOCOL §7.1) — the program's FIRST harvest,
      mining the bring-up spans from each active chain's entry 0001
-     ("first harvest" tiling). G0 is sponsor-signed, so the block's
-     transmission line records the sponsor's one yes/no beside the
-     ratification. A nil yield at G0 is normal and declared — there is
+     ("first harvest" tiling). G0 is sponsor-signed, so the block runs
+     the automatic org-generic landing and records the sponsor's one
+     outer-hop yes/no beside the ratification (docs/FEDERATION.md §0).
+     A nil yield at G0 is normal and declared — there is
      no warm-up gate exempt from the precondition, and this section is
      what makes that sentence true on day zero. -->
 

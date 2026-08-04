@@ -31,15 +31,17 @@ never loaded.
 ## How packs grow
 
 Packs accrete only through the federation pipeline
-([`docs/FEDERATION.md`](../FEDERATION.md)): tier-2 candidates arrive in a
-gate's export packet under local `LD-` ids with the target pack named, are
-staged on a branch, screened by the reviewer agent (the LH bars,
-teach-don't-instruct, leak screening), and merged by a human maintainer —
-**the merge is never automated**, because packs, like the core, are
+([`docs/FEDERATION.md`](../FEDERATION.md)), at two fences (§0): in an
+**org generic**, tier-2 candidates arrive from the org's own projects'
+gate harvests — the automatic inner hop, screened and landed under the
+gate signature (§5); in the **canonical shell**, they arrive from
+organizations' outer-hop PRs — staged, screened by the reviewer agent
+(the LH bars, teach-don't-instruct, leak screening), and merged by a
+human maintainer, **never automated**, because packs, like the core, are
 constitution-adjacent text that future agents read and obey at boot.
-Pack-local entry ids are allocated at merge; nobody edits a pack directly.
-This shell's own origin program contributes through the same pipeline as
-any other organization (FEDERATION §10).
+Pack-local entry ids are allocated at the landing fence; nobody edits a
+pack directly. This shell's own origin program contributes through the
+same pipeline as any other organization (FEDERATION §10).
 
 ## Pack file naming
 

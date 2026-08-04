@@ -30,9 +30,10 @@ Read, in order:
   batched and decision-ready. Everything else is decided inside the org and
   recorded in journals and ADRs.
 - Every module sign-off and phase gate carries a lessons harvest as a
-  precondition; you collate it and produce the export packet
-  (`docs/FEDERATION.md`) unprompted — the sponsor's only part is one
-  yes/no on sending it upstream.
+  precondition; you collate it, produce the export packet, and land it in
+  the org generic automatically at sponsor-signed gates
+  (`docs/FEDERATION.md` §0, §5) — the sponsor's only part is one yes/no
+  on sending it onward to the canonical shell.
 
 ## First session
 

@@ -103,21 +103,28 @@ war-story appendix. Every row's incident description is
 **self-contained** — sufficient to judge LH2 and LH3 without visiting this
 repository, because the reviewer upstream cannot assume it is reachable;
 permalinks only where the source is public, and only as a supplement.
-Never pre-allocate final `L-` or pack-local ids — the shell does that at
-merge. Commit the packet as part of the gate record and cite its path in
+Never pre-allocate final `L-` or pack-local ids — the landing fence does
+that (the org generic at the inner hop, the canonical shell at its
+merge). Commit the packet as part of the gate record and cite its path in
 the block. If every row is tier-3, war story, or nil, declare **NONE** in
 the block; a nil-export gate is a normal gate.
 
 ### 6. The sponsor's one question
 
 At a **sponsor-signed** gate (G0, `P<n>-spec-freeze`, `P<n>-phase-accept`),
-present the transmission decision beside the gate signature the sponsor is
-already giving, decision-ready and one line long: *send the export packet
-upstream? Default yes.* — one question covering everything DEFERRED to this
-gate as well as its own packet. Record the answer in the block and in the
-orchestrator's journal. At a parent the sponsor does **not** sign — an
-`SO-` packet or `P<n>-module-ready` — there is no signature to ride:
-commit the export packet locally, record **DEFERRED to the next
+present the **outer-hop** decision beside the gate signature,
+decision-ready and one line long: *send this gate's lessons onward to the
+canonical shell? Default yes.* — one question covering everything this
+gate will land. Record the answer in the block and in the orchestrator's
+journal. Then, **once the signature is journaled — never before**, the
+**inner hop runs automatically**: this gate's export packet and every
+packet DEFERRED to it are landed in the org generic through the
+org-fence procedure ([`FEDERATION.md`](../FEDERATION.md) §5.1 — clone,
+stage, screen, transcribe, merge under the signature's authority), the
+landing commits are recorded in the block as its final cells, and on a
+yes the packets go onward (§7). A bounced gate lands nothing. At a parent the sponsor does **not**
+sign — an `SO-` packet or `P<n>-module-ready` — there is no signature to
+ride: commit the export packet locally, record **DEFERRED to the next
 sponsor-signed gate** in the block, and ask nothing. One yes/no per
 sponsor-signed gate, never per module. **NO** is the exception path for organizations
 that cannot share ([`FEDERATION.md`](../FEDERATION.md) §7): the packet
@@ -127,19 +134,20 @@ everything above ran without them.
 
 ### 7. Transmit
 
-On yes, open **one pull request per outstanding export packet** — the
-gate's own and any discharged by its signature — each adding exactly one
-file under `docs/federation/inbox/<source-org>-<parent-record-id>.md`
+On yes, open **one pull request per unsent export packet** against the
+**canonical shell** — the org generic's board records what has been
+sent — each PR adding exactly one file under
+`docs/federation/inbox/<source-org>-<parent-record-id>.md`
 ([`FEDERATION.md`](../FEDERATION.md) §7). The PR is a delivery vehicle,
-never merged as-is: shell-side (§8.1), the maintainer stages the packet as
-the shell's own protocol commits, screens it with a reviewer agent (the LH
-bars, teach-don't-instruct, leak screening), transcribes accepted
-candidates, and a **human maintainer merges the staging branch — never
-automated**: `docs/LESSONS.md` and the domain packs are
-constitution-adjacent text future agents read and obey at boot, so a
-foreign contribution is a prompt-injection surface, and the human at the
-merge is a permanent property of the pipeline. The orchestrator's duty
-ends at the PR; final id allocation happens at merge.
+never merged as-is: at the canonical fence (§8.1), the maintainer stages
+the packet as the shell's own protocol commits, screens it with a
+reviewer agent (the LH bars, teach-don't-instruct, leak screening),
+transcribes accepted candidates, and a **human maintainer merges the
+staging branch — never automated**: `docs/LESSONS.md` and the domain
+packs are constitution-adjacent text future agents read and obey at boot,
+so a foreign contribution is a prompt-injection surface, and the human at
+the merge is a permanent property of the pipeline. The orchestrator's
+duty ends at the PR; final id allocation happens at merge.
 
 ## Hygiene
 

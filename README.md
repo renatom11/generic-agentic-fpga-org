@@ -6,8 +6,9 @@ operating protocol, commit-enforcement machinery, spawn launchers, and seeded
 journals — with the project itself left as an explicit slot. A human sponsor
 and an orchestrator session fill that slot at the G0 intake, and the org then
 designs, verifies, validates, documents, and audits the program around it.
-It also harvests lessons at every gate and offers them upstream to this
-shell automatically — one yes/no from you, default yes
+It also harvests lessons at every gate: they land in your organization's
+own copy of this shell automatically, and are offered onward to the
+canonical shell with one yes/no from you, default yes
 ([docs/FEDERATION.md](docs/FEDERATION.md)).
 The org design and its enforcement machinery were distilled from the
 [agentic-fpga program](https://github.com/renatom11/agentic-fpga), where they
@@ -59,13 +60,31 @@ Run the enforcement self-test: `bash scripts/test_protocol.sh`.
 
 ## Getting started
 
-**To start a project with this shell:**
+Three levels, two moves of yours
+([docs/FEDERATION.md](docs/FEDERATION.md) §0):
 
-1. **Fork this repository** (or clone it and push to a new empty repo of
-   your own) — one fork per project. Do **not** use GitHub's "Use this
-   template" button: it squashes history into a single commit, and this
-   repository's commit history is load-bearing — the journal-check CI
-   verifies the whole chain, and a squashed history fails it by design.
+**Found your organization — once.** Fork this repository (or clone it and
+push to a new repo of your own). That copy is your **org generic**: your
+team's own ecosystem, where lessons from all your projects accumulate. It
+runs no project itself. Do **not** use GitHub's "Use this template"
+button: it squashes history into a single commit, and this repository's
+commit history is load-bearing — the journal-check CI verifies the whole
+chain, and a squashed history fails it by design. (A solo run of a single
+project may treat the project copy below as both levels: it then holds
+the org-generic role for federation — its upstream line stays the
+canonical shell, its lessons land in itself. If a second project ever
+becomes likely, found the real org generic first: graduation later means
+forking this shell fresh and landing the solo copy's accumulated lessons
+into it through the org-fence pipeline before project 2 forks.)
+
+**To start each project:**
+
+1. **Fork your org generic** (same no-template-button rule) — one fork
+   per project. It boots with everything your organization has learned:
+   the accumulated core lessons and the domain packs your intake
+   declares. Inheritance is fixed at the fork point — a running project
+   does not refresh from the org generic mid-flight; lessons landed by
+   sibling projects reach it only through its own next fork, by design.
 2. Open a Claude Code session on your fork, on any machine, and say:
    *"Read CLAUDE.md — you are this repository's orchestrator. Walk me
    through G0."*

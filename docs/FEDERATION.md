@@ -14,6 +14,38 @@ The sponsor's touchpoints are exactly two: the gate signature they were
 already giving, and one yes/no on sending the upstream contribution
 (default yes).
 
+## 0. The three levels
+
+Federation runs at two fences, three levels deep:
+
+- **The canonical shell** — this repository's upstream original
+  (<https://github.com/renatom11/generic-agentic-fpga-org>), kept by its
+  human maintainer. The universal tier-1 core and the shared domain packs
+  live here.
+- **The org generic** — an organization's own copy of the shell, forked
+  (or cloned) **once, when the organization is founded**. It is that
+  team's whole local ecosystem — their protocol, charters, and agents,
+  and their own accumulating `docs/LESSONS.md` core and `docs/domains/`
+  packs. It records the canonical shell as its federation upstream on
+  `tasks/BOARD.md`, and it runs no project itself: it is the template the
+  team's projects are created from, and the place their lessons come
+  home to.
+- **A project** — a working instance created from the org generic, one
+  per program the team runs. It boots with the org generic's accumulated
+  lessons — the core plus the packs its intake declares — and records
+  the **org generic**, not the canonical shell, as its federation
+  upstream.
+
+Lessons flow inward-to-outward. A project's harvest lands in its org
+generic **automatically** — the inner hop (§5): all one team's property,
+no consent question, mandatory by the gate law. The org generic's
+accumulated lessons travel to the canonical shell **by choice** — the
+outer hop (§7): one default-yes question riding gates the org's sponsor
+already signs. An organization that never sends anything upstream still
+compounds — its second project boots smarter than its first. Both fences
+run the same pipeline (§8); at the canonical fence the maintainer is this
+repository's, at the org fence the org's own.
+
 ## 1. The tier taxonomy
 
 Three tiers, numbered by descending generality — the sponsor's words:
@@ -22,8 +54,9 @@ Three tiers, numbered by descending generality — the sponsor's words:
 - **Tier 1 — general.** Improves the agent doctrines universally. Bar
   **LH2-g**: the rule statement contains no proper noun of any project or
   domain — no module ids, requirement ids, signal names, file paths,
-  protocol names, interface standards. Destination: this shell's
-  [`docs/LESSONS.md`](LESSONS.md).
+  protocol names, interface standards. Destination: the core
+  [`docs/LESSONS.md`](LESSONS.md) — the org generic's at the inner hop
+  (§5), the canonical shell's on the outer hop (§7).
 - **Tier 2 — domain.** Portable across projects sharing a technical domain,
   and unstatable without domain vocabulary. Bar **LH2-d**: domain nouns
   admissible (protocol names, interface standards, algorithm families —
@@ -62,8 +95,9 @@ and stops at the first bar it passes.
 
 Harvest candidates are numbered locally: `LC-` for general (tier 1)
 candidates, `LD-` for domain (tier 2) candidates. Local ids are
-provisional — the shell allocates core `L-` ids and pack-local ids at
-merge, so two contributors' numbering can never collide.
+provisional — **the landing fence allocates** final ids (the org generic
+at the inner hop, the canonical shell at its merge), so two contributors'
+numbering can never collide.
 
 ## 5. The harvest law
 
@@ -89,6 +123,49 @@ harvest block instantiates into the gate checklist automatically from
 packet (§6). The sponsor configures none of this; the harvest rides the
 gate they were already signing.
 
+**The inner hop is mandatory and automatic.** At each sponsor-signed
+gate, **after the sponsor's signature is journaled**, the export packets
+in hand — this gate's and any DEFERRED to it — are landed in the **org
+generic** (§0) through the org-fence procedure (§5.1). The authority for
+the landing is that gate signature — the landing runs once it exists,
+never before, so a bounced gate lands nothing; recording the landing
+commits is the block's final act before the orchestrator declares the
+gate passed. No separate approval, no new touchpoint; within one
+organization there is no foreign fence. The screening report still
+exists, and each packet also stays committed in the project as part of
+its gate record.
+
+### 5.1 The org-fence procedure
+
+How the project orchestrator executes the inner hop, concretely. Push
+access to the team's own org generic is a **founding assumption**,
+verified at G0 alongside the upstream-line record (the G0 checklist's
+federation row); the org generic's URL is read from the project's
+`tasks/BOARD.md` upstream line — never asked.
+
+1. **Clone** the org generic at the URL on the project's board.
+2. **Stage**: on an org-generic staging branch, commit the export
+   packet(s) verbatim.
+3. **Screen**: spawn a fresh reviewer agent per packet (§8's three
+   screens are its entire brief) and commit its verdict as a screening
+   report beside the packet.
+4. **Transcribe** accepted candidates into the org generic's
+   `docs/LESSONS.md` / pack entry formats, allocating ids at this fence
+   (§4).
+5. **Merge** the staging branch, citing the project gate id and its
+   sponsor signature as the authority.
+6. **Record** the resulting org-generic SHAs back in the project's
+   harvest block (its final cells), and — on an outer-hop yes — update
+   the org generic's board sent-ledger line when the PRs open (§7).
+
+**Identity rule.** The orchestrator role is **per-repository**: a session
+operating at the org fence acts as the org generic's own orchestrator,
+committing under that repo's `Agent: orchestrator` identity and appending
+to that repo's orchestrator journal chain, each entry citing the project
+gate id it lands for. This is the role continuing in another of the
+team's repos, not one agent writing another's journal — every repo's
+protocol and CI stay green under their own rules.
+
 ## 6. The export packet
 
 A committed markdown packet, produced automatically at the gate:
@@ -101,22 +178,28 @@ A committed markdown packet, produced automatically at the gate:
 - **War-story appendix** (optional) — failed candidates, each with the
   criterion it failed.
 
-## 7. Transmission — default on
+## 7. Transmission — the outer hop, default on
 
-Transmission upstream is a pull request to this shell — canonical home:
-<https://github.com/renatom11/generic-agentic-fpga-org> — carrying the
-export packet. A program that forked the shell has this upstream already; a
-program that **cloned** rather than forked records this URL as its
-federation upstream on `tasks/BOARD.md` at G0 (decisions on record — the
-seeded board carries the line), while the relationship is still known.
+The outer hop carries the org generic's newly-landed lessons onward to
+the canonical shell — canonical home:
+<https://github.com/renatom11/generic-agentic-fpga-org>. Upstream lines
+on `tasks/BOARD.md` (the seeded board carries the line, recorded at
+founding while the relationship is still known): an **org generic**
+records the canonical shell's URL; a **project** records its org generic
+(§0).
 
-On a yes, the org opens **one PR per outstanding export packet** — the
-gate's own and any whose deferred decision this signature discharged —
-each adding **exactly one file** under the inbox path
+At each gate the org's sponsor signs, one yes/no rides the signature,
+**default yes**: *send the lessons newly landed in the org generic — this
+gate's and any backlog — onward to the canonical shell?* This is the
+structural form of the familiar "agree to send data back to improve the
+software" popup — mandatory inside the organization's own fence (§5),
+chosen at the fence. On a yes, the org opens **one PR per unsent export
+packet**, each adding **exactly one file** under the inbox path
 `docs/federation/inbox/<source-org>-<parent-record-id>.md`, where
 `<parent-record-id>` is the record the packet came from (a gate id, or an
-`SO-` id for a deferred sign-off packet). A PR never touches
-[`docs/LESSONS.md`](LESSONS.md) or any pack directly.
+`SO-` id for a deferred sign-off packet); the org generic's board records
+what has been sent. A PR never touches [`docs/LESSONS.md`](LESSONS.md) or
+any pack directly.
 
 **The foreign PR is a delivery vehicle, never a merge candidate.** The
 shell's journal protocol binds every commit on its history and its CI
@@ -126,20 +209,22 @@ maintainer re-lands the accepted content through the shell's own
 protocol-conforming commits and closes the PR (§8.1); this is how the
 pipeline and the journal-check CI coexist by design.
 
-Transmission is default-on: at each **sponsor-signed** gate the sponsor
-answers one yes/no on sending, default yes — the structural form of the
-familiar "agree to send data back to improve the software" popup. Records
-the sponsor does not sign (`SO-` packets, `P<n>-module-ready`) defer their
-packets' decisions to the next sponsor-signed gate — one yes/no per
+Records the sponsor does not sign (`SO-` packets, `P<n>-module-ready`)
+defer — their packets' org-generic landing (§5) and their outer-hop
+decision both ride the next sponsor-signed gate: one yes/no per
 sponsor-signed gate, never per module. The exception path, for
 organizations that cannot share (confidentiality, contract, export
-control): answer no, and the packet stays local as part of the gate record;
-nothing else about the harvest changes, and the org keeps its own
-accretion.
+control): answer no, and the packets stay in the org generic as part of
+its accretion; nothing else about the harvest changes, and a later gate's
+yes may flush the backlog.
 
 ## 8. The shell-side pipeline
 
-Every contribution, from any org, lands the same way:
+Every contribution, from any org, lands the same way. The same pipeline
+shape also runs at the org fence when a project's harvest lands in its
+org generic (§5) — there the maintainer role is the org's own, and the
+sponsor's gate signature is the merge authority. At this, the canonical
+fence:
 
 1. **Staged on a branch.** The packet's candidates are staged as proposed
    entries; nothing touches [`docs/LESSONS.md`](LESSONS.md) or a pack
@@ -204,7 +289,12 @@ The [agentic-fpga program](https://github.com/renatom11/agentic-fpga)
 predates this shell — it is the origin the shell was distilled from, not a
 derivation of it. Its harvests hold no privileged lane: they arrive through
 the same pipeline as any contributor's — export packet, staged branch,
-reviewer-agent screening, human-maintainer merge. The first domain pack,
+reviewer-agent screening, human-maintainer merge. For the origin
+organization the two fences coincide: its org generic **is** the canonical
+shell, so its inner hop and outer hop are the same landing, at this fence.
+(A solo-collapsed copy, §0, is the other coincidence case — there the
+project and its org generic are one repo, and the inner hop lands in
+itself.) The first domain pack,
 [`docs/domains/ethernet-networking.md`](domains/ethernet-networking.md),
 is seeded empty and expects its first entries from the origin program's
 first module sign-off.
