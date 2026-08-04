@@ -1281,3 +1281,78 @@ drives promotion through the same ledger. Blocking finding 1
 - docs/adr/ADR-0012-the-read-path.md
 - docs/domains/README.md
 - docs/playbooks/lessons-harvest.md
+
+## [J-orchestrator-0023] 2026-08-04T21:15:00Z | task:none | C23 - ADR-0013: consistency law - write-scope truth, WARN-GRAMMAR, E0, the gate table
+
+### Trigger
+The round continues into the consistency lens's findings with
+enforcement or classification teeth: claims stronger than the
+scripts, a contact taxonomy the seeded board violated, and grammar
+drift invisible to the parsers.
+
+### Inputs
+agents/PROTOCOL.md 6 (write-scope table), 7 (gate table and
+transcription paragraph), 7.1 (touchpoint sentence, tier table,
+collation line), 8 (E-classes); scripts/policy.sh agent_may_write
+(architect case) and its file tail (helper insertion);
+scripts/agent_commit.sh and scripts/check_journals.sh R5 blocks
+(advisory call sites); scripts/test_protocol.sh S19 (the
+architect-scenario idiom S37 follows) and S32-S34 (the
+ok-with-warning idiom S38 follows); the consistency report
+findings 1, 3, 5, 8-11, 15, 16.
+
+### Reasoning
+- The script moves up to the claim, not the claim down to the
+  script: "signers cannot stage docs/gates/**" is load-bearing (a
+  signer editing its own gate row is a real conflict), so the
+  architect deny-list gains docs/gates/* rather than five
+  documents gaining honesty notes. S37 proves the deny.
+- WARN-GRAMMAR is advisory by design, not by timidity: gating on
+  section presence would invite empty sections - converting honest
+  drift into dishonest compliance - so the machine surfaces and
+  the auditor judges, the WARN-SEAL contract. It fires on frozen
+  C14-C16 in every full-history run forever; exempting them by SHA
+  was rejected as dishonest, and the standing noise is recorded in
+  ADR-0013 so it is never mistaken for a new failure.
+- E0 exists so SPONSOR.md's "anything else is a process violation"
+  sentence is true: the seeded board's three escalations fit no
+  E1-E6 class - founding contacts are real, so they get a class
+  rather than an exemption.
+- The sponsor-signature exception states the real authority chain
+  (relayed, per 10's provenance classes) instead of pretending the
+  sponsor journals; the gate table now carries every precondition
+  the templates enforce, so the table an agent actually reads is
+  not weaker than the checklists.
+
+### Actions
+Amended PROTOCOL 6/7/7.1/8; tightened policy.sh's architect case
+and added the warn_grammar helper; wired the advisory into both
+scripts; added S37/S38; authored ADR-0013; this commit.
+
+### Evidence
+bash scripts/test_protocol.sh at this tree: "protocol self-test:
+43 passed, 0 failed" (S37 refuses architect/gates with R7; S38
+accepts-with-warning and stays silent on full grammar). bash
+scripts/check_journals.sh --all: 22 commits green with exactly 6
+WARN-GRAMMAR advisory lines - two per drifted commit, C14-C16
+only - matching ADR-0013's corpus prediction. Re-runnable at this
+SHA.
+
+### Outcome
+The constitution's claims and the scripts' checks agree again:
+the transcription rule is machine-true, grammar drift is visible
+without being gateable, founding contacts have a class, and the
+gate table carries the whole precondition truth. Consistency
+blockers 1 (vehicle - closed at C17), 3 (write scope), 5 (contact
+classes) and majors 8-11/15/16 closed. Round continues at C24.
+
+### Open-questions
+- None.
+
+### Files-in-this-commit
+- agents/PROTOCOL.md
+- docs/adr/ADR-0013-consistency-and-honesty-sweep.md
+- scripts/agent_commit.sh
+- scripts/check_journals.sh
+- scripts/policy.sh
+- scripts/test_protocol.sh

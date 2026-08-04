@@ -553,6 +553,55 @@ git reset -q --hard "$M"
 expect_ok "tree-equals-parent merge whose other parent is contained accepted (R9)" scripts/check_journals.sh --all
 git reset -q --hard HEAD~1
 
+# ---- S37: architect_docs_lead may not stage docs/gates/** (ADR-0013) --------
+say "S37: architect_docs_lead staging docs/gates/"
+J_ARCH=agents/journals/claude_architect_docs_lead_agent.md
+seed_journal "$J_ARCH" architect_docs_lead
+mkdir -p docs/gates
+echo x > docs/gates/fake-checklist.md
+entry architect_docs_lead 0001 "architect edits a gate checklist" docs/gates/fake-checklist.md >> "$J_ARCH"
+git add docs/gates/fake-checklist.md "$J_ARCH"
+expect_fail "architect blocked from docs/gates (R7)" "R7" \
+  scripts/agent_commit.sh --agent architect_docs_lead --entry J-architect_docs_lead-0001 --work-order none -m "gates-scope"
+git reset -q; rm -f "$J_ARCH" docs/gates/fake-checklist.md
+
+# ---- S38: WARN-GRAMMAR advisory — fires on drift, silent on grammar ---------
+say "S38: WARN-GRAMMAR advisory (ADR-0013, never gating)"
+R2_LAST=$(grep -oE "^## \[J-rtl_lead-[0-9]{4}\]" "$J_RTL2" | grep -oE "[0-9]{4}" | tail -1)
+R2_NEXT=$(printf "%04d" $((10#$R2_LAST + 1)))
+echo drift > rtl/drift.sv
+cat >> "$J_RTL2" <<EOF
+
+## [J-rtl_lead-$R2_NEXT] 2026-08-01T00:00:00Z
+### Context
+bare header, missing sections
+### Files-in-this-commit
+- rtl/drift.sv
+EOF
+git add rtl/drift.sv "$J_RTL2"
+if out=$(scripts/agent_commit.sh --agent rtl_lead --entry "J-rtl_lead-$R2_NEXT" --work-order none -m "drifted entry" 2>&1); then
+  if printf '%s\n' "$out" | grep -q "WARN-GRAMMAR:"; then
+    ok "drifted entry accepted with WARN-GRAMMAR printed (advisory)"
+  else
+    bad "drifted entry accepted but no WARN-GRAMMAR printed"
+  fi
+else
+  bad "drifted entry unexpectedly rejected (WARN-GRAMMAR must not gate)"
+fi
+R2_NEXT2=$(printf "%04d" $((10#$R2_NEXT + 1)))
+echo clean > rtl/clean.sv
+entry rtl_lead "$R2_NEXT2" "clean full-grammar entry" rtl/clean.sv >> "$J_RTL2"
+git add rtl/clean.sv "$J_RTL2"
+if out=$(scripts/agent_commit.sh --agent rtl_lead --entry "J-rtl_lead-$R2_NEXT2" --work-order none -m "clean entry" 2>&1); then
+  if printf '%s\n' "$out" | grep -q "WARN-GRAMMAR:"; then
+    bad "clean entry printed WARN-GRAMMAR (false positive)"
+  else
+    ok "clean full-grammar entry prints no WARN-GRAMMAR"
+  fi
+else
+  bad "clean entry unexpectedly rejected"
+fi
+
 # ---- summary ----------------------------------------------------------------
 say ""
 say "protocol self-test: $PASS passed, $FAIL failed"

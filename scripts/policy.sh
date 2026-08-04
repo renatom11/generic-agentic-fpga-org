@@ -123,7 +123,9 @@ agent_may_write() {
       return 0 ;;
     architect_docs_lead)
       case "$path" in
-        docs/reports/audit/*|docs/reports/dv/*) return 1 ;;
+        # docs/gates/** excluded so §7's "signers cannot stage the
+        # checklist" transcription rule is machine-true (ADR-0013, S37).
+        docs/reports/audit/*|docs/reports/dv/*|docs/gates/*) return 1 ;;
         docs/*|README.md|ORG_CHART.md|agents/handoffs/*) return 0 ;;
         *) return 1 ;;
       esac ;;
@@ -231,4 +233,23 @@ is_byte_prefix() {
 fail() {
   echo "PROTOCOL VIOLATION: $*" >&2
   exit 1
+}
+
+# WARN-GRAMMAR (ADR-0013, advisory only — NEVER gates): §4.1's header fields
+# and narrative sections are review-enforced; this advisory surfaces drift
+# the structural parsers deliberately ignore. A warning is not a verdict and
+# its absence is not a clearance (same contract as WARN-SEAL).
+warn_grammar() { # appended-region-file label
+  local f="$1" label="$2" hdr missing="" sec
+  hdr=$(grep -E "^## \[J-" "$f" | head -n 1 || true)
+  if [ -n "$hdr" ] && ! printf '%s\n' "$hdr" | grep -qE "^## \[J-[a-z_]+-[0-9]{4}\] [^|]+ \| task:[^ |]+ \| .+$"; then
+    echo "WARN-GRAMMAR: $label: entry header lacks the '| task:<WO-id|none> | <title>' fields (PROTOCOL §4.1)"
+  fi
+  for sec in Trigger Inputs Reasoning Actions Evidence Outcome Open-questions; do
+    grep -qE "^### $sec" "$f" || missing="$missing $sec"
+  done
+  if [ -n "$missing" ]; then
+    echo "WARN-GRAMMAR: $label: entry missing narrative section(s):$missing (PROTOCOL §4.1)"
+  fi
+  return 0
 }

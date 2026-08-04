@@ -157,6 +157,9 @@ actual=$(echo "$ENTRY" | grep -oE '[0-9]{4}$')
 [ "$actual" = "$expected" ] \
   || fail "entry number $actual is not monotonic (last was $last, expected $expected) (R5)"
 
+# WARN-GRAMMAR advisory (ADR-0013): never gates.
+warn_grammar "$TMPDIR_P/appended" "$JOURNAL"
+
 # ---- R4: Files-in-this-commit set-equality ----------------------------------
 has_files_section < "$TMPDIR_P/appended" \
   || fail "new entry lacks a '### Files-in-this-commit' section (R4)"

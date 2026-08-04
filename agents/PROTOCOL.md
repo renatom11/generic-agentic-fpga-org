@@ -325,16 +325,22 @@ journal-entry reference (`J-<agent>-NNNN`), so governance itself is diffable.
 
 | Gate | Precondition to pass |
 |---|---|
-| `G0` (once) | Org ratified by sponsor; protocol self-test green; CI journal-check green; branch protection configured by sponsor. |
-| `P<n>-spec-freeze` | Architect's specs complete with REQ-### requirements; interface records compile; dv_lead countersigns testability; sponsor signs the freeze (escalation class E1). |
-| `P<n>-module-ready` | Per-module DV sign-off packets (`SO-*.md`) PASS; each PASS carries a completed §10 mutation campaign, its kills adjudicated against the sealed predictions. |
-| `P<n>-phase-accept` | Replay/validation evidence green per the project's intake-defined success criteria; audit report committed with no open CRITICAL findings; sponsor approval (escalation class E1). |
+| `G0` (once) | Org ratified by sponsor; protocol self-test green; CI journal-check green; branch protection configured by sponsor; project intake recorded (checklist rows B1–B6 → README phase table + BOARD); Section C lessons-harvest block complete (§7.1). |
+| `P<n>-spec-freeze` | Architect's specs complete with REQ-### requirements; interface-check evidence per the M1 ADR's regime (compiled records, or the reviewed §4.2 port table where the toolchain supports no records); dv_lead countersigns testability; sponsor signs the freeze (escalation class E1); lessons-harvest block complete (§7.1). |
+| `P<n>-module-ready` | Per-module DV sign-off packets (`SO-*.md`) PASS; each PASS carries a completed §10 mutation campaign, its kills adjudicated against the sealed predictions; lessons-harvest block complete (§7.1). |
+| `P<n>-phase-accept` | Replay/validation evidence green per the project's intake-defined success criteria; audit report committed with no open CRITICAL findings; sponsor approval (escalation class E1); lessons-harvest block complete, including the auditor's phase retrospective (§7.1). |
 
 **Signature transcription**: signers cannot stage `docs/gates/**` themselves
 (§6), so the **orchestrator transcribes** all gate-checklist signatures. A
 signature's authority is the referenced `J-<agent>-NNNN` entry, which must
 itself state "I sign gate X item Y" in the signer's own journal — the
 checklist edit is clerical and commits under `Agent: orchestrator`.
+**The sponsor's signature is the sole exception to the journal-reference
+rule**: the sponsor is not an agent and holds no journal, so a sponsor
+signature's authority is the orchestrator's transcription entry quoting
+the sponsor's decision verbatim — provenance class *relayed* (§10),
+honestly weaker than a self-journaled signature and stated as such
+(ADR-0013). At G0, row A6 is the signature row of this class.
 
 **Phase hardening**: "P\<n\> hardening" means the window between
 `P<n>-module-ready` and `P<n>-phase-accept`. It is the activation window for
@@ -346,10 +352,12 @@ Every module sign-off (`SO-`) and every phase-gate checklist carries a
 lessons harvest as a precondition: the checklist instantiates the harvest
 block from `docs/gates/templates/lessons-harvest-block.md`, and the gate is
 not fully signed until the block is. Like the rest of the gate machinery,
-the harvest runs without sponsor operation — the sponsor's only touchpoints
-are the gate signature they were already giving and one default-yes decision,
-asked only at sponsor-signed gates, on sending lessons onward to the
-canonical shell. The harvest itself lands in the organization's own generic
+the harvest runs without sponsor operation — **per gate, the sponsor's
+touchpoints are exactly two**: the gate signature they were already giving
+and one default-yes decision, asked only at sponsor-signed gates, on
+sending lessons onward to the canonical shell. The one-time setup (G0
+rows A6, A7, A8 and the intake signature — class E0, §8) is separate and
+precedes them. The harvest itself lands in the organization's own generic
 automatically at those gates (the inner hop — all one team's property);
 records the sponsor does not sign (`SO-` packets, `P<n>-module-ready`)
 defer to the next sponsor-signed gate (`docs/FEDERATION.md` §0, §5, §7).
@@ -369,7 +377,7 @@ pressure to mint.
 | Tier | Reach | Vocabulary bar (LH2) | Destination |
 |---|---|---|---|
 | 1 — general | Improves the agent doctrines universally | **LH2-g**: the rule statement contains no proper noun of any project or domain — no module ids, requirement ids, signal names, file paths, protocol names, interface standards | The core `docs/LESSONS.md` — the org generic's at the inner hop, onward to the canonical shell's on the outer (`docs/FEDERATION.md` §0) |
-| 2 — domain | Portable across projects sharing a technical domain; unstatable without domain vocabulary | **LH2-d**: domain nouns admissible (protocol names, interface standards, algorithm families); project nouns still barred (module ids, requirement ids, signal names, repo file paths) | `docs/domains/<pack>.md`, loaded by a project only when relevant (declared automatically at intake) |
+| 2 — domain | Portable across projects sharing a technical domain; unstatable without domain vocabulary | **LH2-d**: domain nouns admissible (protocol names, interface standards, algorithm families); project nouns still barred (module ids, requirement ids, signal names, repo file paths) | `docs/domains/<pack>.md` — the org generic's pack at the inner hop, onward to the canonical shell's on the outer (`docs/FEDERATION.md` §0); loaded by a project only when relevant (declared automatically at intake) |
 | 3 — project | Improves the running project only | Needs project vocabulary | The project's own local accretion (its protocol, charters, plans); never leaves the project |
 
 **The classifier** is a decision procedure, not a judgment call: a candidate
@@ -418,8 +426,8 @@ obligation — the collision machinery doubles as the meta-lesson detector.
 **Collation and export.** The orchestrator collates the round's harvest
 notes into the gate record and produces the **export packet** — the
 tier-classified candidates, each with a self-contained incident description
-— whose onward path (staging, screening, human-merged upstream
-contribution) is `docs/FEDERATION.md`.
+— whose onward path (staging, screening, landing per fence —
+human-merged at the canonical fence) is `docs/FEDERATION.md`.
 
 **Enforcement.** Review-enforced, like §10: the auditor samples harvest
 notes for span tiling and bar honesty. No counting metric, ever — a count
@@ -430,6 +438,11 @@ cannot tell a harvest from a shrug.
 The orchestrator escalates **only** these classes, batched and decision-ready
 (options + recommendation + cost):
 
+- **E0** — Founding and intake contacts (G0 only): charter ratification
+  (A6), branch protection and branch-flow (A7/A8), the intake signature
+  (B1–B6), and an org generic's founding checklist (BOOTSTRAP Stage 0).
+  E0 exists only at founding; after G0 every contact is E1–E6
+  (ADR-0013).
 - **E1** — Phase-gate approval.
 - **E2** — Scope changes (adding/dropping requirements, phases, or roles).
 - **E3** — Toolchain lane and licensing decisions.

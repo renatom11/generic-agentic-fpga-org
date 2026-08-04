@@ -195,6 +195,9 @@ for C in $COMMITS; do
   [ "$actual" = "$expected" ] \
     || fail "$short: entry $actual not monotonic (last $last, expected $expected) (R5)"
 
+  # WARN-GRAMMAR advisory (ADR-0013): never gates.
+  warn_grammar "$TMP/appended" "$short"
+
   # R4: Files-in-this-commit set-equality (work paths + foreign seeds).
   has_files_section < "$TMP/appended" \
     || fail "$short: entry lacks '### Files-in-this-commit' (R4)"
