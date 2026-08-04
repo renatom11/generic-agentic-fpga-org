@@ -1850,3 +1850,60 @@ closes at C31 (SD-0004 docs + freeze re-engagement).
 - docs/adr/ADR-0015-role-line-wedge-check.md
 - scripts/check_journals.sh
 - scripts/test_protocol.sh
+
+## [J-orchestrator-0031] 2026-08-05T00:30:00Z | task:none | C31 - absorption round closed: clone-and-push leads the docs, freeze re-engaged
+
+### Trigger
+The absorption round's closing commit: SD-0004 is the last
+unabsorbed first-trial finding, and ADR-0014/0015's override
+needs its recorded end condition met.
+
+### Inputs
+SD-0004's text (the fork button cannot target the owning account,
+so the sanctioned single-account path was a parenthetical);
+README.md founding section; docs/GUIDE.md 3; tasks/BOARD.md
+freeze and decisions bullets; the override end condition recorded
+at C29.
+
+### Reasoning
+- The docs now lead with the path every solo operator must
+  actually take - clone-and-push with the three commands inline -
+  and define "fork" as the relationship once, early, so the word
+  stays correct everywhere else it appears. The Fork button
+  demotes to the org-account variant, which is what it truly is.
+- The absorption record lands on the board as one bullet mapping
+  each SD-id to its fix, because the source repo retires: a
+  future reader must be able to trace what the first trial
+  taught the shell without that repo existing.
+- The freeze re-engages in this commit per the override's
+  recorded end condition - the same self-terminating pattern as
+  ADR-0008's round, now used twice, which is itself becoming the
+  shell's standard shape for sponsor-directed law under freeze.
+
+### Actions
+Rewrote README's founding paragraph (clone-and-push leads, fork
+defined as relationship, commands inline) and the per-project
+step; added GUIDE 3's relationship sentence; recorded the
+absorption map and closed override #2 on the board; this commit.
+
+### Evidence
+bash scripts/test_protocol.sh: "protocol self-test: 45 passed, 0
+failed". Link and phrase sweeps at this tree: the three founding
+commands appear once, in README; "Use this template" warnings
+retained in both reader surfaces; no live doc still presents the
+Fork button as the primary single-account path.
+
+### Outcome
+The absorption round is closed: everything the first trial
+produced - four defects and one ADR - is either fixed, adopted,
+or recorded in this shell, and the freeze is back in force. The
+sponsor can now retire the first org generic and re-found from a
+shell that contains all of it.
+
+### Open-questions
+- None.
+
+### Files-in-this-commit
+- README.md
+- docs/GUIDE.md
+- tasks/BOARD.md

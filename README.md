@@ -86,9 +86,24 @@ Three levels; your part is a one-time four-item setup, then two
 touchpoints per gate ([docs/FEDERATION.md](docs/FEDERATION.md) §0;
 PROTOCOL §8 class E0):
 
-**Found your organization — once.** Fork this repository — the upstream
-original, called the **canonical shell** in these docs — or clone it and
-push to a new repo of your own. That copy is your **org generic**: your
+**Found your organization — once.** Make a full-history copy of this
+repository — the upstream original, called the **canonical shell** in
+these docs. Throughout these docs, "fork" names the **relationship** (a
+full-history copy), not GitHub's button: the only load-bearing
+requirement is that the commit chain arrives unsquashed. On a single
+account — where GitHub's Fork button cannot target the account that
+already owns the repo — **clone-and-push is the way**, and it is fully
+equivalent:
+
+```bash
+git clone https://github.com/renatom11/generic-agentic-fpga-org my-fpga-org
+cd my-fpga-org
+git remote set-url origin <your new EMPTY repo's URL>
+git push -u origin main
+```
+
+(Organization accounts can use the Fork button instead.) That copy is
+your **org generic**: your
 team's own ecosystem, where lessons from all your projects accumulate. It
 runs no project itself; its short founding checklist —
 [BOOTSTRAP.md](BOOTSTRAP.md) Stage 0 — enables CI, sets the rulesets
@@ -110,7 +125,9 @@ project 2 forks.)
 
 **To start each project:**
 
-1. **Fork your org generic** (same no-template-button rule) — one fork
+1. **Fork your org generic** (fork-the-relationship: clone-and-push on a
+   single account, same commands as above with your org generic as the
+   source; same no-template-button rule) — one copy
    per project; the fork's first act is setting its board's Repo role
    line to `project` (completed and signed at G0 row B6). It boots with
    everything your organization has learned:

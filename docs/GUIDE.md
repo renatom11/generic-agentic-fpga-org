@@ -91,10 +91,13 @@ behavior happens in whichever copy you opened; a fork's first act is
 updating that line (ADR-0011).
 
 So the flow is: fork the shell once → fork your org generic per project.
-**Fork; never use GitHub's "Use this template" button** — the button
-squashes git history, and this repository's history is load-bearing (the
-CI re-verifies the whole chain of journals; a squashed history fails it
-by design).
+Here "fork" means the **relationship** — a full-history copy — not
+GitHub's button (which cannot fork a repo into the account that owns it;
+on a single account, clone-and-push with the commands in the README is
+the same thing). **Never use GitHub's "Use this template" button** — the
+button squashes git history, and this repository's history is
+load-bearing (the CI re-verifies the whole chain of journals; a squashed
+history fails it by design).
 
 **Working alone on one project?** You can skip the middle level: your
 single copy then plays both roles — lessons land in itself, and its

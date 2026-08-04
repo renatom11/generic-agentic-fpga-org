@@ -102,14 +102,21 @@ template state (ADR-0011).
   2026-08-04) ran under a scoped override and closed at C26 — its end
   condition (ADR-0008). No new law lands until the first harvest
   transits; the deletion-only simplification pass stays queued behind
-  that transit. **Override #2 (sponsor-delegated, 2026-08-04)**: the
-  first-trial absorption round (ADR-0014, ADR-0015, and the SD-0004 doc
-  fix) runs under a scoped override on the ADR-0008 pattern; end
-  condition = the round's closing commit, which re-engages the freeze.
+  that transit. **Override #2 (sponsor-delegated, 2026-08-04): CLOSED** —
+  the first-trial absorption round (ADR-0014, ADR-0015, the SD-0004 doc
+  fix) ran under a scoped override on the ADR-0008 pattern and closed at
+  its final commit, re-engaging the freeze there.
   **In a fork this line is re-scoped at founding**
   (BOOTSTRAP Stage 0 step 5, or B6 for a solo-collapsed copy) to: *no
   new law until this repository's first lessons landing completes* — the
   shell-history wording above never binds a fork as written.
+- **First-trial findings absorbed** (2026-08-04, sponsor hand-relay from
+  the first org generic founded from this shell, since retired): SD-0001
+  → R-ROLE-1 wedge check (ADR-0015); SD-0002 (unobservable freeze) and
+  SD-0003 (no defect channel) → already fixed in the zero-question
+  founding commit; SD-0004 (fork-button impossibility) → clone-and-push
+  now leads the founding docs; its ADR-0014 (obligation discharge)
+  adopted as this shell's ADR-0014.
 - **Upstream defect channel**: shell defects — wrong claims, broken
   steps, gaps found while operating this copy — file as **GitHub issues
   on the federation upstream** (line above); they never travel through
