@@ -526,6 +526,33 @@ else
   bad "sealed-artifact commit unexpectedly rejected"
 fi
 
+# ---- S35: -s ours merge silently discarding a divergent branch (ADR-0009) ---
+say "S35: -s ours merge discarding divergent content"
+R2_LAST=$(grep -oE "^## \[J-rtl_lead-[0-9]{4}\]" "$J_RTL2" | grep -oE "[0-9]{4}" | tail -1)
+R2_NEXT=$(printf "%04d" $((10#$R2_LAST + 1)))
+git checkout -q -b side35
+echo lost > rtl/lost_landing.sv
+entry rtl_lead "$R2_NEXT" "divergent side work" rtl/lost_landing.sv >> "$J_RTL2"
+git add rtl/lost_landing.sv "$J_RTL2"
+scripts/agent_commit.sh --agent rtl_lead --entry "J-rtl_lead-$R2_NEXT" --work-order none -m "side landing" > /dev/null
+git checkout -q scratch
+echo winner > rtl/winner.sv
+entry rtl_lead "$R2_NEXT" "divergent scratch work" rtl/winner.sv >> "$J_RTL2"
+git add rtl/winner.sv "$J_RTL2"
+scripts/agent_commit.sh --agent rtl_lead --entry "J-rtl_lead-$R2_NEXT" --work-order none -m "scratch landing" > /dev/null
+git merge -q -s ours side35 -m "ours merge (discards side35)" > /dev/null 2>&1
+expect_fail "-s ours discard of a divergent branch rejected (R9)" "R9" scripts/check_journals.sh --all
+git reset -q --hard HEAD~1
+git branch -q -D side35
+
+# ---- S36: ours-shaped merge of an already-contained ancestor still passes ---
+say "S36: ours-shaped merge of a contained ancestor"
+BASE=$(git rev-parse HEAD~1)
+M=$(git commit-tree "HEAD^{tree}" -p HEAD -p "$BASE" -m "re-merge of contained history")
+git reset -q --hard "$M"
+expect_ok "tree-equals-parent merge whose other parent is contained accepted (R9)" scripts/check_journals.sh --all
+git reset -q --hard HEAD~1
+
 # ---- summary ----------------------------------------------------------------
 say ""
 say "protocol self-test: $PASS passed, $FAIL failed"

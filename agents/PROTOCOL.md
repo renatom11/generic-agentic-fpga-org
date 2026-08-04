@@ -250,8 +250,11 @@ enforces, before any commit is created:
   No per-agent branches, no rebases of pushed history, no force pushes.
   Merges to `main` happen only at milestone boundaries via PR and must be
   **trivial**: CI verifies a merge commit's tree equals one of its parents'
-  trees (it introduces no content of its own — constituent commits are checked
-  individually); octopus merges are rejected outright. No-force-push is
+  trees AND that the other parent is already contained in — an ancestor
+  of — the parent it matches (tree equality alone would also pass the
+  `-s ours` shape, which silently discards a whole side's content;
+  ADR-0009); octopus merges are rejected outright. Constituent commits
+  are checked individually. No-force-push is
   ultimately guaranteed by branch protection on *both* `main` and the working
   branch — a sponsor-side setting (G0 checklist), without which R9 is
   convention only.

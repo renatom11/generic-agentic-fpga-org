@@ -877,3 +877,84 @@ met; the round continues at C18.
 - docs/adr/ADR-0008-retroactive-ratification-and-documentary-law.md
 - agents/PROTOCOL.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0018] 2026-08-04T20:10:00Z | task:none | C18 - ADR-0009: the serialization law; FEDERATION 5.1/5.2; the R9 ancestry hardening
+
+### Trigger
+The sponsor's serialize-by-redo mandate - the round's founding
+directive - plus the concurrency lens of the adversarial pass
+(twenty enumerated failure modes, F1-F20).
+
+### Inputs
+docs/FEDERATION.md 5/5.1/6/7/8/8.1 (the text being amended);
+agents/PROTOCOL.md 5 R9; scripts/check_journals.sh merge block;
+scripts/test_protocol.sh S22/S24 (the merge-scenario idioms S35/S36
+follow) and its entry()/expect_fail helpers; the concurrency
+report's consolidated 12-clause law and its re-derive/reuse
+partition (F17); the live precedent: this repo's own 0014-0016
+dual-session journal collision, git merge-base 295f268.
+
+### Reasoning
+- The remote's fast-forward acceptance is the arbiter because it is
+  the one serialization mechanism that already exists, cannot
+  deadlock, and needs no shared lock state; a lock file was
+  rejected as shared mutable state with a liveness problem.
+- Redo is unconditional (no operator-judgment clause) because the
+  cost asymmetry is extreme: a lost race costs one re-clone; a
+  merged bad landing makes the org generic permanently red for
+  every project - full-history CI plus R9 plus branch protection
+  leave no legal repair.
+- The reuse/re-derive partition keeps retries cheap enough to
+  prevent convoy stalls (F18): packets and the three content-based
+  screening verdicts carry across attempts verbatim; everything
+  head-derived (journal id, lesson ids AND their section/pack
+  assignment, rollover fields, SHAs) re-derives per attempt; the
+  fourth screen (redundancy) re-runs by construction, which is
+  exactly what makes reuse of the other three safe.
+- The ancestry hardening is directional, not either-way: at a plain
+  -s ours discard the branch point is always an ancestor of the
+  surviving tip, so the naive symmetric test passes the very shape
+  it exists to refuse. The parent whose tree the merge does NOT
+  match must be contained in the parent it DOES match. S35/S36
+  prove the asymmetry; the naive form was caught at plan review
+  and recorded in ADR-0009.
+- Landing paths and staging branches are keyed by
+  project-slug + parent-record-id because ten projects' first
+  landings all carry parent id G0: without the slug, one filename
+  and silent overwrite (F13); with it, collision is a hard stop.
+
+### Actions
+Rewrote FEDERATION 5.1 (seven steps) and added 5.2 (twelve
+clauses); pinned the outbox path (6) and slugged the inbox
+filename (7); fence-qualified 8's merge-authority clause and added
+the fourth screen; extended 8.1's PR close with the id-mapping
+table; hardened R9's text (PROTOCOL 5) and check_journals.sh;
+added S35/S36; authored ADR-0009; this commit.
+
+### Evidence
+bash scripts/test_protocol.sh at this tree: "protocol self-test:
+40 passed, 0 failed" - S35 rejects the -s ours discard with the R9
+message, S36 accepts the contained-ancestor shape, S22 unchanged.
+git log --merges over the full history: zero merge commits, so the
+hardened check flags nothing historical (corpus verdict recorded
+in ADR-0009). Re-runnable at this SHA.
+
+### Outcome
+The sponsor's serialize-by-redo mandate is law: FEDERATION 5.2,
+enforced at its one mechanical point by the hardened R9 check and
+proven by two scenarios. Blocking findings F1-F5, F7, F10, F13 (in
+part), F16, F17 closed; the ledger/slug/PENDING conventions the
+law references are seeded at C21. Round continues at C19.
+
+### Open-questions
+- The sent-ledger line, project-slug field, and PENDING cells the
+  new 5.1/5.2 cite are seeded on the board and templates at C21;
+  until that commit the references point at conventions defined
+  but not yet instantiated.
+
+### Files-in-this-commit
+- docs/FEDERATION.md
+- docs/adr/ADR-0009-federation-serialization-and-landing-law.md
+- agents/PROTOCOL.md
+- scripts/check_journals.sh
+- scripts/test_protocol.sh

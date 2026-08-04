@@ -45,12 +45,26 @@ for C in $COMMITS; do
     t=$(git rev-parse "$C^{tree}")
     p1=$(git rev-parse "$C^1^{tree}")
     p2=$(git rev-parse "$C^2^{tree}")
-    if [ "$t" = "$p1" ] || [ "$t" = "$p2" ]; then
-      echo "OK: merge $short is content-free (tree equals a parent); constituents checked individually (R9)"
-      checked=$((checked + 1))
-      continue
+    if [ "$t" != "$p1" ] && [ "$t" != "$p2" ]; then
+      fail "$short: merge commit introduces content found in neither parent (conflict resolution or divergent auto-merge) (R9)"
     fi
-    fail "$short: merge commit introduces content found in neither parent (conflict resolution or divergent auto-merge) (R9)"
+    # Directional ancestry (ADR-0009): tree equality alone also matches the
+    # `-s ours` shape, which silently DISCARDS the other parent's content
+    # with a green check. Content-free requires that the parent whose tree
+    # the merge does NOT match is already contained in — an ancestor of —
+    # the parent it DOES match.
+    if [ "$t" = "$p1" ] && [ "$t" = "$p2" ]; then
+      : # both parents' trees identical — nothing to discard either way
+    elif [ "$t" = "$p1" ]; then
+      git merge-base --is-ancestor "$C^2" "$C^1" \
+        || fail "$short: merge matches one parent's tree but the other parent's history is not contained in it — a divergent landing was discarded (-s ours shape) (R9)"
+    else
+      git merge-base --is-ancestor "$C^1" "$C^2" \
+        || fail "$short: merge matches one parent's tree but the other parent's history is not contained in it — a divergent landing was discarded (-s ours shape) (R9)"
+    fi
+    echo "OK: merge $short is content-free (tree equals a parent; other parent contained); constituents checked individually (R9)"
+    checked=$((checked + 1))
+    continue
   fi
 
   git show -s --format=%B "$C" > "$TMP/msg"

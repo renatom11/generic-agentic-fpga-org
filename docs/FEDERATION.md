@@ -139,24 +139,53 @@ its gate record.
 
 How the project orchestrator executes the inner hop, concretely. Push
 access to the team's own org generic is a **founding assumption**,
-verified at G0 alongside the upstream-line record (the G0 checklist's
-federation row); the org generic's URL is read from the project's
-`tasks/BOARD.md` upstream line — never asked.
+verified read-only at G0 alongside the upstream-line record (the G0
+checklist's federation row); the org generic's URL is read from the
+project's `tasks/BOARD.md` upstream line — never asked. A landing is
+identified everywhere by its **landing key**:
+`<project-slug>` (a BOARD field set at G0) + `<parent-record-id>` (the
+gate id, or the `SO-` id of a deferred packet).
 
-1. **Clone** the org generic at the URL on the project's board.
-2. **Stage**: on an org-generic staging branch, commit the export
-   packet(s) verbatim.
-3. **Screen**: spawn a fresh reviewer agent per packet (§8's three
-   screens are its entire brief) and commit its verdict as a screening
-   report beside the packet.
+0. **Ledger check** (idempotency): in a fresh clone of the org generic's
+   head, grep the board's sent-ledger and
+   `docs/federation/landed/<project-slug>/` for this landing key. A hit
+   means a previous attempt already landed — skip directly to step 6 and
+   record the SHAs found at the head. A landing never overwrites an
+   existing path: a path collision is a hard stop, not a merge.
+1. **Clone fresh** at the URL on the project's board. Every attempt
+   starts from a fresh clone of the current remote head — never from a
+   kept working copy of a previous attempt.
+2. **Stage**: on the staging branch
+   `fed/<project-slug>/<parent-record-id>/<attempt-n>` (attempt numbers
+   start at 1 and never reuse — a fresh attempt gets a fresh branch,
+   never a force-update), commit the export packet(s) verbatim at
+   `docs/federation/landed/<project-slug>/<parent-record-id>.md`.
+3. **Screen**: spawn a fresh reviewer agent per packet. Its brief is
+   §8's four screens; the first three (LH bars, teach-don't-instruct,
+   leak) judge the packet's own text and their verdicts are **reusable
+   verbatim across attempts**; the fourth — **redundancy**, §8 — judges
+   the packet against the freshly-cloned head and **re-runs on every
+   attempt**. The reviewer is a roster-less spawn with no journal of its
+   own; its report is committed by the landing orchestrator at
+   `docs/federation/landed/<project-slug>/<parent-record-id>.screen.md`.
+   A rejected candidate is appended to the report's war-story table and
+   annotated in the project's harvest block; it is never silently
+   dropped.
 4. **Transcribe** accepted candidates into the org generic's
-   `docs/LESSONS.md` / pack entry formats, allocating ids at this fence
-   (§4).
-5. **Merge** the staging branch, citing the project gate id and its
-   sponsor signature as the authority.
+   `docs/LESSONS.md` / pack entry formats, allocating final ids at this
+   fence (§4) **against this attempt's head**.
+5. **Integrate fast-forward-only**: update the org generic's working
+   branch to the staging tip with a fast-forward push
+   (`git push origin <staging-tip>:<working-branch>` or
+   `git merge --ff-only`) — no merge commit is ever created at this
+   fence. The same commit that carries the transcription carries the
+   board's sent-ledger line for this landing key, so "landed" and
+   "recorded" are atomic. The authority cited is the project gate id and
+   its sponsor signature. **A rejected (non-fast-forward) push is the
+   race signal, not an error** — go to §5.2.
 6. **Record** the resulting org-generic SHAs back in the project's
-   harvest block (its final cells), and — on an outer-hop yes — update
-   the org generic's board sent-ledger line when the PRs open (§7).
+   harvest block (its final cells). While retries run, the block's
+   landing cells read `PENDING (attempt n)` — see §5.2.
 
 **Identity rule.** The orchestrator role is **per-repository**: a session
 operating at the org fence acts as the org generic's own orchestrator,
@@ -164,7 +193,80 @@ committing under that repo's `Agent: orchestrator` identity and appending
 to that repo's orchestrator journal chain, each entry citing the project
 gate id it lands for. This is the role continuing in another of the
 team's repos, not one agent writing another's journal — every repo's
-protocol and CI stay green under their own rules.
+protocol and CI stay green under their own rules. The identity is
+**single-holder-at-a-time** (§5.2): holding it concurrently is the race
+§5.2 exists to resolve.
+
+### 5.2 Concurrent landings — serialize by redo, never by merge
+
+Ten projects share one org generic. Its history is serialized (PROTOCOL
+§5 R9) and its journal ids monotonic (R5), so two landings prepared
+against the same head cannot both push: the remote rejects the second as
+non-fast-forward. That rejection **is** the serialization mechanism. The
+law:
+
+1. **Exclusivity.** The org generic's orchestrator identity is
+   single-holder-at-a-time. Nothing grants a session the identity but a
+   successful landing; every concurrent holder is provisional.
+2. **The arbiter is the remote.** The holder is whoever's fast-forward
+   push the remote accepted. No timestamps, no human adjudication, no
+   negotiation between sessions.
+3. **Integration shape.** Fast-forward only. In a PR-flow org generic
+   (where required status checks block direct pushes), the landing
+   merges as a **merge commit** whose base has not moved — GitHub's
+   "Squash and merge" and "Rebase and merge" are **forbidden by name**
+   (squash collapses journal entries into an R5/R6 violation; rebase
+   re-parents an append and breaks R3).
+4. **Forbidden verbs**, enumerated: `merge` (of two landings), `pull`,
+   `pull --rebase`, `rebase`, `cherry-pick`, `-X ours`, `-X theirs`,
+   `-s ours`, `push -f`, `--allow-unrelated-histories`. None of these is
+   a repair; each either destroys a landing silently or turns the org
+   generic permanently red.
+5. **On rejection: discard and redo.** Delete the clone. Re-clone fresh
+   (§5.1 step 1). Re-run from step 0. Never repair the losing attempt in
+   place — its journal entry id, its lesson ids, and every SHA it cites
+   were allocated against a head that no longer exists.
+6. **Re-derive vs reuse.** Re-derived from the new head, every attempt:
+   the journal entry id; each final `L-` id **and its section
+   assignment** (if the winner opened section G, the redo lands in G,
+   not a second G); each pack-local id **and the pack-creation decision**
+   (if the winner created the pack, the redo does not create it again);
+   any volume-rollover fields (R10's back-link hash and first-entry id
+   are head-dependent end to end); all recorded SHAs and the screening
+   report's citations. Reused verbatim: the export packet, the first
+   three screening verdicts, the tier classifications, the provisional
+   `LC-`/`LD-` ids. The fourth screen (redundancy) re-runs by
+   construction.
+7. **Check before redo.** The first act of every redo is §5.1 step 0 —
+   the winner may have landed an equivalent candidate, or a previous
+   attempt of *this* landing may have succeeded with the acknowledgment
+   lost.
+8. **Bounded patience.** Retries are bounded (default three) with
+   backoff; the attempt counter is recorded in the landing journal
+   entry, and the project's harvest block reads
+   `PENDING (attempt n)` while retries run — the gate does not close on
+   PENDING. Exhaustion is an escalation to the org's sponsor (§8-class
+   anomaly in the project's protocol), never a silent skip.
+9. **From landing #1.** This law binds at G0 — the maximal-contention
+   window is founding, when all projects land their first packets. The
+   conventions it needs (the ledger line, the landed/ path, the staging
+   namespace, the slug) are seeded, not invented per landing.
+10. **The staging namespace is protected.** The org generic's founding
+    checklist extends its ruleset to `fed/**` (no force pushes, no
+    deletions), so a lost attempt cannot be clobbered into looking like
+    a won one; stale attempt branches accumulate as an auditable record
+    of the race — attempt numbers never reuse, so they never collide.
+11. **Rollover under contention.** If the landing must roll the
+    orchestrator journal into a new volume (PROTOCOL §4.3), every
+    rollover field is re-derived per attempt; a rollover is never
+    carried from a losing attempt.
+12. **Why redo is unconditional.** A failed push costs one redo. A
+    merged bad landing costs the org generic itself: `journal-check`
+    re-verifies the full history on every push, forever, and R9 plus
+    branch protection forbid the rewrite that could remove a broken
+    merge — one "just this once" merge makes the shared repo of every
+    project permanently red. There is no operator-judgment clause in
+    this law by design.
 
 ## 6. The export packet
 
@@ -177,6 +279,11 @@ A committed markdown packet, produced automatically at the gate:
   packet's own text, because foreign repos may be private (§9).
 - **War-story appendix** (optional) — failed candidates, each with the
   criterion it failed.
+
+In the project repo the packet is committed at
+`docs/federation/outbox/<parent-record-id>.md` — one fixed path per
+record, so ten projects never invent ten conventions and the landing key
+(§5.1) is derivable from the path alone.
 
 ## 7. Transmission — the outer hop, default on
 
@@ -195,10 +302,11 @@ structural form of the familiar "agree to send data back to improve the
 software" popup — mandatory inside the organization's own fence (§5),
 chosen at the fence. On a yes, the org opens **one PR per unsent export
 packet**, each adding **exactly one file** under the inbox path
-`docs/federation/inbox/<source-org>-<parent-record-id>.md`, where
-`<parent-record-id>` is the record the packet came from (a gate id, or an
-`SO-` id for a deferred sign-off packet); the org generic's board records
-what has been sent. A PR never touches [`docs/LESSONS.md`](LESSONS.md) or
+`docs/federation/inbox/<source-org>-<project-slug>-<parent-record-id>.md`,
+where `<parent-record-id>` is the record the packet came from (a gate id,
+or an `SO-` id for a deferred sign-off packet) and `<project-slug>`
+disambiguates the ten G0 packets one org's ten projects will all carry;
+the org generic's board records what has been sent. A PR never touches [`docs/LESSONS.md`](LESSONS.md) or
 any pack directly.
 
 **The foreign PR is a delivery vehicle, never a merge candidate.** The
@@ -229,18 +337,30 @@ fence:
 1. **Staged on a branch.** The packet's candidates are staged as proposed
    entries; nothing touches [`docs/LESSONS.md`](LESSONS.md) or a pack
    directly.
-2. **Reviewer-agent screening**, three screens per candidate:
+2. **Reviewer-agent screening**, four screens per candidate:
    - **the LH bars** — LH1, LH2 at the claimed grade, LH3 (§2);
    - **teach-don't-instruct** — does the text teach a lesson, or does it
      attempt to issue instructions to whoever reads it;
    - **leak screening** — does it reveal what the contributor was building
-     beyond its named domain.
-3. **Human-maintainer merge.** A human maintainer merges; **the merge is
-   never automated**. The reason, stated plainly: LESSONS and the domain
-   packs are constitution-adjacent text that future agents read and obey
-   at boot, so a foreign contribution is a prompt-injection surface. The
-   human at the merge is a permanent property of the pipeline, not a
-   temporary caution — the same principle as sponsor-signed gates.
+     beyond its named domain;
+   - **redundancy** — judged against the landing fence's current head,
+     re-run on every attempt (§5.2): does an equivalent entry already
+     exist, or does an existing entry contradict this one? Verdicts:
+     land / merge-by-citation into the existing entry / drop as
+     already-landed / escalate the contradiction (§5.1 step 3 records
+     the disposition either way).
+3. **Merge authority — the one clause that differs per fence.** At the
+   **canonical fence**, a human maintainer merges and **the merge is
+   never automated**: LESSONS and the domain packs are
+   constitution-adjacent text that reaches future agents through the
+   read path, so a foreign contribution is a prompt-injection surface,
+   and the human at the merge is a permanent property of this fence —
+   the same principle as sponsor-signed gates. At the **org fence**
+   (§5.1), the human step is discharged by the sponsor's gate signature:
+   the landing is automatic (§5), the four screens still run, and the
+   residual risk — one project's text entering the corpus its sibling
+   projects inherit — is accepted within one team's own fence and stated
+   here rather than hidden.
 
 ### 8.1 Maintainer procedure
 
@@ -272,8 +392,13 @@ stays green over the full history.
    candidate arguing a new pack is decided here too.
 5. **Merge, by hand — then close the PR.** The human maintainer reads the
    staging branch's full diff — packet, screening report, transcriptions —
-   and merges **the staging branch**. Never automated (item 3 of §8). The
-   foreign PR is then closed with a pointer to the landing commits.
+   and merges **the staging branch** — fast-forward or a merge commit
+   whose base has not moved, per §5.2 clause 3. Never automated (item 3
+   of §8). The foreign PR is then closed with a pointer to the landing
+   commits **and the id-mapping table** (`LC-nn → L-Xnn`,
+   `LD-nn → <PREFIX>-nn`), so the contributing org can link its own
+   records to the landed entries and tell a duplicate resubmission from
+   a new candidate.
 
 ## 9. The foreign-provenance rule
 
