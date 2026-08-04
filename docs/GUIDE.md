@@ -84,6 +84,11 @@ distinction is the one piece of structure worth learning
 3. **Your projects** — forks of *your org generic*, one per program. Each
    boots already knowing everything your organization has learned.
 
+Which kind a given copy is is written on its board — the **Repo role**
+line — and the orchestrator reads it before doing anything, so the right
+behavior happens in whichever copy you opened; a fork's first act is
+updating that line (ADR-0011).
+
 So the flow is: fork the shell once → fork your org generic per project.
 **Fork; never use GitHub's "Use this template" button** — the button
 squashes git history, and this repository's history is load-bearing (the
@@ -104,7 +109,11 @@ section describes the graduation path.
    through G0."*
    (G0 — "gate zero" — is the one-time founding gate where the project
    slot gets filled and the org is ratified. It happens once, before
-   the per-phase gates of §5.)
+   the per-phase gates of §5. The session checks the board's Repo role
+   line first, so a session opened in your org generic or in the shell
+   itself does the right thing there instead — an org generic is
+   founded by the short Stage 0 checklist in BOOTSTRAP.md and then
+   simply waits to be forked from.)
 2. The orchestrator verifies its own machinery first (self-tests, CI),
    then asks you for the project. **Give it a brain dump**: paste prose,
    drop files — anything you have (rough requirements, reference specs,

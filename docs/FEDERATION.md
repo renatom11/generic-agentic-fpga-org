@@ -35,6 +35,12 @@ Federation runs at two fences, three levels deep:
   lessons — the core plus the packs its intake declares — and records
   the **org generic**, not the canonical shell, as its federation
   upstream.
+- **A solo-collapsed copy** — one repo holding both the project and
+  org-generic roles, for a person or team running a single project
+  (declared on the board's **Repo role** line, ADR-0011; README's
+  Getting Started describes it and the graduation path to a real org
+  generic). Its inner hop lands in itself (§5.1's solo clause); its
+  federation upstream stays the canonical shell.
 
 Lessons flow inward-to-outward. A project's harvest lands in its org
 generic **automatically** — the inner hop (§5): all one team's property,
@@ -200,6 +206,23 @@ team's repos, not one agent writing another's journal — every repo's
 protocol and CI stay green under their own rules. The identity is
 **single-holder-at-a-time** (§5.2): holding it concurrently is the race
 §5.2 exists to resolve.
+
+**Solo collapse.** If the board's Repo role line says `solo-collapsed`
+(§0), the project and its org generic are one repo: steps 0–2 and 5
+collapse — no clone, no staging branch, no push race — and the
+transcription commits land directly on the copy's own working branch,
+with the packet still committed at its outbox path and the ledger line
+still written in the same commit. The step-3 reviewer spawn is **still
+mandatory and still fresh**: the session that mined the candidates never
+screens them (PROTOCOL §1's independence).
+
+**Graduation.** A solo-collapsed copy founding a real org generic
+(README's graduation path) emits **one synthetic export packet per
+landed entry** — the entry's existing incident text is already the
+self-contained description §6 requires — and lands them in the new org
+generic through this same procedure; the new fence allocates fresh ids
+(§4). Nothing is copied file-to-file: graduation is a landing, so it is
+screened like one.
 
 ### 5.2 Concurrent landings — serialize by redo, never by merge
 
@@ -434,9 +457,13 @@ the same pipeline as any contributor's — export packet, staged branch,
 reviewer-agent screening, human-maintainer merge. For the origin
 organization the two fences coincide: its org generic **is** the canonical
 shell, so its inner hop and outer hop are the same landing, at this fence.
-(A solo-collapsed copy, §0, is the other coincidence case — there the
-project and its org generic are one repo, and the inner hop lands in
-itself.) The first domain pack,
+**Where fences coincide, the stricter fence's law wins** (ADR-0011): a
+landing at the canonical shell follows §8's canonical-fence clause —
+human-maintainer merge, never automated — even when it is "only" an inner
+hop. (A solo-collapsed copy, §0, is the other coincidence case — there
+both roles are the team's own, so §5.1's solo clause applies and the
+landing stays automatic inside the team's fence.) The first domain pack,
 [`docs/domains/ethernet-networking.md`](domains/ethernet-networking.md),
-is seeded empty and expects its first entries from the origin program's
-first module sign-off.
+is seeded empty and expects its first entries from the first
+sponsor-signed gate that discharges the origin program's first module
+sign-off (`SO-` records defer, §7).

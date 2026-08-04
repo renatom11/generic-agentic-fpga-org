@@ -17,6 +17,31 @@ Claude session in this repository, which boots from
 [`CLAUDE.md`](CLAUDE.md)). The live checklist both are filling is
 [`docs/gates/G0-checklist.md`](docs/gates/G0-checklist.md).
 
+## Stage 0 — founding an org generic (once per organization)
+
+Forks ship with GitHub Actions disabled, and the org generic is the one
+repo every project of yours will depend on — so its founding is a short
+checklist, run by the founding session before anything forks from it:
+
+1. **Enable Actions** on the fork (Settings → Actions) and confirm
+   `journal-check` runs green on the next push.
+2. **Rulesets**: configure `protect-history` (Active, empty bypass list,
+   Restrict deletions + Block force pushes) targeting `main` **and
+   `fed/**`** — the federation staging namespace
+   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.2 clause 10).
+3. **Verify the enforcement with your own hands**:
+   `bash scripts/test_protocol.sh` green,
+   `bash scripts/check_journals.sh --all` green.
+4. **Record the role**: set the board's **Repo role** line to
+   `org-generic`; the federation-upstream line stays the canonical shell.
+5. **Stop.** An org generic runs no project and answers no intake — it
+   waits to be forked from, and receives its projects' landings
+   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.1).
+
+A solo-collapsed copy (README's Getting Started) skips Stage 0: its one
+repo is founded as a project below, with the role line `solo-collapsed`
+and the `fed/**` ruleset noted at the A7 click-path.
+
 ## Stage 1 — G0: ratify the org, fill the project slot
 
 ### Section A — org ratification

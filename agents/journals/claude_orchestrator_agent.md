@@ -1038,3 +1038,85 @@ first-harvest tiling closed. Round continues at C20.
 - docs/adr/ADR-0010-dedup-precedence-and-growth-law.md
 - docs/domains/README.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0020] 2026-08-04T20:35:00Z | task:none | C20 - ADR-0011: the repo-role discriminator; the shell as installer
+
+### Trigger
+The sponsor's identity decision: the repository fully commits to
+fork-me-to-start - "its an executable ... it installs this agentic
+fpga on a local ecosystem" - plus the pass's blocking finding that
+an org generic had no defined boot behavior and CLAUDE.md would
+make one run a project.
+
+### Inputs
+CLAUDE.md First-session block (the milestone-keyed trigger being
+replaced); tasks/BOARD.md Decisions on record; README.md intro and
+Getting started; BOOTSTRAP.md Stage 1 head (Stage 0's insertion
+point); docs/FEDERATION.md 0 (three bullets), 5.1 (identity rule),
+10 (origin coincidence); docs/GUIDE.md 3-4; the consistency
+report's finding 4 and the end-to-end report's findings 1.1-1.3
+and 7.1-7.3.
+
+### Reasoning
+- Role line over URL detection: origin-URL inspection cannot tell
+  an org generic from a project (both are forks), and a mirror or
+  rename misclassifies; an explicit line in the first file every
+  session reads is diffable state, with URL mismatch reserved for
+  detecting an unrecorded fresh fork.
+- The shell keeps its M0/G0 template state rather than stripping
+  it: the seeded state is the installer's payload, and deleting it
+  reconstructs the use-this-template failure by hand. The fix is
+  the maintainer-mode branch declaring those rows inert here and
+  live in forks.
+- Stage 0 exists because forks ship with Actions disabled - the
+  org generic is the one repo every project depends on, and it was
+  previously the only repo whose enforcement was never verified.
+- Solo collapse omits exactly the steps that presume a second repo
+  (clone, staging, push) and nothing else; the reviewer stays
+  fresh and mandatory because the miner screening its own candidates
+  breaches PROTOCOL 1 independence. Graduation is a landing, not a
+  file copy, so it inherits screening for free.
+- Coincidence precedence: stricter fence wins at the canonical
+  shell (human merge even for the origin's inner hop), while the
+  solo case stays automatic because both roles belong to the same
+  team - the fence exists between trust domains, and a solo copy
+  contains one.
+
+### Actions
+Added the Repo role line to the board; replaced CLAUDE.md's
+first-session block with the role branch; reframed README's intro
+and founding steps; inserted BOOTSTRAP Stage 0; added the
+solo-collapsed bullet to FEDERATION 0, the solo-collapse and
+graduation clauses to 5.1, and the precedence + deferred-sign-off
+fix to 10; updated GUIDE 3-4; authored ADR-0011; this commit.
+
+### Evidence
+No enforcement-semantics change (corpus verdict in ADR-0011): bash
+scripts/test_protocol.sh unchanged at "40 passed, 0 failed" at
+this tree. The discriminator's live self-check is reproducible
+here: git remote get-url origin resolves to this repository while
+the board's upstream line names the same URL - the
+canonical-shell case.
+
+### Outcome
+The identity tension the sponsor named is resolved in the tree:
+installer and installations are distinguishable by any session in
+its first read, the org generic has a founding path and a defined
+boot, the solo and origin coincidences are executable, and the
+shell's own board now tells the truth about itself. Blocking
+finding 4 (consistency) and findings 1.1-1.3/7.1-7.2 (end-to-end)
+closed. Round continues at C21.
+
+### Open-questions
+- B6's role-line completion for project forks is written into the
+  checklist at C21; until then ADR-0011's "signed at G0 row B6"
+  points at the row this round is about to extend.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- README.md
+- docs/FEDERATION.md
+- docs/GUIDE.md
+- docs/adr/ADR-0011-repo-role-discriminator.md
+- tasks/BOARD.md

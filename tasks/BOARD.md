@@ -57,6 +57,12 @@ _None._
 
 ## Decisions on record
 
+- **Repo role**: `canonical-shell` (values: canonical-shell / org-generic /
+  project / solo-collapsed — ADR-0011). Set at founding; **a fork's first
+  act is updating this line**. The canonical shell runs no program: the
+  M0/G0 rows on this board are shipped template state that activates in a
+  project fork, and a session booting here operates in maintainer mode
+  (`CLAUDE.md`).
 - Constitution ADR-0001..0007 pre-adopted at seeding (see each ADR's
   provenance).
 - **Declared domain packs**: _none — set at G0 intake_ (recorded here in

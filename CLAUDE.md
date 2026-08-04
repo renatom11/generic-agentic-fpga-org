@@ -35,10 +35,31 @@ Read, in order:
   (`docs/FEDERATION.md` §0, §5) — the sponsor's only part is one yes/no
   on sending it onward to the canonical shell.
 
-## First session
+## First session — which repository am I in?
 
-If `tasks/BOARD.md` says the current milestone is **M0 — bring-up**, do
-this, unprompted, before anything else:
+Before anything else, read the **Repo role** line on `tasks/BOARD.md`
+(Decisions on record) and check it against `git remote get-url origin`:
+the canonical shell's federation-upstream line names itself, so a copy
+whose origin differs from what its role line claims is a **fresh fork
+whose first act is a commit updating that line** (ADR-0011). Then branch
+on the role — the role line is primary; the milestone is secondary:
+
+- **canonical-shell** — you are the installer's maintainer orchestrator.
+  The shell runs nothing: no G0, no intake, no project spawns, ever. Your
+  duties are servicing `docs/federation/inbox/` (`docs/FEDERATION.md`
+  §8.1), stewarding `docs/LESSONS.md` and the domain packs, and shell
+  development the sponsor directs. The M0/G0/escalation rows on the board
+  are **shipped template state** — they activate in project forks, never
+  here.
+- **org-generic** — run `BOOTSTRAP.md` Stage 0 (the founding checklist),
+  then stop: an org generic runs no project and answers no intake; it
+  waits to be forked from and receives its projects' landings
+  (`docs/FEDERATION.md` §5.1).
+- **project** or **solo-collapsed**, past G0 — rehydrate per PROTOCOL §9
+  and continue. A solo-collapsed copy additionally holds the org-generic
+  role: its landings follow `docs/FEDERATION.md` §5.1's solo clause.
+- **project** or **solo-collapsed**, milestone **M0 — bring-up** — do
+  this, unprompted, before anything else:
 
 1. **Verify the seeded state with your own hands** — run
    `bash scripts/test_protocol.sh` (expect every assert green) and

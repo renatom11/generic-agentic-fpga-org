@@ -13,6 +13,14 @@ lessons are harvested at every gate and land in your own copy
 automatically — with one yes/no from you (default yes) on sharing them
 onward to the community ([docs/FEDERATION.md](docs/FEDERATION.md)).
 
+**This repository is the installer, not the program.** Like an executable
+that installs software onto a machine, the canonical shell exists to be
+forked: each fork becomes a live copy — your organization's ecosystem,
+then your projects — while the shell itself runs nothing and holds the
+community's shared lessons ([docs/FEDERATION.md](docs/FEDERATION.md) §0;
+ADR-0011). Which kind of copy a session is in is written on its board —
+the **Repo role** line — and the orchestrator reads it before acting.
+
 **New here? Read [the User Guide](docs/GUIDE.md)** — everything
 explained for a first-time reader, no FPGA (field-programmable gate
 array — a chip whose hardware you define with code) or AI expertise
@@ -79,13 +87,18 @@ Three levels, two moves of yours
 original, called the **canonical shell** in these docs — or clone it and
 push to a new repo of your own. That copy is your **org generic**: your
 team's own ecosystem, where lessons from all your projects accumulate. It
-runs no project itself. Do **not** use GitHub's "Use this template"
+runs no project itself; its short founding checklist —
+[BOOTSTRAP.md](BOOTSTRAP.md) Stage 0 — enables CI, sets the rulesets
+(including the `fed/**` staging namespace), verifies the enforcement, and
+sets the board's **Repo role** line to `org-generic`. Do **not** use
+GitHub's "Use this template"
 button: it squashes history into a single commit, and this repository's
 commit history is load-bearing — the journal-check CI verifies the whole
 chain, and a squashed history fails it by design. (Working alone on a
-single project? Your one project fork may play both roles: it then holds
-the org-generic role for federation — its upstream line stays the
-canonical shell, its lessons land in itself. If a second project ever
+single project? Your one project fork may play both roles — its board's
+Repo role line reads `solo-collapsed`: it holds the org-generic role for
+federation, its upstream line stays the canonical shell, and its lessons
+land in itself. If a second project ever
 becomes likely, found the real org generic first: graduating later means
 forking this shell fresh and landing your solo copy's accumulated
 lessons into it — via the same screened-landing procedure lessons
@@ -95,7 +108,9 @@ project 2 forks.)
 **To start each project:**
 
 1. **Fork your org generic** (same no-template-button rule) — one fork
-   per project. It boots with everything your organization has learned:
+   per project; the fork's first act is setting its board's Repo role
+   line to `project` (completed and signed at G0 row B6). It boots with
+   everything your organization has learned:
    the accumulated core lessons and the domain packs your intake
    declares. Inheritance is fixed at the fork point — a running project
    does not refresh from the org generic mid-flight; sibling projects'
