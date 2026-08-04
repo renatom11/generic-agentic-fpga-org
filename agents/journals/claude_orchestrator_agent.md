@@ -1785,3 +1785,68 @@ at C30 (the role-line wedge check).
 - docs/FEDERATION.md
 - docs/adr/ADR-0014-obligation-discharge-at-the-landing-fence.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0030] 2026-08-05T00:15:00Z | task:none | C30 - ADR-0015: R-ROLE-1, the unrecorded-fork wedge becomes a red build
+
+### Trigger
+The absorption round continues at SD-0001, the highest-severity
+finding in the first org generic's shell-defect log: a fresh
+fork's lying role line wedges the repository silently -
+maintainer mode correctly refuses to run a program, and nothing
+anywhere says why. It happened live to the first fork.
+
+### Inputs
+SD-0001's full text and proposed fix (read from the retired org
+generic at 86e5d5a); scripts/check_journals.sh tail (the
+range-head check region); scripts/test_protocol.sh S19/S32
+idioms and the sandbox's existing orchestrator journal (S1);
+ADR-0002 (the R-series closure and namespaced-id rule);
+ADR-0011 (the role-recording law this check enforces).
+
+### Reasoning
+- The finding's own proposed fix is implemented as proposed: a
+  head-state check in check_journals, so CI turns the silent
+  wedge into a red build naming ADR-0011's first act. Refusal,
+  not advisory: an unrecorded fork has one correct next act and
+  zero legitimate alternative states - the WARN contract is for
+  qualities a machine cannot judge, and this is a two-grep
+  equality test.
+- Comparison is by owner/repo URL tail so https, ssh, and proxy
+  remotes of the same repository all match; the check skips with
+  no board, no role line, a non-canonical role, or no origin -
+  which keeps the sandbox's other scenarios and detached analysis
+  clones out of scope by construction.
+- Named R-ROLE-1, not R11: the R-series is closed (ADR-0002) and
+  the namespaced id carries its enforcement class - machine-
+  refused in CI - in its ADR.
+- S39's first draft re-seeded the sandbox orchestrator journal
+  and was refused by R3 (the enforcement catching its own test's
+  bug); the committed version appends at the computed next entry,
+  which is itself a small proof the scripts guard the suite too.
+
+### Actions
+Added the R-ROLE-1 block to check_journals.sh; added S39 (2
+asserts, refuse + pass); authored ADR-0015; this commit.
+
+### Evidence
+bash scripts/test_protocol.sh: "protocol self-test: 45 passed, 0
+failed" - S39 refuses the mismatched-origin canonical-shell claim
+with the R-ROLE-1 message and passes the corrected origin. bash
+scripts/check_journals.sh --all on this repository: green with
+"OK: repo-role line consistent with origin (R-ROLE-1)" - this
+repo's proxy-origin tail matches its upstream line. Corpus
+verdicts recorded in ADR-0015, including that the retired first
+fork's pre-founding state is exactly the condition refused.
+
+### Outcome
+The wedge that cost the first trial its first move is now a red
+build with a named cause on every future fork's first push. Round
+closes at C31 (SD-0004 docs + freeze re-engagement).
+
+### Open-questions
+- None.
+
+### Files-in-this-commit
+- docs/adr/ADR-0015-role-line-wedge-check.md
+- scripts/check_journals.sh
+- scripts/test_protocol.sh

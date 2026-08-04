@@ -602,6 +602,28 @@ else
   bad "clean entry unexpectedly rejected"
 fi
 
+# ---- S39: role-line wedge check (R-ROLE-1, ADR-0015) ------------------------
+say "S39: unrecorded-fork role line vs origin"
+O_LAST=$(grep -oE "^## \[J-orchestrator-[0-9]{4}\]" "$J_ORCH" | grep -oE "[0-9]{4}" | tail -1)
+O_NEXT=$(printf "%04d" $((10#$O_LAST + 1)))
+mkdir -p tasks
+cat > tasks/BOARD.md <<'EOF39'
+# Board (test)
+
+- **Repo role**: `canonical-shell` (test copy)
+- **Federation upstream** (test):
+  https://github.com/example/canonical-shell — seeded.
+EOF39
+entry orchestrator "$O_NEXT" "seed test board" tasks/BOARD.md >> "$J_ORCH"
+git add tasks/BOARD.md "$J_ORCH"
+scripts/agent_commit.sh --agent orchestrator --entry "J-orchestrator-$O_NEXT" --work-order none -m "board" > /dev/null
+git remote add origin https://github.com/example/a-fresh-fork.git
+expect_fail "canonical-shell role with mismatched origin rejected (R-ROLE-1)" "R-ROLE-1" \
+  scripts/check_journals.sh --all
+git remote set-url origin https://github.com/example/canonical-shell.git
+expect_ok "matching origin passes (R-ROLE-1)" scripts/check_journals.sh --all
+git remote remove origin
+
 # ---- summary ----------------------------------------------------------------
 say ""
 say "protocol self-test: $PASS passed, $FAIL failed"

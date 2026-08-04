@@ -300,4 +300,33 @@ for agent in $KNOWN_AGENTS; do
 done
 echo "OK: journal volume chains verified at range head (R10)"
 
+# R-ROLE-1 (ADR-0015, machine-refused here and in CI): a copy whose board
+# still claims the canonical-shell role while its origin disagrees with its
+# federation-upstream line is a fresh fork that has not recorded itself
+# (ADR-0011) — booting it wedges the repo in maintainer mode with no error
+# anywhere. This turns the silent wedge into a red build with a named
+# cause. Skips when there is no board at the range head, no Repo role
+# line, a non-canonical role, or no origin remote (e.g. the test sandbox).
+repo_url_tail() {
+  echo "$1" | sed -E 's/\.git$//; s#^[a-z+]+://[^/]*/##; s#^[^@]*@[^:]*:##' \
+    | grep -oE '[^/]+/[^/]+$' || true
+}
+if git cat-file -e "$HEADC:tasks/BOARD.md" 2>/dev/null; then
+  ROLE_LINE=$(git show "$HEADC:tasks/BOARD.md" | grep -m1 -E '^- \*\*Repo role\*\*:' || true)
+  if printf '%s' "$ROLE_LINE" | grep -q 'canonical-shell'; then
+    ORIGIN_URL=$(git remote get-url origin 2>/dev/null || true)
+    UPSTREAM_URL=$(git show "$HEADC:tasks/BOARD.md" \
+      | grep -m1 -A3 -E '^- \*\*Federation upstream\*\*' \
+      | grep -oE 'https?://[^ )]+' | head -n 1 || true)
+    if [ -n "$ORIGIN_URL" ] && [ -n "$UPSTREAM_URL" ]; then
+      OT=$(repo_url_tail "$ORIGIN_URL")
+      UT=$(repo_url_tail "$UPSTREAM_URL")
+      if [ -n "$OT" ] && [ -n "$UT" ] && [ "$OT" != "$UT" ]; then
+        fail "board claims Repo role canonical-shell but origin ($OT) disagrees with the federation upstream ($UT) — an unrecorded fresh fork; its first act is the role-recording commit (ADR-0011) (R-ROLE-1)"
+      fi
+    fi
+    echo "OK: repo-role line consistent with origin (R-ROLE-1)"
+  fi
+fi
+
 echo "OK: $checked commit(s) satisfy the journal/commit protocol"
