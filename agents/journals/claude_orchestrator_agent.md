@@ -2556,3 +2556,58 @@ the trial round's close.
 
 ### Files-in-this-commit
 - tasks/BOARD.md
+
+## [J-orchestrator-0041] 2026-08-05T15:23:29Z | task:none | C41 - record the fifth field finding: outer-hop access is a sponsor touchpoint
+
+### Trigger
+The sponsor relayed the project session's report from the first
+live G0 passage: the inner-hop landing is in progress, the yes was
+honestly framed as authorizing only the outer hop, a
+staging-before-journaling ordering deviation was logged rather
+than tidied, and the outer-hop PR plus two carried shell-defect
+filings are blocked because the canonical shell is outside the
+session's authorized repository set.
+
+### Inputs
+The relayed report text; the C38 branch-authorization precedent
+(the same session-scoped-environment class); FEDERATION §7 and the
+harvest playbook §7 (which assume the upstream PR can be opened);
+the board's finding-record patterns.
+
+### Reasoning
+- The blocker is not a law defect in substance - the law's
+  assumption (the org can open a PR upstream) holds in ordinary
+  git; it fails only where a harness scopes repo access per
+  session. The fix is the C38 move: name the access grant an
+  expected sponsor touchpoint bundled with the outer-hop ask, so
+  sessions request it instead of hitting a wall.
+- FEDERATION §7 and the playbook are law - behind the freeze, so
+  the fix queues (batch round or freeze end); the board record
+  preserves the interim path (approve the add-repo prompt, or
+  hand-relay).
+- The report's other two notes need no fix: the honesty note
+  matches the orchestrator's own independent reading of the same
+  law (evidence of determinism), and the ordering deviation is
+  correctly a journal record for the A9 retro-audit.
+
+### Actions
+Recorded the fifth field finding on the board with its class, the
+queued fix, and the interim path.
+
+### Evidence
+bash scripts/check_journals.sh --all: green (board-state commit
+only). The project session's report as relayed by the sponsor is
+the finding's source; its ordering deviation lives in that
+repository's own journal, not this one.
+
+### Outcome
+The finding survives sessions; the first landing proceeds
+unblocked on the inner hop while the outer hop waits on one
+sponsor permission grant, exactly as recorded.
+
+### Open-questions
+- Service the inbox PR at the canonical fence when it arrives;
+  receive the two carried defect filings by issue or hand-relay.
+
+### Files-in-this-commit
+- tasks/BOARD.md

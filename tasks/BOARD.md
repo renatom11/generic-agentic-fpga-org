@@ -204,6 +204,18 @@ template state (ADR-0011).
   the pipeline's designated first test**; commits are trailer-attributed,
   not cryptographically signed; enforcement claims are tagged MACHINE or
   PROSE (`CLAUDE.md` iron rule).
+- **Fifth field finding (2026-08-05, recorded; fix queued behind the
+  freeze)**: at the first live outer hop, the project session could
+  not open the upstream PR — the canonical shell was outside its
+  session-authorized repository set — and reported it honestly,
+  carrying the PR and two shell-defect filings on the same blocker.
+  Same class as the C38 branch authorization: a session-scoped
+  environment gates an action the law assumes available. Fix when the
+  freeze lifts (or in the sponsor's batch round): FEDERATION §7 and
+  the harvest playbook name the repo-access grant as an expected
+  sponsor touchpoint, bundled with the outer-hop ask — sessions
+  request it, never discover it as a wall. Interim: the sponsor
+  approves the session's add-repo prompt, or hand-relays.
 - **Sponsor proposals (recorded, pending direction)**: (P1,
   2026-08-05) **role-keyed self-rewriting README** — a marked identity
   block re-rendered at founding (shell: installer framing; org
