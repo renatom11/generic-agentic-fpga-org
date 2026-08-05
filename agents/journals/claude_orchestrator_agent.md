@@ -2378,3 +2378,76 @@ awaiting either the freeze's end or sponsor direction.
 
 ### Files-in-this-commit
 - tasks/BOARD.md
+
+## [J-orchestrator-0038] 2026-08-05T14:02:46Z | task:none | C38 - role decided never asked; the branch authorization is an E0 action (fourth field findings)
+
+### Trigger
+The sponsor's third field founding (fresh my-fpga-org from the
+shell at C37) surfaced two questions the sponsor had hoped never to
+see: (1) an AskUserQuestion round on which role to found as; (2) a
+permission round on landing the founding commit on main against the
+session's harness branch-pin. The sibling my-project session
+behaved exactly per design (greeting, material ask, A6/A7, A8
+folded into the proposal, nothing committed pre-intake).
+
+### Inputs
+The sponsor's screenshots of both question rounds and the
+my-project greeting; CLAUDE.md's boot-determinism bullet (whose
+"intake material (project role, at G0)" parenthetical licensed the
+role question) and first-session mapping (whose "or
+solo-collapsed, only if..." stated an alternative without naming
+the decider); BOOTSTRAP Stage 0 step 4; README's founding
+paragraph; the C36/C37 defect-record pattern.
+
+### Reasoning
+- Gap 1 is boot-determinism: the tree held the answer (no project
+  material supplied at founding → org generic) but never said the
+  choice is decided rather than asked. The condition is observable
+  (material in the founding message or intake/, or not), the
+  default is safe (an org generic forks its one project; nothing
+  is lost), so the rule can be made ask-free.
+- Gap 2 is a real harness-law conflict, not a tree ambiguity: a
+  branch-pinned harness forbids the exact push Stage 0 step 4
+  mandates, and no document can override a platform rail. The
+  session did right to surface it; the shell's failure was leaving
+  it unframed. Classifying the authorization as an E0 founding
+  action makes it legitimate under the boot-determinism rule,
+  bundling it into the greeting caps it at one round, and the
+  README grant sentence lets the sponsor pre-empt it to zero.
+- Docs-only and freeze-legal: CLAUDE.md, BOOTSTRAP, README, BOARD
+  are founding surfaces (C32/C36 precedent).
+
+### Actions
+CLAUDE.md boot bullet: role never asked, decided by the founding
+rules; the E0 ask-list now names the branch authorization with the
+bundle-and-honor-pre-grant discipline. CLAUDE.md first-session
+mapping: the org-generic/solo-collapsed choice is decided by
+material presence, never asked, with the no-loss default stated.
+BOOTSTRAP Stage 0 step 4: the harness-pin case and its one-time
+say-so. README founding paragraph: the pre-grant sentence for
+branch-pinned environments. Board records the fourth-trial
+findings on the standing pattern.
+
+### Evidence
+bash scripts/test_protocol.sh: 47 passed, 0 failed. bash
+scripts/check_journals.sh --all: green (no script change). The
+my-project greeting in the same trial matches the designed
+behavior point for point - the project path needed no fix.
+
+### Outcome
+A founding session now has zero decidable questions: the role is
+computed from material presence, and the only permitted
+interaction is the E0 bundle - which the sponsor can pre-answer in
+one sentence. The harness conflict is named in the tree, so
+surfacing it is procedure now, not improvisation.
+
+### Open-questions
+- Whether the founding-greeting bundle should carry a suggested
+  sponsor reply verbatim (a copy-paste "go" line) - deferred;
+  watch the next founding.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- README.md
+- tasks/BOARD.md

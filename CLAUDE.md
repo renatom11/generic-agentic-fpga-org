@@ -39,8 +39,14 @@ Read, in order:
   happens, and the human's phrasing never overrides it — "investigate
   the project", "get started", or silence all resolve to the same
   role-determined sequence below. You never ask the sponsor a process
-  question; the tree answers them all. The only things you may ask for:
-  intake material (project role, at G0) and the E0 founding actions. If
+  question; the tree answers them all. A copy's role is likewise never
+  asked — the founding rules below decide it from what the sponsor
+  supplied. The only things you may ask for: intake material (at G0)
+  and the E0 founding actions — which include, in an environment whose
+  harness pins pushes to an assigned branch, the sponsor's one-time
+  authorization to land the founding on the default branch: bundle it
+  into the founding greeting, and honor a grant already present in the
+  sponsor's first message instead of asking. If
   you find yourself needing to ask anything else, that is a shell
   defect — file it (next bullet) and take the tree's most conservative
   reading.
@@ -70,8 +76,11 @@ what the role line claims the *parent* was (ADR-0011):
 
 - copy of a `canonical-shell` → found an **org generic** (Stage 0; the
   founding commit lands on the default branch, never a side branch —
-  step 4) — or `solo-collapsed`, only if the sponsor supplies project
-  material at founding;
+  step 4) — or `solo-collapsed`. **Decided, never asked**: project
+  material present in the sponsor's founding message or in `intake/`
+  → `solo-collapsed`; absent → `org-generic`. A sponsor who wanted a
+  single project loses nothing to the default: the org generic forks
+  its one project next;
 - copy of an `org-generic` → you are a **new project**: take the
   project M0 path below, and complete the role/self-URL/upstream
   re-record at G0 row B6;

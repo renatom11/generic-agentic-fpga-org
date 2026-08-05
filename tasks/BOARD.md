@@ -158,6 +158,18 @@ template state (ADR-0011).
   line carries the branch mandate. The R-ROLE-1 red on the unfounded
   default branch was the designed signal all along — the fix makes it
   a stop condition instead of a judgement call.
+- **Fourth-trial findings fixed (2026-08-05)**: the third field
+  founding surfaced two founding-UX gaps. (1) The session asked which
+  role to found as — the tree held the answer (no project material
+  supplied → org generic) but stated the solo-collapsed alternative
+  without saying decided-never-asked; the rule is now explicit on both
+  CLAUDE.md surfaces. (2) The harness-vs-law branch conflict: a
+  branch-pinned session must obtain the sponsor's permission to push
+  the founding to the default branch — previously unframed, it
+  surfaced as an ad-hoc question; now classified as an E0 founding
+  action, bundled into the greeting, pre-grantable in the sponsor's
+  first message (README suggests the grant sentence). Docs-only,
+  freeze-legal founding surfaces.
 - **Queued law-debt (behind the freeze)**: generalize the R-ROLE-1 CI
   check from the canonical-shell claim to every role, keyed on the
   This-repository line (script change + scenario, §11) — the boot logic

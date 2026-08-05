@@ -109,7 +109,12 @@ team's own ecosystem, where lessons from all your projects accumulate. It
 runs no project itself; its short founding checklist —
 [BOOTSTRAP.md](BOOTSTRAP.md) Stage 0 — enables CI, sets the rulesets
 (including the `fed/**` staging namespace), verifies the enforcement, and
-sets the board's **Repo role** line to `org-generic`. Do **not** use
+sets the board's **Repo role** line to `org-generic`. To found it, open
+a Claude Code session on the new copy and say anything — "investigate
+the project" works; adding *"founding pushes to the default branch are
+authorized"* pre-grants the one permission a branch-pinned environment
+(Claude Code on the web pins sessions to an assigned branch) must
+otherwise ask for once. Do **not** use
 GitHub's "Use this template"
 button: it squashes history into a single commit, and this repository's
 commit history is load-bearing — the journal-check CI verifies the whole

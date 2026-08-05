@@ -41,7 +41,12 @@ checklist, run by the founding session before anything forks from it:
    cloned from the default branch and boots off its board: a founding
    parked on a side branch leaves the default branch claiming the
    shell's identity, and every child cloned meanwhile mis-founds as a
-   copy of the shell.
+   copy of the shell. In an environment whose harness pins the session
+   to an assigned working branch, landing here needs the sponsor's
+   one-time say-so — that authorization is an E0 founding action, not
+   a process question: bundle the ask into the founding greeting, and
+   honor a grant already present in the sponsor's first message
+   instead of asking.
 5. **Re-scope the freeze**: rewrite the board's feature-freeze bullet to
    this repository's own observable end condition — *"No new law in this
    repository until its first lessons landing completes
