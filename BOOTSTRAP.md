@@ -50,7 +50,10 @@ checklist, run by the founding session before anything forks from it:
 5. **Re-scope the freeze**: rewrite the board's feature-freeze bullet to
    this repository's own observable end condition — *"No new law in this
    repository until its first lessons landing completes
-   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.1)"*. The inherited
+   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.1)"*. *Law* means the
+   inherited shell law — protocol, charters, scripts, templates;
+   project-scoped ADRs this bootstrap mandates (toolchain lane, design
+   choices) are project decisions, never blocked (ADR-0017 A1). The inherited
    shell-history wording references events this fork cannot observe and
    never binds it as written.
 6. **Seed the defect channel**: confirm the board's upstream-defect

@@ -51,7 +51,7 @@ committed with no open CRITICAL findings, and the sponsor approves
 
 | # | Item | Status | Signature |
 |---|---|---|---|
-| Q1 | Every sponsor-facing artefact of the phase carries its source owner's fidelity signature (derived views: the owning lead; requirements renderings additionally dv_lead's derivability); NONE declared if none shipped | OPEN | <J-agent-NNNN refs / NONE> |
+| Q1 | Every sponsor-facing artefact of the phase carries its source owner's fidelity signature (derived views: the owning lead; requirements renderings additionally dv_lead's derivability); an **orchestrator-owned** artefact carries no self-signature — it is enumerated in the gate's audit-window declaration instead (ADR-0017 A1); NONE declared if none shipped | OPEN | <J-agent-NNNN refs / NONE> |
 
 ## Lessons harvest
 

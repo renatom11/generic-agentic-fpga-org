@@ -18,7 +18,9 @@
 - **Standing lessons in force**: <entry ids from the `docs/LESSONS.md` core
   and the BOARD-declared packs that bind this task, each with a one-line
   statement of what it requires here — filled by the issuing lead
-  (ADR-0012); "none apply" is declared, never omitted>
+  (ADR-0012), each lesson's rule text pasted in full — a fork cannot
+  resolve bare ids into its parent's post-fork commits (ADR-0017 A1);
+  "none apply" is declared, never omitted>
 - **Out of scope**: <explicit exclusions — what a reasonable assignee might
   do and must not>
 

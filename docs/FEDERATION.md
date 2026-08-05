@@ -341,7 +341,9 @@ A committed markdown packet, produced automatically at the gate:
 - **Candidate tables**, one per tier carried: tier 1 rows under their `LC-`
   ids, tier 2 rows under their `LD-` ids with the target pack named. Every
   row's provenance is **self-contained** — the incident described in the
-  packet's own text, because foreign repos may be private (§9).
+  packet's own text, because foreign repos may be private (§9). Every citation
+  it carries — SHA, CI run id, journal-entry id — is qualified with its
+  repository URL; a bare id is unresolvable at the fence (ADR-0017 A1).
 - **War-story appendix** (optional) — failed candidates, each with the
   criterion it failed.
 
@@ -410,6 +412,13 @@ line removes the question rather than trusting its answer. (This
 mechanism was first designed, in exactly this form, by the first org
 generic founded from this shell, during its founding round; adopted here
 on that provenance.)
+
+**Hand-relay (ADR-0017 A1).** Sponsor hand-relay is a recognized
+transport for defect reports and audit material when a session channel
+is blocked: the receiving fence verifies every claim against its own
+tree before acting — exactly as the screens treat a landing — and
+hand-relayed material never enters `docs/LESSONS.md` except through
+the pipeline.
 
 ## 8. The shell-side pipeline
 

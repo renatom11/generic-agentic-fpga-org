@@ -2777,3 +2777,81 @@ for the my-project mining sweep the sponsor directed.
 - scripts/check_requirements.sh
 - scripts/test_protocol.sh
 - tasks/BOARD.md
+
+## [J-orchestrator-0044] 2026-08-05T22:39:12Z | task:none | C44 - the mining sweep lands: ADR-0017 A1 closes override #4
+
+### Trigger
+Sponsor direction: fan out agents over my-project and make sure the
+shell cannot repeat its mistakes. Four independent miners returned:
+failure catalogue (45 modes), journal mine, adversarial coverage
+audit (3 PREVENTED / 24 PARTIAL / 7 UNCOVERED against C43, four
+checker bypasses demonstrated by execution, six contradictions in
+the C43 round itself), red-team simulation (10 findings).
+
+### Inputs
+The four agent reports (preserved in the session task outputs); the
+field program at /workspace/renatom11/my-project chip8 tip 67d46d5;
+this tree's law surfaces as enumerated in ADR-0017 A1.
+
+### Reasoning
+- Deduplicated the four reports into one batch: every fix is the
+  smallest change that closes its finding, MACHINE where form is
+  checkable (checker hardening, Session trailer), PROSE where
+  judgement is required, each tagged in place.
+- The checker bypasses were fixed against the exact demonstrated
+  inputs and re-proven by scenario (S41 extended, S42 added).
+- The six contradictions my own C43 round introduced are repaired
+  in the same commit that extends it - the auditor-charter
+  per-gate overclaim was an L-F03-class defect in law I wrote
+  hours earlier, corrected rather than defended.
+- Website review class and the post-freeze REQ diff-guard stay
+  carried (NV-3's cost question is the sponsor's; the diff-guard
+  is queued law-debt) - carrying is declared, not silent.
+
+### Actions
+Landed ADR-0017 Amendment A1 and the full sweep it enumerates
+across PROTOCOL (§2 operator record, §3 referral law, §4.1
+evidence law, §7 gate rows, §7.1 closing harvest, §11 enumeration),
+four charters, three gate templates, the harvest block, WO
+template, FEDERATION (repo-qualified citations, hand-relay),
+CLAUDE.md, G0 checklist, BOOTSTRAP, board, both scripts, CI
+workflow comment, and the test suite. Closed override #4 on the
+board; issues #1 and #2 close against this commit.
+
+### Evidence
+bash scripts/test_protocol.sh: "protocol self-test: 52 passed, 0
+failed" including the orphan-id rejection and the Session-trailer
+scenario. bash scripts/check_requirements.sh at this tree: clean
+skip (no corpus, no citing specs). bash scripts/check_journals.sh
+--all: green. The four agent reports are quoted in the session
+record; the coverage verdict table maps finding-to-surface.
+
+### Outcome
+Every field failure mode now has a named owner surface in the
+shell, the two CRITICAL classes (misleading sponsor-facing
+artefacts; unreviewed sponsor-facing surface) are closed at both
+the artefact and the channel, and the freeze is back in force with
+four overrides on the record.
+
+### Open-questions
+- Carried: website review class (NV-3), post-freeze REQ
+  diff-guard, and the first landing still in flight.
+
+### Files-in-this-commit
+- .github/workflows/journal-check.yml
+- BOOTSTRAP.md
+- CLAUDE.md
+- agents/PROTOCOL.md
+- agents/charters/auditor.md
+- agents/charters/orchestrator.md
+- agents/handoffs/templates/WO-template.md
+- docs/FEDERATION.md
+- docs/adr/ADR-0017-the-artefact-standard.md
+- docs/gates/G0-checklist.md
+- docs/gates/templates/lessons-harvest-block.md
+- docs/gates/templates/phase-accept-checklist.md
+- docs/gates/templates/spec-freeze-checklist.md
+- scripts/agent_commit.sh
+- scripts/check_requirements.sh
+- scripts/test_protocol.sh
+- tasks/BOARD.md

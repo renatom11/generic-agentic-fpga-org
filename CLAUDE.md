@@ -59,7 +59,9 @@ Read, in order:
   saying so (ADR-0002, ADR-0016).
 - **Shell defects are issues, not lessons.** A wrong claim, broken step,
   or gap in the shell found while operating any copy is filed as a
-  GitHub issue on the **federation upstream** named on the BOARD, and
+  GitHub issue on the **canonical shell** (the defect channel at every
+  level — a project's federation upstream is its org generic, which
+  authored no law, so defects skip the middle hop), and
   appended to the BOARD's defect-log line. Never route a defect through
   the lessons pipeline (it is not a lesson — LH2 bars the specificity a
   defect report needs), and never patch law locally while the freeze
@@ -111,7 +113,9 @@ on the role — the role line is primary; the milestone is secondary:
    `bash scripts/test_protocol.sh` (expect every assert green) and
    `bash scripts/check_journals.sh --all` (expect every commit green), and
    check the Actions tab is green. The G0 checklist's A1–A5 rows record
-   these as satisfied at seeding; you are re-verifying, not re-doing. If
+   these as satisfied at seeding; you are re-verifying, not re-doing —
+   then re-point rows A1–A5's signature cells at your own
+   re-verification entry (G0 checklist, Section A note). If
    anything is red, STOP and report it to the sponsor before proceeding —
    a shell that fails its own self-test must not bring up an org.
 2. **Then greet the sponsor with the state and the ask**: you are the

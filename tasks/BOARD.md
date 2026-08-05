@@ -129,12 +129,15 @@ template state (ADR-0011).
   artefact-standard round (ADR-0017: requirements standard + MACHINE
   checker, atomicity criterion, derived-artefact fidelity lane,
   event-bound audit, read-back/stop-signal/house-style disciplines)
-  plus the sponsor-directed my-project lessons-mining sweep; closes at
-  the round's closing commit, recorded here, re-engaging the freeze.
+  plus the sponsor-directed my-project lessons-mining sweep; **CLOSED**
+  at the sweep commit C44 (ADR-0017 A1), re-engaging the freeze there.
   **In a fork this line is re-scoped at founding**
   (BOOTSTRAP Stage 0 step 5, or B6 for a solo-collapsed copy) to: *no
   new law until this repository's first lessons landing completes* — the
-  shell-history wording above never binds a fork as written.
+  shell-history wording above never binds a fork as written. *Law*
+  excludes the project-scoped ADRs the bootstrap itself mandates (the
+  M1 toolchain lane, design-choice records): those are project
+  decisions, never blocked (ADR-0017 A1).
 - **First-trial findings absorbed** (2026-08-04, sponsor hand-relay from
   the first org generic founded from this shell, since retired): SD-0001
   → R-ROLE-1 wedge check (ADR-0015); SD-0002 (unobservable freeze) and
@@ -205,7 +208,7 @@ template state (ADR-0011).
   (2026-08-05) confirmed the three fixes and required the completing
   sweep that landed with ADR-0016 Amendment A1. Standing findings
   every future report must honor: **the federation pipeline has zero
-  mechanical test coverage — the 50 self-test assertions (42 scenarios)
+  mechanical test coverage — the 52 self-test assertions (44 scenarios)
   test journal/commit hygiene only, and the first end-to-end landing is
   the pipeline's designated first test**; commits are trailer-attributed,
   not cryptographically signed; enforcement claims are tagged MACHINE or
@@ -249,7 +252,8 @@ template state (ADR-0011).
   landing condition as P1.
 - **Upstream defect channel**: shell defects — wrong claims, broken
   steps, gaps found while operating this copy — file as **GitHub issues
-  on the federation upstream** (line above); they never travel through
+  on the canonical shell** — the defect channel at every level (a
+  project skips its org generic, which authored no law — ADR-0017 A1); they never travel through
   the lessons pipeline. Local defect log (one line per defect: date ·
   one-line summary · upstream issue URL):
   - 2026-08-05 · F6/F8 (Shell feedback 0001, AUD-0003): no
@@ -275,7 +279,7 @@ template state (ADR-0011).
   event trigger first. Its tier-1 lesson candidates (LC-06/07/08)
   travel the lessons pipeline from their own program, never this
   channel. **Recommendations 5.1–5.7 LANDED under override #4
-  (ADR-0017)**; issues #1/#2 close when the mining sweep confirms
-  coverage. P1–P3 and the non-quality law-debt items remain queued.
+  (ADR-0017)**; issues #1/#2 closed at C44: the mining sweep confirmed and
+  hardened coverage (ADR-0017 A1). P1–P3 and the non-quality law-debt items remain queued.
   The freeze's own end condition — the first lessons landing — is in
   flight.

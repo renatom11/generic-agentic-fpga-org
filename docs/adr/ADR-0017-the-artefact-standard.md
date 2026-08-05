@@ -99,3 +99,54 @@ commit, which is the point. Self-test 47 → 50 assertions
 (41 → 42 scenarios), all green. The website question (whether a public
 deployment is a deliverable under Q-rows or needs its own lane) is
 carried as AUD-0003's NV-3 — deliberately not decided here.
+
+## Amendment A1 — the mining sweep (2026-08-05)
+
+Appended under the same sponsor direction ("create a bunch of agents …
+make sure the shell doesn't make the same mistakes"); nothing above is
+edited. Four independent agents mined the field program and attacked
+this ADR's own round: a failure catalogue (45 distinct modes across
+AUD-0001/0002/0003 and three DV reports), a journal mine (stranded
+harvests, colliding lesson ids, invented disciplines), an adversarial
+coverage audit (verdict on the shell at C43: 3 PREVENTED, 24 PARTIAL,
+7 UNCOVERED, with four checker bypasses demonstrated by execution and
+six contradictions inside this ADR's own round), and a red-team
+lifecycle simulation (10 worst-compliant-behavior findings).
+
+**Decision — landed in the sweep commit:**
+
+1. MACHINE: `check_requirements.sh` hardened against the executed
+   bypasses (indented rows, SHALL-as-substring, pipe-shifted cells) and
+   extended with the orphan-id / corpus-elsewhere cross-check;
+   `agent_commit.sh` stamps a `Session:` operator trailer (PROTOCOL §2
+   operator record — the sole-committer question becomes adjudicable
+   from the repository). Scenarios S41+/S42; self-test 50 → 52.
+2. Evidence law (§4.1): measurement SHA, committed-instrument, and
+   run-id-ancestry rules adopted from the field's own remedies.
+3. Referral law (§3): anomaly-not-violation until the audit returns;
+   pins exclude commissions, never assertions; escalation memos carry
+   the affected lead's countersignature; irreversible decisions join
+   the audit window before execution.
+4. The review lane's floor: orchestrator-owned sponsor-facing artefacts
+   are never self-certified — enumerated into the audit window instead;
+   sponsor-facing normative/measured content is delivered as committed
+   artefacts, and the gate packet enumerates everything shown.
+5. Q2 grades atomicity over Requirement and Verification cells jointly,
+   with a journaled sampling frame, a closed-book test skeleton, and
+   Kind fit; new Q4 samples fit-to-intake (source correctness); A9's
+   retro-audit gains intake-digest fidelity.
+6. Founding/identity: G0 rows A1–A5 re-pointed at the fork's own
+   re-verification; defects route to the canonical shell at every
+   level; the fork freeze excludes bootstrap-mandated project ADRs;
+   audit ids and federation citations are repo-qualified; harvest
+   candidate ids are chain-qualified; a halted program runs a closing
+   harvest; work orders paste lesson text in full; sponsor hand-relay
+   is a recognized, fence-verified transport (FEDERATION).
+7. The six new-law contradictions repaired (template countersignature
+   formulas name atomicity; Q3 names the source owner; the artefact
+   standard and STYLE.md join §11's amendment enumeration; the auditor
+   charter's per-gate-report overclaim corrected).
+
+Carried, not decided: the website/deployment review class (AUD-0003
+NV-3) and the MACHINE diff-guard for post-freeze REQ edits — queued as
+law-debt. This commit closes override #4; the freeze re-engages.

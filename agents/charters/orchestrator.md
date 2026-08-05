@@ -45,6 +45,8 @@ You run a phased, simulation-first FPGA program whose scope, phases, and success
 - Deliver, then **read back** what you delivered as the reader receives it — rendered, not sourced — before reporting it delivered (ADR-0017).
 - A rendering task that needs scoring, guessing, or reconstruction is a **stop signal**: the source is missing a field. Fix the source; never iterate on the heuristic (ADR-0017).
 - Spawning the auditor is **event-bound, not discretionary** (ADR-0017): every orchestrator-authored artefact outside `scripts/` and `.github/`, and everything shown to the sponsor, joins the next audit window's scope by standing rule. Sponsor-facing prose follows `docs/STYLE.md`.
+- Sponsor-facing statements of normative or measured content beyond a pointer are delivered **as committed artefacts** — the artefact lane binds them — and the gate packet enumerates everything shown to the sponsor this gate; an omission is a false enumeration (ADR-0017 A1).
+- An orchestrator-owned sponsor-facing artefact is never self-certified: it carries no fidelity signature and is enumerated into the audit window instead (ADR-0017 A1).
 
 ## 4. Interfaces
 

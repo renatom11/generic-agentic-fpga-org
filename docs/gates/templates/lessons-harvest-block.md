@@ -41,11 +41,13 @@ tier claimed.
 **The classifier — descend the tiers, stop at the first bar passed:**
 
 1. Hide the provenance; remove every project noun. Still teaches?
-   **Tier 1** — id `LC-nn`; target: the core `docs/LESSONS.md` — the org
+   **Tier 1** — id `LC-<chain>-nn` (chain-qualified, ADR-0017 A1 —
+   parallel miners minting bare `LC-nn` collide, and the recurrence
+   ledger then counts two different rules as one); target: the core `docs/LESSONS.md` — the org
    generic's at the inner hop, onward to the canonical shell's on the
    outer (docs/FEDERATION.md §0) — via the export packet.
 2. Restore only the domain nouns. Teaches a stranger who knows the domain
-   but not the project? **Tier 2** — id `LD-nn`; target: the **named**
+   but not the project? **Tier 2** — id `LD-<chain>-nn` (chain-qualified, as above); target: the **named**
    domain pack in `docs/domains/`, via the export packet.
 3. Else **tier 3** — no `LC-`/`LD-` id; target: the project's own local
    accretion (its protocol, charters, plans); never leaves the project.
@@ -87,7 +89,7 @@ canonical shell at its merge. A candidate never self-assigns its final id.
 
 | Journal chain | Miner | Span (`J-<agent>-NNNN..NNNN`) | Tiles with (previous harvest · its `to`) | Harvest note (miner's journal entry) | Yield (ids or NIL) |
 |---|---|---|---|---|---|
-| `J-<agent>` | `<agent>` | `J-<agent>-NNNN..NNNN` | `<gate/SO id>` · `NNNN` | `J-<agent>-NNNN` | `LC-nn, LD-nn` / NIL |
+| `J-<agent>` | `<agent>` | `J-<agent>-NNNN..NNNN` | `<gate/SO id>` · `NNNN` | `J-<agent>-NNNN` | `LC-<chain>-nn, LD-<chain>-nn` / NIL |
 | `J-<worker template>` | `<commissioning lead>` | `J-<worker>-NNNN..NNNN` | `<gate/SO id>` · `NNNN` | `J-<lead>-NNNN` | NIL |
 
 #### Yield — three-way disposition
@@ -101,8 +103,8 @@ canonical shell at its merge. A candidate never self-assigns its final id.
 
 | Candidate | Tier | Target | Disposition |
 |---|---|---|---|
-| `LC-nn <short title>` | 1 | core `docs/LESSONS.md` (org generic, then onward) | in export packet |
-| `LD-nn <short title>` | 2 | domain pack `<pack>` (org generic, then onward) | in export packet |
+| `LC-<chain>-nn <short title>` | 1 | core `docs/LESSONS.md` (org generic, then onward) | in export packet |
+| `LD-<chain>-nn <short title>` | 2 | domain pack `<pack>` (org generic, then onward) | in export packet |
 | `<short title>` | 3 | local accretion: `<file / section>` | landed at `<sha>` / obligation `C-nn` |
 
 #### War stories

@@ -20,7 +20,9 @@ checklist is [`BOOTSTRAP.md`](../../BOOTSTRAP.md).
 | A6 | **Sponsor**: charter critique round — org chart + all nine charters read, critiqued, and ratified (or amended by ADR before ratification) | sponsor | OPEN | <sponsor approval date, recorded in an orchestrator journal entry> |
 | A7 | **Sponsor**: branch protection on `main` AND the working branch — exact click-path below. Until this is done, PROTOCOL §5 R9's no-force-push guarantee is convention only | sponsor | OPEN | <sponsor configured date + ruleset names; rejection verified by live fire, journal ref> |
 | A8 | **Decision**: single-branch mode (work lands on `main` directly) vs PR-flow mode (working branch + milestone PRs into `main`, R9). **Default: single-branch mode** — the orchestrator proposes it in the intake proposal and the sponsor overrides only if they want PR-flow; either way the choice rides the E0 setup, no open-ended question asked. Decide with A7 — it changes which ruleset binds what — and record the decision and the working-branch name on [`tasks/BOARD.md`](../../tasks/BOARD.md) | sponsor + orchestrator | OPEN | <BOARD updated at SHA; journal ref> |
-| A9 | Auditor's G0 retro-audit of the seed commit range committed to `docs/reports/audit/` — the new org's **first spawn**, and the first proof the audit lane works | auditor | OPEN | <J-auditor-NNNN — verdict + report path> |
+| A9 | Auditor's G0 retro-audit of the seed commit range committed to `docs/reports/audit/` — the new org's **first spawn**, and the first proof the audit lane works; its mandate includes **intake-digest fidelity**: every constraint, number, and reference in the raw sponsor dump traced to an intake row or a recorded exclusion (ADR-0017 A1) | auditor | OPEN | <J-auditor-NNNN — verdict + report path> |
+
+**Section A note (ADR-0017 A1)**: after the founding re-verification (CLAUDE.md, M0 step 1), re-point rows A1–A5's signature cells at the journal entry recording **this repository's own** re-verification; the seeding entries remain as provenance, never as authority — a fork's gate must resolve to the fork's record.
 
 ### A7 click-path (branch rulesets)
 

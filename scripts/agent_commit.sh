@@ -32,7 +32,7 @@ done
   || fail "usage: agent_commit.sh --agent NAME --entry J-NAME-NNNN --work-order WO-NNNN|none -m TITLE [--journal-only]"
 for t in ${EXTRA_TRAILERS[@]+"${EXTRA_TRAILERS[@]}"}; do
   case "$t" in
-    Agent:*|Work-Order:*|Journal-Entry:*|Journal-Only:*)
+    Agent:*|Work-Order:*|Journal-Entry:*|Journal-Only:*|Session:*)
       fail "--extra-trailer may not use protected key: $t (R6)" ;;
   esac
 done
@@ -223,6 +223,7 @@ fi
   echo "Agent: $AGENT"
   echo "Work-Order: $WORK_ORDER"
   echo "Journal-Entry: $ENTRY"
+  echo "Session: ${AGENT_SESSION_ID:-unknown}"
   [ "$JOURNAL_ONLY" -eq 1 ] && echo "Journal-Only: true"
   for t in ${EXTRA_TRAILERS[@]+"${EXTRA_TRAILERS[@]}"}; do echo "$t"; done
 } > "$TMPDIR_P/msg"

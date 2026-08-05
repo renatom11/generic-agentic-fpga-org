@@ -20,7 +20,7 @@ bad()  { FAIL=$((FAIL + 1)); say "  FAIL: $*"; }
 expect_ok()   { local d="$1"; shift; if "$@" > /dev/null 2>&1; then ok "$d"; else bad "$d (unexpectedly rejected)"; fi; }
 # expect_fail asserts BOTH that the command failed AND that it failed for the
 # named reason — a non-zero exit alone would let a scenario pass on an
-# unrelated rejection (AUD-0001-F1).
+# unrelated rejection (origin AUD-0001-F1).
 expect_fail() {
   local d="$1" pat="$2"; shift 2
   local out
@@ -338,7 +338,7 @@ expect_fail "content-bearing merge rejected (R9)" "R9" scripts/check_journals.sh
 git reset -q --hard HEAD~1
 git branch -q -D side
 
-# ---- S23: duplicate protected trailer (AUD-0001-F2) -------------------------
+# ---- S23: duplicate protected trailer (origin AUD-0001-F2) -------------------------
 say "S23: duplicate Agent: trailer in a hand-made commit"
 echo dup > rtl/dup.sv
 entry rtl_lead 0004 "dup trailer" rtl/dup.sv >> "$J_RTL"
@@ -355,7 +355,7 @@ expect_fail "duplicate protected trailer rejected (R6)" "duplicate" \
   scripts/check_journals.sh --all
 git reset -q --hard HEAD~1
 
-# ---- S24: octopus merge is refused outright (AUD-0001-F2) -------------------
+# ---- S24: octopus merge is refused outright (origin AUD-0001-F2) -------------------
 say "S24: octopus merge commit"
 # Two branches touching DIFFERENT journals so the merge itself is conflict-free
 # and an actual 3-parent commit gets created for the checker to reject.
@@ -688,8 +688,20 @@ cat > "$RQ/bad.md" <<'EOF41B'
 EOF41B
 expect_fail "bad Kind, missing SHALL, empty Verification rejected (REQ-FORM)" "REQ-FORM" \
   bash "$REPO_ROOT/scripts/check_requirements.sh" "$RQ/bad.md"
+mkdir -p "$RQ/empty"
 expect_ok "absent corpus skips clean (no project in this copy)" \
-  bash "$REPO_ROOT/scripts/check_requirements.sh" "$RQ/absent.md"
+  bash "$REPO_ROOT/scripts/check_requirements.sh" "$RQ/empty/requirements.md"
+mkdir -p "$RQ/proj"
+cp "$RQ/good.md" "$RQ/proj/requirements.md"
+printf 'Spec cites REQ-001 and REQ-999.\n' > "$RQ/proj/SPEC-X.md"
+expect_fail "orphan cited id rejected (REQ-FORM)" "REQ-FORM" \
+  bash "$REPO_ROOT/scripts/check_requirements.sh" "$RQ/proj/requirements.md"
+
+# ---- S42: operator record trailer (ADR-0017 A1) -----------------------------
+say "S42: Session trailer stamped on every commit"
+expect_ok "last sandbox commit carries Session trailer" \
+  bash -c 'git log -1 --format=%B | grep -q "^Session: "'
+
 
 # ---- summary ----------------------------------------------------------------
 say ""

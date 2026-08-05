@@ -11,14 +11,15 @@ signs. A spec is FROZEN only with (a) interface-check evidence per the
 regime the M1 toolchain ADR recorded — a green interface-compile CI run
 citing the freeze SHA where the toolchain supports compile-checked records,
 a line-by-line reviewed port table where it does not (SPEC-TEMPLATE §4.1) —
-and (b) a dv_lead testability countersignature for that spec (PROTOCOL §7).
+and (b) a dv_lead testability-and-atomicity countersignature for that
+spec (PROTOCOL §7, ADR-0017).
 
 ## Prerequisites
 
 | # | Item | Evidence |
 |---|---|---|
 | 1 | <toolchain/lane prerequisite — e.g. the interface-check lane wired into CI> | <run id + SHA> |
-| 2 | <dv_lead testability review of the requirements corpus, before this checklist opened> | <WO id → findings → disposition> |
+| 2 | <dv_lead testability + atomicity review of the requirements corpus, before this checklist opened> | <WO id → findings → disposition> |
 
 ## Requirements testability countersignature
 
@@ -27,7 +28,7 @@ and (b) a dv_lead testability countersignature for that spec (PROTOCOL §7).
      "I sign gate <X> item <Y>" — at a named SHA. The orchestrator
      transcribes; the transcription is clerical. -->
 
-> "I sign gate P<n>-spec-freeze, requirements testability precondition, at
+> "I sign gate P<n>-spec-freeze, requirements testability and atomicity preconditions, at
 > `<sha>`." — dv_lead, journal `J-dv_lead-NNNN` (WO-NNNN), transcribed by
 > the orchestrator <UTC date>.
 
@@ -66,8 +67,9 @@ and (b) a dv_lead testability countersignature for that spec (PROTOCOL §7).
 | # | Item | Status | Signature |
 |---|---|---|---|
 | Q1 | `docs/specs/requirements.md` authored per REQUIREMENTS-TEMPLATE; `scripts/check_requirements.sh` green at the freeze SHA (MACHINE) | OPEN | <CI run / J-orchestrator-NNNN> |
-| Q2 | dv_lead's countersignature explicitly grades **atomicity** — every requirement stands alone (named criterion, beside testability) | OPEN | <J-dv_lead-NNNN> |
-| Q3 | Every artefact derived from the frozen specs in the sponsor's decision path carries the architect's fidelity signature — plus dv_lead's derivability signature where it renders requirements; NONE declared if no such artefact exists | OPEN | <J-agent-NNNN refs / NONE> |
+| Q2 | dv_lead's countersignature explicitly grades **atomicity** — every requirement stands alone (named criterion, beside testability) — graded over the Requirement **and** Verification cells jointly, with the sampling frame journaled, one closed-book test skeleton derived from sampled rows, and Kind fit in the sample (ADR-0017 A1) | OPEN | <J-dv_lead-NNNN> |
+| Q3 | Every artefact derived from the frozen specs in the sponsor's decision path carries the **source owner's** fidelity signature (the architect for spec-derived views) — plus dv_lead's derivability signature where it renders requirements; NONE declared if no such artefact exists | OPEN | <J-agent-NNNN refs / NONE> |
+| Q4 | Fit-to-intake sample: a non-author (auditor or dv_lead) traces a disclosed sample of REQ rows back to the intake material and journals the frame — source correctness, not form (ADR-0017 A1) | OPEN | <J-agent-NNNN> |
 
 ## Lessons harvest
 

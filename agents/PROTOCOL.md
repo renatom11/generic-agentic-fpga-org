@@ -89,6 +89,20 @@ transcribes** them into the packet's Return log under its own trailer — the
 same clerical-transcription rule §7 uses for gate signatures, with authority
 living in the auditor's own committed artifacts.
 
+Two referral disciplines (ADR-0017 A1, from the field): an anomaly
+under audit is recorded as an anomaly, never as a violation, until the
+audit returns; and a pin may exclude commits that commission an audit,
+never commits that assert what the audit tests. Escalation memos (E2,
+E3) carry the affected lead's countersignature that its position is
+stated as filed, and an artifact deciding something irreversible joins
+the audit window before execution, not after.
+
+**Operator record (ADR-0017 A1)**: every commit records a
+`Session: <id>` trailer (from `AGENT_SESSION_ID`; `unknown` when absent),
+MACHINE-stamped by `agent_commit.sh` — forgeable, but the sole-committer
+question becomes adjudicable from the repository instead of from an
+ephemeral transcript.
+
 **Packet numbering**: the orchestrator — as sole committer — allocates the
 next `NNNN` per prefix when a packet is first committed; drafts circulating
 before commit use a placeholder id. This makes monotonic-per-prefix numbering
@@ -139,7 +153,11 @@ Exact reproducible commands and their observed results (test names, pass/fail,
 artifact paths). Claims here must reproduce at this commit's SHA — the auditor
 re-executes samples. Cite only (a) commands runnable from a repo checkout, or
 (b) externally verifiable references (e.g. a CI run ID and its conclusion);
-mentions of ephemeral artifacts must say so explicitly.
+mentions of ephemeral artifacts must say so explicitly. A pre-commit
+measurement states its measurement SHA. A quantity produced by a script
+cites the script's committed path, or is tagged ephemeral. A CI run id
+is Evidence only where its head SHA is an ancestor of committed history
+or its full diff is committed alongside the claim (ADR-0017 A1).
 ### Outcome
 DoD status vs the work order (met / partially met + gaps) and the handoff
 (packet path or reviewer).
@@ -363,6 +381,10 @@ precedes them. The harvest itself lands in the organization's own generic
 automatically at those gates (the inner hop — all one team's property);
 records the sponsor does not sign (`SO-` packets, `P<n>-module-ready`)
 defer to the next sponsor-signed gate (`docs/FEDERATION.md` §0, §5, §7).
+A program that halts, pauses, or wedges between gates runs a **closing
+harvest** under a sponsor signature, as if at a sponsor-signed gate — a
+crisis is when the most lessons exist, and the signature-riding design
+must not strand them (ADR-0017 A1).
 
 **Span discipline.** Each agent holding a persistent journal chain mines its
 own journal over the span since its last harvest; a lead also mines the
@@ -560,7 +582,8 @@ The org must survive the loss of any session, including the orchestrator's:
 
 Any change to this protocol, a charter, the enforcement scripts,
 `docs/FEDERATION.md`, the gate templates (`docs/gates/templates/**`), the
-playbooks (`docs/playbooks/**`), or the domains law (`docs/domains/README.md`
+playbooks (`docs/playbooks/**`), the artefact standard
+(`docs/specs/REQUIREMENTS-TEMPLATE.md`, `docs/STYLE.md`), or the domains law (`docs/domains/README.md`
 and pack headers) requires:
 (1) a numbered ADR in `docs/adr/` recording alternatives and rationale,
 (2) an orchestrator journal entry, (3) if the change alters enforcement
