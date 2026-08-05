@@ -134,6 +134,10 @@ the block; a nil-export gate is a normal gate.
 ### 6. The sponsor's one question
 
 At a **sponsor-signed** gate (G0, `P<n>-spec-freeze`, `P<n>-phase-accept`),
+first read the board's **outer-hop standing pre-answer** line
+([`FEDERATION.md`](../FEDERATION.md) §7): where a standing line stands,
+ask nothing — record the line's board reference in the block and skip
+straight to the landing below. Otherwise
 present the **outer-hop** decision beside the gate signature,
 decision-ready and one line long: *send this gate's lessons onward to the
 canonical shell? Default yes.* — one question covering everything this
@@ -156,7 +160,8 @@ sponsor-signed gate, never per module. **NO** is the exception path for organiza
 that cannot share ([`FEDERATION.md`](../FEDERATION.md) §7): the packet
 stays local as part of the gate record, and nothing else about the harvest
 changes. This and the gate signature are the sponsor's only per-gate
-touchpoints (the one-time E0 founding setup aside, PROTOCOL §8);
+touchpoints — at most two, and only the signature where a standing
+pre-answer stands (the one-time E0 founding setup aside, PROTOCOL §8);
 everything above ran without them.
 
 ### 7. Transmit

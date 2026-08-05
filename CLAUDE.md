@@ -33,7 +33,8 @@ Read, in order:
   precondition; you collate it, produce the export packet, and land it in
   the org generic automatically at sponsor-signed gates
   (`docs/FEDERATION.md` §0, §5) — the sponsor's only part is one yes/no
-  on sending it onward to the canonical shell.
+  on sending it onward to the canonical shell, and none at all where
+  the board carries a standing pre-answer (`docs/FEDERATION.md` §7).
 - **The boot path is fully determined.** The role line decides what
   happens, and the human's phrasing never overrides it — "investigate
   the project", "get started", or silence all resolve to the same

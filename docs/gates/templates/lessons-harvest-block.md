@@ -130,12 +130,13 @@ canonical shell at its merge. A candidate never self-assigns its final id.
   - **At a sponsor-signed parent** (a checklist whose *passage requires*
     the sponsor's own signature — exactly G0, `P<n>-spec-freeze`,
     `P<n>-phase-accept`; `P<n>-module-ready`'s summary row is a board
-    record, not a sponsor signature, and does not qualify): the sponsor's one yes/no on the **outer hop**
-    rides the gate signature, **default yes** — **YES / NO**, recorded
-    in `J-orchestrator-NNNN` (or, where the board carries a standing
-    pre-answer — docs/FEDERATION.md §7 — record the standing line's
-    board reference; the question is then not asked). Once the signature is journaled, the
-    **inner hop runs automatically**: this gate's export packet and
+    record, not a sponsor signature, and does not qualify): the
+    sponsor's one yes/no on the **outer hop** rides the gate signature,
+    **default yes** — **YES / NO**, recorded in `J-orchestrator-NNNN`
+    (or, where the board carries a standing pre-answer —
+    docs/FEDERATION.md §7 — record the standing line's board reference;
+    the question is then not asked). Once the signature is journaled,
+    the **inner hop runs automatically**: this gate's export packet and
     every packet DEFERRED to it land in the org generic under that
     signature's authority (docs/FEDERATION.md §5.1 — after the
     signature, never before; a bounced gate lands nothing); the landing
@@ -174,8 +175,11 @@ canonical shell at its merge. A candidate never self-assigns its final id.
 - [ ] Export packet produced and cited above, or NONE declared.
 - [ ] Transmission recorded: at a sponsor-signed parent, the org-generic
       landing commit(s) — automatic under the gate signature — plus the
-      sponsor's one yes/no on the outer hop (default yes), the only
-      sponsor action in this block; N/A stands in only when this parent's
+      outer-hop decision: the sponsor's one yes/no (default yes), the
+      only sponsor action in this block — or, where the board carries a
+      standing pre-answer (docs/FEDERATION.md §7), the standing line's
+      board reference, no question asked and no sponsor action here at
+      all; N/A stands in only when this parent's
       export is NONE *and* nothing is DEFERRED to it. At any other
       parent, the DEFERRED carry-forward to the next sponsor-signed gate
       (or N/A for a NONE export). No sponsor action ever attaches to a

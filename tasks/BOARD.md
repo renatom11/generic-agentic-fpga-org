@@ -103,6 +103,13 @@ template state (ADR-0011).
   event). Every landing dispositions its own and sweeps the DEFERRED
   backlog (`docs/FEDERATION.md` §5.1 step 4c, ADR-0014) — landings are
   this fence's only cadence.
+- **Outer-hop standing pre-answer** (`docs/FEDERATION.md` §7): _none —
+  the per-gate question stands_. The sponsor may replace this value
+  with a standing YES or NO (e.g. *STANDING CLOSED — pre-answered NO,
+  for every gate and every backlog*); while a standing line is recorded
+  here the gate-time question is not asked, the harvest block cites
+  this line instead, and only the sponsor changes it. Confirmed at
+  every founding (G0 row B6).
 - **Feature freeze (J-orchestrator-0016): RE-ENGAGED.** The
   sponsor-directed federation-hardening round (ADR-0008..0013,
   2026-08-04) ran under a scoped override and closed at C26 — its end
@@ -112,6 +119,12 @@ template state (ADR-0011).
   the first-trial absorption round (ADR-0014, ADR-0015, the SD-0004 doc
   fix) ran under a scoped override on the ADR-0008 pattern and closed at
   its final commit, re-engaging the freeze there.
+  **Override #3 (sponsor-directed, 2026-08-05): CLOSED** — the
+  audit-correction round (ADR-0016 and its Amendment A1) ran under a
+  scoped override on the same pattern; its end condition, extended by
+  Amendment A1 from ADR-0016's landing commit to the completion-sweep
+  commit that propagated the standing pre-answer tree-wide, closed at
+  that sweep commit, re-engaging the freeze there.
   **In a fork this line is re-scoped at founding**
   (BOOTSTRAP Stage 0 step 5, or B6 for a solo-collapsed copy) to: *no
   new law until this repository's first lessons landing completes* — the
@@ -130,10 +143,20 @@ template state (ADR-0011).
 - **Independent claims audit (2026-08-05), on the record**: an
   independent agent audited the orchestrator's architecture claims
   against this tree. Verdicts: 9/13 confirmed or confirmed-with-caveat;
-  refuted and since corrected under override #3 (ADR-0016): the §8.1
-  "three screens" contradiction, the harvest block's stale
-  "informational sponsor row" phrase, and the absence of the
-  standing pre-answer the orchestrator had claimed. Standing findings
+  4/13 refuted in part — the claimed-but-nonexistent standing
+  pre-answer (C4); "lessons never touch working files", false in the
+  solo-collapsed topology (C7); "lessons move only inside gate-closing
+  commits", false of outer-hop PRs (C11); and "45 scenarios, signed
+  commits" — 40 scenarios carrying 45 assertions, trailer-attributed,
+  not cryptographically signed (C13). Corrected in law under override
+  #3 (ADR-0016): the audit's two live tree contradictions — the §8.1
+  "three screens" line and the harvest block's stale "informational
+  sponsor row" phrase — and the missing standing pre-answer, made law
+  on its merits; the remaining overclaims were reporting errors,
+  corrected by the standing findings below and the MACHINE/PROSE
+  discipline, not by tree edits. A follow-up verification audit
+  (2026-08-05) confirmed the three fixes and required the completing
+  sweep that landed with ADR-0016 Amendment A1. Standing findings
   every future report must honor: **the federation pipeline has zero
   mechanical test coverage — the 45 self-test assertions (40 scenarios)
   test journal/commit hygiene only, and the first end-to-end landing is

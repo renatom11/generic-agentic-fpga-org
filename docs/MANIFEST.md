@@ -74,8 +74,10 @@ plant **canaries** — deliberate process violations that test whether the
 auditor is awake ([SPONSOR.md](SPONSOR.md)).
 
 **A ruthlessly small human contract** ([SPONSOR.md](SPONSOR.md)).
-One-time setup of four items, then exactly **two touchpoints per gate**:
-the signature you would give anyway, and one default-yes question. Only
+One-time setup of four items, then at most **two touchpoints per gate**:
+the signature you would give anyway, and one default-yes question —
+retirable for good by a standing answer on your board
+([FEDERATION.md](FEDERATION.md) §7). Only
 seven classes of contact may ever reach you, and anything else is a
 process violation you are entitled to call out. The org decides
 everything else internally — and writes it down.
@@ -103,7 +105,8 @@ is automatic: at each sponsor-signed gate, the project's harvest lands in
 your org generic — screened by a fresh reviewer agent, deduplicated
 against everything already learned, serialized against sibling projects
 by a law that resolves races with a redo, never a merge. The outer hop is
-chosen: one default-yes question sends your generalized lessons onward to
+chosen: one default-yes question — or a standing answer recorded once
+on your board — sends your generalized lessons onward to
 the canonical shell, where a *human* merges — always — because lessons
 become instructions future agents follow, and that makes them a
 prompt-injection surface worth a permanent human fence.
@@ -126,7 +129,9 @@ serves.
 
 The shell is complete and self-audited: a three-lens adversarial pass
 found six loop-breaking defects, and the fixes landed as six
-constitutional amendments (ADR-0008..0013, [adr/](adr/)). It is
+constitutional amendments (ADR-0008..0013); a first field trial and an
+independent claims audit added three more (ADR-0014..0016,
+[adr/](adr/)). It is
 deliberately frozen — no new law until the first lessons landing proves
 the pipeline end to end (the board records the freeze). The machinery is
 verified but not yet lived-in; its first operators' friction reports are,

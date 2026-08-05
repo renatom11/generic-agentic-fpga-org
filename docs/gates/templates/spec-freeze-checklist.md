@@ -69,8 +69,9 @@ and (b) a dv_lead testability countersignature for that spec (PROTOCOL §7).
      sponsor-signed (S1): its block records the automatic org-generic
      landing (the inner hop, under this gate's signature) and the
      sponsor's one yes/no on the outer hop (default yes) beside the gate
-     signature, discharging any landings and decisions deferred to it
-     (docs/FEDERATION.md §0). -->
+     signature — or the standing pre-answer's board reference, where one
+     stands (§7) — discharging any landings and decisions deferred to it
+     (docs/FEDERATION.md §0, §7). -->
 
 ## Sponsor items
 

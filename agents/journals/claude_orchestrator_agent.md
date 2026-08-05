@@ -2057,3 +2057,118 @@ commit next; the freeze is back in force.
 - docs/adr/ADR-0016-audit-corrections-and-the-standing-preanswer.md
 - docs/gates/templates/lessons-harvest-block.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0034] 2026-08-05T05:53:37Z | task:none | C34 - completion sweep: the standing pre-answer becomes operable law (ADR-0016 Amendment A1)
+
+### Trigger
+The sponsor-ordered verification audit of C33 returned
+FIXED-WITH-GAPS: the three corrections held and the mechanical
+state was exactly as claimed, but the standing pre-answer existed
+in only two places while seventeen other surfaces still described
+the outer-hop question as unconditional - including the harvest
+block's own Preconditions box, which demanded a fresh yes/no and
+so blocked the new law at the one place that gates a gate. Its
+verdict: "I would require a completing sweep commit before
+treating the standing pre-answer as operable law."
+
+### Inputs
+The verification audit report (verdicts V1-V6, the 18-item
+inconsistency list, the sponsor-addressed verdict); the first
+audit's per-claim verdict table, re-read from the session record
+to settle the 13-claim arithmetic (9 confirmed or with-caveat;
+C4 MIXED, C7, C11, C13 OVERCLAIM = 4 refuted in part);
+docs/FEDERATION.md preamble, 0, 7; agents/PROTOCOL.md 7.1;
+docs/playbooks/lessons-harvest.md 6; the four gate checklists;
+CLAUDE.md, BOOTSTRAP.md, README.md, docs/SPONSOR.md,
+docs/GUIDE.md, docs/MANIFEST.md, agents/charters/orchestrator.md;
+tasks/BOARD.md; ADR-0013 Decision 6 (the formula sweep this
+round re-runs); the origin program's ADR+A1 precedent.
+
+### Reasoning
+- The verification audit's systemic point is the same one the
+  first audit made: a fix that lands in two files while fourteen
+  restatements contradict it repeats the failure it corrects.
+  The sweep is therefore total: every surface the auditor listed,
+  plus the formula instances it traced to ADR-0013 Decision 6.
+- "Exactly two touchpoints" is falsified by the standing line
+  (one touchpoint, when it stands), so the formula becomes "at
+  most two" everywhere it appears - the honest count under both
+  regimes.
+- Reopening the hop fits no escalation class by design: making
+  the line sponsor-only (no session proposes or escalates it)
+  closes the gap without minting a new E-class for a decision
+  that is not the org's to raise.
+- A standing YES is made explicitly legal: the clause's rationale
+  (remove the question rather than trust its answer) cuts both
+  ways, and the NO-only example had left the YES direction
+  ambiguous.
+- The tally correction names the four partly-refuted claims from
+  the first audit's own verdict table rather than leaving a
+  silent 13th; the three tree corrections were caveat findings,
+  not the refuted claims themselves, and the board now says so.
+- ADR-0016 is amended by appendix, never edited - Amendment A1
+  records its own backtest's overclaim and extends override #3's
+  end condition to this commit, which re-engages the freeze.
+
+### Actions
+Fixed the harvest block's Preconditions box to accept the
+standing line's board reference; swept the standing-pre-answer
+conditional and the at-most-two formula across FEDERATION
+(preamble, 0, 7), PROTOCOL 7.1, the harvest playbook, CLAUDE.md,
+SPONSOR.md, GUIDE.md, README.md, MANIFEST.md, BOOTSTRAP.md, the
+orchestrator charter, and all four gate checklists; made the
+standing YES explicit and reopening sponsor-only in FEDERATION 7;
+seeded the board's Outer-hop standing pre-answer slot and added
+its confirmation to G0 row B6; recorded override #3 on the
+board's freeze line and the corrected 9+4=13 tally on its audit
+line; added the execution-honesty note to GUIDE 6; extended
+MANIFEST's amendment range to ADR-0016; rewrapped the block lines
+C33 mangled; authored ADR-0016 Amendment A1. This commit is the
+sweep commit Amendment A1 names: the override closes here and the
+freeze re-engages.
+
+### Evidence
+grep "exactly two" outside journals: survivors are ADR records
+only (ADR-0013's decision text, A1's narrative). grep
+"touchpoints are": both instances read at-most-two phrasing. The
+standing pre-answer or its plain-language equivalent present on
+all seventeen audited surfaces (README and phase-accept carry it
+across line wraps; grep -l misses split matches - checked by
+direct read). bash scripts/test_protocol.sh: "protocol self-test:
+45 passed, 0 failed" (no script change; run recorded below in
+this entry's commit). The first audit's verdict table (C1-C13)
+re-read from the preserved session record settles the tally.
+
+### Outcome
+The standing pre-answer is operable law: the box that gates a
+gate accepts it, the playbook the orchestrator executes from
+reads it first, the sponsor-facing pages tell the sponsor it
+exists, and the board carries its slot. The freeze is back in
+force with all three overrides on its line. The federation
+pipeline itself remains PROSE with zero mechanical coverage - the
+first real landing is still its designated first test.
+
+### Open-questions
+- The first end-to-end landing (the pipeline's designated first
+  test) remains the next substantive event; the queued law-debt
+  (R-ROLE-1 generalization) and the deletion-only simplification
+  pass stay behind the freeze.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- README.md
+- agents/PROTOCOL.md
+- agents/charters/orchestrator.md
+- docs/FEDERATION.md
+- docs/GUIDE.md
+- docs/MANIFEST.md
+- docs/SPONSOR.md
+- docs/adr/ADR-0016-audit-corrections-and-the-standing-preanswer.md
+- docs/gates/G0-checklist.md
+- docs/gates/templates/lessons-harvest-block.md
+- docs/gates/templates/module-ready-checklist.md
+- docs/gates/templates/phase-accept-checklist.md
+- docs/gates/templates/spec-freeze-checklist.md
+- docs/playbooks/lessons-harvest.md
+- tasks/BOARD.md

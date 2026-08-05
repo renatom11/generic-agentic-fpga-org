@@ -54,7 +54,8 @@ No `SO-` PASS issues on an unqualified bench.
      not sign this gate: the block's transmission line records DEFERRED
      to P<n>-phase-accept, where the deferred packets' org-generic
      landing and their outer-hop decision both discharge beside that
-     gate's S1 (docs/FEDERATION.md §0). -->
+     gate's S1 — the decision pre-made where a standing pre-answer
+     stands (docs/FEDERATION.md §0, §7). -->
 
 ## Summary record (no sponsor contact)
 

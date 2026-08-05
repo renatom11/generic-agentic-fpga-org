@@ -11,9 +11,10 @@ of this infrastructure... it does the lesson stuff automatically, like most
 other things." The org declares and loads domain packs at intake, runs the
 harvest at every gate, and produces the export packet without being asked.
 After the one-time E0 founding setup, the sponsor's per-gate touchpoints
-are exactly two: the gate signature they were already giving, and one
-yes/no on sending the upstream contribution (default yes — or a standing
-pre-answer, §7).
+are at most two: the gate signature they were already giving, and one
+yes/no on sending the upstream contribution (default yes) — unless the
+board carries a standing pre-answer (§7), which retires the question and
+leaves only the signature.
 
 **Execution honesty (ADR-0016)**: everything below is stated in the
 present tense of law, and none of it has executed yet — no landing has
@@ -54,7 +55,8 @@ generic **automatically** — the inner hop (§5): all one team's property,
 no consent question, mandatory by the gate law. The org generic's
 accumulated lessons travel to the canonical shell **by choice** — the
 outer hop (§7): one default-yes question riding gates the org's sponsor
-already signs. An organization that never sends anything upstream still
+already signs, or a standing board pre-answer in its place (§7). An
+organization that never sends anything upstream still
 compounds — its second project boots smarter than its first. Both fences
 run the same pipeline (§8); at the canonical fence the maintainer is this
 repository's, at the org fence the org's own.
@@ -391,13 +393,17 @@ yes may flush the backlog.
 
 **The standing pre-answer (ADR-0016).** A sponsor may convert the
 per-gate question into a standing decision by recording it on the org
-generic's board as its own line — e.g. *"Outer hop: STANDING CLOSED —
-pre-answered NO, for every gate and every backlog"*. While such a line
+generic's board as its own line, in either direction — *"Outer hop:
+STANDING CLOSED — pre-answered NO, for every gate and every backlog"*,
+or the standing YES that sends every gate's packets onward unasked.
+While such a line
 stands, the question is **not asked** at gate time and no session acts on
 the default; the harvest block records the standing answer's board
-reference instead of a fresh yes/no. Reopening is a sponsor decision
-recorded the same way — a session that believes the hop should reopen
-escalates, and never acts on the default. Rationale: a protection that
+reference instead of a fresh yes/no. Reopening — or reversing — the
+line is the sponsor's decision alone, recorded the same way: no session
+proposes it or escalates it (it fits no escalation class, by design),
+and none acts on the default while the line stands. Rationale: a
+protection that
 depends on a default-yes question being answered correctly at every gate
 fails the first time a distracted sponsor signs the default; a standing
 line removes the question rather than trusting its answer. (This

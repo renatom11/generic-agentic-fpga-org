@@ -10,8 +10,9 @@ append-only record that CI re-verifies on every push; designs are signed
 off only after planted-defect campaigns prove the tests can catch real
 bugs; and your organization gets smarter with every project, because
 lessons are harvested at every gate and land in your own copy
-automatically — with one yes/no from you (default yes) on sharing them
-onward to the community ([docs/FEDERATION.md](docs/FEDERATION.md)).
+automatically — with at most one yes/no from you (default yes, and
+answerable once for good) on sharing them onward to the community
+([docs/FEDERATION.md](docs/FEDERATION.md)).
 
 **This repository is the installer, not the program.** Like an executable
 that installs software onto a machine, the canonical shell exists to be

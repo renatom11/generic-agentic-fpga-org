@@ -61,7 +61,8 @@ Your entire job:
   arrives batched, with options, a recommendation, and a cost.
 - **One recurring yes/no**: whether to share your organization's
   harvested lessons with the wider community (§7). Default yes; saying
-  no costs you nothing locally.
+  no costs you nothing locally — and you can record a standing answer
+  on your org's board once, after which no gate asks again.
 
 Everything else — planning, task routing, code review, test adequacy,
 bug adjudication — happens inside the org and is *deliberately not
@@ -166,7 +167,11 @@ Four mechanisms, designed so that **no single agent's honesty is
 load-bearing**: every claim is checked by someone who didn't make it,
 and the checker is itself spot-checked. Where a safeguard rests on audit
 rather than on a script, the documents say so plainly — no guarantee
-here is stronger than what the repository actually enforces:
+here is stronger than what the repository actually enforces. One
+honesty note before the list: these four mechanisms are live and
+machine-checked today, but the lessons *pipeline* of §7 has never yet
+executed anywhere — its first real landing is its designated first
+test, and the federation contract says so in its own preamble:
 
 - **Append-only journals.** Every agent keeps a journal, and every
   commit pairs one agent's work with that agent's reasoning — enforced
@@ -219,7 +224,9 @@ automatically ([`docs/FEDERATION.md`](FEDERATION.md)):
 Tier 1 and 2 lessons land in **your org generic** automatically when you
 sign a gate — that's the compounding: your second project starts where
 your first left off. Then you get the one recurring question: *send them
-onward to the canonical shell?* Default yes. Yes means your organization
+onward to the canonical shell?* Default yes — or answer it once, for
+good, with a standing line on your board, and it is never asked again.
+Yes means your organization
 contributes to (and benefits from) the commons; no means everything
 stays home and nothing else changes. Sharing opens a pull request; a
 human maintainer screens it and re-lands accepted lessons **by hand,

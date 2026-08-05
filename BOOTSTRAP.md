@@ -258,7 +258,8 @@ dv_lead into its own `SO-` packets (ADR-0013) — from
 [`docs/gates/templates/lessons-harvest-block.md`](docs/gates/templates/lessons-harvest-block.md)
 ([`docs/FEDERATION.md`](docs/FEDERATION.md) §0, §5). You operate none of
 it. Your per-gate touchpoints are the gate signature you were already
-giving, and
-one yes/no on sending the newly-landed lessons onward to the canonical
-shell (default yes) — asked only at gates you sign; other records defer
+giving, and one yes/no on sending the newly-landed lessons onward to
+the canonical shell (default yes) — asked only at gates you sign, and
+not at all once a standing answer is recorded on your board
+([`docs/FEDERATION.md`](docs/FEDERATION.md) §7); other records defer
 to the next one.

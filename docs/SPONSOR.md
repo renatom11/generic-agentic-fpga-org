@@ -31,7 +31,11 @@ If one doesn't, bounce it back.
 **One rider, not a seventh class**: attached to a gate approval you may get
 a single yes/no — *send the lessons harvested this gate onward to the
 canonical shell?* Default yes; answer no if your organization cannot share
-([`docs/FEDERATION.md`](FEDERATION.md) §7). Your projects' lessons land in
+([`docs/FEDERATION.md`](FEDERATION.md) §7). You may also retire the
+question for good: record a **standing answer** (YES or NO) as its own
+line on your org's board, and no gate asks again until you change the
+line — changing it is yours alone ([`docs/FEDERATION.md`](FEDERATION.md)
+§7). Your projects' lessons land in
 your organization's own generic automatically — that part is never a
 question, it is all your property ([`docs/FEDERATION.md`](FEDERATION.md)
 §0); only the onward send is asked. Gates you don't sign defer their

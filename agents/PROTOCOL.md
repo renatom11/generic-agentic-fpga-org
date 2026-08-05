@@ -353,9 +353,11 @@ lessons harvest as a precondition: the checklist instantiates the harvest
 block from `docs/gates/templates/lessons-harvest-block.md`, and the gate is
 not fully signed until the block is. Like the rest of the gate machinery,
 the harvest runs without sponsor operation — **per gate, the sponsor's
-touchpoints are exactly two**: the gate signature they were already giving
-and one default-yes decision, asked only at sponsor-signed gates, on
-sending lessons onward to the canonical shell. The one-time setup (G0
+touchpoints are at most two**: the gate signature they were already
+giving and one default-yes decision on sending lessons onward to the
+canonical shell, asked only at sponsor-signed gates and not at all
+where the board carries a standing pre-answer (`docs/FEDERATION.md`
+§7). The one-time setup (G0
 rows A6, A7, A8 and the intake signature — class E0, §8) is separate and
 precedes them. The harvest itself lands in the organization's own generic
 automatically at those gates (the inner hop — all one team's property);
