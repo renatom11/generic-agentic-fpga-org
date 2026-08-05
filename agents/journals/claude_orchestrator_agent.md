@@ -2505,3 +2505,54 @@ live trial.
 
 ### Files-in-this-commit
 - tasks/BOARD.md
+
+## [J-orchestrator-0040] 2026-08-05T14:51:01Z | task:none | C40 - record sponsor proposals P2 and P3: founding process brief, next-copy commands
+
+### Trigger
+Two further sponsor proposals arrived mid-trial, minutes after P1:
+(P2) a fresh project's founding greeting should brief the full arc
+of what the org will do and the sponsor's complete touchpoint
+contract; (P3) a completed founding should end by printing the
+ready-to-paste git commands for the next hop, URLs filled in.
+
+### Inputs
+The sponsor's two messages; CLAUDE.md's project-M0 greeting spec
+(state + ask today, no arc); BOOTSTRAP Stage 0 step 7 (Stop -
+green before fork, no onward commands); README's clone-and-push
+blocks; the P1 board record and its batching rationale.
+
+### Reasoning
+- P2's value is trust through the map: a sponsor briefed once on
+  every future touchpoint trusts the silences between them. The
+  brief must render from the tree's own gate/escalation law so
+  every founding briefs identically - improvised summaries are how
+  overclaims happen (audit round, on the record).
+- P3 closes the hop loop: the founding session knows its own URL
+  from the board, so the next-copy commands can be emitted
+  concrete, with the create-empty reminder, the pre-grant
+  sentence, and the red-then-green expectation - the exact three
+  things the field trials showed humans trip on.
+- Both are founding-surface only (CLAUDE.md greeting spec, Stage 0
+  step 7): freeze-legal in full, unlike P1's gate-row half. Still
+  batched: the sponsor's live copies cannot receive them, and the
+  proposal list is visibly still growing.
+
+### Actions
+Appended P2 and P3 to the board's sponsor-proposals bullet with
+design sketches, freeze classification, and the shared landing
+condition.
+
+### Evidence
+bash scripts/check_journals.sh --all: green (board-state commit
+only; no script change).
+
+### Outcome
+Three proposals on the record, each carrying enough design to land
+without re-litigating; the batch waits for the sponsor's word or
+the trial round's close.
+
+### Open-questions
+- Batch-land P1-P3 (and any further Pn) on sponsor direction.
+
+### Files-in-this-commit
+- tasks/BOARD.md

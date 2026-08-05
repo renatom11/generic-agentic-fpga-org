@@ -212,7 +212,23 @@ template state (ADR-0011).
   refreshed at every phase gate in the gate commit. The
   founding-surface half is freeze-legal; the phase-accept checklist
   row is law behind the freeze. Lands on sponsor direction, or batched
-  with the trial round's next findings.
+  with the trial round's next findings. (P2, 2026-08-05) **process
+  brief in the project founding greeting** — a fresh project's first
+  message to the sponsor also briefs the full arc ahead (intake digest
+  → one signed proposal → G0 harvest → spawn cadence → the P<n> gate
+  ladder → per-gate harvests landing in the org generic) and the
+  sponsor's complete touchpoint contract, rendered from the tree's own
+  gate/escalation law so every founding briefs identically — never
+  improvised per session. Founding-surface only (CLAUDE.md M0
+  greeting spec): freeze-legal in full. Same landing condition as P1.
+  (P3, 2026-08-05) **next-copy commands as the founding's last step**
+  — a completed founding ends by printing the ready-to-paste git
+  command block for the next hop (create-empty-repo reminder, clone /
+  set-url / push with this copy's real URL filled in from the board,
+  the pre-grant sentence, the expect-red-then-green note): Stage 0
+  step 7 for org generic → project; README already carries shell →
+  org generic. Founding-surface only: freeze-legal in full. Same
+  landing condition as P1.
 - **Upstream defect channel**: shell defects — wrong claims, broken
   steps, gaps found while operating this copy — file as **GitHub issues
   on the federation upstream** (line above); they never travel through
