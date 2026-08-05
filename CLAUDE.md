@@ -68,9 +68,10 @@ ssh, and proxy remotes of one repo all match). **If they disagree, you
 are in a fresh, unfounded copy**, and what you found it as follows from
 what the role line claims the *parent* was (ADR-0011):
 
-- copy of a `canonical-shell` → found an **org generic** (Stage 0) — or
-  `solo-collapsed`, only if the sponsor supplies project material at
-  founding;
+- copy of a `canonical-shell` → found an **org generic** (Stage 0; the
+  founding commit lands on the default branch, never a side branch —
+  step 4) — or `solo-collapsed`, only if the sponsor supplies project
+  material at founding;
 - copy of an `org-generic` → you are a **new project**: take the
   project M0 path below, and complete the role/self-URL/upstream
   re-record at G0 row B6;

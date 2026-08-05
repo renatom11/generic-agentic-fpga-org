@@ -35,7 +35,13 @@ checklist, run by the founding session before anything forks from it:
 4. **Record the identity**: set the board's **Repo role** line to
    `org-generic` and re-record the **This repository** line to this
    copy's own URL; the federation-upstream line stays the canonical
-   shell.
+   shell. **The founding commit lands on the default branch (`main`),
+   directly** — Stage 0 predates any branch-flow decision (that is a
+   project matter, G0 row A8), and every future copy of this repo is
+   cloned from the default branch and boots off its board: a founding
+   parked on a side branch leaves the default branch claiming the
+   shell's identity, and every child cloned meanwhile mis-founds as a
+   copy of the shell.
 5. **Re-scope the freeze**: rewrite the board's feature-freeze bullet to
    this repository's own observable end condition — *"No new law in this
    repository until its first lessons landing completes
@@ -46,8 +52,11 @@ checklist, run by the founding session before anything forks from it:
    bullet points at the federation upstream's issue tracker; the local
    defect log starts empty. Shell defects travel as issues; lessons
    travel through the pipeline — never mix the channels.
-7. **Stop.** An org generic runs no project and answers no intake — it
-   waits to be forked from, and receives its projects' landings
+7. **Stop — green before fork.** Stage 0 is complete only when the
+   default branch carries the founding commit and its CI is green;
+   until then nothing may be forked from this repo. An org generic runs
+   no project and answers no intake — it waits to be forked from, and
+   receives its projects' landings
    ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.1).
 
 A solo-collapsed copy (README's Getting Started) skips Stage 0: its one

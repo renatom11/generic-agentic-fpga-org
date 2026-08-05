@@ -2250,3 +2250,73 @@ it lands.
 - scripts/check_journals.sh
 - scripts/test_protocol.sh
 - tasks/BOARD.md
+
+## [J-orchestrator-0036] 2026-08-05T13:32:47Z | task:none | C36 - founding lands on the default branch: the side-branch trap (third field defect)
+
+### Trigger
+Third field defect, relayed by the sponsor with the mis-founded
+session's own output: my-fpga-org's Stage 0 founding commit was
+parked on a working branch pending a merge decision, so its default
+branch still carried the pre-founding board; my-project, cloned
+from that default branch, inherited the shell's identity and
+mis-founded as an org generic. The mis-founding session's boot
+logic was correct on the state it was given.
+
+### Inputs
+The sponsor's screenshot of the mis-founded session's report
+("main is red right now... it still carries the pre-founding
+board"); BOOTSTRAP.md Stage 0 (step 4 names no branch; step 7
+declares no completion condition); README.md's start-each-project
+step (no green-source rule); CLAUDE.md's fresh-copy founding
+branch line; the C35 defect-record pattern on the board.
+
+### Reasoning
+- Root cause is boot-determinism, not boot logic: the tree let the
+  founding session choose a branch, and the conservative choice
+  (do not touch main before rulesets) silently poisons every child
+  cloned before the merge. The tree must determine the branch.
+- Stage 0 predates any branch-flow decision by construction - A8
+  is a project-G0 row - so there is no legitimate reading under
+  which the founding belongs on a side branch.
+- The R-ROLE-1 red on the unfounded default branch was already the
+  correct signal; the fix upgrades it from an explainable state to
+  a stop condition (Stage 0 incomplete; fork-only-from-green).
+- Docs-only and freeze-legal: BOOTSTRAP, README, CLAUDE.md, BOARD
+  are founding surfaces, not §11 law (C32 precedent). No script
+  change: the mis-founding is unreachable once the source branch
+  rule holds, and R-ROLE-1 already reddens the trap state.
+
+### Actions
+Stage 0 step 4 now mandates the founding commit lands on the
+default branch directly, with the child-poisoning failure mode
+stated; step 7 becomes "Stop - green before fork" gating Stage 0
+completion on a green default branch; README's start-each-project
+step adds fork-only-from-green; CLAUDE.md's copy-of-canonical-shell
+line carries the branch mandate; the board records the defect on
+the C35 pattern.
+
+### Evidence
+The mis-founded session's quoted state matches the diagnosis
+exactly (pre-founding board on main, R-ROLE-1 red called "correct,
+not broken", founding offered as a milestone-boundary merge). bash
+scripts/test_protocol.sh: 47 passed, 0 failed (no script change).
+bash scripts/check_journals.sh --all green at this tree.
+
+### Outcome
+The branch choice that produced the trap no longer exists: the
+tree determines the founding branch, completion is observable
+(default branch green), and the human-facing rule is one sentence
+- never fork from red. Recovery path for the live trial: land
+my-fpga-org's founding on main, confirm green, re-clone
+my-project.
+
+### Open-questions
+- The mis-founded my-project repo is unrecoverable by re-record
+  (its history lacks the parent's founding commit); deletion and
+  re-clone from the founded default branch is the sanctioned path.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- README.md
+- tasks/BOARD.md

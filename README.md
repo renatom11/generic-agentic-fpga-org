@@ -129,7 +129,10 @@ project 2 forks.)
 1. **Fork your org generic** (fork-the-relationship: clone-and-push on a
    single account, same commands as above with your org generic as the
    source; same no-template-button rule) — one copy
-   per project; the fork's first act is setting its board's Repo role
+   per project, and **only from a green default branch**: red means the
+   source is unfounded or broken, and a clone taken meanwhile inherits
+   the wrong identity and mis-founds (BOOTSTRAP Stage 0 step 7); the
+   fork's first act is setting its board's Repo role
    line to `project` (completed and signed at G0 row B6). It boots with
    everything your organization has learned:
    the accumulated core lessons and the domain packs your intake

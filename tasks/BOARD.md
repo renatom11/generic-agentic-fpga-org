@@ -146,6 +146,18 @@ template state (ADR-0011).
   scenario S40 (ADR-0015 Amendment A1). Reported live by the founding
   session through the upstream defect channel; its issue closes against
   the fix commit when it lands.
+- **Third-trial defect fixed (2026-08-05)**: the second field founding
+  parked its Stage 0 founding commit on a working branch, leaving the
+  org generic's default branch carrying the pre-founding board; the
+  project cloned from that branch inherited the shell's identity and
+  mis-founded as an org generic — correct boot logic on poisoned
+  state. Fixed same-day, docs-only (freeze-legal founding surfaces):
+  Stage 0 step 4 mandates the founding commit lands on the default
+  branch, step 7 gates Stage 0 completion on the default branch being
+  green, README adds the fork-only-from-green rule, CLAUDE.md's boot
+  line carries the branch mandate. The R-ROLE-1 red on the unfounded
+  default branch was the designed signal all along — the fix makes it
+  a stop condition instead of a judgement call.
 - **Queued law-debt (behind the freeze)**: generalize the R-ROLE-1 CI
   check from the canonical-shell claim to every role, keyed on the
   This-repository line (script change + scenario, §11) — the boot logic
