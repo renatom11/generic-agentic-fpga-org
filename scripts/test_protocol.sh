@@ -624,6 +624,45 @@ git remote set-url origin https://github.com/example/canonical-shell.git
 expect_ok "matching origin passes (R-ROLE-1)" scripts/check_journals.sh --all
 git remote remove origin
 
+# ---- S40: the value is the claim, not the line (R-ROLE-1, ADR-0015 A1) ------
+# Field regression: the shipped role line carries the plain-text value
+# enumeration on the same physical line as the recorded value. A founded
+# copy (org-generic recorded, enumeration present, origin != upstream)
+# must PASS; a backticked canonical-shell claim must still FAIL.
+say "S40: founded-fork role line carrying the value enumeration"
+O_LAST=$(grep -oE "^## \[J-orchestrator-[0-9]{4}\]" "$J_ORCH" | grep -oE "[0-9]{4}" | tail -1)
+O_NEXT=$(printf "%04d" $((10#$O_LAST + 1)))
+cat > tasks/BOARD.md <<'EOF40'
+# Board (test)
+
+- **Repo role**: `org-generic` (values: canonical-shell / org-generic /
+  project / solo-collapsed — ADR-0011). Founded test copy.
+- **Federation upstream** (test):
+  https://github.com/example/canonical-shell — seeded.
+EOF40
+entry orchestrator "$O_NEXT" "record founded role" tasks/BOARD.md >> "$J_ORCH"
+git add tasks/BOARD.md "$J_ORCH"
+scripts/agent_commit.sh --agent orchestrator --entry "J-orchestrator-$O_NEXT" --work-order none -m "board" > /dev/null
+git remote add origin https://github.com/example/my-fpga-org.git
+expect_ok "founded fork with enumeration on the role line passes (R-ROLE-1)" \
+  scripts/check_journals.sh --all
+O_LAST=$(grep -oE "^## \[J-orchestrator-[0-9]{4}\]" "$J_ORCH" | grep -oE "[0-9]{4}" | tail -1)
+O_NEXT=$(printf "%04d" $((10#$O_LAST + 1)))
+cat > tasks/BOARD.md <<'EOF40B'
+# Board (test)
+
+- **Repo role**: `canonical-shell` (values: canonical-shell / org-generic /
+  project / solo-collapsed — ADR-0011). Unrecorded test copy.
+- **Federation upstream** (test):
+  https://github.com/example/canonical-shell — seeded.
+EOF40B
+entry orchestrator "$O_NEXT" "revert to shell claim" tasks/BOARD.md >> "$J_ORCH"
+git add tasks/BOARD.md "$J_ORCH"
+scripts/agent_commit.sh --agent orchestrator --entry "J-orchestrator-$O_NEXT" --work-order none -m "board" > /dev/null
+expect_fail "backticked canonical-shell claim still rejected (R-ROLE-1)" "R-ROLE-1" \
+  scripts/check_journals.sh --all
+git remote remove origin
+
 # ---- summary ----------------------------------------------------------------
 say ""
 say "protocol self-test: $PASS passed, $FAIL failed"

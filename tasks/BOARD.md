@@ -136,6 +136,16 @@ template state (ADR-0011).
   founding commit; SD-0004 (fork-button impossibility) → clone-and-push
   now leads the founding docs; its ADR-0014 (obligation discharge)
   adopted as this shell's ADR-0014.
+- **Second-trial defect fixed (2026-08-05)**: the first field founding
+  from this shell hit an R-ROLE-1 false positive — the check
+  substring-matched `canonical-shell` against the whole role line, and
+  the shipped line carries the value enumeration as plain text on the
+  same physical line, so every founded copy went permanently red (and
+  the false red stops the next founding at the project M0 red-check).
+  Fixed same-day: exact backticked-value comparison, regression
+  scenario S40 (ADR-0015 Amendment A1). Reported live by the founding
+  session through the upstream defect channel; its issue closes against
+  the fix commit when it lands.
 - **Queued law-debt (behind the freeze)**: generalize the R-ROLE-1 CI
   check from the canonical-shell claim to every role, keyed on the
   This-repository line (script change + scenario, §11) — the boot logic
@@ -158,7 +168,7 @@ template state (ADR-0011).
   (2026-08-05) confirmed the three fixes and required the completing
   sweep that landed with ADR-0016 Amendment A1. Standing findings
   every future report must honor: **the federation pipeline has zero
-  mechanical test coverage — the 45 self-test assertions (40 scenarios)
+  mechanical test coverage — the 47 self-test assertions (41 scenarios)
   test journal/commit hygiene only, and the first end-to-end landing is
   the pipeline's designated first test**; commits are trailer-attributed,
   not cryptographically signed; enforcement claims are tagged MACHINE or

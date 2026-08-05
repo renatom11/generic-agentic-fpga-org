@@ -65,3 +65,36 @@ nothing flagged. Run against the retired first org generic's founding
 state: its pre-C27 head is exactly the condition R-ROLE-1 refuses — the
 check would have turned its silent wedge into a red build, which is the
 finding's own proposed fix (SD-0001) implemented as proposed.
+
+## Amendment A1 — the value is the claim, not the line (2026-08-05)
+
+Appended on the ADR+A1 precedent; nothing above this heading is edited.
+
+Found live by the second field trial — the first defect report to
+travel the upstream defect channel from an operating copy. The check's
+implementation matched the substring `canonical-shell` anywhere on the
+role line's first physical line, but the shipped board line carries the
+plain-text value enumeration "(values: canonical-shell / org-generic /
+project / solo-collapsed — ADR-0011)" on that same line. Every copy
+founding as `org-generic` or `project` therefore keeps the substring
+after correctly re-recording its role, and the check stays permanently
+red, falsely accusing the founded copy of being an unrecorded fork —
+the exact copy this ADR's Decision declares "out of the check's scope
+by construction." The false red then wedges the next founding: the
+project M0 path stops on a red Actions tab. S39 never caught it because
+its sandbox board used a simplified role line without the enumeration —
+the proving scenario did not reproduce the shipped shape.
+
+**Decision.** The check extracts the recorded value — the first
+backticked token on the role line — and compares it exactly;
+enumeration text is prose, not a claim. Scenario **S40** reproduces the
+field failure both ways: a founded `org-generic` line carrying the
+enumeration with a mismatched origin passes, and a backticked
+`canonical-shell` claim with a mismatched origin still fails
+(self-test 45 → 47 assertions, 40 → 41 scenarios).
+
+**Freeze classification.** Repair of this ADR's own ratified machinery —
+making the script do what the Decision above already says — is not new
+law; this amendment is the §11 record keeping the repair inside
+ADR-0015's existing authority. The generalization of R-ROLE-1 to every
+role stays queued law-debt behind the freeze, unchanged.

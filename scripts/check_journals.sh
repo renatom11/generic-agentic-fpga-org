@@ -307,13 +307,19 @@ echo "OK: journal volume chains verified at range head (R10)"
 # anywhere. This turns the silent wedge into a red build with a named
 # cause. Skips when there is no board at the range head, no Repo role
 # line, a non-canonical role, or no origin remote (e.g. the test sandbox).
+# The claim is the first backticked token on the role line — the recorded
+# value — never the whole line: the shipped line carries the plain-text
+# value enumeration on the same physical line, and matching the line
+# falsely accuses every founded fork (ADR-0015 Amendment A1, found live
+# by the second field trial).
 repo_url_tail() {
   echo "$1" | sed -E 's/\.git$//; s#^[a-z+]+://[^/]*/##; s#^[^@]*@[^:]*:##' \
     | grep -oE '[^/]+/[^/]+$' || true
 }
 if git cat-file -e "$HEADC:tasks/BOARD.md" 2>/dev/null; then
   ROLE_LINE=$(git show "$HEADC:tasks/BOARD.md" | grep -m1 -E '^- \*\*Repo role\*\*:' || true)
-  if printf '%s' "$ROLE_LINE" | grep -q 'canonical-shell'; then
+  ROLE_VALUE=$(printf '%s' "$ROLE_LINE" | grep -oE '`[^`]+`' | head -n 1 | tr -d '`' || true)
+  if [ "$ROLE_VALUE" = "canonical-shell" ]; then
     ORIGIN_URL=$(git remote get-url origin 2>/dev/null || true)
     UPSTREAM_URL=$(git show "$HEADC:tasks/BOARD.md" \
       | grep -m1 -A3 -E '^- \*\*Federation upstream\*\*' \

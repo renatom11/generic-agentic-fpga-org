@@ -2172,3 +2172,81 @@ first real landing is still its designated first test.
 - docs/gates/templates/spec-freeze-checklist.md
 - docs/playbooks/lessons-harvest.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0035] 2026-08-05T12:58:14Z | task:none | C35 - R-ROLE-1 false positive: the value is the claim, not the line (ADR-0015 A1)
+
+### Trigger
+The second field trial - the sponsor founding my-fpga-org from this
+shell at C34 - hit the first R-ROLE-1 defect report from an
+operating copy: after correctly re-recording its role to
+org-generic, the founded copy's CI stayed permanently red with the
+unrecorded-fork accusation. The sponsor relayed the trial session's
+diagnosis; the founding session is filing the upstream issue per
+the defect channel.
+
+### Inputs
+scripts/check_journals.sh R-ROLE-1 block (the substring match at
+the ROLE_LINE test); tasks/BOARD.md's shipped role line (backticked
+value plus plain-text enumeration on one physical line);
+scripts/test_protocol.sh S39 (whose sandbox board omits the
+enumeration - why the suite never caught it); ADR-0015 (whose
+Decision already promises a founded copy is out of scope "by
+construction"); the trial session's report as relayed by the
+sponsor.
+
+### Reasoning
+- Reproduced the failure by reading the code against the shipped
+  line: grep -q 'canonical-shell' over the role line matches the
+  enumeration text, so a founded org-generic/project line still
+  claims the shell. The defect is implementation-only: ADR-0015's
+  words are correct and unchanged.
+- The false red is not cosmetic: the project M0 path stops on a
+  red Actions tab, so a red org generic wedges the next founding -
+  the defect blocks the live experiment.
+- Fix at the root: extract the first backticked token (the
+  recorded value) and compare exactly. Enumeration text is prose,
+  not a claim.
+- S39's miss is its own lesson: the proving scenario simplified
+  the board line and so proved the check against a shape the shell
+  never ships. S40 reproduces the shipped shape both ways - the
+  false positive (must pass) and the true positive (must still
+  fail) - so the fix cannot silently neuter the check.
+- Freeze: repair of ratified machinery to match its own ADR's
+  Decision is not new law; ADR-0015 Amendment A1 is the record
+  keeping the repair inside existing authority. The R-ROLE-1
+  generalization stays queued behind the freeze.
+
+### Actions
+Replaced the substring match with exact backticked-value
+comparison in check_journals.sh (comment updated); added S40 with
+two assertions (founded-fork-with-enumeration passes; backticked
+canonical-shell claim still fails); appended ADR-0015 Amendment
+A1; recorded the second-trial defect and the new counts (47
+assertions, 41 scenarios) on the board.
+
+### Evidence
+bash scripts/test_protocol.sh: "protocol self-test: 47 passed, 0
+failed" including "PASS: founded fork with enumeration on the role
+line passes (R-ROLE-1)" and "PASS: backticked canonical-shell
+claim still rejected (R-ROLE-1)". bash scripts/check_journals.sh
+--all at this tree: green over all commits, R-ROLE-1 OK (this
+repo's role is canonical-shell with matching origin - the true
+scope).
+
+### Outcome
+A founded copy's CI goes green as the law always said it should;
+the trial can proceed past the wedge. The defect channel worked on
+its first live use: found in the field, diagnosed by the operating
+session, remedied locally as state, filed upstream, fixed at the
+root same-day. The upstream issue closes against this commit when
+it lands.
+
+### Open-questions
+- The founding session's upstream issue had not yet appeared at
+  commit time; close it against this commit on arrival.
+
+### Files-in-this-commit
+- docs/adr/ADR-0015-role-line-wedge-check.md
+- scripts/check_journals.sh
+- scripts/test_protocol.sh
+- tasks/BOARD.md
