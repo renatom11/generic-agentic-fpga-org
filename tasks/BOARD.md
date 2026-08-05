@@ -162,6 +162,13 @@ template state (ADR-0011).
   check from the canonical-shell claim to every role, keyed on the
   This-repository line (script change + scenario, §11) — the boot logic
   already applies the generalized rule; only the machine backstop waits.
+  Second item (2026-08-05, from the third field defect): a MACHINE
+  guard in `agent_commit.sh` refusing any commit that sets the board's
+  Repo role line to `org-generic` on a branch other than the default
+  branch (script change + scenario, §11). C36's Stage 0 branch mandate
+  is PROSE — determined, but instructed; this backstop would make the
+  side-branch founding mechanically impossible. Lands at the freeze's
+  end, or earlier under a sponsor-directed override.
 - **Independent claims audit (2026-08-05), on the record**: an
   independent agent audited the orchestrator's architecture claims
   against this tree. Verdicts: 9/13 confirmed or confirmed-with-caveat;

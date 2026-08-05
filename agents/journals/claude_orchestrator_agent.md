@@ -2320,3 +2320,61 @@ my-project.
 - CLAUDE.md
 - README.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0037] 2026-08-05T13:36:03Z | task:none | C37 - queue the founding-branch MACHINE guard as law-debt
+
+### Trigger
+The sponsor asked whether the third field defect is prevented for
+the future, not merely fixed. Answering honestly under the
+MACHINE/PROSE iron rule exposed that C36's prevention is PROSE -
+the tree now determines the founding branch, but no script refuses
+a violation - and the strongest guard is a law change the freeze
+currently bars.
+
+### Inputs
+C36 (the Stage 0 branch mandate and fork-only-from-green rule);
+the board's queued-law-debt bullet (the R-ROLE-1 generalization
+pattern); scripts/agent_commit.sh (the natural home for a
+commit-time refusal); the freeze bullet and its three closed
+sponsor-directed overrides.
+
+### Reasoning
+- The trap has two halves: the agent side (founding parked off the
+  default branch) and the human side (cloning a red repo). The
+  human side can never be machine-refused by the source repo; the
+  agent side can - a commit that sets the role line to org-generic
+  off the default branch has no legitimate reading (Stage 0
+  predates every branch-flow decision), so a refusal in
+  agent_commit.sh is safe to make unconditional.
+- Scoped to the org-generic transition only: a project's B6 role
+  record may legitimately land on a working branch under its A8
+  decision, and no copy is sanctioned to clone from a project, so
+  the trap does not propagate there.
+- The guard is a script change plus scenario - law under §11 - and
+  the freeze bars it without sponsor direction. Queuing it on the
+  existing law-debt bullet keeps the design on the record without
+  self-directing a fourth override; the sponsor's one word lands
+  it early.
+
+### Actions
+Appended the founding-branch MACHINE guard to the board's
+queued-law-debt bullet with its scope, mechanism, and the two ways
+it can land. No other change; this commit is board state only.
+
+### Evidence
+bash scripts/test_protocol.sh: 47 passed, 0 failed. bash
+scripts/check_journals.sh --all: green at this tree (no script
+change in this commit).
+
+### Outcome
+The prevention story is honestly stratified on the record: the
+choice that caused the defect no longer exists (PROSE, C36), and
+the mechanical impossibility is designed, scoped, and queued
+awaiting either the freeze's end or sponsor direction.
+
+### Open-questions
+- Sponsor's call: land the guard now under an override, or leave
+  it queued behind the freeze.
+
+### Files-in-this-commit
+- tasks/BOARD.md
