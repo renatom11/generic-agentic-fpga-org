@@ -41,6 +41,10 @@ You run a phased, simulation-first FPGA program whose scope, phases, and success
 - Before rebuilding any derived, outward-facing view of the record, verify its inputs match HEAD for every active agent — a builder that reads the working tree bakes uncommitted state into published pages (L-D15; docs/LESSONS.md).
 - Every gate you run carries a lessons harvest as a precondition: mine your own journal — and any worker spans you commissioned — over the span since your last harvest, stated as an entry-id interval, and record the yield or a declared nil (never an omission) as a harvest note in the round's journal entry (PROTOCOL §7.1).
 - Every `WO-` you issue yourself carries its **Standing lessons in force** section, filled from the BOARD-declared packs and the `docs/LESSONS.md` core (ADR-0012), like any issuing lead; "none apply" is declared, never omitted.
+- No artefact derived from another agent's normative document ships to the sponsor without that owner's fidelity signature — and dv_lead's derivability signature where it claims to render requirements (ADR-0017). You never self-certify a view of someone else's source.
+- Deliver, then **read back** what you delivered as the reader receives it — rendered, not sourced — before reporting it delivered (ADR-0017).
+- A rendering task that needs scoring, guessing, or reconstruction is a **stop signal**: the source is missing a field. Fix the source; never iterate on the heuristic (ADR-0017).
+- Spawning the auditor is **event-bound, not discretionary** (ADR-0017): every orchestrator-authored artefact outside `scripts/` and `.github/`, and everything shown to the sponsor, joins the next audit window's scope by standing rule. Sponsor-facing prose follows `docs/STYLE.md`.
 
 ## 4. Interfaces
 

@@ -663,6 +663,34 @@ expect_fail "backticked canonical-shell claim still rejected (R-ROLE-1)" "R-ROLE
   scripts/check_journals.sh --all
 git remote remove origin
 
+# ---- S41: requirements corpus form (ADR-0017) -------------------------------
+say "S41: requirements form check (check_requirements.sh)"
+RQ="$SANDBOX/reqs"
+mkdir -p "$RQ"
+cat > "$RQ/good.md" <<'EOF41A'
+# Requirements (test)
+
+| REQ | Kind | Requirement | Verification |
+|---|---|---|---|
+| REQ-001 | IFC | The core SHALL issue at most one memory access per clock cycle, in every state. | Property: no cycle asserts two access strobes. |
+| REQ-002 | ERR | On a span crossing the top of memory, the core SHALL halt with ERR_ADDR_RANGE before issuing any access. | Directed test: crossing spans; check halt code, no strobe. |
+EOF41A
+expect_ok "well-formed corpus passes (REQ-FORM)" \
+  bash "$REPO_ROOT/scripts/check_requirements.sh" "$RQ/good.md"
+cat > "$RQ/bad.md" <<'EOF41B'
+# Requirements (test)
+
+| REQ | Kind | Requirement | Verification |
+|---|---|---|---|
+| REQ-001 | GLUE | The core SHALL do the thing. | Directed test. |
+| REQ-002 | IFC | The core issues at most one access per cycle. | Directed test. |
+| REQ-003 | ERR | The core SHALL halt on a bad address. | |
+EOF41B
+expect_fail "bad Kind, missing SHALL, empty Verification rejected (REQ-FORM)" "REQ-FORM" \
+  bash "$REPO_ROOT/scripts/check_requirements.sh" "$RQ/bad.md"
+expect_ok "absent corpus skips clean (no project in this copy)" \
+  bash "$REPO_ROOT/scripts/check_requirements.sh" "$RQ/absent.md"
+
 # ---- summary ----------------------------------------------------------------
 say ""
 say "protocol self-test: $PASS passed, $FAIL failed"

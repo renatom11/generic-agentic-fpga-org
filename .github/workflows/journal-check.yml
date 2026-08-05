@@ -24,6 +24,9 @@ jobs:
       - name: Verify full history (append-only cannot be re-checked incrementally)
         run: bash scripts/check_journals.sh --all
 
+      - name: Requirements form check (ADR-0017; skips when no corpus exists)
+        run: bash scripts/check_requirements.sh
+
       - name: Verify commit range
         env:
           EVENT_NAME: ${{ github.event_name }}

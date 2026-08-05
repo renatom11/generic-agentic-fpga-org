@@ -61,6 +61,14 @@ and (b) a dv_lead testability countersignature for that spec (PROTOCOL §7).
 |---|---|---|---|
 | C-1 | <the defect/obligation, stated so its closure is checkable> | <SPEC-M<nn> / first SO- packet / gate row> | OPEN / CLOSED (WO-NNNN at `<sha>`) / SEALED (decision finalised, WO-NNNN) |
 
+## Artefact standard (ADR-0017)
+
+| # | Item | Status | Signature |
+|---|---|---|---|
+| Q1 | `docs/specs/requirements.md` authored per REQUIREMENTS-TEMPLATE; `scripts/check_requirements.sh` green at the freeze SHA (MACHINE) | OPEN | <CI run / J-orchestrator-NNNN> |
+| Q2 | dv_lead's countersignature explicitly grades **atomicity** — every requirement stands alone (named criterion, beside testability) | OPEN | <J-dv_lead-NNNN> |
+| Q3 | Every artefact derived from the frozen specs in the sponsor's decision path carries the architect's fidelity signature — plus dv_lead's derivability signature where it renders requirements; NONE declared if no such artefact exists | OPEN | <J-agent-NNNN refs / NONE> |
+
 ## Lessons harvest
 
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when

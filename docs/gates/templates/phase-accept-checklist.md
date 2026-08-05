@@ -47,6 +47,12 @@ committed with no open CRITICAL findings, and the sponsor approves
 |---|---|---|---|
 | C-nn | <obligation surviving the phase> | <P<n+1> gate / named packet> | OPEN / CLOSED (WO-NNNN at `<sha>`) |
 
+## Artefact standard (ADR-0017)
+
+| # | Item | Status | Signature |
+|---|---|---|---|
+| Q1 | Every sponsor-facing artefact of the phase carries its source owner's fidelity signature (derived views: the owning lead; requirements renderings additionally dv_lead's derivability); NONE declared if none shipped | OPEN | <J-agent-NNNN refs / NONE> |
+
 ## Lessons harvest
 
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when

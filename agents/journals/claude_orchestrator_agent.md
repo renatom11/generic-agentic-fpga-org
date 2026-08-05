@@ -2691,3 +2691,89 @@ founding-branch MACHINE guard, and the fifth finding's FEDERATION
 
 ### Files-in-this-commit
 - tasks/BOARD.md
+
+## [J-orchestrator-0043] 2026-08-05T22:15:17Z | task:none | C43 - ADR-0017: the artefact standard, and the review lane over what the sponsor sees
+
+### Trigger
+Sponsor direction, verbatim in substance: the work products were
+terrible even though the charters and gates all held, and the shell
+must take that class of failure into account. Read as override #4
+on the ADR-0008 pattern: land the artefact-quality round (Shell
+feedback 0001 recommendations 5.1-5.7) now, not behind the freeze.
+The sponsor then extended the round: pull my-project itself into
+the session and fan out mining agents to confirm nothing of its
+failure class survives in the shell.
+
+### Inputs
+Shell feedback 0001 and AUD-0003 (issues #1/#2, verified against
+this tree at C42); the origin standard quoted in the audit ("every
+row stands alone", "one REQ states one testable fact", the Kind
+taxonomy); this tree's PROTOCOL 7 gate rows, four charters, two
+gate templates, CI workflow, test harness.
+
+### Reasoning
+- The audit's root cause was the certifier without the criterion:
+  every prior fix round hardened process, and the gates kept
+  passing while the product failed. The remedy ships the criterion
+  as law (template + gate clause) and the referee as machinery
+  (checker in CI) - MACHINE where form is checkable, PROSE where
+  judgement is required, tagged per ADR-0002.
+- The review lane and the event-bound audit land in the same round
+  because the feedback's own postscript proved their priority:
+  both of its draft defects were caught only by an independent
+  reader.
+- The checker skips cleanly with no corpus: the shell and an org
+  generic run no project, so the shell's own CI stays green while
+  every project fork inherits a live check.
+- LC-06/07/08 stay out of docs/LESSONS.md: channel discipline -
+  lessons travel the pipeline, which is in flight.
+
+### Actions
+Shipped docs/specs/REQUIREMENTS-TEMPLATE.md (the standard, with the
+WO-0003 index-trap named), scripts/check_requirements.sh (MACHINE,
+wired into journal-check CI, S41 scenarios), docs/STYLE.md;
+amended PROTOCOL 7 spec-freeze and phase-accept rows (atomicity as
+a named dv_lead criterion, fidelity/derivability signatures);
+extended the architect, dv_lead, auditor, and orchestrator
+charters (ownership of requirements.md, the second question, the
+event-bound audit, read-back/stop-signal/style disciplines); added
+the Artefact-standard sections to both gate templates; authored
+ADR-0017; recorded override #4 OPEN on the board (closes at the
+round's closing commit, after the mining sweep).
+
+### Evidence
+bash scripts/check_requirements.sh at this tree: "OK: no
+requirements corpus ... nothing to check" (the shell's steady
+state). bash scripts/test_protocol.sh: "protocol self-test: 50
+passed, 0 failed" including S41's three assertions (well-formed
+passes; bad Kind/missing SHALL/empty Verification rejected; absent
+corpus skips). bash scripts/check_journals.sh --all: green.
+
+### Outcome
+The criterion now travels with the certifier: a fork inherits what
+good looks like, a machine refuses malformed form at first commit,
+the gate asks the stands-alone question by name, nothing derived
+reaches the sponsor self-certified, and the audit runs on events
+rather than the audited party's discretion. Override #4 stays open
+for the my-project mining sweep the sponsor directed.
+
+### Open-questions
+- The mining sweep's findings: any failure class in my-project not
+  yet covered by this round lands as the round's remaining commits.
+- Issues #1/#2 close when the sweep confirms coverage.
+
+### Files-in-this-commit
+- .github/workflows/journal-check.yml
+- agents/PROTOCOL.md
+- agents/charters/architect_docs_lead.md
+- agents/charters/auditor.md
+- agents/charters/dv_lead.md
+- agents/charters/orchestrator.md
+- docs/STYLE.md
+- docs/adr/ADR-0017-the-artefact-standard.md
+- docs/gates/templates/phase-accept-checklist.md
+- docs/gates/templates/spec-freeze-checklist.md
+- docs/specs/REQUIREMENTS-TEMPLATE.md
+- scripts/check_requirements.sh
+- scripts/test_protocol.sh
+- tasks/BOARD.md
