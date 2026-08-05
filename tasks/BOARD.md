@@ -127,6 +127,19 @@ template state (ADR-0011).
   check from the canonical-shell claim to every role, keyed on the
   This-repository line (script change + scenario, §11) — the boot logic
   already applies the generalized rule; only the machine backstop waits.
+- **Independent claims audit (2026-08-05), on the record**: an
+  independent agent audited the orchestrator's architecture claims
+  against this tree. Verdicts: 9/13 confirmed or confirmed-with-caveat;
+  refuted and since corrected under override #3 (ADR-0016): the §8.1
+  "three screens" contradiction, the harvest block's stale
+  "informational sponsor row" phrase, and the absence of the
+  standing pre-answer the orchestrator had claimed. Standing findings
+  every future report must honor: **the federation pipeline has zero
+  mechanical test coverage — the 45 self-test assertions (40 scenarios)
+  test journal/commit hygiene only, and the first end-to-end landing is
+  the pipeline's designated first test**; commits are trailer-attributed,
+  not cryptographically signed; enforcement claims are tagged MACHINE or
+  PROSE (`CLAUDE.md` iron rule).
 - **Upstream defect channel**: shell defects — wrong claims, broken
   steps, gaps found while operating this copy — file as **GitHub issues
   on the federation upstream** (line above); they never travel through

@@ -1982,3 +1982,78 @@ both hops.
 - CLAUDE.md
 - docs/gates/G0-checklist.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0033] 2026-08-05T00:04:12Z | task:none | C33 - ADR-0016: audit corrections, and the standing pre-answer
+
+### Trigger
+The sponsor ordered an independent audit of the orchestrator's
+architecture claims, then directed: fix it and re-verify. The
+audit refuted three things in or about the tree: the 8.1
+three-screens contradiction, the harvest block's stale
+informational-sponsor-row phrase, and the orchestrator's claim of
+a standing-NO capability that existed only in the retired first
+org generic's local law.
+
+### Inputs
+The independent audit report (verdict table, misleading-
+impressions list, and recommendation); docs/FEDERATION.md 7,
+8.1, preamble; docs/gates/templates/lessons-harvest-block.md
+transmission section; CLAUDE.md iron rules; tasks/BOARD.md;
+docs/adr/ADR-0008 (the override pattern, third use); the retired
+first org generic's C29 (the standing-closure design being
+adopted, from its history at 52d8846).
+
+### Reasoning
+- The two contradictions are corrected at their only instances
+  (grep verdicts below) - both were introduced by this round's
+  own commits and survived two verification passes, which is
+  itself evidence for the audit's systemic finding.
+- The standing pre-answer becomes law on its merits: the trial
+  needed it, invented it correctly, and per-gate NO-every-time is
+  the distracted-sponsor trap its designer named. Adopting it
+  also converts the orchestrator's false claim into a true one by
+  the only honest route - making the capability exist with its
+  real provenance, not pretending it always had.
+- The MACHINE/PROSE tagging rule and the execution-honesty
+  preamble land the audit's systemic recommendation where it
+  binds: the reporting surface (CLAUDE.md) and the contract
+  itself (FEDERATION), so uniform-confidence reporting becomes a
+  named violation rather than a habit.
+- No new tests: prose cannot be unit-tested into truth, and the
+  audit's own recommendation is that the first real landing is
+  the designated first test. The coverage gap is recorded on the
+  board as a standing finding instead.
+
+### Actions
+Corrected the two contradictions; added the standing-pre-answer
+clause to FEDERATION 7 and its reference to the harvest block;
+added the execution-honesty preamble; added the MACHINE/PROSE
+iron rule; recorded the audit and override #3 on the board;
+authored ADR-0016; this commit closes the override and re-engages
+the freeze per its own end condition.
+
+### Evidence
+grep "three screens" over docs/ excluding journals: 0 hits at
+this tree; grep "informational sponsor row": 0 hits. bash
+scripts/test_protocol.sh: "protocol self-test: 45 passed, 0
+failed" (no script change). The audit report itself is preserved
+in the session transcript and summarized on the board; its
+refuted-claims list maps one-to-one to this commit's corrections.
+
+### Outcome
+The tree no longer contradicts itself where the audit looked, the
+capability the sponsor was told about now exists as law with
+honest provenance, and future enforcement reporting carries its
+class by iron rule. A second independent audit verifies this
+commit next; the freeze is back in force.
+
+### Open-questions
+- The verification audit's findings, if any, are the next
+  entry's trigger.
+
+### Files-in-this-commit
+- CLAUDE.md
+- docs/FEDERATION.md
+- docs/adr/ADR-0016-audit-corrections-and-the-standing-preanswer.md
+- docs/gates/templates/lessons-harvest-block.md
+- tasks/BOARD.md

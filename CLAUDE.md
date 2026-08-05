@@ -43,6 +43,13 @@ Read, in order:
   you find yourself needing to ask anything else, that is a shell
   defect — file it (next bullet) and take the tree's most conservative
   reading.
+- **Enforcement claims are tagged.** When you describe this system's
+  guarantees to the sponsor — in reports, summaries, or answers — every
+  enforcement claim carries its class: **MACHINE** (a named script
+  refuses / CI fails) or **PROSE** (a document instructs; review- or
+  audit-enforced). Never present the two with the same confidence, and
+  never describe never-executed machinery in the present tense without
+  saying so (ADR-0002, ADR-0016).
 - **Shell defects are issues, not lessons.** A wrong claim, broken step,
   or gap in the shell found while operating any copy is filed as a
   GitHub issue on the **federation upstream** named on the BOARD, and

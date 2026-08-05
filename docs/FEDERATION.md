@@ -12,7 +12,14 @@ other things." The org declares and loads domain packs at intake, runs the
 harvest at every gate, and produces the export packet without being asked.
 After the one-time E0 founding setup, the sponsor's per-gate touchpoints
 are exactly two: the gate signature they were already giving, and one
-yes/no on sending the upstream contribution (default yes).
+yes/no on sending the upstream contribution (default yes — or a standing
+pre-answer, §7).
+
+**Execution honesty (ADR-0016)**: everything below is stated in the
+present tense of law, and none of it has executed yet — no landing has
+ever run anywhere (ADR-0014's corpus note). Until the first end-to-end
+landing completes, this contract is a design specification, and that
+first landing is its designated first test.
 
 ## 0. The three levels
 
@@ -382,6 +389,22 @@ control): answer no, and the packets stay in the org generic as part of
 its accretion; nothing else about the harvest changes, and a later gate's
 yes may flush the backlog.
 
+**The standing pre-answer (ADR-0016).** A sponsor may convert the
+per-gate question into a standing decision by recording it on the org
+generic's board as its own line — e.g. *"Outer hop: STANDING CLOSED —
+pre-answered NO, for every gate and every backlog"*. While such a line
+stands, the question is **not asked** at gate time and no session acts on
+the default; the harvest block records the standing answer's board
+reference instead of a fresh yes/no. Reopening is a sponsor decision
+recorded the same way — a session that believes the hop should reopen
+escalates, and never acts on the default. Rationale: a protection that
+depends on a default-yes question being answered correctly at every gate
+fails the first time a distracted sponsor signs the default; a standing
+line removes the question rather than trusting its answer. (This
+mechanism was first designed, in exactly this form, by the first org
+generic founded from this shell, during its founding round; adopted here
+on that provenance.)
+
 ## 8. The shell-side pipeline
 
 Every contribution, from any org, lands the same way. The same pipeline
@@ -446,7 +469,7 @@ stays green over the full history.
    branch as a protocol commit (the journal entry records the PR number
    and source org).
 3. **Screening.** Spawn a fresh reviewer agent per packet — there is no
-   standing roster entry; §8's three screens are its entire brief — and
+   standing roster entry; §8's four screens are its entire brief — and
    commit its per-candidate verdict as a screening report beside the
    packet on the staging branch.
 4. **Transcription.** For each accepted candidate, transcribe it into the

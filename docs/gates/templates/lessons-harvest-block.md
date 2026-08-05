@@ -129,10 +129,12 @@ canonical shell at its merge. A candidate never self-assigns its final id.
   record:
   - **At a sponsor-signed parent** (a checklist whose *passage requires*
     the sponsor's own signature — exactly G0, `P<n>-spec-freeze`,
-    `P<n>-phase-accept`; `P<n>-module-ready`'s informational sponsor row
-    does not qualify): the sponsor's one yes/no on the **outer hop**
+    `P<n>-phase-accept`; `P<n>-module-ready`'s summary row is a board
+    record, not a sponsor signature, and does not qualify): the sponsor's one yes/no on the **outer hop**
     rides the gate signature, **default yes** — **YES / NO**, recorded
-    in `J-orchestrator-NNNN`. Once the signature is journaled, the
+    in `J-orchestrator-NNNN` (or, where the board carries a standing
+    pre-answer — docs/FEDERATION.md §7 — record the standing line's
+    board reference; the question is then not asked). Once the signature is journaled, the
     **inner hop runs automatically**: this gate's export packet and
     every packet DEFERRED to it land in the org generic under that
     signature's authority (docs/FEDERATION.md §5.1 — after the
