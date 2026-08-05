@@ -2611,3 +2611,83 @@ sponsor permission grant, exactly as recorded.
 
 ### Files-in-this-commit
 - tasks/BOARD.md
+
+## [J-orchestrator-0042] 2026-08-05T21:59:19Z | task:none | C42 - receive Shell feedback 0001 / AUD-0003: two defects verified and filed, fixes queued
+
+### Trigger
+The sponsor hand-relayed two documents from a descendant program
+(CHIP-8 SystemVerilog): "Shell feedback 0001" - the orchestrator's
+report to the shell maintainer, written after the sponsor rejected
+its derived requirements list - and AUD-0003, the independent audit
+that returned FAIL (2 CRITICAL, 8 MAJOR, 5 MINOR, 5 NO-VERDICT) and
+corrected the feedback's own first draft twice. The reporting
+session's shell-defect filings were blocked on repo access (fifth
+field finding), so the sponsor carried them here by hand.
+
+### Inputs
+Both documents in full; this tree's own surfaces, re-verified by
+hand rather than trusted: agents/PROTOCOL.md:329 (spec-freeze row),
+agents/charters/architect_docs_lead.md:21,
+docs/specs/SPEC-TEMPLATE.md section 10 and its nine normative
+references to a requirements.md the shell never templates,
+agents/charters/auditor.md:10 (spawned by orchestrator), the
+ORG_CHART roster; the board's defect-log and queue patterns.
+
+### Reasoning
+- The findings are about the inherited constitution, and this
+  shell ships the same constitution: every citation the audit made
+  against its tree reproduces against this one, so F6 (no
+  artefact-form standard anywhere - the certifier without the
+  criterion) and F8 (the gate obtains testability because that is
+  all it asks) are this shell's defects, filed as issues per the
+  defect channel's own law.
+- The F4 class (no review lane over sponsor-facing artefacts; the
+  only independent control invoked at the audited party's
+  discretion) holds identically here, and this session's own
+  history is the local evidence: every substantive check on the
+  maintainer's work has been sponsor-ordered. Filed as the second
+  issue rather than softened.
+- Channel discipline holds: the two defects travel as issues; the
+  feedback's tier-1 lesson candidates (LC-06/07/08) are staged in
+  the descendant program's own harvest chain and reach this shell
+  only through the pipeline - hand-absorbing them here would relay
+  lessons through the defect channel, which the law forbids in
+  both directions.
+- The recommendations (5.1-5.7) are law changes and queue behind
+  the freeze, joining P1-P3 and the two law-debt items as one
+  post-freeze hardening batch, ordered per the feedback's own
+  postscript: the review lane (5.3) and the event-triggered audit
+  (5.4) first, because both of the feedback's own draft defects
+  were caught only by an independent reader.
+
+### Actions
+Verified F6/F8/F4-class against this tree; filed issues #1 (F6+F8)
+and #2 (F4-class) on this repository with tree-verified citations
+and MACHINE/PROSE-tagged fix sketches; recorded both in the board's
+local defect log; recorded receipt of the feedback and the queued
+5.1-5.7 batch on the board; left LC-06/07/08 to the pipeline.
+
+### Evidence
+Issues:
+https://github.com/renatom11/generic-agentic-fpga-org/issues/1 and
+/issues/2. Tree citations as listed in Inputs, each re-read this
+session. bash scripts/check_journals.sh --all: green (board-state
+commit; no script change).
+
+### Outcome
+The experiment produced its first cross-project structural finding
+- a fork inherits how to work but not what good looks like - and
+both of its shell defects are now on this repository's record with
+verified citations and queued remedies. The post-freeze hardening
+batch now holds: 5.1-5.7, P1-P3, R-ROLE-1 generalization, the
+founding-branch MACHINE guard, and the fifth finding's FEDERATION
+7 fix.
+
+### Open-questions
+- Service the descendant lineage's inbox PR when the outer hop
+  unblocks; the first landing (freeze end condition) is in flight.
+- Batch-design the hardening round when the freeze lifts or the
+  sponsor directs.
+
+### Files-in-this-commit
+- tasks/BOARD.md

@@ -245,4 +245,28 @@ template state (ADR-0011).
   steps, gaps found while operating this copy — file as **GitHub issues
   on the federation upstream** (line above); they never travel through
   the lessons pipeline. Local defect log (one line per defect: date ·
-  one-line summary · upstream issue URL): _none yet_.
+  one-line summary · upstream issue URL):
+  - 2026-08-05 · F6/F8 (Shell feedback 0001, AUD-0003): no
+    requirement-form rule anywhere in the shell; spec-freeze certifies
+    testability, never self-containment — verified on this tree ·
+    https://github.com/renatom11/generic-agentic-fpga-org/issues/1
+  - 2026-08-05 · F4-class (Shell feedback 0001, AUD-0003): no review
+    lane over sponsor-facing/derived artefacts; the only independent
+    control is invoked at the audited party's discretion — verified on
+    this tree ·
+    https://github.com/renatom11/generic-agentic-fpga-org/issues/2
+- **Shell feedback 0001 + AUD-0003 received (2026-08-05, sponsor
+  hand-relay)**: a descendant program (CHIP-8 SystemVerilog) compared
+  its inherited constitution against the origin program
+  (`renatom11/agentic-fpga` @ e5c0b11) after a FAIL audit of its
+  requirements corpus (2 CRITICAL, 8 MAJOR). Its two shell defects are
+  filed above; its recommendations 5.1–5.7 (requirements template +
+  MACHINE checker, atomicity clause in the gate, derived-artefact
+  fidelity signature, event-triggered audit, read-back rule, house
+  style, heuristics-as-stop-signal) join the post-freeze hardening
+  batch alongside proposals P1–P3 and the two queued law-debt items —
+  ordered per the feedback's own postscript: the review lane and the
+  event trigger first. Its tier-1 lesson candidates (LC-06/07/08)
+  travel the lessons pipeline from their own program, never this
+  channel. The freeze's end condition — the first lessons landing —
+  is in flight.
