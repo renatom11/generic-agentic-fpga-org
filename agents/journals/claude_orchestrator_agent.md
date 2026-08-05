@@ -2451,3 +2451,57 @@ surfacing it is procedure now, not improvisation.
 - CLAUDE.md
 - README.md
 - tasks/BOARD.md
+
+## [J-orchestrator-0039] 2026-08-05T14:49:45Z | task:none | C39 - record sponsor proposal P1: role-keyed self-rewriting README
+
+### Trigger
+The sponsor, mid-trial on the third founding round, proposed that
+the README rewrite itself by role and phase: installer framing on
+the shell, founded home-base state on an org generic, the
+program's own face on a project, refreshed each phase.
+
+### Inputs
+The sponsor's proposal message; README.md (whose phase table is
+already org-owned at G0 - the existing seam); the freeze bullet;
+the C32/C36/C38 founding-surface precedent; the board's
+record-keeping patterns.
+
+### Reasoning
+- The proposal extends existing machinery rather than adding an
+  organ: G0 already writes the phase table into README, and gate
+  commits already carry state refreshes.
+- A bounded marked identity block beats a free per-phase rewrite:
+  the README's lower sections are shared doctrine, and unbounded
+  rewrites by gate-closing sessions would reintroduce exactly the
+  reader-surface drift the audit rounds purged. A marked block is
+  mechanical, diffable, and role-keyed.
+- Freeze split, tagged honestly: founding-time rendering (Stage 0
+  step, B6 row, the block) is founding-surface work and
+  freeze-legal; the per-phase refresh is a new phase-accept
+  checklist row - law, behind the freeze.
+- Not landed now: the sponsor's live copies cannot receive it
+  (inheritance fixed at fork), more trial ideas are announced as
+  incoming, and batching keeps the trial's feedback clean. The
+  board record preserves the proposal across sessions.
+
+### Actions
+Recorded proposal P1 on the board under a new "Sponsor proposals
+(recorded, pending direction)" bullet with the design sketch, the
+freeze split, and the landing condition (sponsor direction or the
+round's batch).
+
+### Evidence
+bash scripts/test_protocol.sh: 47 passed, 0 failed. bash
+scripts/check_journals.sh --all: green (board-state commit only).
+
+### Outcome
+The proposal survives any session death and carries its design and
+freeze classification with it; nothing churns under the sponsor's
+live trial.
+
+### Open-questions
+- Await the sponsor's further ideas; batch-design the round when
+  the list settles.
+
+### Files-in-this-commit
+- tasks/BOARD.md

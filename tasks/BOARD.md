@@ -204,6 +204,15 @@ template state (ADR-0011).
   the pipeline's designated first test**; commits are trailer-attributed,
   not cryptographically signed; enforcement claims are tagged MACHINE or
   PROSE (`CLAUDE.md` iron rule).
+- **Sponsor proposals (recorded, pending direction)**: (P1,
+  2026-08-05) **role-keyed self-rewriting README** — a marked identity
+  block re-rendered at founding (shell: installer framing; org
+  generic: founded home-base state with a landings-received line;
+  project: the program's own face with its current phase) and
+  refreshed at every phase gate in the gate commit. The
+  founding-surface half is freeze-legal; the phase-accept checklist
+  row is law behind the freeze. Lands on sponsor direction, or batched
+  with the trial round's next findings.
 - **Upstream defect channel**: shell defects — wrong claims, broken
   steps, gaps found while operating this copy — file as **GitHub issues
   on the federation upstream** (line above); they never travel through
