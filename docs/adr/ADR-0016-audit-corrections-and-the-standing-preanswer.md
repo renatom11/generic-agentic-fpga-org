@@ -129,3 +129,7 @@ it stands as relayed provenance (§10 classes), not as a verifiable
 citation. This amendment is that sentence's caveat, and this ADR now
 carries its own correction the same way the audit record above carries
 the orchestrator's.
+
+## Status change (ADR-0018, 2026-08-17)
+
+**Amended** by [ADR-0018](ADR-0018-the-federation-retraction.md), the federation retraction. The audit-correction half stands in full. The standing pre-answer retires with the outer-hop question it pre-answered.

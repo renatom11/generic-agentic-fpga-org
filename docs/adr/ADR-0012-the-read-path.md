@@ -70,3 +70,7 @@ shell has never issued one), so nothing is flagged; the seeded corpus's
 77 entries each already name a normative home or "narrative only", so the
 promotion obligation, applied retroactively, opens no backlog — their
 homes were hand-landed at seeding (C13's charter weave).
+
+## Status change (ADR-0018, 2026-08-17)
+
+**Amended** by [ADR-0018](ADR-0018-the-federation-retraction.md), the federation retraction. Work-order standing lessons and promotion obligations survive; the promotion cadence moves from landings to gates (PROTOCOL §7.1). Landing-fence references are historical.

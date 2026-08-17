@@ -95,3 +95,7 @@ convention; the recurrence note and retrospective are procedure), so no
 contains no duplicate or contradicting entries to adjudicate (77 entries,
 distinct rules), and no fork has yet taken a baseline — the rules bind
 forward from this round; nothing historical is flagged, nothing missed.
+
+## Status change (ADR-0018, 2026-08-17)
+
+**Amended** by [ADR-0018](ADR-0018-the-federation-retraction.md), the federation retraction. The local half survives — dedup against the file, recurrence notes, Supersedes / Superseded-by fields, the third-recurrence promotion threshold — restated at gate cadence in PROTOCOL §7.1. Every cross-project clause is retired.

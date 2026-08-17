@@ -89,3 +89,7 @@ this round's commits are (shell development under sponsor direction);
 nothing historical is flagged. The one prior misfire this rule would have
 prevented — a session walking G0 inside the shell — was this session's
 own opening move in an earlier turn, caught by the sponsor.
+
+## Status change (ADR-0018, 2026-08-17)
+
+**Amended** by [ADR-0018](ADR-0018-the-federation-retraction.md), the federation retraction. The discriminator and the installer framing survive. The role set is reduced to `canonical-shell` / `project`; the org-generic and solo-collapsed roles retire with the federation topology.

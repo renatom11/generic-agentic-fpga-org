@@ -68,48 +68,30 @@ template state (ADR-0011).
   B6). A session whose `git remote get-url origin` disagrees with this
   line is in a **fresh, unfounded copy** of whatever the role line below
   claims (`CLAUDE.md`, First session).
-- **Repo role**: `canonical-shell` (values: canonical-shell / org-generic /
-  project / solo-collapsed — ADR-0011). Set at founding; **a fork's first
-  act is updating this line**. The canonical shell runs no program: the
-  M0/G0 rows on this board are shipped template state that activates in a
-  project fork, and a session booting here operates in maintainer mode
+- **Repo role**: `canonical-shell` (values: canonical-shell / project —
+  ADR-0011 as amended by ADR-0018). Set at founding; **a fresh copy's
+  first act is its founding commit**, which sets this line to `project`
+  on the default branch. The canonical shell runs no program: the M0/G0
+  rows on this board are shipped template state that activates in a
+  founded project, and a session booting here operates in maintainer mode
   (`CLAUDE.md`).
 - Constitution ADR-0001..0007 pre-adopted at seeding (see each ADR's
   provenance).
-- **Declared domain packs**: _none — set at G0 intake_ (recorded here in
-  the same commit as the intake rows; a later orchestrator session
-  rehydrates its loaded packs from this line).
-- **Federation upstream** (`docs/FEDERATION.md` §0, §7):
-  https://github.com/renatom11/generic-agentic-fpga-org — seeded. An
-  **org generic** (or a solo-collapsed copy) keeps this line as the
-  canonical shell; a **project** re-records it at G0 — checklist row
-  B6 — to point at its own org generic. Set at founding, while the
-  relationship is still known.
-- **Project slug**: _set at G0 B6_ — lowercase-hyphenated, unique within
-  the org; keys every federation landing (`docs/FEDERATION.md` §5.1).
-- **Fork-point harvest baseline**: _set at G0 B6_ (ADR-0010) — last
-  inherited entry id per journal chain; the first harvest tiles from
-  baseline + 1.
-- **Federation sent-ledger** (append-only; one line per landing:
-  `<parent-record-id>` · landing SHA(s) · outer-hop PR URL or `—` ·
-  obligation ids + states or `—`, ADR-0014):
-  _none yet_. A landing's ledger line is written in the same commit as
-  its transcription (`docs/FEDERATION.md` §5.1 step 5).
-- **Amendment obligations** (open promotion obligations — the recurrence
-  threshold, ADR-0010 / `docs/FEDERATION.md` §8; the read-path promotion
-  channel rides the same ledger): _none open_. One line per obligation:
-  entry id · opened by (landing / recurrence) · **state** — DISCHARGED
-  (ADR-NNNN) / NARRATIVE-ONLY (reason) / DEFERRED (reason · discharging
-  event). Every landing dispositions its own and sweeps the DEFERRED
-  backlog (`docs/FEDERATION.md` §5.1 step 4c, ADR-0014) — landings are
-  this fence's only cadence.
-- **Outer-hop standing pre-answer** (`docs/FEDERATION.md` §7): _none —
-  the per-gate question stands_. The sponsor may replace this value
-  with a standing YES or NO (e.g. *STANDING CLOSED — pre-answered NO,
-  for every gate and every backlog*); while a standing line is recorded
-  here the gate-time question is not asked, the harvest block cites
-  this line instead, and only the sponsor changes it. Confirmed at
-  every founding (G0 row B6).
+- **Lessons baseline** (ADR-0018): _shipped template state — set at
+  founding: the last inherited `docs/LESSONS.md` entry id per section.
+  Everything past the baseline is what this copy's own program learned,
+  which is the tail a human hands onward as the travel copy._
+- **Lessons seed provenance** (ADR-0018): _none — recorded at founding
+  only if the sponsor seeds `docs/LESSONS.md` from another project's
+  travel copy (source repo or file, date, and the baseline that results)._
+- **Amendment obligations** (open promotion obligations — the read-path
+  channel, ADR-0012 as amended; the local recurrence threshold,
+  ADR-0010 as amended): _none open_. One line per obligation: entry id ·
+  opened by (harvest / recurrence) · **state** — DISCHARGED (ADR-NNNN) /
+  NARRATIVE-ONLY (reason) / DEFERRED (reason · discharging event). Every
+  gate dispositions the obligations its harvest opened and sweeps the
+  DEFERRED backlog before it closes (PROTOCOL §7.1; ADR-0018) — gates
+  are this repository's cadence.
 - **Feature freeze (J-orchestrator-0016): RE-ENGAGED.** The
   sponsor-directed federation-hardening round (ADR-0008..0013,
   2026-08-04) ran under a scoped override and closed at C26 — its end
@@ -131,13 +113,14 @@ template state (ADR-0011).
   event-bound audit, read-back/stop-signal/house-style disciplines)
   plus the sponsor-directed my-project lessons-mining sweep; **CLOSED**
   at the sweep commit C44 (ADR-0017 A1), re-engaging the freeze there.
-  **In a fork this line is re-scoped at founding**
-  (BOOTSTRAP Stage 0 step 5, or B6 for a solo-collapsed copy) to: *no
-  new law until this repository's first lessons landing completes* — the
-  shell-history wording above never binds a fork as written. *Law*
-  excludes the project-scoped ADRs the bootstrap itself mandates (the
-  M1 toolchain lane, design-choice records): those are project
-  decisions, never blocked (ADR-0017 A1).
+  **Override #5 (sponsor-directed, 2026-08-17): the federation
+  retraction (ADR-0018) — CLOSED at the retraction sweep commit, and
+  the freeze RETIRES with it.** Its end condition — the first lessons
+  landing — retired with the pipeline it was built to test, and the
+  deletion-only simplification pass queued above was this round. The
+  fork re-scope instruction this bullet formerly carried is void: a
+  founded copy inherits no freeze. Law changes hereafter by ordinary
+  §11 ADRs.
 - **First-trial findings absorbed** (2026-08-04, sponsor hand-relay from
   the first org generic founded from this shell, since retired): SD-0001
   → R-ROLE-1 wedge check (ADR-0015); SD-0002 (unobservable freeze) and
@@ -179,17 +162,13 @@ template state (ADR-0011).
   action, bundled into the greeting, pre-grantable in the sponsor's
   first message (README suggests the grant sentence). Docs-only,
   freeze-legal founding surfaces.
-- **Queued law-debt (behind the freeze)**: generalize the R-ROLE-1 CI
-  check from the canonical-shell claim to every role, keyed on the
-  This-repository line (script change + scenario, §11) — the boot logic
-  already applies the generalized rule; only the machine backstop waits.
-  Second item (2026-08-05, from the third field defect): a MACHINE
-  guard in `agent_commit.sh` refusing any commit that sets the board's
-  Repo role line to `org-generic` on a branch other than the default
-  branch (script change + scenario, §11). C36's Stage 0 branch mandate
-  is PROSE — determined, but instructed; this backstop would make the
-  side-branch founding mechanically impossible. Lands at the freeze's
-  end, or earlier under a sponsor-directed override.
+- **Queued law-debt — dispositioned by ADR-0018**: item 1 (generalize
+  R-ROLE-1, keyed on the This-repository line) **DISCHARGED** in the
+  retraction sweep — check re-keyed, every role covered, scenarios
+  S39/S40 rewritten. Item 2 (MACHINE guard on org-generic side-branch
+  founding) **RETIRED** — the role it guarded no longer exists; the
+  surviving rule (a founding commit lands on the default branch) keeps
+  its PROSE form.
 - **Independent claims audit (2026-08-05), on the record**: an
   independent agent audited the orchestrator's architecture claims
   against this tree. Verdicts: 9/13 confirmed or confirmed-with-caveat;
@@ -210,11 +189,13 @@ template state (ADR-0011).
   every future report must honor: **the federation pipeline has zero
   mechanical test coverage — the 52 self-test assertions (44 scenarios)
   test journal/commit hygiene only, and the first end-to-end landing is
-  the pipeline's designated first test**; commits are trailer-attributed,
+  the pipeline's designated first test** *(retired by ADR-0018: the
+  pipeline was retracted untested; the finding stands as history)*;
+  commits are trailer-attributed,
   not cryptographically signed; enforcement claims are tagged MACHINE or
   PROSE (`CLAUDE.md` iron rule).
-- **Fifth field finding (2026-08-05, recorded; fix queued behind the
-  freeze)**: at the first live outer hop, the project session could
+- **Fifth field finding (2026-08-05, recorded; RETIRED by ADR-0018 —
+  the outer hop it gated no longer exists)**: at the first live outer hop, the project session could
   not open the upstream PR — the canonical shell was outside its
   session-authorized repository set — and reported it honestly,
   carrying the PR and two shell-defect filings on the same blocker.
@@ -244,17 +225,15 @@ template state (ADR-0011).
   greeting spec): freeze-legal in full. Same landing condition as P1.
   (P3, 2026-08-05) **next-copy commands as the founding's last step**
   — a completed founding ends by printing the ready-to-paste git
-  command block for the next hop (create-empty-repo reminder, clone /
-  set-url / push with this copy's real URL filled in from the board,
-  the pre-grant sentence, the expect-red-then-green note): Stage 0
-  step 7 for org generic → project; README already carries shell →
-  org generic. Founding-surface only: freeze-legal in full. Same
-  landing condition as P1.
+  command block for the next copy. Founding-surface only. Same
+  landing condition as P1. *(All three proposals re-scoped by
+  ADR-0018 to the two-role world: P1 renders two identities, not
+  four; P2's touchpoint brief loses the outer-hop line; P3's block
+  is the single shell → project hop, which README already carries.)*
 - **Upstream defect channel**: shell defects — wrong claims, broken
   steps, gaps found while operating this copy — file as **GitHub issues
-  on the canonical shell** — the defect channel at every level (a
-  project skips its org generic, which authored no law — ADR-0017 A1); they never travel through
-  the lessons pipeline. Local defect log (one line per defect: date ·
+  on the canonical shell** — the defect channel for every copy
+  (ADR-0017 A1); a defect is never a lesson. Local defect log (one line per defect: date ·
   one-line summary · upstream issue URL):
   - 2026-08-05 · F6/F8 (Shell feedback 0001, AUD-0003): no
     requirement-form rule anywhere in the shell; spec-freeze certifies
@@ -277,9 +256,10 @@ template state (ADR-0011).
   batch alongside proposals P1–P3 and the two queued law-debt items —
   ordered per the feedback's own postscript: the review lane and the
   event trigger first. Its tier-1 lesson candidates (LC-06/07/08)
-  travel the lessons pipeline from their own program, never this
-  channel. **Recommendations 5.1–5.7 LANDED under override #4
+  stay in their own program's travel copy — reaching this corpus only
+  if the maintainer hand-carries them in (ADR-0018). **Recommendations 5.1–5.7 LANDED under override #4
   (ADR-0017)**; issues #1/#2 closed at C44: the mining sweep confirmed and
-  hardened coverage (ADR-0017 A1). P1–P3 and the non-quality law-debt items remain queued.
-  The freeze's own end condition — the first lessons landing — is in
-  flight.
+  hardened coverage (ADR-0017 A1). P1–P3 remain queued (re-scoped by ADR-0018); the law-debt items are
+  dispositioned in the law-debt bullet above. *(The sentence this
+  bullet formerly closed on — the first lessons landing in flight —
+  is superseded: ADR-0018 retired the pipeline and the freeze.)*

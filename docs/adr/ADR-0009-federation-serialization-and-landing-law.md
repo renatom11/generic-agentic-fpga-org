@@ -92,3 +92,7 @@ refused with the R9 discard message) and **S36** (an ours-shaped merge
 whose second parent is already contained in the first still passes —
 directionality, no false positive); S22's legitimate trivial merge is
 unchanged and still passes. Self-test: 38 → 40 asserts.
+
+## Status change (ADR-0018, 2026-08-17)
+
+**Superseded in full** by [ADR-0018](ADR-0018-the-federation-retraction.md), the federation retraction. No landings exist to serialize: the pipeline this law governed is retired. Nothing in this document binds.

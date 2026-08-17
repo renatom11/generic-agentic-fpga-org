@@ -98,3 +98,7 @@ making the script do what the Decision above already says — is not new
 law; this amendment is the §11 record keeping the repair inside
 ADR-0015's existing authority. The generalization of R-ROLE-1 to every
 role stays queued law-debt behind the freeze, unchanged.
+
+## Status change (ADR-0018, 2026-08-17)
+
+**Amended** by [ADR-0018](ADR-0018-the-federation-retraction.md), the federation retraction. R-ROLE-1 survives, re-keyed to the board's This-repository line and generalized to every role claim — the generalization this repository's board had queued as law-debt. Scenarios S39/S40 are rewritten to the new key.

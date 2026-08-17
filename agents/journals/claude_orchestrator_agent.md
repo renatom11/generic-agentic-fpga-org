@@ -2855,3 +2855,88 @@ four overrides on the record.
 - scripts/check_requirements.sh
 - scripts/test_protocol.sh
 - tasks/BOARD.md
+
+---
+## [J-orchestrator-0045] 2026-08-17T00:00:00Z | task:none | C45 - ADR-0018: the federation retraction - lessons are local, and they travel by hand
+
+### Trigger
+Sponsor direction (2026-08-17), after two days away, reversing the
+federation premise in his own words: "It was designed to be an
+installer that you fork and then forked versions would generate
+rules based on their journal that could flow to the originally
+installed version but I dont love that anymore. Harvesting rules
+from journal is cool, but it should only be for a local project.
+Maybe it would be cool to have a file that has rules its learned
+since starting that project that you could give another session so
+it could learn but it shouldnt be like it currently is."
+
+### Inputs
+The full tree at C44 (2ad82c3); the board's freeze/override record,
+queued law-debt, sponsor proposals P1-P3, and standing audit
+findings; docs/FEDERATION.md as the contract being retired; the
+coupling survey run this session (federation vocabulary appears in
+~30 non-journal files; R-ROLE-1 keys on the federation-upstream
+board line).
+
+### Reasoning
+- The retraction is sponsor authority over scope, exercised on a
+  design that never executed: the standing audit finding records the
+  pipeline had zero mechanical test coverage and no landing ever
+  transited either hop. Retiring it deletes only untested law.
+- What survives is chosen by the sponsor's own sentence: gate-time
+  journal harvesting (unchanged in discipline - spans, bars, nil,
+  war stories, retrospective), local accretion into docs/LESSONS.md,
+  and the file itself as the hand-carried travel copy. The LH bars
+  survive because they are what make an entry teachable outside the
+  session that wrote it - the property the hand-off depends on.
+- The topology collapses to canonical-shell/project: the org-generic
+  level existed solely as a federation fence, and solo-collapsed
+  existed solely to name a copy holding both roles. With no fences
+  there is nothing for either to be.
+- R-ROLE-1 re-keys to the This-repository line, which discharges the
+  first queued law-debt item in the same stroke that deletes the line
+  it used to key on. The second law-debt item guards a role that no
+  longer exists: retired, with its surviving default-branch rule
+  staying PROSE.
+- The freeze closes and retires with this round: its end condition
+  (the first landing) is unsatisfiable by construction after the
+  retraction, and the deletion-only simplification pass the board
+  queued behind it is exactly what this round performs.
+- ADRs and journals are history and are not rewritten: each affected
+  ADR takes an appended status-change note, and ADR-0018 carries the
+  supersession table a reader needs to know what still binds.
+
+### Actions
+Wrote docs/adr/ADR-0018-the-federation-retraction.md (decision,
+supersession/amendment table over ADR-0009..0017, queued-item
+dispositions). Appended status-change notes to ADR-0009, -0010,
+-0011, -0012, -0014, -0015, -0016. Rewrote the board: role line to
+the two-value world; federation upstream / project slug / fork-point
+baseline / sent-ledger / standing pre-answer lines deleted; lessons
+baseline + seed-provenance lines added; amendment obligations
+re-cadenced to gates; freeze closed and retired under override #5;
+law-debt dispositioned; P1-P3 re-scoped; fifth field finding
+retired; defect-channel wording localized; the retired standing
+finding annotated as history.
+
+### Outcome
+The law of the retraction is on the record. The tree still carries
+the retired machinery and its references - the retraction sweep
+(C46) deletes and rewrites them; until it lands, ADR-0018's table is
+the authority on what binds.
+
+### Open-questions
+- C46 executes the sweep: delete FEDERATION.md, docs/federation/,
+  docs/domains/; rewrite PROTOCOL §7.1 and every living surface;
+  re-key R-ROLE-1 and rewrite S39/S40; self-test green before push.
+
+### Files-in-this-commit
+- docs/adr/ADR-0018-the-federation-retraction.md
+- docs/adr/ADR-0009-federation-serialization-and-landing-law.md
+- docs/adr/ADR-0010-dedup-precedence-and-growth-law.md
+- docs/adr/ADR-0011-repo-role-discriminator.md
+- docs/adr/ADR-0012-the-read-path.md
+- docs/adr/ADR-0014-obligation-discharge-at-the-landing-fence.md
+- docs/adr/ADR-0015-role-line-wedge-check.md
+- docs/adr/ADR-0016-audit-corrections-and-the-standing-preanswer.md
+- tasks/BOARD.md

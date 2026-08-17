@@ -86,3 +86,7 @@ a §11-governed document; this ADR is their vehicle). Run backwards: no
 landing has ever executed and both ledgers are empty in every historical
 tree — nothing flagged, nothing missed. Forward, the first landing
 anywhere will exercise step 4c on its first obligation.
+
+## Status change (ADR-0018, 2026-08-17)
+
+**Superseded** by [ADR-0018](ADR-0018-the-federation-retraction.md), the federation retraction. The DISCHARGED / NARRATIVE-ONLY / DEFERRED trichotomy and the backlog sweep survive, restated at gate cadence in PROTOCOL §7.1. The landing fence this document scheduled them at is retired.
