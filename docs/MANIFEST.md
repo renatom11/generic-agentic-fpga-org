@@ -19,9 +19,10 @@ separation of duties, adversarial review, sign-off gates, audit trails —
 rebuilt so that machines enforce it instead of custom, and git remembers
 everything instead of no one.
 
-And one bet on top of that, the real experiment: an organization that
-**compounds**. Every project it runs makes the next one start smarter,
-automatically, with the human touching almost nothing.
+And one bet on top of that: an organization that **compounds**. Every
+gate it passes, it mines its own journals for rules that would have
+prevented real incidents — and writes them into a file a stranger could
+learn from, so the next project can start where this one left off.
 
 It was not designed on a whiteboard. It was distilled from a real
 operating program — the
@@ -33,14 +34,13 @@ Seventy-seven of those lessons ship inside it
 ## The shape: an installer, not a program
 
 This repository runs nothing. Like an executable that installs software
-onto a machine, the **canonical shell** exists to be forked — except what
-it installs is an engineering organization onto a git ecosystem. Fork it
-once and you found your **org generic**: your team's home base, where
-lessons accumulate. Fork *that* per project. Every copy knows which of
-the four roles it is (canonical shell, org generic, project,
-solo-collapsed) from a single line on its board, and boots accordingly —
-no questions asked. A process question at boot is, by written rule, a
-defect to be filed ([CLAUDE.md](../CLAUDE.md); ADR-0011).
+onto a machine, the **canonical shell** exists to be copied — except what
+it installs is an engineering organization onto a git repository. One
+copy per project. Every copy knows which of the two roles it is
+(canonical shell, or project) from a single line on its board, and boots
+accordingly — no questions asked. A process question at boot is, by
+written rule, a defect to be filed ([CLAUDE.md](../CLAUDE.md);
+ADR-0011, as amended by ADR-0018).
 
 ## What a project fork contains
 
@@ -74,13 +74,11 @@ plant **canaries** — deliberate process violations that test whether the
 auditor is awake ([SPONSOR.md](SPONSOR.md)).
 
 **A ruthlessly small human contract** ([SPONSOR.md](SPONSOR.md)).
-One-time setup of four items, then at most **two touchpoints per gate**:
-the signature you would give anyway, and one default-yes question —
-retirable for good by a standing answer on your board
-([FEDERATION.md](FEDERATION.md) §7). Only
-seven classes of contact may ever reach you, and anything else is a
-process violation you are entitled to call out. The org decides
-everything else internally — and writes it down.
+One-time setup of four items, then **one touchpoint per gate**: the
+signature you would give anyway (ADR-0018). Only seven classes of
+contact may ever reach you, and anything else is a process violation
+you are entitled to call out. The org decides everything else
+internally — and writes it down.
 
 **Honesty as a design rule** (ADR-0002). Where enforcement is mechanical,
 the docs say so. Where it is only convention or audit, the docs say
@@ -89,55 +87,51 @@ rule the scripts do not check never gets to dress like one. The org even
 keeps its own historical drift visible: three old journal entries trip a
 permanent advisory rather than being rewritten or excused.
 
-## The experiment: recursive self-improvement
+## The experiment: an organization that learns on the record
 
-This is the part that exists nowhere else. At **every gate**, every agent
-mines its own journal for lessons (PROTOCOL §7.1) — spans stated as
-entry-id intervals that tile exactly, so a skipped harvest is a visible
-arithmetic gap. Candidates pass three bars (provenance-pinned, general at
-grade, stated failure) and a classifier sorts them into three tiers:
-universal rules ([LESSONS.md](LESSONS.md)), domain rules (per-domain
-packs — [domains/](domains/) — loaded only by projects that need them),
-and project-local rules.
+At **every gate**, every agent mines its own journal for lessons
+(PROTOCOL §7.1) — spans stated as entry-id intervals that tile exactly,
+so a skipped harvest is a visible arithmetic gap. Candidates pass three
+bars (provenance-pinned, general at grade, stated failure) and a
+classifier sorts them into three tiers: universal rules and domain rules
+land in [LESSONS.md](LESSONS.md), project-local rules land in the
+project's own protocol and charters.
 
-Then the lessons *travel* ([FEDERATION.md](FEDERATION.md)). The inner hop
-is automatic: at each sponsor-signed gate, the project's harvest lands in
-your org generic — screened by a fresh reviewer agent, deduplicated
-against everything already learned, serialized against sibling projects
-by a law that resolves races with a redo, never a merge. The outer hop is
-chosen: one default-yes question — or a standing answer recorded once
-on your board — sends your generalized lessons onward to
-the canonical shell, where a *human* merges — always — because lessons
-become instructions future agents follow, and that makes them a
-prompt-injection surface worth a permanent human fence.
+Everything stays local, and the loop still closes (ADR-0012). Landed
+lessons reach working agents through **work orders** (every packet
+carries its "standing lessons in force") and through **promotion** —
+lessons that name a constitutional home open recorded obligations to
+amend it, dispositioned before the gate that opened them may close. The
+system even detects its own meta-lessons: when the same rule is
+re-derived independently, the landing dedup notices the recurrence and
+pushes the lesson toward law (ADR-0010); at every phase gate, the
+auditor runs a second-altitude retrospective over the whole phase's
+harvest record, asking the one question no single miner can: *what
+recurs?*
 
-And the loop actually closes (ADR-0012). Landed lessons reach working
-agents through **work orders** (every packet carries its "standing
-lessons in force") and through **promotion** — lessons that name a
-constitutional home open recorded obligations to amend it. The system
-even detects its own meta-lessons: when multiple projects independently
-derive the same rule, the collision machinery notices the recurrence and
-pushes the lesson toward law (ADR-0010). At every phase gate, the auditor
-runs a second-altitude retrospective over the whole phase's harvest
-record, asking the one question no single miner can: *what recurs?*
-
-An organization that never shares still compounds — its second project
-boots smarter than its first. That is the sentence the whole architecture
-serves.
+And when a project ends, its LESSONS.md is a **travel copy** (ADR-0018):
+a file written so a stranger can learn from it, carried by hand to the
+next project, the next team, or back to this shell — where a *human*
+maintainer lands chosen entries through ordinary reviewed commits,
+always, because lessons become instructions future agents follow, and
+that makes them a prompt-injection surface worth a permanent human
+fence. Nothing transmits automatically; a person decides what travels.
+That is the sentence the whole architecture serves.
 
 ## The state of the experiment
 
 The shell is complete and self-audited: a three-lens adversarial pass
 found six loop-breaking defects, and the fixes landed as six
-constitutional amendments (ADR-0008..0013); a first field trial and an
-independent claims audit added three more (ADR-0014..0016,
-[adr/](adr/)). It is
-deliberately frozen — no new law until the first lessons landing proves
-the pipeline end to end (the board records the freeze). The machinery is
-verified but not yet lived-in; its first operators' friction reports are,
-fittingly, the first entries in the very feedback loops it was built to
-run. Found a defect yourself? File it as an issue on the canonical
-shell — defects travel as issues, lessons travel through the pipeline.
+constitutional amendments (ADR-0008..0013); field trials and an
+independent claims audit added more (ADR-0014..0017, [adr/](adr/)).
+Its most instructive decision is a retraction: the original design
+federated lessons between repositories automatically, grew a 544-line
+contract with fences, races, and ledgers — and was retired untested by
+its own sponsor in favor of the hand-carried file you are reading about
+(ADR-0018, which records what died and what survived). The machinery
+that remains is the machinery that ran. Found a defect yourself? File
+it as an issue on the canonical shell — defects travel as issues;
+lessons stay in the file.
 
 Start here: [the User Guide](GUIDE.md) · [your job, if you are the
 human](SPONSOR.md) · [how to fork and found](../README.md#getting-started).

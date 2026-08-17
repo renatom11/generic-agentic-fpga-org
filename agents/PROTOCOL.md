@@ -371,20 +371,16 @@ lessons harvest as a precondition: the checklist instantiates the harvest
 block from `docs/gates/templates/lessons-harvest-block.md`, and the gate is
 not fully signed until the block is. Like the rest of the gate machinery,
 the harvest runs without sponsor operation — **per gate, the sponsor's
-touchpoints are at most two**: the gate signature they were already
-giving and one default-yes decision on sending lessons onward to the
-canonical shell, asked only at sponsor-signed gates and not at all
-where the board carries a standing pre-answer (`docs/FEDERATION.md`
-§7). The one-time setup (G0
-rows A6, A7, A8 and the intake signature — class E0, §8) is separate and
-precedes them. The harvest itself lands in the organization's own generic
-automatically at those gates (the inner hop — all one team's property);
-records the sponsor does not sign (`SO-` packets, `P<n>-module-ready`)
-defer to the next sponsor-signed gate (`docs/FEDERATION.md` §0, §5, §7).
-A program that halts, pauses, or wedges between gates runs a **closing
-harvest** under a sponsor signature, as if at a sponsor-signed gate — a
-crisis is when the most lessons exist, and the signature-riding design
-must not strand them (ADR-0017 A1).
+touchpoint is exactly one**: the gate signature they were already giving
+(ADR-0018; the one-time setup — G0 rows A6, A7, A8 and the intake
+signature, class E0, §8 — is separate and precedes it). Everything the
+harvest yields stays in this repository: tier-1/2 entries land in
+`docs/LESSONS.md` in the gate's closing commits, and nothing transmits
+anywhere (ADR-0018 — the file itself is the program's hand-carried
+travel copy). A program that halts, pauses, or wedges between gates runs
+a **closing harvest** as if at a gate — a crisis is when the most
+lessons exist, and the gate-riding design must not strand them
+(ADR-0017 A1).
 
 **Span discipline.** Each agent holding a persistent journal chain mines its
 own journal over the span since its last harvest; a lead also mines the
@@ -400,16 +396,16 @@ pressure to mint.
 
 | Tier | Reach | Vocabulary bar (LH2) | Destination |
 |---|---|---|---|
-| 1 — general | Improves the agent doctrines universally | **LH2-g**: the rule statement contains no proper noun of any project or domain — no module ids, requirement ids, signal names, file paths, protocol names, interface standards | The core `docs/LESSONS.md` — the org generic's at the inner hop, onward to the canonical shell's on the outer (`docs/FEDERATION.md` §0) |
-| 2 — domain | Portable across projects sharing a technical domain; unstatable without domain vocabulary | **LH2-d**: domain nouns admissible (protocol names, interface standards, algorithm families); project nouns still barred (module ids, requirement ids, signal names, repo file paths) | `docs/domains/<pack>.md` — the org generic's pack at the inner hop, onward to the canonical shell's on the outer (`docs/FEDERATION.md` §0); loaded by a project only when relevant (declared automatically at intake) |
+| 1 — general | Improves the agent doctrines universally | **LH2-g**: the rule statement contains no proper noun of any project or domain — no module ids, requirement ids, signal names, file paths, protocol names, interface standards | A general section of this repository's `docs/LESSONS.md` (ADR-0018) |
+| 2 — domain | Portable across projects sharing a technical domain; unstatable without domain vocabulary | **LH2-d**: domain nouns admissible (protocol names, interface standards, algorithm families); project nouns still barred (module ids, requirement ids, signal names, repo file paths) | A domain-titled section of the same `docs/LESSONS.md` (its id prefix stated in the section heading; ADR-0018) |
 | 3 — project | Improves the running project only | Needs project vocabulary | The project's own local accretion (its protocol, charters, plans); never leaves the project |
 
 **The classifier** is a decision procedure, not a judgment call: a candidate
 descends the tiers and stops at the first bar it passes. Read the rule with
 provenance hidden and all project nouns removed — does it still teach?
 Tier 1. Restore only the domain nouns — does it teach a stranger who knows
-the domain but not the project? Tier 2, with the target pack named.
-Otherwise Tier 3, or a war story.
+the domain but not the project? Tier 2, with the target domain section
+named. Otherwise Tier 3, or a war story.
 
 **The full bar, at every tier:**
 
@@ -421,9 +417,9 @@ Otherwise Tier 3, or a war story.
   recognisable in someone else's repo.
 
 **Candidate ids**: harvest candidates carry `LC-` (general) and `LD-`
-(domain) ids locally; the landing fence allocates final ids — the org
-generic at the inner hop, the canonical shell at its merge — and a
-candidate never self-assigns its final id.
+(domain) ids as provisional harvest handles; the landing commit
+allocates final ids — the next id in the receiving `docs/LESSONS.md`
+section — and a candidate never self-assigns its final id.
 
 **War stories.** A candidate that fails a bar is kept as a war story with
 the criterion it failed named — failed candidates are the corpus a later
@@ -438,20 +434,25 @@ third bounce of the same class is a tier-1 rule). At each
 harvest over the phase's accumulated **harvest record** — its war stories,
 nil declarations, tier-3 landings, and bounce/`BUG-` packets — never over
 raw journal spans, which stay tiled and mined once. Its candidates enter
-the normal pipeline (classifier, bars, export packet) attributed to the
+the normal flow (classifier, bars, landing) attributed to the
 auditor; its report lives in `docs/reports/audit/**` per §6, and the
 orchestrator transcribes its candidates into the gate's harvest block like
-any auditor verdict. The cross-project counterpart is the redundancy
-screen's **recurrence note** (`docs/FEDERATION.md` §8): independent
-re-derivation of an already-landed lesson is recorded as recurrence
-evidence, and at the third independent arrival the entry opens a promotion
-obligation — the collision machinery doubles as the meta-lesson detector.
+any auditor verdict. The same detector runs at landing time: the
+dedup pass's **recurrence note** (ADR-0010 as amended) records each
+independent re-derivation of an already-landed lesson, and at the third
+independent arrival the entry opens a promotion obligation on the
+board — the collision machinery doubles as the meta-lesson detector.
 
-**Collation and export.** The orchestrator collates the round's harvest
-notes into the gate record and produces the **export packet** — the
-tier-classified candidates, each with a self-contained incident description
-— whose onward path (staging, screening, landing per fence —
-human-merged at the canonical fence) is `docs/FEDERATION.md`.
+**Collation and landing.** The orchestrator collates the round's harvest
+notes into the gate record, dedups each tier-1/2 candidate against
+`docs/LESSONS.md` (land / merge-by-citation / drop-with-recurrence-note /
+contradiction → `Supersedes` fields), transcribes what lands — every
+entry with a **self-contained incident description**, because the file
+is the travel copy a stranger must be able to learn from — and
+dispositions every amendment obligation the round opened (DISCHARGED /
+NARRATIVE-ONLY / DEFERRED with a named reason and discharging event),
+sweeping the board's DEFERRED backlog before the gate closes
+(ADR-0018; ADR-0012 as amended).
 
 **Enforcement.** Review-enforced, like §10: the auditor samples harvest
 notes for span tiling and bar honesty. No counting metric, ever — a count
@@ -464,9 +465,9 @@ The orchestrator escalates **only** these classes, batched and decision-ready
 
 - **E0** — Founding and intake contacts (G0 only): charter ratification
   (A6), branch protection and branch-flow (A7/A8), the intake signature
-  (B1–B6), and an org generic's founding checklist (BOOTSTRAP Stage 0).
-  E0 exists only at founding; after G0 every contact is E1–E6
-  (ADR-0013).
+  (B1–B6), and the founding commit's branch authorization where the
+  session harness needs it (BOOTSTRAP Stage 0). E0 exists only at
+  founding; after G0 every contact is E1–E6 (ADR-0013).
 - **E1** — Phase-gate approval.
 - **E2** — Scope changes (adding/dropping requirements, phases, or roles).
 - **E3** — Toolchain lane and licensing decisions.
@@ -581,10 +582,10 @@ The org must survive the loss of any session, including the orchestrator's:
 ## 11. Amendment procedure
 
 Any change to this protocol, a charter, the enforcement scripts,
-`docs/FEDERATION.md`, the gate templates (`docs/gates/templates/**`), the
-playbooks (`docs/playbooks/**`), the artefact standard
-(`docs/specs/REQUIREMENTS-TEMPLATE.md`, `docs/STYLE.md`), or the domains law (`docs/domains/README.md`
-and pack headers) requires:
+the gate templates (`docs/gates/templates/**`), the playbooks
+(`docs/playbooks/**`), the artefact standard
+(`docs/specs/REQUIREMENTS-TEMPLATE.md`, `docs/STYLE.md`), or
+`docs/LESSONS.md`'s header contract requires:
 (1) a numbered ADR in `docs/adr/` recording alternatives and rationale,
 (2) an orchestrator journal entry, (3) if the change alters enforcement
 semantics, an updated `scripts/test_protocol.sh` case proving the new behavior.

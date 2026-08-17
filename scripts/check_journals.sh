@@ -300,18 +300,21 @@ for agent in $KNOWN_AGENTS; do
 done
 echo "OK: journal volume chains verified at range head (R10)"
 
-# R-ROLE-1 (ADR-0015, machine-refused here and in CI): a copy whose board
-# still claims the canonical-shell role while its origin disagrees with its
-# federation-upstream line is a fresh fork that has not recorded itself
-# (ADR-0011) — booting it wedges the repo in maintainer mode with no error
-# anywhere. This turns the silent wedge into a red build with a named
-# cause. Skips when there is no board at the range head, no Repo role
-# line, a non-canonical role, or no origin remote (e.g. the test sandbox).
-# The claim is the first backticked token on the role line — the recorded
-# value — never the whole line: the shipped line carries the plain-text
-# value enumeration on the same physical line, and matching the line
-# falsely accuses every founded fork (ADR-0015 Amendment A1, found live
-# by the second field trial).
+# R-ROLE-1 (ADR-0015 as amended by ADR-0018, machine-refused here and in
+# CI): a copy whose board claims a founded identity while its origin
+# disagrees with the board's own This-repository line is a fresh copy
+# that has not recorded itself (ADR-0011) — booting it mis-reads the
+# copy's identity with no error anywhere. This turns the silent wedge
+# into a red build with a named cause, for EVERY role claim — the
+# generalization the board carried as law-debt, keyed on the
+# This-repository line since the federation-upstream line it formerly
+# keyed on was retired (ADR-0018). Skips when there is no board at the
+# range head, no Repo role line, no This-repository URL, or no origin
+# remote (e.g. the test sandbox). The claim is the first backticked
+# token on the role line — the recorded value — never the whole line:
+# the shipped line carries the plain-text value enumeration on the same
+# physical line, and matching the line falsely accuses every founded
+# copy (ADR-0015 Amendment A1, found live by the second field trial).
 repo_url_tail() {
   echo "$1" | sed -E 's/\.git$//; s#^[a-z+]+://[^/]*/##; s#^[^@]*@[^:]*:##' \
     | grep -oE '[^/]+/[^/]+$' || true
@@ -319,19 +322,19 @@ repo_url_tail() {
 if git cat-file -e "$HEADC:tasks/BOARD.md" 2>/dev/null; then
   ROLE_LINE=$(git show "$HEADC:tasks/BOARD.md" | grep -m1 -E '^- \*\*Repo role\*\*:' || true)
   ROLE_VALUE=$(printf '%s' "$ROLE_LINE" | grep -oE '`[^`]+`' | head -n 1 | tr -d '`' || true)
-  if [ "$ROLE_VALUE" = "canonical-shell" ]; then
+  if [ -n "$ROLE_VALUE" ]; then
     ORIGIN_URL=$(git remote get-url origin 2>/dev/null || true)
-    UPSTREAM_URL=$(git show "$HEADC:tasks/BOARD.md" \
-      | grep -m1 -A3 -E '^- \*\*Federation upstream\*\*' \
+    SELF_URL=$(git show "$HEADC:tasks/BOARD.md" \
+      | grep -m1 -A3 -E '^- \*\*This repository\*\*' \
       | grep -oE 'https?://[^ )]+' | head -n 1 || true)
-    if [ -n "$ORIGIN_URL" ] && [ -n "$UPSTREAM_URL" ]; then
+    if [ -n "$ORIGIN_URL" ] && [ -n "$SELF_URL" ]; then
       OT=$(repo_url_tail "$ORIGIN_URL")
-      UT=$(repo_url_tail "$UPSTREAM_URL")
-      if [ -n "$OT" ] && [ -n "$UT" ] && [ "$OT" != "$UT" ]; then
-        fail "board claims Repo role canonical-shell but origin ($OT) disagrees with the federation upstream ($UT) — an unrecorded fresh fork; its first act is the role-recording commit (ADR-0011) (R-ROLE-1)"
+      ST=$(repo_url_tail "$SELF_URL")
+      if [ -n "$OT" ] && [ -n "$ST" ] && [ "$OT" != "$ST" ]; then
+        fail "board claims Repo role $ROLE_VALUE but origin ($OT) disagrees with the board's This-repository line ($ST) — an unrecorded fresh copy; its first act is the founding commit (ADR-0011, ADR-0018) (R-ROLE-1)"
       fi
+      echo "OK: repo-role line consistent with origin (R-ROLE-1)"
     fi
-    echo "OK: repo-role line consistent with origin (R-ROLE-1)"
   fi
 fi
 

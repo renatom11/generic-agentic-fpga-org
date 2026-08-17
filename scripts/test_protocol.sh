@@ -602,23 +602,23 @@ else
   bad "clean entry unexpectedly rejected"
 fi
 
-# ---- S39: role-line wedge check (R-ROLE-1, ADR-0015) ------------------------
-say "S39: unrecorded-fork role line vs origin"
+# ---- S39: role-line wedge check (R-ROLE-1, ADR-0015 as amended by ADR-0018) -
+say "S39: unrecorded-copy role line vs origin"
 O_LAST=$(grep -oE "^## \[J-orchestrator-[0-9]{4}\]" "$J_ORCH" | grep -oE "[0-9]{4}" | tail -1)
 O_NEXT=$(printf "%04d" $((10#$O_LAST + 1)))
 mkdir -p tasks
 cat > tasks/BOARD.md <<'EOF39'
 # Board (test)
 
+- **This repository**:
+  https://github.com/example/canonical-shell — the copy's own URL.
 - **Repo role**: `canonical-shell` (test copy)
-- **Federation upstream** (test):
-  https://github.com/example/canonical-shell — seeded.
 EOF39
 entry orchestrator "$O_NEXT" "seed test board" tasks/BOARD.md >> "$J_ORCH"
 git add tasks/BOARD.md "$J_ORCH"
 scripts/agent_commit.sh --agent orchestrator --entry "J-orchestrator-$O_NEXT" --work-order none -m "board" > /dev/null
-git remote add origin https://github.com/example/a-fresh-fork.git
-expect_fail "canonical-shell role with mismatched origin rejected (R-ROLE-1)" "R-ROLE-1" \
+git remote add origin https://github.com/example/a-fresh-copy.git
+expect_fail "role claim with mismatched origin rejected (R-ROLE-1)" "R-ROLE-1" \
   scripts/check_journals.sh --all
 git remote set-url origin https://github.com/example/canonical-shell.git
 expect_ok "matching origin passes (R-ROLE-1)" scripts/check_journals.sh --all
@@ -627,39 +627,30 @@ git remote remove origin
 # ---- S40: the value is the claim, not the line (R-ROLE-1, ADR-0015 A1) ------
 # Field regression: the shipped role line carries the plain-text value
 # enumeration on the same physical line as the recorded value. A founded
-# copy (org-generic recorded, enumeration present, origin != upstream)
-# must PASS; a backticked canonical-shell claim must still FAIL.
-say "S40: founded-fork role line carrying the value enumeration"
+# copy (project recorded, enumeration present, origin == self-URL) must
+# PASS even with `canonical-shell` appearing as plain text on the line; a
+# founded claim whose origin disagrees with the This-repository line must
+# still FAIL (ADR-0018: the check keys on the This-repository line and
+# covers every role).
+say "S40: founded-copy role line carrying the value enumeration"
 O_LAST=$(grep -oE "^## \[J-orchestrator-[0-9]{4}\]" "$J_ORCH" | grep -oE "[0-9]{4}" | tail -1)
 O_NEXT=$(printf "%04d" $((10#$O_LAST + 1)))
 cat > tasks/BOARD.md <<'EOF40'
 # Board (test)
 
-- **Repo role**: `org-generic` (values: canonical-shell / org-generic /
-  project / solo-collapsed — ADR-0011). Founded test copy.
-- **Federation upstream** (test):
-  https://github.com/example/canonical-shell — seeded.
+- **This repository**:
+  https://github.com/example/my-project — the copy's own URL.
+- **Repo role**: `project` (values: canonical-shell / project —
+  ADR-0011). Founded test copy.
 EOF40
 entry orchestrator "$O_NEXT" "record founded role" tasks/BOARD.md >> "$J_ORCH"
 git add tasks/BOARD.md "$J_ORCH"
 scripts/agent_commit.sh --agent orchestrator --entry "J-orchestrator-$O_NEXT" --work-order none -m "board" > /dev/null
-git remote add origin https://github.com/example/my-fpga-org.git
-expect_ok "founded fork with enumeration on the role line passes (R-ROLE-1)" \
+git remote add origin https://github.com/example/my-project.git
+expect_ok "founded copy with enumeration on the role line passes (R-ROLE-1)" \
   scripts/check_journals.sh --all
-O_LAST=$(grep -oE "^## \[J-orchestrator-[0-9]{4}\]" "$J_ORCH" | grep -oE "[0-9]{4}" | tail -1)
-O_NEXT=$(printf "%04d" $((10#$O_LAST + 1)))
-cat > tasks/BOARD.md <<'EOF40B'
-# Board (test)
-
-- **Repo role**: `canonical-shell` (values: canonical-shell / org-generic /
-  project / solo-collapsed — ADR-0011). Unrecorded test copy.
-- **Federation upstream** (test):
-  https://github.com/example/canonical-shell — seeded.
-EOF40B
-entry orchestrator "$O_NEXT" "revert to shell claim" tasks/BOARD.md >> "$J_ORCH"
-git add tasks/BOARD.md "$J_ORCH"
-scripts/agent_commit.sh --agent orchestrator --entry "J-orchestrator-$O_NEXT" --work-order none -m "board" > /dev/null
-expect_fail "backticked canonical-shell claim still rejected (R-ROLE-1)" "R-ROLE-1" \
+git remote set-url origin https://github.com/example/somewhere-else.git
+expect_fail "founded project claim with mismatched origin rejected (R-ROLE-1)" "R-ROLE-1" \
   scripts/check_journals.sh --all
 git remote remove origin
 

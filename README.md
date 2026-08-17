@@ -8,19 +8,20 @@ verify it, document it, and audit themselves, bringing you only
 decisions. Every change ships with the reasoning that produced it, in an
 append-only record that CI re-verifies on every push; designs are signed
 off only after planted-defect campaigns prove the tests can catch real
-bugs; and your organization gets smarter with every project, because
-lessons are harvested at every gate and land in your own copy
-automatically — with at most one yes/no from you (default yes, and
-answerable once for good) on sharing them onward to the community
-([docs/FEDERATION.md](docs/FEDERATION.md)).
+bugs; and your organization gets smarter as it works, because
+lessons are harvested from the agents' own journals at every gate and
+land in your copy's [`docs/LESSONS.md`](docs/LESSONS.md) — a file
+written so a stranger can learn from it, which you can hand to your
+next project, another session, or anyone (ADR-0018). Nothing is ever
+sent anywhere automatically.
 
 **This repository is the installer, not the program.** Like an executable
 that installs software onto a machine, the canonical shell exists to be
-forked: each fork becomes a live copy — your organization's ecosystem,
-then your projects — while the shell itself runs nothing and holds the
-community's shared lessons ([docs/FEDERATION.md](docs/FEDERATION.md) §0;
-ADR-0011). Which kind of copy a session is in is written on its board —
-the **Repo role** line — and the orchestrator reads it before acting.
+copied: each copy becomes a live project, while the shell itself runs
+nothing and ships the accumulated starter lessons every copy inherits
+(ADR-0011, ADR-0018). Which kind of copy a session is in — `canonical-shell`
+or `project` — is written on its board, the **Repo role** line, and the
+orchestrator reads it before acting.
 
 **Why this exists — the full story: [the Manifest](docs/MANIFEST.md).**
 
@@ -83,13 +84,11 @@ Run the enforcement self-test: `bash scripts/test_protocol.sh`.
 
 ## Getting started
 
-Three levels; your part is a one-time four-item setup, then two
-touchpoints per gate ([docs/FEDERATION.md](docs/FEDERATION.md) §0;
-PROTOCOL §8 class E0):
+One copy per project; your part is a one-time four-item setup, then one
+touchpoint per gate — the signature (PROTOCOL §8 class E0; ADR-0018):
 
-**Found your organization — once.** Make a full-history copy of this
-repository — the upstream original, called the **canonical shell** in
-these docs. Throughout these docs, "fork" names the **relationship** (a
+**Start a project.** Make a full-history copy of this repository — one
+per project. Throughout these docs, "fork" names the **relationship** (a
 full-history copy), not GitHub's button: the only load-bearing
 requirement is that the commit chain arrives unsquashed. On a single
 account — where GitHub's Fork button cannot target the account that
@@ -97,71 +96,49 @@ already owns the repo — **clone-and-push is the way**, and it is fully
 equivalent:
 
 ```bash
-git clone https://github.com/renatom11/generic-agentic-fpga-org my-fpga-org
-cd my-fpga-org
+git clone https://github.com/renatom11/generic-agentic-fpga-org my-project
+cd my-project
 git remote set-url origin <your new EMPTY repo's URL>
 git push -u origin main
 ```
 
-(Organization accounts can use the Fork button instead.) That copy is
-your **org generic**: your
-team's own ecosystem, where lessons from all your projects accumulate. It
-runs no project itself; its short founding checklist —
-[BOOTSTRAP.md](BOOTSTRAP.md) Stage 0 — enables CI, sets the rulesets
-(including the `fed/**` staging namespace), verifies the enforcement, and
-sets the board's **Repo role** line to `org-generic`. To found it, open
-a Claude Code session on the new copy and say anything — "investigate
-the project" works; adding *"founding pushes to the default branch are
-authorized"* pre-grants the one permission a branch-pinned environment
-(Claude Code on the web pins sessions to an assigned branch) must
-otherwise ask for once. Do **not** use
-GitHub's "Use this template"
-button: it squashes history into a single commit, and this repository's
-commit history is load-bearing — the journal-check CI verifies the whole
-chain, and a squashed history fails it by design. (Working alone on a
-single project? Your one project fork may play both roles — its board's
-Repo role line reads `solo-collapsed`: it holds the org-generic role for
-federation, its upstream line stays the canonical shell, and its lessons
-land in itself. If a second project ever
-becomes likely, found the real org generic first: graduating later means
-forking this shell fresh and landing your solo copy's accumulated
-lessons into it — via the same screened-landing procedure lessons
-normally use ([docs/FEDERATION.md](docs/FEDERATION.md) §5.1) — before
-project 2 forks.)
+(Organization accounts can use the Fork button instead.) Do **not** use
+GitHub's "Use this template" button: it squashes history into a single
+commit, and this repository's commit history is load-bearing — the
+journal-check CI verifies the whole chain, and a squashed history fails
+it by design.
 
-**To start each project:**
+Then:
 
-1. **Fork your org generic** (fork-the-relationship: clone-and-push on a
-   single account, same commands as above with your org generic as the
-   source; same no-template-button rule) — one copy
-   per project, and **only from a green default branch**: red means the
-   source is unfounded or broken, and a clone taken meanwhile inherits
-   the wrong identity and mis-founds (BOOTSTRAP Stage 0 step 7); the
-   fork's first act is setting its board's Repo role
-   line to `project` (completed and signed at G0 row B6). It boots with
-   everything your organization has learned:
-   the accumulated core lessons and the domain packs your intake
-   declares. Inheritance is fixed at the fork point — a running project
-   does not refresh from the org generic mid-flight; sibling projects'
-   lessons reach your work only when you next fork the org generic, by
-   design.
-2. Open a Claude Code session on your fork, on any machine, and say:
-   *"Read CLAUDE.md — you are this repository's orchestrator. Walk me
-   through G0."*
-3. Give it your material: paste prose, and/or drop files — docs about
+1. Open a Claude Code session on the new copy, on any machine, and say
+   anything — *"Read CLAUDE.md — you are this repository's orchestrator.
+   Walk me through G0."* works, and so does "get started". Adding
+   *"founding pushes to the default branch are authorized"* pre-grants
+   the one permission a branch-pinned environment (Claude Code on the
+   web pins sessions to an assigned branch) must otherwise ask for
+   once. The session founds the copy first — the board's **Repo role**
+   line to `project`, its **This repository** line to the copy's own
+   URL, committed on the default branch ([BOOTSTRAP.md](BOOTSTRAP.md)
+   Stage 0) — then walks you through G0. It boots already carrying the
+   shell's accumulated starter lessons; to seed it with what a previous
+   project of yours learned, hand the session that project's
+   `docs/LESSONS.md` (the travel copy) and it records the seed's
+   provenance and baseline on the board.
+2. Give it your material: paste prose, and/or drop files — docs about
    what you're building, rough requirement drafts, reference specs,
    datasheets — into an `intake/` directory. The org digests everything
    into one proposal for your signature ([BOOTSTRAP.md](BOOTSTRAP.md)
    Section B, Path B); your resources then remain its project reference
    material.
-4. Do the sponsor-only setup when the checklist reaches it: ratify the
+3. Do the sponsor-only setup when the checklist reaches it: ratify the
    charters (A6) and set branch protection with its branch-flow decision
    (A7/A8, a GitHub settings action) — with the intake signature from
-   step 3, that completes the one-time four-item E0 setup.
+   step 2, that completes the one-time four-item E0 setup.
 
 Found a problem with the shell itself while running your copy? **File an
-issue on the canonical shell** — defects travel as GitHub issues, lessons
-travel through the federation pipeline; the two channels never mix.
+issue on the canonical shell** — defects travel as GitHub issues;
+lessons stay in your copy's `docs/LESSONS.md` and travel only when a
+human hands the file onward. The two channels never mix.
 
 The sponsor and the fresh orchestrator session walk G0 together;
 [BOOTSTRAP.md](BOOTSTRAP.md) is the script. G0 covers: org ratification (or

@@ -28,20 +28,12 @@ Every contact from the orchestrator belongs to exactly one class
 Every escalation arrives decision-ready: options, a recommendation, and cost.
 If one doesn't, bounce it back.
 
-**One rider, not a seventh class**: attached to a gate approval you may get
-a single yes/no — *send the lessons harvested this gate onward to the
-canonical shell?* Default yes; answer no if your organization cannot share
-([`docs/FEDERATION.md`](FEDERATION.md) §7). You may also retire the
-question for good: record a **standing answer** (YES or NO) as its own
-line on your org's board, and no gate asks again until you change the
-line — changing it is yours alone ([`docs/FEDERATION.md`](FEDERATION.md)
-§7). Your projects' lessons land in
-your organization's own generic automatically — that part is never a
-question, it is all your property ([`docs/FEDERATION.md`](FEDERATION.md)
-§0); only the onward send is asked. Gates you don't sign defer their
-packets to the next gate you do, so this question only ever rides a
-signature you were already giving. Nothing else about the lessons machinery
-ever reaches you.
+**No riders** (ADR-0018): the lessons machinery runs entirely inside
+your copy — harvested at gates, landed in `docs/LESSONS.md`,
+deduplicated, promoted into the org's own rules — and never asks you
+anything or sends anything anywhere. The file is yours; if you ever
+want another project or team to benefit, you hand them the file. That
+is the whole sharing mechanism.
 
 ## Your one-time setup (class E0 — four items)
 

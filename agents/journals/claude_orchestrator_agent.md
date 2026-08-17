@@ -2940,3 +2940,110 @@ the authority on what binds.
 - docs/adr/ADR-0015-role-line-wedge-check.md
 - docs/adr/ADR-0016-audit-corrections-and-the-standing-preanswer.md
 - tasks/BOARD.md
+
+---
+## [J-orchestrator-0046] 2026-08-17T00:40:00Z | task:none | C46 - the retraction sweep: the federation machinery leaves the tree, and the travel copy replaces it everywhere
+
+### Trigger
+ADR-0018 (C45) directs the sweep: delete the retired machinery, rewrite
+every living surface to the local-plus-hand-carry design, re-key
+R-ROLE-1, and prove the result.
+
+### Inputs
+ADR-0018's decision list and supersession table; the coupling survey
+(C45's journal entry); every living surface read in full before edit
+this session: FEDERATION.md, the board, PROTOCOL §7.1/§8/§11, CLAUDE.md,
+README, BOOTSTRAP, GUIDE, MANIFEST, SPONSOR, ORG_CHART, the orchestrator
+charter, the G0 checklist, the three gate templates, the harvest block
+and playbook, the LESSONS header, both scripts and scenarios S39/S40.
+
+### Reasoning
+- Deletions only where nothing survives: FEDERATION.md (the contract),
+  docs/federation/ (the inbox), docs/domains/ (tier-2 packs fold into
+  domain-titled sections of LESSONS.md - one project needs one file,
+  and the travel copy is stronger for being single).
+- The harvest block and playbook were rewritten whole rather than
+  patched: transmission was their spine, and a patched version would
+  have read as a federation document with holes. The span discipline,
+  bars, classifier, war stories, nil declarations, retrospective, and
+  no-counting rule are carried verbatim - ADR-0018 moves destinations,
+  not discipline.
+- The obligation trichotomy (DISCHARGED / NARRATIVE-ONLY / DEFERRED)
+  and the backlog sweep moved from FEDERATION §5.1 4c into the block,
+  the playbook, and PROTOCOL §7.1 at gate cadence - gates are the only
+  moment a project orchestrator is reliably awake, the same argument
+  ADR-0014 made for landings when landings existed.
+- R-ROLE-1 re-keyed to the This-repository line and generalized to
+  every role claim, discharging the queued law-debt in the same stroke
+  that deletes the federation-upstream line it formerly keyed on. S39
+  rewritten to the new key; S40 keeps its field-regression teeth (the
+  enumeration-on-the-line false positive) and adds the founded-claim
+  mismatch case the generalization newly covers.
+- Historical records stay written as they were: ADR bodies, journals,
+  and the board's trial/audit/override records keep their federation
+  vocabulary as history, each live-law straggler annotated rather than
+  rewritten. What binds is ADR-0018's table.
+
+### Actions
+Deleted docs/FEDERATION.md, docs/federation/**, docs/domains/**.
+Rewrote the harvest block and harvest playbook whole. Edited PROTOCOL
+(§7.1 destinations, touchpoint, collation-and-landing, recurrence,
+candidate ids; §8 E0; §11 enumeration), LESSONS header (the travel-copy
+contract), CLAUDE.md (rehydration list, iron rules, two-role first
+session), README (one-hop getting started), BOOTSTRAP (Stage 0 founds a
+project; B6; the closing loop), GUIDE (two kinds of copy; §7 rewritten;
+common situations), MANIFEST (the experiment restated, the retraction
+owned in the state section), SPONSOR (no riders), ORG_CHART, the
+orchestrator charter, INDEX, REQUIREMENTS-TEMPLATE, the G0 checklist
+(B6, Section C, A7), the three gate templates, and both scripts.
+
+### Evidence
+- `bash scripts/test_protocol.sh` → **52 passed, 0 failed**, including
+  the rewritten S39/S40 exercising the re-keyed R-ROLE-1 in both
+  directions (founded-copy pass; mismatched-origin fail for a project
+  claim - the case the old check could not see).
+- `bash scripts/check_journals.sh --all` → 45 commits green, R10 chain
+  verified, R-ROLE-1 green live on this repo (origin matches the
+  This-repository line).
+- Link integrity: a full-tree relative-link walk returns zero broken
+  links after the deletions.
+- Residue: a tree-wide sweep for federation vocabulary over living
+  surfaces (journals and ADR bodies excluded as history) returns only
+  the board's historical records, each annotated in C45.
+
+### Outcome
+The tree now says one thing everywhere: lessons are harvested at gates
+under the same bars as before, land in this repository's own LESSONS.md,
+and leave it only in a human's hands. Two roles, one founding hop, one
+sponsor touchpoint per gate.
+
+### Open-questions
+- P1-P3 remain queued for sponsor direction, re-scoped to two roles.
+- The process-document rewrite the sponsor queued runs next, in the
+  program repository.
+
+### Files-in-this-commit
+- BOOTSTRAP.md
+- CLAUDE.md
+- ORG_CHART.md
+- README.md
+- agents/PROTOCOL.md
+- agents/charters/orchestrator.md
+- agents/journals/INDEX.md
+- docs/FEDERATION.md
+- docs/GUIDE.md
+- docs/LESSONS.md
+- docs/MANIFEST.md
+- docs/SPONSOR.md
+- docs/domains/README.md
+- docs/domains/ethernet-networking.md
+- docs/federation/inbox/README.md
+- docs/gates/G0-checklist.md
+- docs/gates/templates/lessons-harvest-block.md
+- docs/gates/templates/module-ready-checklist.md
+- docs/gates/templates/phase-accept-checklist.md
+- docs/gates/templates/spec-freeze-checklist.md
+- docs/playbooks/lessons-harvest.md
+- docs/specs/REQUIREMENTS-TEMPLATE.md
+- scripts/check_journals.sh
+- scripts/test_protocol.sh

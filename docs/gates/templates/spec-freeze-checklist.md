@@ -75,13 +75,9 @@ spec (PROTOCOL §7, ADR-0017).
 
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
      this checklist opens (PROTOCOL §7.1); the gate is not fully signed
-     until the block's precondition boxes are checked. This gate is
-     sponsor-signed (S1): its block records the automatic org-generic
-     landing (the inner hop, under this gate's signature) and the
-     sponsor's one yes/no on the outer hop (default yes) beside the gate
-     signature — or the standing pre-answer's board reference, where one
-     stands (§7) — discharging any landings and decisions deferred to it
-     (docs/FEDERATION.md §0, §7). -->
+     until the block's precondition boxes are checked. Tier-1/2 yield
+     lands in this copy's own docs/LESSONS.md in the gate's closing
+     commits (ADR-0018); no lessons question rides the S1 signature. -->
 
 ## Sponsor items
 

@@ -57,20 +57,15 @@ committed with no open CRITICAL findings, and the sponsor approves
 
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
      this checklist opens (PROTOCOL §7.1); the gate is not fully signed
-     until the block's precondition boxes are checked. This gate is
-     sponsor-signed: its block records the automatic org-generic landing
-     (the inner hop, under this gate's signature) and the sponsor's one
-     yes/no on the outer hop (default yes) — or the standing
-     pre-answer's board reference, where one stands (§7) — discharging
-     everything DEFERRED from the phase's SO- packets and
-     P<n>-module-ready — one question at most, beside S1
-     (docs/FEDERATION.md §0, §7). The block at THIS gate
-     additionally includes the auditor's PHASE RETROSPECTIVE (PROTOCOL
-     §7.1, ADR-0010): one second-altitude row mined by the auditor over
-     the phase's harvest record — war stories, nils, tier-3 landings,
-     bounce packets — never over raw journal spans; its candidates join
-     this gate's yield, its report lands in docs/reports/audit/**, and
-     the Exit below requires it. -->
+     until the block's precondition boxes are checked. Tier-1/2 yield
+     lands in this copy's own docs/LESSONS.md in the gate's closing
+     commits (ADR-0018); no lessons question rides the signature. The
+     block at THIS gate additionally includes the auditor's PHASE
+     RETROSPECTIVE (PROTOCOL §7.1, ADR-0010): one second-altitude row
+     mined by the auditor over the phase's harvest record — war
+     stories, nils, tier-3 landings, bounce packets — never over raw
+     journal spans; its candidates join this gate's yield, its report
+     lands in docs/reports/audit/**, and the Exit below requires it. -->
 
 ## Sponsor items
 

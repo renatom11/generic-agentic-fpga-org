@@ -50,18 +50,16 @@ No `SO-` PASS issues on an unqualified bench.
 
 <!-- Instantiate docs/gates/templates/lessons-harvest-block.md here when
      this checklist opens (PROTOCOL §7.1); the gate is not fully signed
-     until the block's precondition boxes are checked. The sponsor does
-     not sign this gate: the block's transmission line records DEFERRED
-     to P<n>-phase-accept, where the deferred packets' org-generic
-     landing and their outer-hop decision both discharge beside that
-     gate's S1 — the decision pre-made where a standing pre-answer
-     stands (docs/FEDERATION.md §0, §7). -->
+     until the block's precondition boxes are checked. Tier-1/2 yield
+     lands in this copy's own docs/LESSONS.md in the gate's closing
+     commits (ADR-0018); the sponsor does not sign this gate and no
+     sponsor action attaches to it. -->
 
 ## Summary record (no sponsor contact)
 
 | # | Item | Status | Signature |
 |---|---|---|---|
-| S1 | Module-ready summary (modules, campaign scores, open BUG- packets) recorded on the BOARD — **no sponsor contact**: this gate is never sponsor-signed for federation purposes (the closed enumeration, lessons-harvest-block; ADR-0013), and the accepting decision is P<n>-phase-accept's E1 | OPEN | <recorded in J-orchestrator-NNNN> |
+| S1 | Module-ready summary (modules, campaign scores, open BUG- packets) recorded on the BOARD — **no sponsor contact**: this gate is never sponsor-signed (ADR-0013), and the accepting decision is P<n>-phase-accept's E1 | OPEN | <recorded in J-orchestrator-NNNN> |
 
 ## Exit
 

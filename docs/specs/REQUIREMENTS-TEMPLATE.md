@@ -87,7 +87,7 @@ ADR that dropped it.
 `scripts/check_requirements.sh` (MACHINE, wired into CI) refuses any
 `REQ-` row lacking a taxonomy Kind, lacking `SHALL`/`SHALL NOT`, or
 carrying an empty Verification cell. It skips cleanly in a copy with no
-requirements corpus — the shell and an org generic run no project. The
+requirements corpus — the shell runs no project. The
 check enforces form, not truth: whether a row states the *right*
 requirement is dv_lead's countersignature (testability + atomicity,
 PROTOCOL §7) and the architect's authorship, both PROSE.

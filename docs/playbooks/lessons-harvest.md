@@ -3,18 +3,19 @@
 The procedure that runs at every module sign-off and every phase gate
 (PROTOCOL §7.1): each journal-holding agent mines its own record over the
 span since its last harvest, the orchestrator collates and classifies, and
-what generalises travels upstream. The instantiable checklist block is
-[`lessons-harvest-block.md`](../gates/templates/lessons-harvest-block.md);
-the share-back contract — packet form, screening, who merges — is
-[`FEDERATION.md`](../FEDERATION.md). This playbook is the orchestrator's
-end-to-end procedure.
+everything that generalises lands in this repository's own
+[`docs/LESSONS.md`](../LESSONS.md) — the file that doubles as the
+program's hand-carried travel copy (ADR-0018). The instantiable checklist
+block is
+[`lessons-harvest-block.md`](../gates/templates/lessons-harvest-block.md).
+This playbook is the orchestrator's end-to-end procedure.
 
 **Cast**: every agent with a persistent journal chain mines its own
 journal; a lead additionally mines the worker spans it commissioned; the
-orchestrator instantiates, collates, classifies, packages, and transmits;
-the auditor samples span tiling and bar honesty; the sponsor answers
-exactly one question. Nothing here is sponsor-operated — the harvest rides
-the gate the sponsor was already signing.
+orchestrator instantiates, collates, classifies, and lands; the auditor
+samples span tiling and bar honesty; the sponsor does nothing — the
+harvest rides the gate the sponsor was already signing, and no lessons
+question ever reaches them.
 
 ## The procedure
 
@@ -29,9 +30,9 @@ block into it and fill the span skeleton **before dispatching anything**:
 - one row per worker span commissioned in the window, miner = the
   commissioning lead;
 - each row's `from` computed by arithmetic from the previous gate's block:
-  previous `to` + 1 (a chain's first-ever harvest starts at the
-  fork-point baseline recorded at G0 B6, + 1 — entry 0001 only in a repo
-  with no inherited history, ADR-0010);
+  previous `to` + 1 (a chain's first-ever harvest starts at the board's
+  Lessons baseline, + 1 — entry 0001 only in a repo with no inherited
+  history, ADR-0010);
 - an idle chain (no new entries since its previous harvest) still gets a
   row — span `(idle)`, yield NIL; it tiles, and its next `from` is
   unchanged.
@@ -88,12 +89,13 @@ classifier as a procedure, not a judgement call:
 
 1. Read the rule statement with provenance hidden and every project noun
    removed — literally: the statement alone, no incident. Still teaches?
-   **Tier 1** (`LC-nn`).
+   **Tier 1** (`LC-<chain>-nn`).
 2. Restore only the domain nouns. Teaches a stranger who knows the domain
-   but not the project? **Tier 2** (`LD-nn`), and the target pack is
-   **named** — an existing pack in `docs/domains/`, or the pack the
-   candidate argues should exist (pack creation is a shell-side merge
-   decision, not the contributor's).
+   but not the project? **Tier 2** (`LD-<chain>-nn`), and the target
+   domain section of `docs/LESSONS.md` is **named** — an existing
+   section, or the section the candidate argues should exist (creating
+   one is a landing decision, recorded in the landing entry with its id
+   prefix stated in the new section's heading).
 3. Else **tier 3**: route it into the project's own local accretion — its
    protocol, charters, plans — and record in the disposition column where
    it landed or the carry-forward obligation that will land it. Or a war
@@ -111,79 +113,55 @@ At `P<n>-phase-accept`, dispatch one additional mining round to the
 is the phase's accumulated **harvest record** — war stories, nil
 declarations, tier-3 landings, bounce/`BUG-` packets — never raw journal
 entries (those stay tiled, mined once), and its question is only *what
-recurs*. Its candidates join this gate's classify/package flow attributed
+recurs*. Its candidates join this gate's classify/land flow attributed
 to the auditor; its report lands in `docs/reports/audit/**` and is
 transcribed like any auditor verdict.
 
-### 5. Produce the export packet
+### 5. Land — locally, in the gate's closing commits (ADR-0018)
 
-From the tier-1/2 rows, produce the export packet
-([`FEDERATION.md`](../FEDERATION.md) §6): header (source org, gate, date);
-one candidate table per tier carried, `LC-`/`LD-` ids local; optional
-war-story appendix. Every row's incident description is
-**self-contained** — sufficient to judge LH2 and LH3 without visiting this
-repository, because the reviewer upstream cannot assume it is reachable;
-permalinks only where the source is public, and only as a supplement.
-Never pre-allocate final `L-` or pack-local ids — the landing fence does
-that (the org generic at the inner hop, the canonical shell at its
-merge). Commit the packet at
-`docs/federation/outbox/<parent-record-id>.md` as part of the gate record
-and cite that path in the block. If every row is tier-3, war story, or nil, declare **NONE** in
-the block; a nil-export gate is a normal gate.
+For each tier-1/2 candidate, in order:
 
-### 6. The sponsor's one question
+1. **Dedup against the file** (ADR-0010 as amended): read the candidate
+   against the existing corpus. Verdicts: **land** (new entry) ·
+   **merge-by-citation** (the existing entry absorbs the new incident as
+   a citation) · **drop as duplicate**, appending a `**Recurrence.**`
+   note to the existing entry (count + citing packet ids — the third
+   independent recurrence opens a promotion obligation on the board) ·
+   **contradiction** — escalate to the orchestrator's judgement,
+   resolved by `**Supersedes.**` on the winning entry and
+   `**Superseded-by.**` on the losing one, which is never deleted.
+2. **Transcribe** into `docs/LESSONS.md` entry format, allocating the
+   final id (next in the receiving section), with a **self-contained
+   incident description**: the file is the travel copy, and a reader
+   holding only the file — in another project, another org, another
+   session — must be able to judge LH2 and LH3 without visiting this
+   repository. Repository-qualified citations (ADR-0017 A1) supplement
+   the description; they never replace it.
+3. **Open obligations** (ADR-0012): an entry whose text names a normative
+   home — a protocol section, charter, playbook, template — opens an
+   amendment obligation on the board's ledger in the same commit.
+4. **Disposition before the gate closes** (the trichotomy, at gate
+   cadence): every obligation this harvest opened ends the round
+   DISCHARGED (the amendment landed), NARRATIVE-ONLY (re-marked, reason
+   recorded), or DEFERRED (named reason + named discharging event) — and
+   the board's DEFERRED backlog is swept, each reason re-stated or
+   discharged. Gates are this repository's cadence; there is no other
+   moment the sweep can live.
 
-At a **sponsor-signed** gate (G0, `P<n>-spec-freeze`, `P<n>-phase-accept`),
-first read the board's **outer-hop standing pre-answer** line
-([`FEDERATION.md`](../FEDERATION.md) §7): where a standing line stands,
-ask nothing — record the line's board reference in the block and skip
-straight to the landing below. Otherwise
-present the **outer-hop** decision beside the gate signature,
-decision-ready and one line long: *send this gate's lessons onward to the
-canonical shell? Default yes.* — one question covering everything this
-gate will land. Record the answer in the block and in the orchestrator's
-journal. Then, **once the signature is journaled — never before**, the
-**inner hop runs automatically**: this gate's export packet and every
-packet DEFERRED to it are landed in the org generic through the
-org-fence procedure ([`FEDERATION.md`](../FEDERATION.md) §5.1 — ledger
-check, fresh clone, attempt-numbered staging branch, the four screens,
-transcription, fast-forward-only integration with the ledger line in the
-same commit, all under the signature's authority; a rejected push is the
-§5.2 race signal — discard the clone and redo, never merge). The landing
-commits are recorded in the block as its final cells — `PENDING
-(attempt n)` while §5.2 retries run — and on a
-yes the packets go onward (§7). A bounced gate lands nothing. At a parent the sponsor does **not**
-sign — an `SO-` packet or `P<n>-module-ready` — there is no signature to
-ride: commit the export packet locally, record **DEFERRED to the next
-sponsor-signed gate** in the block, and ask nothing. One yes/no per
-sponsor-signed gate, never per module. **NO** is the exception path for organizations
-that cannot share ([`FEDERATION.md`](../FEDERATION.md) §7): the packet
-stays local as part of the gate record, and nothing else about the harvest
-changes. This and the gate signature are the sponsor's only per-gate
-touchpoints — at most two, and only the signature where a standing
-pre-answer stands (the one-time E0 founding setup aside, PROTOCOL §8);
-everything above ran without them.
+If every candidate is tier-3, war story, or nil, declare **NONE** in the
+block; a nil-landing gate is a normal gate. The block's landing cells
+record the landing commit SHAs; the gate is then declared passed.
 
-### 7. Transmit
+### 6. The travel copy
 
-On yes, open **one pull request per unsent export packet** against the
-**canonical shell** — the org generic's board sent-ledger records what
-has been sent — each PR adding exactly one file under
-`docs/federation/inbox/<source-org>-<project-slug>-<parent-record-id>.md`
-([`FEDERATION.md`](../FEDERATION.md) §7). The PR is a delivery vehicle,
-never merged as-is: at the canonical fence (§8.1), the maintainer stages
-the packet as the shell's own protocol commits, screens it with a
-reviewer agent (the four screens of §8: the LH bars,
-teach-don't-instruct, leak, redundancy),
-transcribes accepted candidates, and a **human maintainer merges the
-staging branch — never automated**: `docs/LESSONS.md` and the domain
-packs are constitution-adjacent text that reaches future agents' work
-through the read path (work-order standing-lessons sections and promoted
-amendments, ADR-0012), so a foreign contribution is a prompt-injection
-surface, and the human at the merge is a permanent property of the
-canonical fence. The orchestrator's duty ends at the PR; final id
-allocation happens at merge, and an accepted entry naming a normative
-home opens the §8.1 step-4b amendment obligation there.
+Nothing transmits, ever (ADR-0018). What compounds beyond this repository
+does so **by hand**: the board's Lessons-baseline line marks where this
+program's own learning starts, so `docs/LESSONS.md` past the baseline is
+what this project learned — the tail a human hands to another session, or
+seeds a new project's file with (recorded there as a seed-provenance
+line). The shell's own corpus grows the same way: a maintainer session
+lands hand-carried entries as ordinary reviewed commits. Shell defects
+are GitHub issues on the shell — a defect is never a lesson.
 
 ## Hygiene
 
@@ -192,11 +170,11 @@ home opens the §8.1 step-4b amendment obligation there.
   auditor's sampling of span tiling and bar honesty is the enforcement,
   and a padded yield is a finding where a declared nil is not.
 - **Day-zero, per-gate.** The first harvest of a program tiles from the
-  fork-point baseline + 1 (entry 0001 only in a repo with no inherited
-  history — ADR-0010): a project mines its own history, never its
-  template's. There is no warm-up gate exempt from the precondition —
-  G0's own checklist carries the program's first block, mining the
-  bring-up spans; a nil yield there is normal and declared.
+  board's Lessons baseline + 1 (entry 0001 only in a repo with no
+  inherited history — ADR-0010): a project mines its own history, never
+  its template's. There is no warm-up gate exempt from the
+  precondition — G0's own checklist carries the program's first block,
+  mining the bring-up spans; a nil yield there is normal and declared.
 - **War stories are corpus, not waste.** A later harvest re-reads them
   when the missing provenance or generality arrives; discarding one
   discards the half-paid lesson.

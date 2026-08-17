@@ -59,39 +59,32 @@ Your entire job:
   may ever reach you (scope changes, toolchain/licensing calls, critical audit
   findings, deadlocks, schedule blowouts, gate approvals). Everything
   arrives batched, with options, a recommendation, and a cost.
-- **One recurring yes/no**: whether to share your organization's
-  harvested lessons with the wider community (§7). Default yes; saying
-  no costs you nothing locally — and you can record a standing answer
-  on your org's board once, after which no gate asks again.
+- **Nothing else.** The lessons system (§7) runs entirely inside your
+  copy and never asks you anything — there is no sharing question,
+  because nothing is ever sent anywhere.
 
 Everything else — planning, task routing, code review, test adequacy,
 bug adjudication — happens inside the org and is *deliberately not
 yours*. The short version of your job description lives in
 [`docs/SPONSOR.md`](SPONSOR.md); it fits on one page.
 
-## 3. The three levels: shell, org, project
+## 3. The two kinds of copy: shell and project
 
-There are three kinds of copy of this repository, and understanding the
-distinction is the one piece of structure worth learning
-([`docs/FEDERATION.md`](FEDERATION.md) §0):
+There are two kinds of copy of this repository (ADR-0011, ADR-0018):
 
 1. **The canonical shell** — the upstream original you found on GitHub.
-   Maintained by a human maintainer. Collects lessons from every
-   organization that chooses to share.
-2. **Your org generic** — your fork of the shell. Made **once**, when
-   your team decides to use this. It is your organization's home base:
-   it runs no project, but every project you run sends what it learned
-   back here automatically, so it gets smarter with every project you
-   complete.
-3. **Your projects** — forks of *your org generic*, one per program. Each
-   boots already knowing everything your organization has learned.
+   Maintained by a human maintainer; it runs nothing, and it ships the
+   accumulated starter lessons every copy inherits.
+2. **Your projects** — copies of the shell, one per program. Each boots
+   with the shell's lessons corpus; to carry your own organization's
+   experience forward, you hand a new project the previous project's
+   `docs/LESSONS.md` — the travel copy (§7).
 
 Which kind a given copy is is written on its board — the **Repo role**
 line — and the orchestrator reads it before doing anything, so the right
-behavior happens in whichever copy you opened; a fork's first act is
-updating that line (ADR-0011).
+behavior happens in whichever copy you opened; a fresh copy's first act
+is its founding commit, which sets that line to `project`.
 
-So the flow is: fork the shell once → fork your org generic per project.
 Here "fork" means the **relationship** — a full-history copy — not
 GitHub's button (which cannot fork a repo into the account that owns it;
 on a single account, clone-and-push with the commands in the README is
@@ -100,25 +93,18 @@ button squashes git history, and this repository's history is
 load-bearing (the CI re-verifies the whole chain of journals; a squashed
 history fails it by design).
 
-**Working alone on one project?** You can skip the middle level: your
-single copy then plays both roles — lessons land in itself, and its
-upstream stays the canonical shell. If a second project ever becomes
-likely, create the real org generic first; the README's Getting Started
-section describes the graduation path.
-
 ## 4. Your first session, step by step
 
-1. Fork (twice, per §3 — or once, solo). Open a Claude Code session on
-   the project copy and say:
+1. Copy the shell (README's Getting Started commands). Open a Claude
+   Code session on the copy and say:
    *"Read CLAUDE.md — you are this repository's orchestrator. Walk me
    through G0."*
    (G0 — "gate zero" — is the one-time founding gate where the project
    slot gets filled and the org is ratified. It happens once, before
-   the per-phase gates of §5. The session checks the board's Repo role
-   line first, so a session opened in your org generic or in the shell
-   itself does the right thing there instead — an org generic is
-   founded by the short Stage 0 checklist in BOOTSTRAP.md and then
-   simply waits to be forked from.)
+   the per-phase gates of §5. The session founds the copy first —
+   BOOTSTRAP.md Stage 0, automatic — and checks the board's Repo role
+   line before acting, so a session opened in the shell itself does
+   maintainer work there instead.)
 2. The orchestrator verifies its own machinery first (self-tests, CI),
    then asks you for the project. **Give it a brain dump**: paste prose,
    drop files — anything you have (rough requirements, reference specs,
@@ -126,10 +112,9 @@ section describes the graduation path.
    works, but the brain dump is the expected path.
 3. It comes back with **one signed proposal**: the project split into
    phases, measurable success criteria per phase, the toolchain and
-   reference materials with license classes, which lesson packs apply
-   (§7), and the bookkeeping (all recorded so a future session can pick
-   up where this one left off). You read it, correct it if needed, sign
-   once.
+   reference materials with license classes, and the bookkeeping (all
+   recorded so a future session can pick up where this one left off).
+   You read it, correct it if needed, sign once.
 4. You complete the one-time setup when the checklist reaches it:
    ratify the charters, and set branch protection with its branch-flow
    decision (exact click-path in
@@ -168,10 +153,9 @@ load-bearing**: every claim is checked by someone who didn't make it,
 and the checker is itself spot-checked. Where a safeguard rests on audit
 rather than on a script, the documents say so plainly — no guarantee
 here is stronger than what the repository actually enforces. One
-honesty note before the list: these four mechanisms are live and
-machine-checked today, but the lessons *pipeline* of §7 has never yet
-executed anywhere — its first real landing is its designated first
-test, and the federation contract says so in its own preamble:
+honesty note before the list: the first three mechanisms are live and
+machine-checked today; the fourth's audit lane is exercised from each
+program's first spawn:
 
 - **Append-only journals.** Every agent keeps a journal, and every
   commit pairs one agent's work with that agent's reasoning — enforced
@@ -207,39 +191,40 @@ test, and the federation contract says so in its own preamble:
 You can spot-check everything yourself with plain git commands —
 [`docs/SPONSOR.md`](SPONSOR.md) lists them.
 
-## 7. The lessons system: your org gets smarter
+## 7. The lessons system: your copy gets smarter
 
 Every gate, each agent mines its own journal for lessons — rules that
 would have prevented a real incident. Each candidate is classified
-automatically ([`docs/FEDERATION.md`](FEDERATION.md)):
+automatically (PROTOCOL §7.1):
 
 - **Tier 1 — general**: true for any project, stated with no
   project-specific vocabulary. Example shape: *"a reviewer must re-run
   the failing command, not re-read the passing log."*
 - **Tier 2 — domain**: needs domain vocabulary (say, Ethernet or CRC)
-  but no project internals. Kept in per-domain "packs" that load only
-  for projects in that domain.
-- **Tier 3 — project-specific**: stays in the project.
+  but no project internals. Kept in domain-titled sections of the same
+  file.
+- **Tier 3 — project-specific**: stays in the project's own rules.
 
-Tier 1 and 2 lessons land in **your org generic** automatically when you
-sign a gate — that's the compounding: your second project starts where
-your first left off. Then you get the one recurring question: *send them
-onward to the canonical shell?* Default yes — or answer it once, for
-good, with a standing line on your board, and it is never asked again.
-Yes means your organization
-contributes to (and benefits from) the commons; no means everything
-stays home and nothing else changes. Sharing opens a pull request; a
-human maintainer screens it and re-lands accepted lessons **by hand,
-always**, through the shell's own commits — the PR itself is never
-merged, and no machine ever lands a contributed lesson unreviewed,
-because contributed lessons reach future agents' working instructions —
-through the work orders that cite them and the amendments that promote
-them (ADR-0012) — so a poisoned lesson would eventually reach real work.
+Tier 1 and 2 lessons land in your copy's own
+[`docs/LESSONS.md`](LESSONS.md) when a gate closes — deduplicated
+against everything already there, each entry written so a stranger
+could learn from it without seeing the incident. **Nothing is ever
+sent anywhere**: there is no upload, no sharing question, no automatic
+flow between repositories (ADR-0018). The file itself is the **travel
+copy** — when you start your next project, hand it over (or just its
+tail past the board's baseline line: that part is what *this* project
+learned) and the new copy boots with your organization's experience.
+The shell's own starter corpus grows the same way: if you choose to
+offer lessons back, you hand the file to the shell's maintainer, who
+lands chosen entries by hand through ordinary reviewed commits —
+because lessons become instructions future agents follow, a human
+always sits at that merge.
 
 ## 8. Common situations
 
-**"Our work is confidential."** Answer no to the sharing question.
-Everything still works; lessons still compound inside your organization.
+**"Our work is confidential."** Nothing leaves your copy unless you
+personally hand its lessons file to someone. There is no sharing
+mechanism to opt out of.
 
 **"CI is red and I don't know why."** Say so to the orchestrator —
 diagnosing it is its job, not yours. A red `journal-check` on every
@@ -253,15 +238,16 @@ that way — including for the agents themselves.
 `git log --grep 'Agent: rtl_lead'` — the full thread of any agent's
 work, with reasoning, forever.
 
-**"We finished a project. Now what?"** Fork your org generic again for
-the next one. It boots with everything the last project taught your
-organization. (A project's knowledge is fixed when it's forked —
-running projects don't absorb siblings' lessons mid-flight, by design.)
+**"We finished a project. Now what?"** Copy the shell again for the
+next one, and hand the new session the finished project's
+`docs/LESSONS.md` — it seeds the new copy and records the provenance.
+(A project's knowledge is fixed at founding — running projects don't
+absorb siblings' lessons mid-flight, by design.)
 
 **"Something in the shell itself seems wrong or broken."** File it as a
 GitHub issue on the canonical shell (the upstream your board names).
-Defects travel as issues; lessons travel through the pipeline — your
-orchestrator knows the difference and keeps a local defect log.
+Defects travel as issues; lessons stay in the file — your orchestrator
+knows the difference and keeps a local defect log.
 
 **"The orchestrator asked me a process question."** It shouldn't have —
 the boot path is fully determined, and the only things it may ask you
@@ -280,7 +266,7 @@ that *should*: gate signatures and the six escalation classes.
 | The setup walkthrough | [`BOOTSTRAP.md`](../BOOTSTRAP.md) (the orchestrator drives it) |
 | The org chart and every charter | [`ORG_CHART.md`](../ORG_CHART.md), [`agents/charters/`](../agents/charters/) |
 | The law (journals, commits, gates, campaigns) | [`agents/PROTOCOL.md`](../agents/PROTOCOL.md) |
-| The lessons and sharing contract | [`docs/FEDERATION.md`](FEDERATION.md) |
+| The lessons file — and travel copy | [`docs/LESSONS.md`](LESSONS.md) |
 | Live program state | [`tasks/BOARD.md`](../tasks/BOARD.md) |
 | How key procedures run | [`docs/playbooks/`](playbooks/) |
 

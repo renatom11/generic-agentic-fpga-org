@@ -1,36 +1,48 @@
-# LESSONS — the tier-1 core
+# LESSONS — the learned-rules file, and the travel copy
 
-This file is the **tier-1 core** of the three-tier lessons taxonomy
-(PROTOCOL §7.1; the sponsor's numbering runs by descending generality —
-"tier 1 general, tier 2 domain, tier 3 project specific"):
+This file is where this repository's organization keeps what it has
+learned — and it is deliberately written so that a **stranger can learn
+from it**: hand this file (or its tail past the board's Lessons-baseline
+line) to another session, another project, another team, and every entry
+teaches without any access to the incidents behind it. That portability
+is the whole transport design (ADR-0018): lessons accrete here locally,
+at every gate, and travel **only by hand** — a human carries the file.
+Nothing transmits automatically, and nothing flows upstream.
 
-- **Tier 1 — general**, this file: rules that improve the agent doctrines
-  universally. Bar **LH2-g** — the rule statement contains no proper noun
-  of any project or domain.
-- **Tier 2 — domain**: rules portable across projects sharing a technical
-  domain, kept as packs in [`docs/domains/`](domains/) and loaded by a
-  project only when relevant.
-- **Tier 3 — project**: rules needing project vocabulary; they live in the
-  project's own local accretion and never leave it.
+The three-tier taxonomy (PROTOCOL §7.1; the sponsor's numbering runs by
+descending generality — "tier 1 general, tier 2 domain, tier 3 project
+specific"):
 
-Entries arrive here through the per-gate lessons harvest (PROTOCOL §7.1)
-and through reviewed contributions from other organizations
-([`docs/FEDERATION.md`](FEDERATION.md)): staged on a branch, screened by
-the reviewer agent, merged by a human maintainer — never automatically —
-with core `L-` ids allocated at the landing fence
-([FEDERATION](FEDERATION.md) §4).
+- **Tier 1 — general**, this file's general sections: rules that improve
+  the agent doctrines universally. Bar **LH2-g** — the rule statement
+  contains no proper noun of any project or domain.
+- **Tier 2 — domain**, this file's domain-titled sections (each states
+  its id prefix in its heading): rules portable across projects sharing
+  a technical domain. Bar **LH2-d** — domain nouns admissible, project
+  nouns barred.
+- **Tier 3 — project**: rules needing project vocabulary; they live in
+  the project's own local accretion (its protocol, charters, plans) and
+  never enter this file.
+
+Entries arrive here through the per-gate lessons harvest (PROTOCOL §7.1,
+`docs/playbooks/lessons-harvest.md`): mined from journals, held to the
+LH1/LH2/LH3 bars, deduplicated against this corpus, and transcribed in
+the gate's closing commits with locally-allocated ids. In the canonical
+shell, entries may also arrive by **maintainer hand-carry** — a human
+brings another project's travel copy, and a maintainer session lands
+chosen entries as ordinary reviewed commits. There is no other path in.
 
 **Nothing here is directly normative — entries reach work through two
 channels** (ADR-0012). Routine: a work order's **Standing lessons in
-force** section, filled by the issuing lead from this core and the
-BOARD-declared packs, binds the entries it cites for that task.
-Structural: an entry whose normative home names a protocol section,
-charter, playbook, or template carries an **amendment obligation**
-(FEDERATION §5.1/§8.1 step 4b) — it graduates into the documents agents
-already must read, or is re-marked "narrative only". Each entry names its
-normative home (PROTOCOL §, ADR-000N of this shell, or a playbook) or
-says "narrative only". The entries below are the seeding harvest — the operating record
-this shell was distilled from. Citations are permalinks into the public
+force** section, filled by the issuing lead from this file, binds the
+entries it cites for that task. Structural: an entry whose normative
+home names a protocol section, charter, playbook, or template carries an
+**amendment obligation** (PROTOCOL §7.1, at gate cadence) — it graduates
+into the documents agents already must read, or is re-marked "narrative
+only". Each entry names its normative home (PROTOCOL §, ADR-000N of this
+shell, or a playbook) or says "narrative only". The entries below are
+the seeding harvest — the operating record this shell was distilled
+from. Citations are permalinks into the public
 [agentic-fpga program](https://github.com/renatom11/agentic-fpga), pinned at
 commit `1799e10a37f19059ac3337982af4b6d035e14d0c` (the seeding pin; one
 source document landed past the pin and is cited at its landing commit,
@@ -43,13 +55,13 @@ Playbook references point at the operating playbooks in
 `lessons-harvest.md`. (Per-entry "(planned)" markers inside Now-lives-in
 lines are part of the merged seeding record and stand as written.)
 
-**Optional entry fields** (ADR-0010): `**Supersedes.**` on an entry that
-resolves a contradiction, naming the id it replaces, and
+**Optional entry fields** (ADR-0010 as amended): `**Supersedes.**` on an
+entry that resolves a contradiction, naming the id it replaces, and
 `**Superseded-by.**` on the losing entry — which is never deleted;
-`**Recurrence.**` — appended by the landing fence when the redundancy
-screen drops an independently re-derived duplicate (count plus citing
-packet ids; at the third independent arrival the entry opens a promotion
-obligation on the board — [`docs/FEDERATION.md`](FEDERATION.md) §8).
+`**Recurrence.**` — appended by the landing dedup when an independently
+re-derived duplicate is dropped (count plus citing packet ids; at the
+third independent arrival the entry opens a promotion obligation on the
+board — PROTOCOL §7.1).
 
 **Growth law** (ADR-0010, documented convention): this file and the packs
 accrete without bound by design, and roll over like journals when they

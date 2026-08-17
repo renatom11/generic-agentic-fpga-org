@@ -17,60 +17,43 @@ Claude session in this repository, which boots from
 [`CLAUDE.md`](CLAUDE.md)). The live checklist both are filling is
 [`docs/gates/G0-checklist.md`](docs/gates/G0-checklist.md).
 
-## Stage 0 — founding an org generic (once per organization)
+## Stage 0 — founding the copy (once per project)
 
-Forks ship with GitHub Actions disabled, and the org generic is the one
-repo every project of yours will depend on — so its founding is a short
-checklist, run by the founding session before anything forks from it:
+Copies ship with GitHub Actions disabled, so founding is a short
+checklist, run by the founding session before G0 opens (ADR-0018 — one
+copy per project; there is no middle level):
 
-1. **Enable Actions** on the fork (Settings → Actions) and confirm
+1. **Enable Actions** on the copy (Settings → Actions) and confirm
    `journal-check` runs green on the next push.
-2. **Rulesets**: configure `protect-history` (Active, empty bypass list,
-   Restrict deletions + Block force pushes) targeting `main` **and
-   `fed/**`** — the federation staging namespace
-   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.2 clause 10).
-3. **Verify the enforcement with your own hands**:
+2. **Verify the enforcement with your own hands**:
    `bash scripts/test_protocol.sh` green,
    `bash scripts/check_journals.sh --all` green.
-4. **Record the identity**: set the board's **Repo role** line to
-   `org-generic` and re-record the **This repository** line to this
-   copy's own URL; the federation-upstream line stays the canonical
-   shell. **The founding commit lands on the default branch (`main`),
-   directly** — Stage 0 predates any branch-flow decision (that is a
-   project matter, G0 row A8), and every future copy of this repo is
-   cloned from the default branch and boots off its board: a founding
-   parked on a side branch leaves the default branch claiming the
-   shell's identity, and every child cloned meanwhile mis-founds as a
-   copy of the shell. In an environment whose harness pins the session
-   to an assigned working branch, landing here needs the sponsor's
-   one-time say-so — that authorization is an E0 founding action, not
-   a process question: bundle the ask into the founding greeting, and
-   honor a grant already present in the sponsor's first message
-   instead of asking.
-5. **Re-scope the freeze**: rewrite the board's feature-freeze bullet to
-   this repository's own observable end condition — *"No new law in this
-   repository until its first lessons landing completes
-   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.1)"*. *Law* means the
-   inherited shell law — protocol, charters, scripts, templates;
-   project-scoped ADRs this bootstrap mandates (toolchain lane, design
-   choices) are project decisions, never blocked (ADR-0017 A1). The inherited
-   shell-history wording references events this fork cannot observe and
-   never binds it as written.
-6. **Seed the defect channel**: confirm the board's upstream-defect
-   bullet points at the federation upstream's issue tracker; the local
-   defect log starts empty. Shell defects travel as issues; lessons
-   travel through the pipeline — never mix the channels.
-7. **Stop — green before fork.** Stage 0 is complete only when the
-   default branch carries the founding commit and its CI is green;
-   until then nothing may be forked from this repo. An org generic runs
-   no project and answers no intake — it waits to be forked from, and
-   receives its projects' landings
-   ([`docs/FEDERATION.md`](docs/FEDERATION.md) §5.1).
-
-A solo-collapsed copy (README's Getting Started) skips Stage 0: its one
-repo is founded as a project below, with the role line `solo-collapsed`
-and the `fed/**` ruleset noted at the A7 click-path — and steps 5–6 (the
-freeze re-scope and defect channel) run at B6 instead.
+3. **Record the identity**: set the board's **Repo role** line to
+   `project` and re-record the **This repository** line to this copy's
+   own URL. **The founding commit lands on the default branch (`main`),
+   directly** — Stage 0 predates any branch-flow decision (that is G0
+   row A8), and a session booting any copy reads the default branch's
+   board: a founding parked on a side branch leaves the default branch
+   claiming the shell's identity, and a session opened meanwhile
+   mis-reads the copy as a shell. In an environment whose harness pins
+   the session to an assigned working branch, landing here needs the
+   sponsor's one-time say-so — that authorization is an E0 founding
+   action, not a process question: bundle the ask into the founding
+   greeting, and honor a grant already present in the sponsor's first
+   message instead of asking.
+4. **Seed the travel copy, if the sponsor brought one** (ADR-0018): if
+   the founding message or `intake/` carries a previous project's
+   `docs/LESSONS.md`, land the chosen entries and record the **seed
+   provenance** and the resulting **Lessons baseline** on the board
+   (last inherited entry id per section — the first harvest tiles from
+   baseline + 1). With no seed, record the baseline from the shipped
+   corpus as inherited.
+5. **Confirm the defect channel**: the board's upstream-defect bullet
+   points at the canonical shell's issue tracker; the local defect log
+   starts empty. Shell defects travel as issues; lessons stay local and
+   travel by hand — never mix the channels.
+6. **Green before G0.** Stage 0 is complete only when the default branch
+   carries the founding commit and its CI is green; G0 opens then.
 
 ## Stage 1 — G0: ratify the org, fill the project slot
 
@@ -141,26 +124,11 @@ signatures:
 5. **B5** — success criteria per phase (these become the
    `P<n>-phase-accept` acceptance rows later, via
    [`docs/gates/templates/`](docs/gates/templates/)).
-6. **B6** — the federation founding record: the orchestrator proposes
-   this project's org generic URL from the fork relationship (for a
-   clone, one line in the same proposal), verifies push access
-   **read-only** (`git ls-remote` + `git push --dry-run` — never a probe
-   push), and records on the BOARD the upstream line, the **project
-   slug**, the **fork-point harvest baseline**, and the completed **Repo
-   role** line — your intake signature covers all of it, nothing to
-   configure ([`docs/FEDERATION.md`](docs/FEDERATION.md) §0, §5.1;
-   ADR-0010/0011).
-
-**Domain packs ride the same signature.** From the intake material the
-orchestrator also declares which [`docs/domains/`](docs/domains/) lesson
-packs are relevant to your project and loads them — these are your org
-generic's packs, inherited when this project was forked from it
-([`docs/FEDERATION.md`](docs/FEDERATION.md) §0) — as part of the proposal
-it already brings you. You
-never pick or configure a pack; signing the intake covers it. The declared
-packs are recorded on [`tasks/BOARD.md`](tasks/BOARD.md) in the same commit
-as the intake rows — the line a later orchestrator session rehydrates its
-loaded packs from.
+6. **B6** — the founding record, confirmed: the board's **Repo role**
+   (`project`) and **This repository** lines as Stage 0 recorded them,
+   the **Lessons baseline** (and seed provenance, where Stage 0 landed
+   a hand-carried travel copy) — your intake signature covers all of
+   it, nothing to configure (ADR-0010/0011/0018).
 
 Intake fills the project slot; it never amends the protocol (PROTOCOL §1).
 Until intake is on the BOARD, the orchestrator spawns no agent.
@@ -268,15 +236,14 @@ From here the loop is the one the source program practiced — five lines:
 
 Every module sign-off and every gate in that loop also carries a **lessons
 harvest** as a precondition: agents mine their own journals, the
-orchestrator collates the yield into the gate record, produces an export
-packet, and lands it in your organization's own generic — all automatic,
-instantiated by the orchestrator into every gate checklist — and by
-dv_lead into its own `SO-` packets (ADR-0013) — from
+orchestrator collates the yield into the gate record and lands what
+generalises in this copy's own
+[`docs/LESSONS.md`](docs/LESSONS.md) — all automatic, instantiated by
+the orchestrator into every gate checklist — and by dv_lead into its own
+`SO-` packets (ADR-0013) — from
 [`docs/gates/templates/lessons-harvest-block.md`](docs/gates/templates/lessons-harvest-block.md)
-([`docs/FEDERATION.md`](docs/FEDERATION.md) §0, §5). You operate none of
-it. Your per-gate touchpoints are the gate signature you were already
-giving, and one yes/no on sending the newly-landed lessons onward to
-the canonical shell (default yes) — asked only at gates you sign, and
-not at all once a standing answer is recorded on your board
-([`docs/FEDERATION.md`](docs/FEDERATION.md) §7); other records defer
-to the next one.
+(PROTOCOL §7.1, ADR-0018). You operate none of it, and no lessons
+question ever reaches you: your per-gate touchpoint is the gate
+signature you were already giving. When this project ends — or whenever
+you like — `docs/LESSONS.md` is the travel copy you hand to your next
+one.
