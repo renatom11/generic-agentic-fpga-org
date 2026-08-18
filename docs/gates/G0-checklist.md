@@ -24,12 +24,32 @@ checklist is [`BOOTSTRAP.md`](../../BOOTSTRAP.md).
 
 **Section A note (ADR-0017 A1)**: after the founding re-verification (CLAUDE.md, M0 step 1), re-point rows A1–A5's signature cells at the journal entry recording **this repository's own** re-verification; the seeding entries remain as provenance, never as authority — a copy's gate must resolve to the copy's record.
 
-### A7 click-path (branch rulesets)
+### A7 click-path (protecting pushed history)
 
-Use GitHub's **rulesets** (Settings → Rules → Rulesets), not classic branch
-protection — an empty bypass list makes a ruleset admin-proof by default.
-Do this **only after A3 is green** — the `journal-check` status check must
-have run at least once before GitHub will list it in the picker.
+**The hosting platform is a declared parameter** (ADR-0019,
+[`docs/PLATFORM.md`](../PLATFORM.md)). What the platform must buy is the same
+everywhere — refusal of force pushes and of branch deletion on the protected
+branches, and the journal-check pipeline required to pass — and the clicks
+differ. **Record the platform, the settings and the live-fire refusal on the
+BOARD**; a later reader cannot tell which world they are in from the scripts.
+
+**On GitLab** → Settings → Repository → **Protected branches**, per branch:
+*Allowed to force push* **OFF**, and the smallest workable *Allowed to push
+and merge* set; then, in PR-flow mode, Settings → Merge requests →
+**Pipelines must succeed** ON. **GitLab has no empty-bypass-list analogue** —
+a project Owner can change these settings, so the honest board sentence is
+*history is protected by the server, and that protection is protected by who
+holds Owner*. Narrow the Owner set; that is the control. Full detail, and the
+degraded posture where no platform is reachable at all, in
+[`docs/PLATFORM.md`](../PLATFORM.md).
+
+**On GitHub**, the click-path below. Use **rulesets** (Settings → Rules →
+Rulesets), not classic branch protection — an empty bypass list makes a
+ruleset admin-proof by default. Do this **only after A3 is green** — the
+`journal-check` status check must have run at least once before GitHub will
+list it in the picker. *(That ordering is a GitHub property, not a law here;
+GitLab's boolean needs no prior run. Run CI green first anyway — an
+unverified protective setting is a belief.)*
 
 **Ruleset 1 — "protect-history"** (guards git history):
 

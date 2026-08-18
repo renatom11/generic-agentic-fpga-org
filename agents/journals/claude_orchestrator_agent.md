@@ -3227,3 +3227,83 @@ sponsor's question showed was missing.
 - docs/gates/G0-checklist.md
 - docs/specs/REQUIREMENTS-TEMPLATE.md
 - agents/handoffs/templates/WO-template.md
+
+## [J-orchestrator-0050] 2026-08-18T21:30:00Z | task:none | The platform becomes a parameter: GitLab ships beside GitHub, and the neutrality that made it cheap is turned from luck into a rule
+
+### Trigger
+Sponsor direction, 2026-08-18: a company-hosted GitLab instance and
+approved Claude Code access for proprietary data, and the question of what
+that means for this shell. Maintainer mode.
+
+### Inputs
+- scripts/*.sh (all five, measured for platform coupling before anything
+  was written); .github/workflows/journal-check.yml; agents/PROTOCOL.md
+  SS5; docs/gates/G0-checklist.md A7; BOOTSTRAP.md Stage 0; README.md.
+- GitLab's protected-branch and merge-request settings, and its CI
+  predefined variables, as the platform documents them.
+
+### Reasoning
+The measurement came first and decided the shape of the answer: all five
+enforcement scripts contain zero references to any hosting platform and
+invoke no network command. The coupling was entirely prose plus one
+workflow file. So the work is a parameter, not a port - one shell with a
+declared platform rather than two shells that drift.
+
+The part worth recording is that the neutrality was LUCK. Nothing obliged
+it, no test asserts it, and one `gh api` call in a future round would end
+it silently. ADR-0019 decision 3 therefore makes it a rule, with the grep
+as its named (thin, review-enforced) instrument.
+
+Two honest asymmetries refused rather than smoothed. GitLab has no
+empty-bypass-list analogue, so an Owner can change a protected-branch
+setting: the true GitLab sentence is that history is protected by the
+server and that protection is protected by who holds Owner, and the board
+records the Owner set as the control. And GitHub's required-check picker
+ordering is a GitHub property, not a law here - retired on GitLab, with
+the SEQUENCE kept for the reason that survives the platform difference.
+
+### Actions
+- docs/adr/ADR-0019-the-hosting-platform-is-a-parameter.md (new).
+- .gitlab-ci.yml (new): the GitLab twin, same scripts, same arguments.
+- docs/PLATFORM.md (new): both platforms' settings, what each buys, the
+  live-fire step, self-hosted-runner notes, and the no-platform fallback.
+- agents/PROTOCOL.md SS5: amended per ADR-0019 SS4, applied by this seat
+  citing the record.
+- docs/gates/G0-checklist.md A7, BOOTSTRAP.md Stage 0 step 1, README.md:
+  platform-parametric.
+
+### Evidence
+- grep -rn -i "github|actions/|.github" scripts/ -> no matches.
+- grep -rnE '(^|[^a-zA-Z_])(curl|wget|gh|glab|nc|ssh|scp)[[:space:]]'
+  scripts/ -> no matches.
+- bash scripts/test_protocol.sh -> 52 passed, 0 failed.
+- bash scripts/check_journals.sh --all -> OK, 49 commits.
+- .gitlab-ci.yml parses as YAML.
+
+### Outcome
+The shell founds on GitLab without inventing anything, and the enforcement
+layer's platform-neutrality is a rule with a printed check rather than an
+accident nobody was protecting.
+
+### Open-questions
+- I printed a verification instruction in the first draft that came back
+  FALSE when I ran it: a bare https?:// grep returns six hits, all
+  test_protocol.sh fixture strings passed to a local `git remote add`.
+  Corrected before landing, and the correction is recorded in both the ADR
+  and PLATFORM.md rather than quietly fixed - a verification instruction
+  that has not been run is a claim.
+- .gitlab-ci.yml is REVIEWED, NOT RUN: this program has no GitLab instance.
+  The first GitLab founding is its first execution and should treat it as
+  such. Named in ADR-0019 SS5 rather than implied.
+- Decision 3's instrument is a grep nobody is obliged to run. A self-test
+  scenario asserting the scripts invoke no network command is the obvious
+  hardening; owed, not built.
+
+### Files-in-this-commit
+- docs/adr/ADR-0019-the-hosting-platform-is-a-parameter.md
+- .gitlab-ci.yml
+- docs/PLATFORM.md
+- agents/PROTOCOL.md
+- docs/gates/G0-checklist.md
+- BOOTSTRAP.md
+- README.md

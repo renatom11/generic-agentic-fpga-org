@@ -295,7 +295,9 @@ written end condition — never a silent threshold change.
 Enforcement-semantics changes ship with their proving scenario in
 `scripts/test_protocol.sh` (§11).
 
-**CI re-verification**: `.github/workflows/journal-check.yml` runs
+**CI re-verification**: the journal-check pipeline — defined at
+`.github/workflows/journal-check.yml` on GitHub and `.gitlab-ci.yml` on
+GitLab, both running the same scripts with the same arguments — runs
 `scripts/check_journals.sh` over the entire pushed range and re-checks
 R1–R9 and R10 for every commit (append-only across the range, monotonic IDs
 across volume chains, files-list equality, trailer well-formedness, path
@@ -304,10 +306,17 @@ Tree-wide at the range head it additionally verifies every chain is complete
 (no gaps), every back-link hash matches the actual bytes of the predecessor
 volume in that tree, and entry IDs are contiguous across each concatenated
 chain. A locally bypassed check (`git commit --no-verify` outside the script)
-still fails on GitHub before merge. **One out-of-repo dependency**: branch
-protection on `main` **and the working branch** (no force push, no deletion,
-`journal-check` required, no admin bypass) must be configured once by the
-sponsor — G0 checklist item.
+still fails in the platform pipeline before merge. **One out-of-repo
+dependency**: protection of already-pushed history on `main` **and the
+working branch** (no force push, no deletion, the journal-check pipeline
+required to pass) must be configured once by the sponsor — G0 checklist item
+A7. **The hosting platform is a declared parameter** (ADR-0019): what each
+platform's settings buy, what GitLab's model does *not* buy, and what
+degrades to convention where no platform is reachable, are stated in
+[`docs/PLATFORM.md`](../docs/PLATFORM.md) and recorded per founding on the
+board. **No script under `scripts/` may call a platform API or CLI, or
+perform network access** — the enforcement layer stays platform-neutral, and
+the check is the grep printed in `docs/PLATFORM.md`.
 
 Result: `git log --grep 'Agent: rtl_lead'` reconstructs any agent's thread;
 `git diff A..B` always contains the reasoning for what changed.

@@ -172,6 +172,7 @@ docs/
   reports/audit/      auditor findings + the ledger of bugs that escaped verification
   reports/dv/         verification and performance reports (DV = design verification; fills at the first report)
   handbook/           the origin program's process handbook, carried as a pinned copy — the WHY behind every rule here (see its README; reference, not law)
+  PLATFORM.md         the hosting platform as a declared parameter: GitHub and GitLab settings, what each buys, and what degrades without either
 scripts/              protocol enforcement + self-test
 tasks/BOARD.md        live program state
 .claude/agents/       thin spawn launchers (charters remain the truth)

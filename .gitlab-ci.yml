@@ -1,0 +1,54 @@
+# GitLab CI — the journal/commit protocol re-verification (agents/PROTOCOL.md §5).
+#
+# The GitLab twin of .github/workflows/journal-check.yml. Both run the SAME
+# scripts with the same arguments; only the platform's plumbing differs, which
+# is the whole point of docs/PLATFORM.md — the enforcement layer is
+# platform-neutral and the hosting platform is a parameter.
+#
+# WHY FULL HISTORY, EVERY TIME. An incremental range check cannot detect a
+# rewrite of already-pushed history, and a rewrite is exactly the attack the
+# append-only property exists to prevent. The range check that follows exists
+# only to produce a precise failure message, never as a substitute.
+#
+# This file is intentionally toolchain-free. Your build and test pipeline
+# arrives at M1 with the toolchain ADR, as a separate job — see
+# docs/playbooks/ci-evidence.md for the rules a new lane must honour.
+
+stages:
+  - protocol
+
+journal-check:
+  stage: protocol
+  image: debian:stable-slim
+  variables:
+    # The scripts walk the whole commit graph. A shallow clone makes the
+    # full-history check silently weaker, which is worse than it failing.
+    GIT_DEPTH: 0
+    GIT_STRATEGY: clone
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq git coreutils diffutils patch
+    # GitLab CI checks out a detached HEAD; the scripts read committed state
+    # rather than the working tree, so no branch is needed — but the safe
+    # directory marker is, because the runner's user differs from the checkout's.
+    - git config --global --add safe.directory "$CI_PROJECT_DIR"
+  script:
+    - bash scripts/test_protocol.sh
+    - bash scripts/check_journals.sh --all
+    - bash scripts/check_requirements.sh
+    # The pushed range, for a precise message. CI_COMMIT_BEFORE_SHA is all
+    # zeroes on a new branch and on the first push; fall back to the full
+    # check rather than inventing a range.
+    - |
+      set -euo pipefail
+      BEFORE="${CI_COMMIT_BEFORE_SHA:-}"
+      AFTER="${CI_COMMIT_SHA}"
+      if [ -n "$BEFORE" ] \
+          && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] \
+          && git cat-file -e "$BEFORE" 2>/dev/null; then
+        bash scripts/check_journals.sh --range "$BEFORE..$AFTER"
+      else
+        echo "no resolvable range (new branch or first push) — full check already ran"
+      fi
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"

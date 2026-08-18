@@ -19,12 +19,17 @@ Claude session in this repository, which boots from
 
 ## Stage 0 — founding the copy (once per project)
 
-Copies ship with GitHub Actions disabled, so founding is a short
-checklist, run by the founding session before G0 opens (ADR-0018 — one
-copy per project; there is no middle level):
+Founding is a short checklist, run by the founding session before G0
+opens (ADR-0018 — one copy per project; there is no middle level):
 
-1. **Enable Actions** on the copy (Settings → Actions) and confirm
-   `journal-check` runs green on the next push.
+1. **Turn the pipeline on and get it green.** Both CI definitions ship and
+   run the same scripts: `.gitlab-ci.yml` on GitLab (pipelines are on by
+   default; delete `.github/` if you like) and
+   `.github/workflows/journal-check.yml` on GitHub (copies ship with Actions
+   **disabled** — Settings → Actions to enable). Confirm the journal-check
+   pipeline runs green on the next push. The hosting platform is a declared
+   parameter — see [`docs/PLATFORM.md`](docs/PLATFORM.md), and record which
+   one you are on, on the board.
 2. **Verify the enforcement with your own hands**:
    `bash scripts/test_protocol.sh` green,
    `bash scripts/check_journals.sh --all` green.
