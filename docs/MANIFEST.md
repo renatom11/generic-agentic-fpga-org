@@ -42,7 +42,7 @@ accordingly — no questions asked. A process question at boot is, by
 written rule, a defect to be filed ([CLAUDE.md](../CLAUDE.md);
 ADR-0011, as amended by ADR-0018).
 
-## What a project fork contains
+## What a project copy contains
 
 **A staffed organization** ([ORG_CHART.md](../ORG_CHART.md)). An
 orchestrator that runs everything and is the human's only interface. An
@@ -142,4 +142,4 @@ it as an issue on the canonical shell — defects travel as issues;
 lessons stay in the file.
 
 Start here: [the User Guide](GUIDE.md) · [your job, if you are the
-human](SPONSOR.md) · [how to fork and found](../README.md#getting-started).
+human](SPONSOR.md) · [how to copy and found](../README.md#getting-started).

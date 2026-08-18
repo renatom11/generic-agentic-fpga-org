@@ -1,6 +1,6 @@
 # A reusable AI-agent organization for FPGA programs
 
-Fork this repository and you get a **complete engineering organization,
+Copy this repository and you get a **complete engineering organization,
 staffed by AI agents, with one empty slot: your project**. You describe
 what you want built; nine agents — an orchestrator, an architect, design
 and verification leads, workers, and an independent auditor — design it,
@@ -15,12 +15,14 @@ written so a stranger can learn from it, which you can hand to your
 next project, another session, or anyone (ADR-0018). Nothing is ever
 sent anywhere automatically.
 
-**This repository is the installer, not the program.** Like an executable
-that installs software onto a machine, the canonical shell exists to be
-copied: each copy becomes a live project, while the shell itself runs
-nothing and ships the accumulated starter lessons every copy inherits
-(ADR-0011, ADR-0018). Which kind of copy a session is in — `canonical-shell`
-or `project` — is written on its board, the **Repo role** line, and the
+**This repository is the installer, not the program.** The canonical
+shell exists to be copied: each copy becomes one live project, while the
+shell itself runs nothing and ships the starter lessons every copy
+inherits (ADR-0011, ADR-0018). **The copying stops there.** A project is
+not itself an installer, nothing is copied out of a project, and no copy
+reports back to this one — one hop, shell to project, and that is the
+whole topology. Which kind of copy a session is in — `canonical-shell` or
+`project` — is written on its board, the **Repo role** line, and the
 orchestrator reads it before acting.
 
 **Why this exists — the full story: [the Manifest](docs/MANIFEST.md).**
@@ -92,12 +94,8 @@ One copy per project; your part is a one-time four-item setup, then one
 touchpoint per gate — the signature (PROTOCOL §8 class E0; ADR-0018):
 
 **Start a project.** Make a full-history copy of this repository — one
-per project. Throughout these docs, "fork" names the **relationship** (a
-full-history copy), not GitHub's button: the only load-bearing
-requirement is that the commit chain arrives unsquashed. On a single
-account — where GitHub's Fork button cannot target the account that
-already owns the repo — **clone-and-push is the way**, and it is fully
-equivalent:
+per project. **Clone-and-push is the way**, and the only load-bearing
+requirement is that the commit chain arrives unsquashed:
 
 ```bash
 git clone https://github.com/renatom11/generic-agentic-fpga-org my-project
@@ -106,7 +104,9 @@ git remote set-url origin <your new EMPTY repo's URL>
 git push -u origin main
 ```
 
-(Organization accounts can use the Fork button instead.) Do **not** use
+(On an organization account GitHub's Fork button does the same job; on a
+single account it cannot target the account that already owns the repo,
+which is why the commands above are the default path.) Do **not** use
 GitHub's "Use this template" button: it squashes history into a single
 commit, and this repository's commit history is load-bearing — the
 journal-check CI verifies the whole chain, and a squashed history fails

@@ -3148,3 +3148,82 @@ stale, and the origin governs either way.
 - docs/handbook/PROCESS-STE.md
 - README.md
 - docs/MANIFEST.md
+
+## [J-orchestrator-0049] 2026-08-18T04:05:00Z | task:none | The front door still said fork: vestigial vocabulary from the retracted design, and the one sentence that invited the reading it was retracted to prevent
+
+### Trigger
+The sponsor read README's installer paragraph and asked whether the
+scrub had missed it. It had not - that paragraph is C46's own rewrite
+(the diff shows forked -> copied, community's shared lessons -> starter
+lessons every copy inherits, FEDERATION.md -> ADR-0018, three levels ->
+one copy per project). But the reading was reasonable, and chasing it
+found what C46 did miss: the surface prose still leads with the verb
+FORK, in eight live sites, including README's opening sentence.
+
+### Inputs
+- git show cb8a9f3 -- README.md (what C46 actually changed).
+- grep -rn -i "fork" over live docs, excluding journals, ADRs, reports,
+  the carried handbook, and BOARD's dated historical bullets.
+- README.md, docs/GUIDE.md, docs/MANIFEST.md, docs/gates/G0-checklist.md,
+  docs/specs/REQUIREMENTS-TEMPLATE.md,
+  agents/handoffs/templates/WO-template.md.
+
+### Reasoning
+Two defects, one class. First, VOCABULARY: the retraction made
+clone-and-push the mechanism, and BOARD records SD-0004 (fork-button
+impossibility) as answered by it - yet the docs still said "fork" and
+then spent three separate paragraphs apologising for the word ("fork
+names the relationship, not the button"). Apologetics that exist only
+because a retracted design forked from forks. The repair is to lead with
+the real mechanism and demote the button to one parenthetical. Second,
+FRAMING: the installer paragraph was accurate and still invited the
+recursive reading, because it said what a shell does and never said what
+a project does NOT do. A correct sentence that reliably produces a wrong
+inference is a defect of the sentence. The repair states the negative
+space directly - the copying stops at the project - which is the
+sponsor's own retraction in one clause.
+
+Not touched: BOARD's dated historical bullets (annotated records are
+never rewritten), the ADRs and journals (history), the carried handbook
+(pinned copy of another repository's file), and README's one surviving
+"Fork button" mention, which names a real GitHub feature rather than
+this design's vocabulary.
+
+### Actions
+- README.md: opening verb fork -> copy; installer paragraph gains the
+  copying-stops-here clause; getting-started leads with clone-and-push
+  and drops the fork-relationship apologetics; button demoted to an
+  aside.
+- docs/GUIDE.md: same three repairs at its own sites, including "the
+  reusable base copy your organization forks" -> "every project starts
+  from" (the org-ecosystem framing the retraction removed).
+- docs/MANIFEST.md: section title and the closing pointer.
+- docs/gates/G0-checklist.md, docs/specs/REQUIREMENTS-TEMPLATE.md,
+  agents/handoffs/templates/WO-template.md: fork -> copy in live
+  template text, with WO-template's citation clause restated so it says
+  what it means (a copy cannot resolve bare ids into commits its origin
+  made after the copy).
+
+### Evidence
+- git show cb8a9f3 -- README.md: the quoted paragraph is C46's rewrite,
+  not residue.
+- grep -rn -i "fork" over live docs: 11 hits before, 1 after (the
+  GitHub button aside).
+- Every substitution asserted single-site before writing.
+- bash scripts/test_protocol.sh -> "protocol self-test: 52 passed, 0 failed".
+
+### Outcome
+The front door describes the mechanism that exists. The topology is
+stated in the negative as well as the positive, which is what the
+sponsor's question showed was missing.
+
+### Open-questions
+- none
+
+### Files-in-this-commit
+- README.md
+- docs/GUIDE.md
+- docs/MANIFEST.md
+- docs/gates/G0-checklist.md
+- docs/specs/REQUIREMENTS-TEMPLATE.md
+- agents/handoffs/templates/WO-template.md

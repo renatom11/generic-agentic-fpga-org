@@ -11,7 +11,7 @@ Provenance: ADR-0017. This template exists because a field program
 rule about how to work and none about what good output looks like: its
 copy passed every gate and produced a requirements corpus in which 57
 of 91 entries were not requirement statements. The standard below is
-the origin program's, restated as shipped law so a fork inherits it.
+the origin program's, restated as shipped law so a copy inherits it.
 
 ## 0. The standard
 

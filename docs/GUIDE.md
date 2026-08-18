@@ -11,7 +11,7 @@ documents are the law — start here, follow links when you need depth.
 
 ## 1. What this actually is
 
-When you fork this repository you get a **complete engineering
+When you copy this repository you get a **complete engineering
 organization, staffed by AI agents**, with one empty slot: the project.
 You fill the slot by describing what you want built; the organization
 designs it, verifies it, documents it, audits itself, and brings you
@@ -40,8 +40,8 @@ tampering.
 
 You are the human authority — the "sponsor" throughout these documents.
 The design goal, stated by the person this shell was built for (the
-"generic" in his words — the reusable base copy your organization forks,
-§3), is that you should **not** have to understand its machinery:
+"generic" in his words — the reusable base copy every project starts
+from, §3), is that you should **not** have to understand its machinery:
 
 > "a future person using the generic doesnt have to worry about knowing
 > most of this infrastructure... it does the lesson stuff automatically,
@@ -85,10 +85,9 @@ line — and the orchestrator reads it before doing anything, so the right
 behavior happens in whichever copy you opened; a fresh copy's first act
 is its founding commit, which sets that line to `project`.
 
-Here "fork" means the **relationship** — a full-history copy — not
-GitHub's button (which cannot fork a repo into the account that owns it;
-on a single account, clone-and-push with the commands in the README is
-the same thing). **Never use GitHub's "Use this template" button** — the
+You make that copy with the clone-and-push commands in the README; the
+only load-bearing requirement is that the commit chain arrives
+unsquashed. **Never use GitHub's "Use this template" button** — the
 button squashes git history, and this repository's history is
 load-bearing (the CI re-verifies the whole chain of journals; a squashed
 history fails it by design).
