@@ -3047,3 +3047,47 @@ sponsor touchpoint per gate.
 - docs/specs/REQUIREMENTS-TEMPLATE.md
 - scripts/check_journals.sh
 - scripts/test_protocol.sh
+
+## [J-orchestrator-0047] 2026-08-18T02:55:00Z | task:none | A stale step number from the retraction sweep's renumbering, found by the first founding run through the new path
+
+### Trigger
+Maintainer mode. A local smoke test of the post-retraction founding path
+(a fresh copy pushed to a stand-in remote, Stage 0 executed literally)
+completed green - 52/52 self-test, the designed R-ROLE-1 red before the
+founding commit, 47 commits green after it - and returned one defect:
+the board's This-repository bullet cites "BOOTSTRAP Stage 0 step 4" for
+the URL re-record, while the rewritten BOOTSTRAP performs it at step 3.
+The retraction sweep renumbered Stage 0 and missed this cross-reference.
+
+### Inputs
+- tasks/BOARD.md lines 65-70 and 145-150; BOOTSTRAP.md Stage 0 steps 1-6.
+
+### Reasoning
+Line 67 is live template text and takes the fix. Line 147's "step 4 /
+step 7" sits inside a dated historical bullet describing the pre-sweep
+BOOTSTRAP truthfully at its own time - annotated records are never
+rewritten, and no annotation is needed because the bullet is already
+dated. The smoke test itself was run outside this repository and lands
+no artifact here; its result (the new one-hop founding path executes
+clean, first try, with the platform-dependent steps declared) is
+recorded in this entry as the fix's provenance.
+
+### Actions
+- tasks/BOARD.md line 67: "Stage 0 step 4" -> "Stage 0 step 3".
+
+### Evidence
+- grep -rn "Stage 0 step" tasks/BOARD.md -> exactly two hits before the
+  fix; one after (the dated historical bullet).
+- The smoke test: test_protocol.sh "52 passed, 0 failed" in the fresh
+  copy; check_journals.sh --all red on R-ROLE-1 pre-founding (exit 1),
+  "OK: 47 commit(s) satisfy the journal/commit protocol" post-founding.
+
+### Outcome
+The founding path's one stale cross-reference is fixed. First execution
+of the post-retraction Stage 0 on record: clean.
+
+### Open-questions
+- none
+
+### Files-in-this-commit
+- tasks/BOARD.md

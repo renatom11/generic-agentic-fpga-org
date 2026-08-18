@@ -64,7 +64,7 @@ template state (ADR-0011).
 
 - **This repository**:
   https://github.com/renatom11/generic-agentic-fpga-org — the copy's own
-  URL, re-recorded at every founding (BOOTSTRAP Stage 0 step 4 / G0 row
+  URL, re-recorded at every founding (BOOTSTRAP Stage 0 step 3 / G0 row
   B6). A session whose `git remote get-url origin` disagrees with this
   line is in a **fresh, unfounded copy** of whatever the role line below
   claims (`CLAUDE.md`, First session).
