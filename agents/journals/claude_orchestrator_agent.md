@@ -3091,3 +3091,60 @@ of the post-retraction Stage 0 on record: clean.
 
 ### Files-in-this-commit
 - tasks/BOARD.md
+
+## [J-orchestrator-0048] 2026-08-18T03:20:00Z | task:none | The shell carries its reasons: the origin's handbook lands as a pinned copy, so a deployed copy explains itself anywhere
+
+### Trigger
+Maintainer mode, sponsor direction in-session: a deployable copy should
+arrive knowing how to set itself up - and the handbook's own SS6.3 rules
+that shipping the machine without the reasons ships the half that reads
+as ceremony. Until this commit a shell clone in a world that cannot reach
+the origin repository had the machinery and none of the explanation.
+
+### Inputs
+- The origin's three volumes at its commit 9ba1138: docs/PROCESS.md
+  (eighth edition, post cold-probe repairs), docs/PROCESS-MEMOIR.md,
+  docs/PROCESS-STE.md.
+- README.md repository map; docs/MANIFEST.md "What a project fork
+  contains".
+
+### Reasoning
+Carried copy, not a move and not a fork. The volumes stay written and
+maintained at the origin because their evidence apparatus measures the
+origin's machinery - the handbook's own fork contract says those marks
+are false-by-inheritance anywhere else, so the carried set is labelled
+reference-not-law with the pin, the staleness contract, and the
+whose-record-this-measures warning in a directory README that a reader
+meets before any volume. Byte-identical copies, so the origin's
+falsifiers still hold over them: a reader can diff the carried file
+against the origin's commit and expect empty.
+
+### Actions
+- docs/handbook/: README.md (new, the carrying contract) + byte-identical
+  copies of the three volumes at origin commit 9ba1138.
+- README.md: handbook row in the repository map + a why-pointer beside
+  the Manifest line.
+- docs/MANIFEST.md: "The reasons, carried" bullet in the fork-contents
+  list.
+
+### Evidence
+- diff of each carried volume against the origin file at 9ba1138: empty
+  (verified before staging).
+- Each carried file under the 1,000,000-byte blob gate (largest 407,753).
+- bash scripts/test_protocol.sh -> 52 passed, 0 failed at this tree.
+
+### Outcome
+The export unit ships whole: machine and reasons in one clone. The
+staleness contract binds future editions - re-carry or the copy is
+stale, and the origin governs either way.
+
+### Open-questions
+- none
+
+### Files-in-this-commit
+- docs/handbook/README.md
+- docs/handbook/PROCESS.md
+- docs/handbook/PROCESS-MEMOIR.md
+- docs/handbook/PROCESS-STE.md
+- README.md
+- docs/MANIFEST.md

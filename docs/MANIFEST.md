@@ -52,6 +52,14 @@ independent auditor that audits *the agents, not the electrons* — writes
 only to its own lane, fixes nothing it finds, and reports to the human
 verbatim.
 
+**The reasons, carried** ([docs/handbook/](handbook/README.md)). A pinned
+copy of the origin program's process handbook — every mechanism stated with
+the failure class it exists to prevent, plus a Simplified Technical English
+rendition — so a copy deployed anywhere, including where the origin is
+unreachable, holds its own explanation. Reference, not law: its measurements
+are the origin's, and its own top-of-file imperative says never to inherit
+an enforcement claim unchecked.
+
 **A constitution with teeth** ([agents/PROTOCOL.md](../agents/PROTOCOL.md)).
 Every commit must couple one agent's work to that agent's append-only
 journal entry explaining the reasoning — so `git diff` between any two

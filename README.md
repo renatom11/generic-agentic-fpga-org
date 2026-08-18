@@ -24,6 +24,10 @@ or `project` — is written on its board, the **Repo role** line, and the
 orchestrator reads it before acting.
 
 **Why this exists — the full story: [the Manifest](docs/MANIFEST.md).**
+**Why every rule is shaped the way it is — [the carried handbook](docs/handbook/README.md):**
+the origin program's process document, pinned per edition, with the failure
+class behind each mechanism and a Simplified Technical English rendition an
+agent can parse without a human.
 
 **New here? Read [the User Guide](docs/GUIDE.md)** — everything
 explained for a first-time reader, no FPGA (field-programmable gate
@@ -167,6 +171,7 @@ docs/
   specs/              module specs and REQ-### requirements (fills after intake)
   reports/audit/      auditor findings + the ledger of bugs that escaped verification
   reports/dv/         verification and performance reports (DV = design verification; fills at the first report)
+  handbook/           the origin program's process handbook, carried as a pinned copy — the WHY behind every rule here (see its README; reference, not law)
 scripts/              protocol enforcement + self-test
 tasks/BOARD.md        live program state
 .claude/agents/       thin spawn launchers (charters remain the truth)
